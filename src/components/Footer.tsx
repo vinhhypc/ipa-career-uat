@@ -9,7 +9,7 @@ import {
 
 const EXPLORE_LINKS = [
   { label: 'Về IPAG', href: '#' },
-  { label: 'Cơ hội nghề nghiệp', href: '#we-look-for' },
+  { label: 'Cơ hội nghề nghiệp', href: '/we-look-for' },
   { label: 'Nếp sống IPAG', href: '#life-at-ipag' },
   { label: 'Liên hệ', href: '#contact' },
 ];

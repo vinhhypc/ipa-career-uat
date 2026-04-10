@@ -7,7 +7,7 @@ import { AnimatePresence, motion } from 'motion/react';
 
 const NAV_LINKS = [
   { label: 'IPAG insight', href: '/ipag-insight' },
-  { label: 'we look for', href: '/#we-look-for' },
+  { label: 'we look for', href: '/we-look-for' },
   { label: 'life at IPAG', href: '/#life-at-ipag' },
   { label: 'CONTACT', href: '/#contact' },
 ] as const;
