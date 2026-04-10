@@ -166,6 +166,7 @@ function HeroSection() {
       <div aria-hidden className="pointer-events-none absolute inset-0 bg-[#145194]/8" />
 
       <div className="section-content relative z-10 flex flex-col gap-8 px-5 pb-8 pt-[120px] md:gap-12 md:px-12 md:pb-28 lg:min-h-[calc(800px-5rem)] lg:flex-row lg:items-center lg:justify-between lg:gap-8 lg:px-20">
+        
         <div id="apply" className="scroll-mt-28 text-center lg:max-w-[900px] lg:text-left">
           <h1 className="mb-5 text-2xl font-extrabold uppercase leading-[40px] tracking-[1px] text-[#fbc17b] drop-shadow-md md:mb-9 md:text-5xl md:leading-[1.15] md:tracking-[2px]">
             <span className="text-white">Khai phóng</span> năng lực,
@@ -547,3 +548,4 @@ function MidCtaBand() {
       </section></>
   );
 }
+

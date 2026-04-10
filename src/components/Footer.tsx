@@ -31,8 +31,9 @@ export default function Footer() {
         }}
       />
 
-      <div className="section-content relative px-4 py-10 md:px-12 md:py-12 lg:px-24 lg:py-[60px]">
-        <div className="flex flex-col gap-10 lg:flex-row lg:justify-between">
+      <div className="section-padding">
+        <div className="section-content relative">
+          <div className="flex flex-col gap-10 lg:flex-row lg:justify-between">
           <div className="max-w-[730px]">
             <div className="mb-6 flex items-center gap-2">
               <span className="flex size-10 items-center justify-center rounded-lg bg-white text-xl font-bold text-[#002B5B]">
@@ -44,15 +45,6 @@ export default function Footer() {
               Kiến tạo hệ sinh thái năng lực, đồng hành cùng con người và doanh nghiệp trong hành trình chuyển đổi bền vững.
             </p>
             <div className="flex items-center gap-4">
-              <a
-                href="#"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white transition hover:text-white/80"
-                aria-label="Discord"
-              >
-                <CircleDotDashed className="size-5" strokeWidth={1.75} />
-              </a>
               <a
                 href="https://www.facebook.com"
                 target="_blank"
@@ -115,11 +107,12 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-10 flex flex-col gap-4 border-t border-white/50 pt-6 text-sm leading-[1.4] md:flex-row md:items-center md:justify-between">
-          <p>© 2026 IPAG. All rights reserved.</p>
-          <Link href="#" className="text-left hover:text-white/80 md:text-right">
-            Điều khoản sử dụng
-          </Link>
+          <div className="mt-10 flex flex-col gap-4 border-t border-white/50 pt-6 text-sm leading-[1.4] md:flex-row md:items-center md:justify-between">
+            <p>© 2026 IPAG. All rights reserved.</p>
+            <Link href="#" className="text-left hover:text-white/80 md:text-right">
+              Điều khoản sử dụng
+            </Link>
+          </div>
         </div>
       </div>
     </footer>
