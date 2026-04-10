@@ -1,13 +1,12 @@
 'use client';
 
 import { useState, type ReactNode } from 'react';
-import Image, { type StaticImageData } from 'next/image';
+import Image from 'next/image';
 import Link from 'next/link';
 import {
   ArrowRight,
   Briefcase,
   GraduationCap,
-  Lightbulb,
   Network,
   ShieldCheck,
   Sparkles,
@@ -15,17 +14,18 @@ import {
 } from 'lucide-react';
 
 import homeCapChain from '@/assets/home/home-cap-chain.jpg';
+import homeCapGrowth from '@/assets/home/home-cap-growth.jpg';
+import homeCapHealth from '@/assets/home/home-cap-health.jpg';
 import homeCapPeople from '@/assets/home/home-cap-people.jpg';
 import homeCapTech from '@/assets/home/home-cap-tech.jpg';
+import homeCapWealth from '@/assets/home/home-cap-wealth.jpg';
 import homeIdentity1 from '@/assets/home/home-identity-1.jpg';
 import homeIdentity2 from '@/assets/home/home-identity-2.jpg';
 import homeIdentity3 from '@/assets/home/home-identity-3.jpg';
 import homeIdentity4 from '@/assets/home/home-identity-4.jpg';
-import homeNews1 from '@/assets/home/home-news-1.jpg';
-import homeNews2 from '@/assets/home/home-news-2.jpg';
-import homeNews3 from '@/assets/home/home-news-3.jpg';
-import homeNews4 from '@/assets/home/home-news-4.jpg';
 import homeJourney from '@/assets/home/home-journey.png';
+import homeJourney2 from '@/assets/home/home-journey-2.png';
+import homeBanner from '@/assets/home/banner.png';
 
 const IMG = {
   identity1: homeIdentity1,
@@ -35,15 +35,21 @@ const IMG = {
   capPeople: homeCapPeople,
   capTech: homeCapTech,
   capChain: homeCapChain,
+  capHealth: homeCapHealth,
+  capWealth: homeCapWealth,
+  capGrowth: homeCapGrowth,
+  banner: homeBanner,
+  journey: homeJourney,
+  journey2: homeJourney2,
 };
 
 const ECOSYSTEM = [
   { sub: 'hệ sinh thái', name: 'IPAM' },
   { sub: 'hệ sinh thái', name: 'IPAC' },
   { sub: 'hệ sinh thái', name: 'IPAS' },
-  { sub: 'hệ sinh thái', name: 'HEALTH – AnVie' },
-  { sub: 'hệ sinh thái', name: 'HEALTH – VNDGo' },
-  { sub: 'hệ sinh thái', name: 'GROWTH – PTI Care' },
+  { sub: 'hệ sinh thái', name: 'HEALTH - AnVie' },
+  { sub: 'hệ sinh thái', name: 'HEALTH - VNDGo' },
+  { sub: 'hệ sinh thái', name: 'GROWTH - PTI Care' },
 ] as const;
 
 const IDENTITY_PILLARS = [
@@ -96,62 +102,25 @@ const CAPABILITIES = {
   ],
   heSinhThai: [
     {
-      title: 'Năng lực con người',
-      en: 'People & Organization',
-      desc: 'Đồng bộ nhân tài xuyên các công ty thành viên, chia sẻ chuẩn mực văn hóa và lộ trình phát triển.',
-      img: IMG.capPeople,
+      title: 'Health - Sức khỏe',
+      en: 'ANVIE',
+      desc: 'Lối sống lành mạnh, tiêu dùng xanh, trải nghiệm sống cân bằng.',
+      img: IMG.capHealth,
     },
     {
-      title: 'Năng lực công nghệ',
-      en: 'The Technology Engine',
-      desc: 'Nền tảng dữ liệu và công cụ số dùng chung, giúp các đơn vị phối hợp liền mạch.',
-      img: IMG.capTech,
+      title: 'Wealth - Thịnh vượng',
+      en: 'VNDGO',
+      desc: 'Nền tảng tài chính cho đại chúng từ chứng khoán đến quản lý tài sản số.',
+      img: IMG.capWealth,
     },
     {
-      title: 'Năng lực chuỗi giá trị',
-      en: 'The Value Chain Orchestrator',
-      desc: 'Phối hợp chuỗi giá trị đa lĩnh vực tài chính, sức khỏe và phát triển bền vững.',
-      img: IMG.capChain,
+      title: 'Growth - Phát triển & bảo vệ',
+      en: 'PTICARE',
+      desc: 'Bảo hiểm, tương hỗ và giải pháp bảo vệ tài chính - đồng hành trên mọi chặng đường.',
+      img: IMG.capGrowth,
     },
   ],
 } as const;
-
-const NEWS: {
-  id: number;
-  title: string;
-  cat: string;
-  date: string;
-  thumb: StaticImageData;
-}[] = [
-  {
-    id: 1,
-    title: 'IPAG mở rộng chương trình phát triển nhân tài 2026',
-    cat: 'Tin nội bộ',
-    date: '2026-03-12',
-    thumb: homeNews1,
-  },
-  {
-    id: 2,
-    title: 'Góc nhìn thị trường: Xu hướng đầu tư và bảo vệ tài sản',
-    cat: 'Kinh tế',
-    date: '2026-02-28',
-    thumb: homeNews2,
-  },
-  {
-    id: 3,
-    title: 'Văn hóa học hỏi và chia sẻ tại IPAG',
-    cat: 'Văn hóa',
-    date: '2026-02-05',
-    thumb: homeNews3,
-  },
-  {
-    id: 4,
-    title: 'Hội thảo: Kiến tạo giá trị bền vững trong kỷ nguyên số',
-    cat: 'Sự kiện',
-    date: '2026-01-18',
-    thumb: homeNews4,
-  },
-];
 
 function SectionDiamond() {
   return (
@@ -174,7 +143,6 @@ export default function Home() {
       <JourneySection />
       <CapabilitiesSection capTab={capTab} setCapTab={setCapTab} />
       <MidCtaBand />
-      <NewsSection />
     </div>
   );
 }
@@ -182,30 +150,31 @@ export default function Home() {
 function HeroSection() {
   return (
     <section
-      className="section-padding relative min-h-screen overflow-hidden pb-0! pt-24!"
+      className="section-padding relative min-h-[800px] overflow-hidden bg-cover bg-center bg-no-repeat px-0! pb-0! pt-0! md:min-h-screen"
       style={{
-        background: 'linear-gradient(126deg, rgb(0, 21, 45) 6%, rgb(20, 81, 148) 84%)',
+        backgroundImage: `url(${homeBanner.src})`,
       }}
     >
-      {/* <div className="pointer-events-none absolute inset-0 opacity-20">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.08'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-          }}
-        />
-      </div> */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            'linear-gradient(100.57deg, rgba(0, 21, 45, 0.42) 6.31%, rgba(20, 81, 148, 0.30) 83.68%)',
+        }}
+      />
+      <div aria-hidden className="pointer-events-none absolute inset-0 bg-[#145194]/8" />
 
-      <div className="section-content relative z-10 flex flex-col gap-12 pb-28 lg:min-h-[calc(800px-5rem)] lg:flex-row lg:items-center lg:justify-between lg:gap-8 lg:pb-28">
-        <div id="apply" className="max-w-[900px] scroll-mt-28">
-          <h1 className="mb-9 text-3xl font-extrabold uppercase leading-tight tracking-wide text-[#fbc17b] drop-shadow-md md:text-5xl md:leading-[1.15] md:tracking-[2px]">
+      <div className="section-content relative z-10 flex flex-col gap-8 px-5 pb-8 pt-[120px] md:gap-12 md:px-12 md:pb-28 lg:min-h-[calc(800px-5rem)] lg:flex-row lg:items-center lg:justify-between lg:gap-8 lg:px-20">
+        <div id="apply" className="scroll-mt-28 text-center lg:max-w-[900px] lg:text-left">
+          <h1 className="mb-5 text-2xl font-extrabold uppercase leading-[40px] tracking-[1px] text-[#fbc17b] drop-shadow-md md:mb-9 md:text-5xl md:leading-[1.15] md:tracking-[2px]">
             <span className="text-white">Khai phóng</span> năng lực,
             <br />
             <span className="text-white">kiến tạo </span>
             giá trị
             <span className="text-white"> bền vững</span>
           </h1>
-          <p className="mb-8 max-w-[747px] text-base leading-[1.85] text-white md:text-lg">
+          <p className="mb-5 text-sm leading-[22px] tracking-[0.14px] text-white md:mb-8 md:max-w-[747px] md:text-lg md:leading-[1.85]">
             <span className="font-medium">Tại IPAG, chúng tôi tìm kiếm những </span>
             <span className="font-bold">cộng sự</span>
             <span className="font-medium">
@@ -219,7 +188,7 @@ function HeroSection() {
           </p>
           <Link
             href="#news"
-            className="inline-flex h-[52px] w-full max-w-[276px] items-center justify-center gap-2 rounded-full px-3 text-lg font-bold text-[#474747] shadow-md transition hover:brightness-95 sm:w-[276px]"
+            className="inline-flex h-10 w-[197px] items-center justify-center gap-2 rounded-full px-3 text-sm font-bold text-[#474747] shadow-[0_4px_4px_rgba(0,0,0,0.25)] transition hover:brightness-95 md:h-[52px] md:w-full md:max-w-[276px] md:text-lg"
             style={{
               background: 'linear-gradient(238deg, rgb(255,255,255) 34%, rgb(255,241,225) 103%)',
             }}
@@ -229,7 +198,7 @@ function HeroSection() {
           </Link>
         </div>
 
-        <div className="flex w-full max-w-[488px] flex-col gap-8">
+        <div className="flex w-full flex-col gap-3 md:max-w-[488px] md:gap-8">
           <ProgramGlassCard
             badge="Fresh — 2 năm"
             title="MA PROGRAM"
@@ -277,14 +246,21 @@ function ProgramGlassCard({
   deco: ReactNode;
 }) {
   return (
-    <div className="relative shadow-lg shadow-black/15">
-      <div className="flex items-center gap-7 rounded-[20px] border border-[rgba(123,193,255,0.6)] bg-[rgba(202,230,255,0.25)] px-6 py-7 backdrop-blur-md">
-        <div className="flex size-[60px] shrink-0 items-center justify-center rounded-full bg-white/10">
+    <div className="relative shadow-[0_4px_4px_rgba(0,0,0,0.15)]">
+      <div className="relative flex items-center gap-3 rounded-xl border border-[rgba(123,193,255,0.6)] bg-[rgba(202,230,255,0.25)] px-[25px] py-[9px] shadow-[0_8px_32px_rgba(0,0,0,0.1)] backdrop-blur-[12px] md:gap-7 md:rounded-[20px] md:px-6 md:py-7 md:backdrop-blur-md">
+        <div className="hidden size-[60px] shrink-0 items-center justify-center rounded-full bg-white/10 md:flex">
           {deco}
         </div>
-        <div>
-          <p className="mb-2 text-xs font-bold uppercase tracking-[0.12em] text-[#fbc17b]">{badge}</p>
-          <p className="text-2xl font-extrabold uppercase tracking-wide text-white">{title}</p>
+        <div className="w-full">
+          <p className="mb-0.5 text-[8px] font-bold uppercase leading-4 tracking-[1.2px] text-[#fbc17b] md:mb-2 md:text-xs md:tracking-[0.12em]">
+            {badge}
+          </p>
+          <p className="text-sm font-bold uppercase leading-5 tracking-[1px] text-white md:text-2xl md:font-extrabold md:leading-normal md:tracking-wide">
+            {title}
+          </p>
+        </div>
+        <div className="pointer-events-none absolute right-2 top-0 opacity-10 md:hidden" aria-hidden>
+          <GraduationCap className="size-12 text-white" />
         </div>
       </div>
     </div>
@@ -292,14 +268,37 @@ function ProgramGlassCard({
 }
 
 function PotentialIdentitySection() {
+  const imageLabelClass =
+    'rounded bg-black/45 px-2 py-1 text-[14px] font-bold uppercase leading-5 tracking-wide text-white backdrop-blur-sm lg:text-base lg:leading-6';
+
   return (
     <section
       id="life-at-ipag"
-      className="scroll-mt-24 bg-[linear-gradient(6deg,#ffffff_12%,#fff2df_130%)] px-4 py-16 md:px-12 md:py-20 lg:px-20"
+      className="section-padding max-md:px-5 max-md:py-[44px]"
+      style={{
+        background: 'linear-gradient(9deg, #FFF 11.86%, #FFF2DF 130.41%)',
+      }}
     >
       <div className="section-content">
-        <div id="we-look-for" className="mb-14 flex flex-col items-center justify-between gap-8 lg:flex-row lg:gap-8">
-          <div className="w-full max-w-[420px] text-center lg:text-left">
+        <div className="mb-5 flex w-full flex-col items-center gap-5 lg:hidden">
+          <div className="flex flex-col items-center gap-2 text-center">
+            <h2 className="text-[20px] font-bold leading-[26px] tracking-[1px] text-[#292929] uppercase">
+              NHẬN DIỆN NĂNG LỰC
+            </h2>
+            <h2 className="text-[20px] font-bold leading-[26px] tracking-[1px] text-[#292929] uppercase">
+              KHAI PHÓNG GIÁ TRỊ
+            </h2>
+          </div>
+          <div className="relative flex size-[188px] shrink-0 items-center justify-center rounded-full border border-[#b8d2ea] bg-white text-[62px] font-black leading-none text-[#003b7a] shadow-[0_0_0_6px_rgba(188,214,238,0.28)]">
+            IPAG
+          </div>
+        </div>
+
+        <div
+          id="we-look-for"
+          className="mb-14 hidden flex-col items-center justify-between gap-8 lg:flex lg:flex-row lg:gap-8"
+        >
+          <div className="w-full text-center lg:text-left">
             <div className="mb-3 flex items-center justify-center gap-3 lg:justify-start">
               <SectionDiamond />
               <span className="h-px w-[125px] bg-[#59798f]" />
@@ -313,7 +312,7 @@ function PotentialIdentitySection() {
             IPAG
           </div>
 
-          <div className="w-full max-w-[420px] text-center lg:text-right">
+          <div className="w-full text-center lg:text-right">
             <div className="mb-3 flex items-center justify-center gap-3 lg:justify-end">
               <span className="h-px w-[125px] bg-[#59798f]" />
               <SectionDiamond />
@@ -324,64 +323,91 @@ function PotentialIdentitySection() {
           </div>
         </div>
 
-        <p className="text-center text-lg tracking-[0.48px] text-[#474747] md:text-2xl">
-          <span className="font-bold leading-[40px] text-[#292929]">IPAG </span>
-          <span className="font-medium leading-[40px] text-[#707070]">
+        <p className="text-center text-lg tracking-[0.48px] text-[#474747] max-md:text-[14px] max-md:leading-[22px] max-md:tracking-[0.28px] md:text-2xl">
+          <span className="font-bold text-[#292929] max-md:leading-[22px] md:leading-[40px]">IPAG </span>
+          <span className="font-medium text-[#707070] max-md:leading-[22px] md:leading-[40px]">
             đồng hành cùng bạn làm chủ lộ trình chuyển hóa tiềm năng
           </span>
-          <span className="font-medium leading-[40px] text-[#474747]">.</span>
+          <span className="font-medium text-[#474747] max-md:leading-[22px] md:leading-[40px]">.</span>
         </p>
-        <div className="mx-auto mb-20 mt-8 h-px max-w-full bg-gradient-to-r from-transparent via-[#d0d5dd] to-transparent" />
+        <div className="mx-auto mb-20 mt-5 h-px max-w-full bg-gradient-to-r from-transparent via-[#d0d5dd] to-transparent max-md:mb-8 max-md:mt-5 md:mt-8" />
 
-        <div className="grid gap-10 lg:grid-cols-2 lg:gap-5">
-          <div className="grid grid-cols-2 gap-4">
-            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
-              <Image src={IMG.identity1} alt="" fill className="object-cover" sizes="(max-width: 1024px) 50vw, 25vw" />
-              <span className="absolute bottom-3 left-3 rounded bg-black/45 px-2 py-1 text-xs font-bold uppercase tracking-wide text-white backdrop-blur-sm">
-                Integration
-              </span>
+        <div className="grid gap-8 lg:grid-cols-2 lg:gap-5">
+          <div className="relative flex w-full gap-4">
+            <div className="flex min-w-0 flex-1 flex-col items-end gap-4">
+              <div className="relative size-[160px] shrink-0 overflow-hidden rounded-xl lg:size-[240px] lg:rounded-2xl">
+                <Image
+                  src={IMG.identity1}
+                  alt=""
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1023px) 160px, 240px"
+                />
+                <span className={`absolute bottom-2 left-3 lg:bottom-3 ${imageLabelClass}`}>Integration</span>
+              </div>
+              <div className="relative size-[140px] shrink-0 overflow-hidden rounded-xl lg:size-[210px] lg:rounded-2xl">
+                <Image
+                  src={IMG.identity3}
+                  alt=""
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1023px) 140px, 210px"
+                />
+                <span className={`absolute bottom-2 left-3 lg:bottom-3 ${imageLabelClass}`}>Accountability</span>
+              </div>
             </div>
-            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
-              <Image src={IMG.identity2} alt="" fill className="object-cover" sizes="(max-width: 1024px) 50vw, 25vw" />
-              <span className="absolute bottom-3 left-3 rounded bg-black/45 px-2 py-1 text-xs font-bold uppercase tracking-wide text-white backdrop-blur-sm">
-                Partnership
-              </span>
-            </div>
-            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
-              <Image src={IMG.identity3} alt="" fill className="object-cover" sizes="(max-width: 1024px) 50vw, 25vw" />
-              <span className="absolute bottom-3 left-3 rounded bg-black/45 px-2 py-1 text-xs font-bold uppercase tracking-wide text-white backdrop-blur-sm">
-                Accountability
-              </span>
-            </div>
-            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
-              <Image src={IMG.identity4} alt="" fill className="object-cover" sizes="(max-width: 1024px) 50vw, 25vw" />
-              <span className="absolute bottom-3 left-3 rounded bg-black/45 px-2 py-1 text-xs font-bold uppercase tracking-wide text-white backdrop-blur-sm">
-                Greatness
-              </span>
+            <div className="flex min-w-0 flex-1 flex-col items-start gap-4 pt-4 lg:pt-6">
+              <div className="relative size-[140px] shrink-0 overflow-hidden rounded-xl lg:size-[210px] lg:rounded-2xl">
+                <Image
+                  src={IMG.identity2}
+                  alt=""
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1023px) 140px, 210px"
+                />
+                <span className={`absolute bottom-2 left-3 lg:bottom-3 ${imageLabelClass}`}>Partnership</span>
+              </div>
+              <div className="relative size-[160px] shrink-0 overflow-hidden rounded-xl lg:size-[240px] lg:rounded-2xl">
+                <Image
+                  src={IMG.identity4}
+                  alt=""
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1023px) 160px, 240px"
+                />
+                <span className={`absolute bottom-2 left-3 lg:bottom-3 ${imageLabelClass}`}>Greatness</span>
+              </div>
             </div>
           </div>
-          <div className="lg:pl-7">
-            <h2 className="mb-4 text-3xl font-bold tracking-[1px] text-[#292929] uppercase md:text-[40px] md:leading-[60px]">
+          <div className="text-center lg:pl-7 lg:text-left">
+            <h2 className="mb-4 text-3xl font-bold tracking-[1px] text-[#292929] uppercase max-md:mb-2 max-md:text-center max-md:text-[20px] max-md:leading-8 md:text-[40px] md:leading-[60px]">
               BẢN SẮC IPAG
             </h2>
-            <p className="mb-8 text-base leading-7 text-[#474747] md:text-[18px] md:leading-7">
+            <p className="mb-8 text-base leading-7 text-[#474747] max-md:text-center max-md:text-[14px] max-md:leading-5 md:text-[18px] md:leading-7">
               Tại IPAG, <span className="font-bold">mọi chuyển đổi</span> bắt đầu từ chính{' '}
               <span className="font-bold">phẩm chất</span> của con người IPAG
             </p>
-            <ul className="space-y-6">
+            <ul className="space-y-4 md:space-y-6">
               {IDENTITY_PILLARS.map((p) => {
                 const Icon = p.icon;
                 return (
-                  <li key={p.title} className="flex gap-4">
-                    <div className="flex size-12 shrink-0 items-center justify-center rounded-full bg-[#d9e6f2] p-3">
-                      <Icon className="size-6 text-[#145194]" />
+                  <li key={p.title} className="flex gap-2 md:gap-4">
+                    <div className="flex size-8 shrink-0 items-center justify-center rounded-full bg-[#d9e6f2] p-1.5 md:size-12 md:p-3">
+                      <Icon className="size-4 text-[#145194] md:size-6" />
                     </div>
-                    <div>
-                      <div className="mb-1 flex flex-wrap items-center gap-2 uppercase">
-                        <span className="text-xl font-bold leading-7 text-[#292929] md:text-2xl">{p.title}</span>
-                        <span className="text-xs text-[#707070]">• {p.subtitle}</span>
+                    <div className="min-w-0 text-left">
+                      <div className="mb-1 flex flex-col items-start gap-0 uppercase md:flex-row md:flex-wrap md:items-center md:gap-2">
+                        <span className="text-[16px] font-bold leading-[26px] text-[#292929] md:text-2xl md:leading-7">
+                          {p.title}
+                        </span>
+                        <span className="text-[10px] leading-4 text-[#707070] normal-case md:text-xs">
+                          <span className="md:hidden">{p.subtitle}</span>
+                          <span className="hidden md:inline">• {p.subtitle}</span>
+                        </span>
                       </div>
-                      <p className="text-sm leading-6 text-[#474747] md:text-base">{p.body}</p>
+                      <p className="text-[14px] leading-[22px] text-[#474747] md:text-base md:leading-6">
+                        {p.body}
+                      </p>
                     </div>
                   </li>
                 );
@@ -396,18 +422,19 @@ function PotentialIdentitySection() {
 
 function JourneySection() {
   return (
-    <section className="section-padding bg-[#f8fafc]">
+    <section className="section-padding">
       <div className="section-content">
         <div className="mb-12 text-center">
           <h2 className="mb-3 text-3xl font-bold uppercase tracking-tight text-[#0a1628] md:text-4xl">
-            THE IPAG IDENTITY
+            HÀNH TRÌNH KHAI PHÓNG
           </h2>
           <p className="text-base text-[#334155]">
             Gia nhập IPAG, bạn bước vào một hành trình phát triển có định hướng
           </p>
         </div>
-        <div className="mx-auto max-w-5xl relative">
-         <Image src={homeJourney} alt="home journey" width={200} className="object-cover" sizes="(max-width: 1024px) 50vw, 25vw" />
+        <div className="flex justify-center">
+         <Image src={homeJourney} alt="home journey" width={1024} className="hidden md:block object-cover w-[1024px]"  />
+         <Image src={homeJourney2} alt="home journey" width={1024} className="block md:hidden object-cover w-full"  />
         </div>
       </div>
     </section>
@@ -425,14 +452,14 @@ function CapabilitiesSection({
   return (
     <section className="section-padding bg-white">
       <div className="section-content">
-        <div className="mb-10 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-          <div>
+        <div className="mb-13 flex flex-col items-center gap-6 md:flex-row md:items-start md:justify-between">
+          <div className="w-full text-center md:w-auto md:text-left">
             <h2 className="text-2xl font-bold uppercase tracking-tight text-[#0a1628] md:text-3xl">
-              THE IPAG IDENTITY
+              Nền tảng khai phóng
             </h2>
             <p className="mt-3 text-base text-[#334155]">Nơi năng lực hội tụ</p>
           </div>
-          <div className="inline-flex rounded-full border border-[#e2e8f0] bg-[#f8fafc] p-1">
+          <div className="inline-flex shrink-0 rounded-full border border-[#e2e8f0] bg-[#f8fafc] p-1">
             <button
               type="button"
               onClick={() => setCapTab('nenTang')}
@@ -457,15 +484,23 @@ function CapabilitiesSection({
           {items.map((c) => (
             <article
               key={c.title}
-              className="overflow-hidden rounded-xl border border-[#e2e8f0] bg-white shadow-sm transition hover:shadow-md"
+              className="overflow-hidden bg-white transition rounded-[32px] shadow-[0_4px_16px_rgba(7,7,7,0.13)]"
             >
-              <div className="relative aspect-[16/10]">
+              <div className={`relative aspect-16/9`}>
                 <Image src={c.img} alt="" fill className="object-cover" sizes="(max-width:768px) 100vw, 33vw" />
               </div>
-              <div className="p-7">
-                <h3 className="text-lg font-bold text-[#0a1628]">{c.title}</h3>
-                <p className="mt-2 text-sm text-[#59798f]">{c.en}</p>
-                <p className="mt-4 text-sm leading-relaxed text-[#475569]">{c.desc}</p>
+              <div className="px-7 pt-5 pb-10">
+                <h3 className="font-bold text-2xl leading-8 text-[#292929]">
+                  {c.title}
+                </h3>
+                <p
+                  className="mt-2 text-sm tracking-[0.08em] font-light uppercase text-[#292929]"
+                >
+                  {c.en}
+                </p>
+                <p className="mt-5 leading-relaxed text-base text-[#474747]">
+                  {c.desc}
+                </p>
               </div>
             </article>
           ))}
@@ -477,89 +512,38 @@ function CapabilitiesSection({
 
 function MidCtaBand() {
   return (
-    <section
-      className="section-padding relative overflow-hidden"
-      style={{
-        background: 'linear-gradient(120deg, #00152d 0%, #145194 55%, #0a2540 100%)',
-      }}
-    >
-      <div className="pointer-events-none absolute inset-0 opacity-30">
-        <div className="absolute -right-20 top-0 h-64 w-64 rounded-full bg-[#fbc17b]/20 blur-3xl" />
-        <div className="absolute -left-20 bottom-0 h-80 w-80 rounded-full bg-[#7bc1ff]/10 blur-3xl" />
-      </div>
-      <div className="section-content relative text-center">
-        <h2 className="mx-auto max-w-3xl text-2xl font-bold leading-snug text-white md:text-4xl">
-          Sẵn sàng đồng hành cùng IPAG trên hành trình kiến tạo giá trị?
-        </h2>
-        <p className="mx-auto mt-4 max-w-2xl text-sm text-white/75 md:text-base">
-          Khám phá vị trí phù hợp với bạn và kết nối với đội ngũ tuyển dụng.
-        </p>
-        <Link
-          href="#apply"
-          className="mt-8 inline-flex h-12 items-center justify-center gap-2 rounded-full bg-white px-8 text-sm font-bold uppercase tracking-wide text-[#002b5b] transition hover:bg-[#fbc17b]"
-        >
-          ỨNG TUYỂN NGAY
-          <ArrowRight className="size-5" />
-        </Link>
-      </div>
-    </section>
-  );
-}
-
-function NewsSection() {
-  return (
-    <section id="news" className="section-padding scroll-mt-24 bg-bg-primary">
-      <div className="section-content">
-        <div className="mb-12 text-center">
-          <h2 className="text-3xl font-bold leading-tight text-white md:text-5xl md:leading-tight">
-            Tin tức
-            <br className="md:hidden" /> kinh tế
-          </h2>
+   <>
+      <section
+        className="relative overflow-hidden py-20"
+        style={{ background: 'linear-gradient(341deg, rgba(0, 116, 162, 0.20) 11.61%, rgba(170, 231, 255, 0.20) 94.37%)' }}
+      >
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -left-16 top-1/2 h-72 w-72 -translate-y-1/2 rounded-full opacity-35 blur-[1px]"
+          style={{ background: 'radial-gradient(circle at center, rgba(125,188,228,0.5) 0%, rgba(125,188,228,0) 72%)' }}
+        />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -right-16 top-1/2 h-72 w-72 -translate-y-1/2 rounded-full opacity-35 blur-[1px]"
+          style={{ background: 'radial-gradient(circle at center, rgba(125,188,228,0.5) 0%, rgba(125,188,228,0) 72%)' }}
+        />
+        <div className="section-content flex flex-col items-center">
+          <div className="text-center">
+            <h2 className="font-bold tracking-[0.4px] text-[#002b5b] text-[28px] leading-[1.35] md:text-[40px] md:leading-[56px]">
+              Chọn lĩnh vực phù hợp để bắt đầu
+              <br />
+              hành trình <span className="text-[#de8f10]">kiến tạo giá trị.</span>
+            </h2>
+          </div>
           <Link
-            href="#apply"
-            className="mx-auto mt-8 inline-flex h-12 w-full max-w-[276px] items-center justify-center gap-2 rounded-full text-lg font-bold text-[#474747] shadow-md sm:w-[276px]"
-            style={{
-              background: 'linear-gradient(238deg, rgb(255,255,255) 34%, rgb(255,241,225) 103%)',
-            }}
+            href="#news"
+            className="mt-6 inline-flex h-12 w-full max-w-[276px] items-center justify-center gap-2 rounded-full px-3 text-[18px] leading-[1.4] font-bold text-white shadow-[0_4px_8px_rgba(0,0,0,0.15)] transition hover:brightness-95 sm:w-[276px]"
+            style={{ background: 'linear-gradient(76.71deg, rgb(1, 58, 114) 3.48%, rgb(12, 113, 199) 83.47%)' }}
           >
             ỨNG TUYỂN NGAY
-            <ArrowRight className="size-6" />
+            <ArrowRight className="size-6" strokeWidth={2.2} />
           </Link>
         </div>
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {NEWS.map((n) => (
-            <Link
-              key={n.id}
-              href="#"
-              className="group block overflow-hidden rounded-lg bg-white/5 transition hover:bg-white/10"
-            >
-              <div className="relative aspect-[16/10] overflow-hidden">
-                <Image
-                  src={n.thumb}
-                  alt=""
-                  fill
-                  className="object-cover transition duration-500 group-hover:scale-105"
-                  sizes="(max-width:640px) 100vw, 25vw"
-                />
-              </div>
-              <div className="p-4">
-                <div className="mb-2 flex justify-between gap-2 text-xs text-[#59798f]">
-                  <span className="rounded bg-[#59798f]/20 px-2 py-0.5 text-[10px] font-medium uppercase tracking-wide text-[#9cc4d8]">
-                    {n.cat}
-                  </span>
-                  <span className="text-white/50">{n.date}</span>
-                </div>
-                <h3 className="text-sm font-medium leading-snug text-white group-hover:text-[#fbc17b] md:text-base">
-                  {n.title}
-                </h3>
-                <p className="mt-2 text-xs font-semibold text-[#fbc17b]">
-                  Xem chi tiết <ArrowRight className="ml-1 inline size-3" />
-                </p>
-              </div>
-            </Link>
-          ))}
-        </div>
-      </div>
-    </section>
+      </section></>
   );
 }

@@ -6,13 +6,17 @@ import { Menu, X } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
 
 const NAV_LINKS = [
-  { label: 'IPAG insight', href: '#' },
-  { label: 'we look for', href: '#we-look-for' },
-  { label: 'life at IPAG', href: '#life-at-ipag' },
-  { label: 'CONTACT', href: '#contact' },
+  { label: 'IPAG insight', href: '/ipag-insight' },
+  { label: 'we look for', href: '/#we-look-for' },
+  { label: 'life at IPAG', href: '/#life-at-ipag' },
+  { label: 'CONTACT', href: '/#contact' },
 ] as const;
 
-export default function Navbar() {
+export type NavbarProps = {
+  forceLightNav?: boolean;
+};
+
+export default function Navbar({ forceLightNav = false }: NavbarProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -23,15 +27,17 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  const onLight = isScrolled;
+  const onLight = forceLightNav || isScrolled;
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${
-        onLight ? 'border-b border-black/5 bg-white shadow-sm' : 'bg-transparent'
+      className={`fixed top-0 left-0 right-0 z-50 px-4 py-4 md:px-12 md:py-14 lg:px-20 lg:py-7 ${
+        forceLightNav
+          ? 'border-b border-black/5 bg-white shadow-sm'
+          : `transition-colors duration-300 ${onLight ? 'border-b border-black/5 bg-white shadow-sm' : 'bg-transparent'}`
       }`}
     >
-      <div className="section-content flex items-center justify-between py-4 lg:py-7">
+      <div className="section-content max-w-[1440px] flex items-center justify-between">
         <Link
           href="/"
           className="flex items-center gap-2"
@@ -69,7 +75,7 @@ export default function Navbar() {
             ))}
           </ul>
           <Link
-            href="#apply"
+            href="/#apply"
             className="rounded-full bg-white px-5 py-2.5 text-sm font-bold uppercase tracking-wide text-[#070707] transition hover:bg-[#fbc17b]/90"
           >
             apply now
@@ -106,7 +112,7 @@ export default function Navbar() {
                 </Link>
               ))}
               <Link
-                href="#apply"
+                href="/#apply"
                 className="mt-2 rounded-full bg-[#002b5b] py-3 text-center text-sm font-bold uppercase text-white"
                 onClick={() => setMobileOpen(false)}
               >

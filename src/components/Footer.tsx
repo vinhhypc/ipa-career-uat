@@ -1,68 +1,87 @@
 ﻿import Link from 'next/link';
-import { Facebook, Linkedin, Mail, MapPin } from 'lucide-react';
+import {
+  CircleDotDashed,
+  Facebook,
+  Linkedin,
+  Mail,
+  MapPin,
+} from 'lucide-react';
 
 const EXPLORE_LINKS = [
   { label: 'Về IPAG', href: '#' },
-  { label: 'We look for', href: '#we-look-for' },
-  { label: 'Life at IPAG', href: '#life-at-ipag' },
-  { label: 'Tin tức', href: '#news' },
+  { label: 'Cơ hội nghề nghiệp', href: '#we-look-for' },
+  { label: 'Nếp sống IPAG', href: '#life-at-ipag' },
+  { label: 'Liên hệ', href: '#contact' },
 ];
 
 export default function Footer() {
   return (
-    <footer id="contact" className="relative overflow-hidden bg-[#00152d] text-white">
+    <footer
+      id="contact"
+      className="relative overflow-hidden text-white"
+      style={{ background: 'linear-gradient(1.08deg, #031E3B 4.22%, #002B5B 100.56%)' }}
+    >
       <div
-        className="pointer-events-none absolute inset-0 opacity-30"
+        className="pointer-events-none absolute left-1/2 top-0 h-[370px] w-full max-w-[1115px] -translate-x-1/2 opacity-20"
         style={{
-          background:
-            'radial-gradient(ellipse 80% 60% at 70% 20%, rgba(20,81,148,0.45), transparent 55%), radial-gradient(ellipse 50% 40% at 20% 80%, rgba(251,193,123,0.12), transparent 50%)',
+          backgroundImage: 'url(https://www.figma.com/api/mcp/asset/1bcb4b93-a2c3-4052-a462-9e81b609add6)',
+          backgroundPosition: 'center top',
+          backgroundRepeat: 'no-repeat',
+          backgroundSize: 'cover',
         }}
       />
-      <div className="section-content relative px-4 py-12 md:px-12 lg:px-24 lg:py-16">
-        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-12 lg:gap-8">
-          <div className="lg:col-span-5">
+
+      <div className="section-content relative px-4 py-10 md:px-12 md:py-12 lg:px-24 lg:py-[60px]">
+        <div className="flex flex-col gap-10 lg:flex-row lg:justify-between">
+          <div className="max-w-[730px]">
             <div className="mb-6 flex items-center gap-2">
-              <span className="flex size-10 items-center justify-center rounded-lg bg-white text-xl font-bold text-[#002b5b]">
+              <span className="flex size-10 items-center justify-center rounded-lg bg-white text-xl font-bold text-[#002B5B]">
                 I
               </span>
-              <span className="text-2xl font-bold tracking-tight">IPAG Career</span>
+              <span className="text-2xl font-bold tracking-[-0.05em]">IPAG Career</span>
             </div>
-            <p className="mb-8 max-w-md text-sm leading-relaxed text-white/80">
-              Kết nối tài năng với hành trình phát triển bền vững — nơi bạn đồng hành cùng IPAG kiến tạo
-              giá trị dài hạn cho cộng đồng và hệ sinh thái.
+            <p className="mb-6 max-w-[558px] text-base leading-[1.4] text-white">
+              Kiến tạo hệ sinh thái năng lực, đồng hành cùng con người và doanh nghiệp trong hành trình chuyển đổi bền vững.
             </p>
-            <div className="flex gap-4">
+            <div className="flex items-center gap-4">
               <a
-                href="https://www.linkedin.com"
+                href="#"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white/80 transition hover:text-[#fbc17b]"
-                aria-label="LinkedIn"
+                className="text-white transition hover:text-white/80"
+                aria-label="Discord"
               >
-                <Linkedin className="size-6" />
+                <CircleDotDashed className="size-5" strokeWidth={1.75} />
               </a>
               <a
                 href="https://www.facebook.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white/80 transition hover:text-[#fbc17b]"
+                className="text-white transition hover:text-white/80"
                 aria-label="Facebook"
               >
-                <Facebook className="size-6" />
+                <Facebook className="size-5" strokeWidth={1.75} />
+              </a>
+              <a
+                href="https://www.linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white transition hover:text-white/80"
+                aria-label="LinkedIn"
+              >
+                <Linkedin className="size-5" strokeWidth={1.75} />
               </a>
             </div>
           </div>
 
-          <div className="lg:col-span-3">
-            <h3 className="mb-4 text-xs font-bold uppercase tracking-[0.2em] text-[#fbc17b]">
-              Khám phá
-            </h3>
-            <ul className="space-y-3">
+          <div className="min-w-[220px]">
+            <h3 className="mb-4 text-base font-bold leading-[1.4] text-white">Khám phá</h3>
+            <ul className="space-y-4">
               {EXPLORE_LINKS.map((item) => (
-                <li key={item.href}>
+                <li key={item.label}>
                   <Link
                     href={item.href}
-                    className="text-sm text-white/85 transition hover:text-[#fbc17b]"
+                    className="text-sm leading-[1.4] text-white transition hover:text-white/80"
                   >
                     {item.label}
                   </Link>
@@ -71,32 +90,34 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div className="lg:col-span-4">
-            <h3 className="mb-4 text-xs font-bold uppercase tracking-[0.2em] text-[#fbc17b]">
-              Liên hệ
-            </h3>
-            <ul className="space-y-4 text-sm text-white/85">
-              <li className="flex gap-3">
-                <Mail className="mt-0.5 size-5 shrink-0 text-[#fbc17b]" />
-                <a href="mailto:career@ipag.com.vn" className="hover:text-white">
-                  career@ipag.com.vn
+          <div className="max-w-[350px] flex-1">
+            <h3 className="mb-4 text-base font-bold leading-[1.4] text-white">Liên hệ</h3>
+            <ul className="space-y-4 text-sm text-white">
+              <li className="flex items-center gap-2">
+                <Mail className="size-5 shrink-0" strokeWidth={1.75} />
+                <a href="mailto:nextgen@ipam.vn" className="leading-[1.4] hover:text-white/80">
+                  nextgen@ipam.vn
                 </a>
               </li>
-              <li className="flex gap-3">
-                <MapPin className="mt-0.5 size-5 shrink-0 text-[#fbc17b]" />
-                <span>
-                  Tầng 12, tòa nhà IPAG — Quận Cầu Giấy, Hà Nội
-                  <br />
-                  Chi nhánh: TP. Hồ Chí Minh
+              <li className="flex items-center gap-2">
+                <MapPin className="size-5 shrink-0" strokeWidth={1.75} />
+                <span className="leading-[1.4]">
+                  HN: 95 Trần Thái Tông, Cầu Giấy, Hà Nội
+                </span>
+              </li>
+              <li className="flex items-center gap-2">
+                <MapPin className="size-5 shrink-0" strokeWidth={1.75} />
+                <span className="leading-[1.4]">
+                  HCM: 95 90 Pasteur, Quận 1, TP. Hồ Chí Minh
                 </span>
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col gap-4 border-t border-white/10 pt-8 md:flex-row md:items-center md:justify-between">
-          <p className="text-sm text-white/50">© 2026 IPAG. All rights reserved.</p>
-          <Link href="#" className="text-sm text-[#fbc17b] hover:underline">
+        <div className="mt-10 flex flex-col gap-4 border-t border-white/50 pt-6 text-sm leading-[1.4] md:flex-row md:items-center md:justify-between">
+          <p>© 2026 IPAG. All rights reserved.</p>
+          <Link href="#" className="text-left hover:text-white/80 md:text-right">
             Điều khoản sử dụng
           </Link>
         </div>

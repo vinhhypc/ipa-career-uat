@@ -3,6 +3,7 @@ import { Plus_Jakarta_Sans } from 'next/font/google';
 import '@/globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import AppChrome from '@/components/AppChrome';
 
 const plusJakarta = Plus_Jakarta_Sans({
   subsets: ['latin', 'vietnamese'],
@@ -22,9 +23,9 @@ export default function RootLayout({
   return (
     <html lang="vi" className={plusJakarta.variable}>
       <body className={`${plusJakarta.className} antialiased`}>
-        <Navbar />
-        <main>{children}</main>
-        <Footer />
+        <AppChrome>
+          <main>{children}</main>
+        </AppChrome>
       </body>
     </html>
   );
