@@ -53,7 +53,7 @@ export default function ContactPage() {
       <section className="section-padding pt-[180px]! pb-6!">
         <div className="section-content">
           <Breadcrumbs
-            isLight
+            // isLight
             className="text-sm"
             items={[{ label: 'Trang chủ', href: '/' }, { label: 'Contact' }]}
           />
@@ -71,27 +71,6 @@ export default function ContactPage() {
             sizes="100vw"
           />
           <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,21,45,0.25)_0%,rgba(0,21,45,0.45)_35%,rgba(0,21,45,0.65)_100%)]" />
-          {/* <div className="absolute inset-0 flex items-center justify-center px-4 text-center">
-            <div className="max-w-[820px]">
-              <motion.h1
-                className="text-2xl font-extrabold uppercase tracking-[1px] text-white md:text-4xl"
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.45 }}
-              >
-                CONTACT IPAG
-              </motion.h1>
-              <motion.p
-                className="mt-4 text-sm leading-6 text-white/85 md:text-base md:leading-7"
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.45, delay: 0.05 }}
-              >
-                Chúng tôi luôn sẵn sàng lắng nghe — dù bạn đang tìm kiếm cơ hội, muốn hỏi về chương
-                trình, hay chỉ đơn giản là muốn biết thêm về IPAG.
-              </motion.p>
-            </div>
-          </div> */}
         </div>
 
         <div className="section-content relative -mt-10 px-4 pb-12 md:-mt-12 md:px-12 lg:px-20">
@@ -105,8 +84,8 @@ export default function ContactPage() {
             <InfoCard
               icon={<Clock className="size-5 text-[#145194]" />}
               label="GIỜ LÀM VIỆC"
-              title="Thứ Hai – Thứ Sáu"
-              desc="08:30 – 17:30"
+              title="Thứ Hai - Thứ Sáu"
+              desc="08:30 - 17:30"
             />
           </div>
         </div>

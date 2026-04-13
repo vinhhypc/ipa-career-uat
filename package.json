@@ -10,7 +10,8 @@
     "start:uat": "env-cmd -f .env.uat next start -p 3000",
     "build:production": "next build",
     "start:production": "next start -p 3000",
-    "lint": "eslint"
+    "lint": "eslint",
+    "mcp:figma": "npx -y mcp-figma"
   },
   "dependencies": {
     "dayjs": "^1.11.20",
