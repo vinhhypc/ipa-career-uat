@@ -3,14 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import type { LucideIcon } from 'lucide-react';
-import {
-  ArrowRight,
-  BadgeCheck,
-  Briefcase,
-  ChevronDown,
-  GraduationCap,
-  Globe,
-} from 'lucide-react';
+import { ArrowRight, BadgeCheck, Briefcase, ChevronDown, GraduationCap, Globe } from 'lucide-react';
 
 import homeBanner from '@/assets/ma-program/banner.png';
 import maHeroDecor from '@/assets/ma-program/hero-decor.png';
@@ -72,22 +65,19 @@ const TIMELINE = [
     n: '1',
     period: 'Tháng 1-12',
     title: 'Cross -functional business immersion',
-    body:
-      'Rotation qua IPAC, IPAS, IPAM và các đơn vị HWG. Bạn không quan sát - bạn tham gia trực tiếp, sở hữu task thật, học từ senior leaders đang làm việc hàng ngày.',
+    body: 'Rotation qua IPAC, IPAS, IPAM và các đơn vị HWG. Bạn không quan sát - bạn tham gia trực tiếp, sở hữu task thật, học từ senior leaders đang làm việc hàng ngày.',
   },
   {
     n: '2',
     period: 'Tháng 13-18',
     title: 'Digital leadership foundation',
-    body:
-      'Lead real digital transformation projects với data-driven thinking và agile delivery. Bạn không chỉ execute - bạn thiết kế giải pháp và chịu trách nhiệm với kết quả.',
+    body: 'Lead real digital transformation projects với data-driven thinking và agile delivery. Bạn không chỉ execute - bạn thiết kế giải pháp và chịu trách nhiệm với kết quả.',
   },
   {
     n: '3',
     period: 'Tháng 19-24',
     title: 'Leadership acceleration',
-    body:
-      'Strategic initiatives với mentoring cá nhân hóa. Đây là giai đoạn bạn bắt đầu hình thành phong cách lãnh đạo riêng - và nhìn thấy rõ lộ trình 3–5 năm tiếp theo.',
+    body: 'Strategic initiatives với mentoring cá nhân hóa. Đây là giai đoạn bạn bắt đầu hình thành phong cách lãnh đạo riêng - và nhìn thấy rõ lộ trình 3–5 năm tiếp theo.',
   },
 ] satisfies ReadonlyArray<{
   n: string;
@@ -153,7 +143,9 @@ function PathwayNumberRibbon({ n }: { n: number }) {
           clipPath: 'polygon(0 0, 100% 0, 100% 72%, 50% 100%, 0 72%)',
         }}
       >
-        <span className="font-extrabold leading-none text-[14px] text-white md:text-[20px]">{n}</span>
+        <span className="font-extrabold leading-none text-[14px] text-white md:text-[20px]">
+          {n}
+        </span>
       </div>
     </div>
   );
@@ -163,11 +155,10 @@ function MaApplyButton({ className }: { className?: string }) {
   return (
     <Link
       href="/we-look-for"
-      className={
-        `inline-flex items-center justify-center gap-2 rounded-full font-bold text-white shadow-[0px_4px_8px_0px_rgba(0,0,0,0.15)] transition hover:brightness-95 ${className ?? ''}`.trim()
-      }
+      className={`inline-flex items-center justify-center gap-2 rounded-full font-bold text-white shadow-[0px_4px_8px_0px_rgba(0,0,0,0.15)] transition hover:brightness-95 ${className ?? ''}`.trim()}
       style={{
-        backgroundImage: 'linear-gradient(77.7deg, rgb(1, 58, 114) 3.48%, rgb(12, 113, 199) 83.47%)',
+        backgroundImage:
+          'linear-gradient(77.7deg, rgb(1, 58, 114) 3.48%, rgb(12, 113, 199) 83.47%)',
       }}
     >
       NỘP HỒ SƠ NGAY
@@ -230,9 +221,10 @@ export default function MaProgram() {
             </div>
 
             <p className="w-full max-w-[883px] text-[14px] font-medium leading-[22px] text-white md:text-[20px] md:font-normal md:leading-[33px] md:tracking-[0.2px]">
-              Đây không chỉ là thực tập, mà là lộ trình tăng tốc 24 tháng dành cho tài năng trẻ khao khát
-              khẳng định bản thân. Bạn sẽ luân chuyển qua các vị trí then chốt, trực tiếp dấn thân vào dự án
-              tái cấu trúc chiến lược (TAC Journey) để tôi luyện bản lĩnh quản lý thực chiến.
+              Đây không chỉ là thực tập, mà là lộ trình tăng tốc 24 tháng dành cho tài năng trẻ khao
+              khát khẳng định bản thân. Bạn sẽ luân chuyển qua các vị trí then chốt, trực tiếp dấn
+              thân vào dự án tái cấu trúc chiến lược (TAC Journey) để tôi luyện bản lĩnh quản lý
+              thực chiến.
             </p>
           </div>
 
@@ -287,9 +279,7 @@ export default function MaProgram() {
                     </div>
                     <div
                       className={`relative z-20 flex size-6 shrink-0 items-center justify-center rounded-full border p-1 md:size-7 ${
-                        isBlue
-                          ? 'border-white bg-[#06427c]'
-                          : 'border-[#707070] bg-[#fff1df]'
+                        isBlue ? 'border-white bg-[#06427c]' : 'border-[#707070] bg-[#fff1df]'
                       }`}
                       aria-hidden
                     >
@@ -313,7 +303,7 @@ export default function MaProgram() {
                 Bạn đã sẵn sàng?
               </p>
               <Link
-                href="/ma-program/#"
+                href="/we-look-for"
                 className="flex h-9 w-full items-center justify-center rounded-full bg-gradient-to-br from-white to-[#fff1e1] px-3 py-2.5 text-[14px] font-bold leading-[1.4] text-[#070707] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] md:h-10 md:w-[220px] md:text-[16px]"
               >
                 <span className="md:hidden">NỘP HỒ SƠ NGAY</span>
@@ -478,4 +468,3 @@ export default function MaProgram() {
     </div>
   );
 }
-

@@ -92,9 +92,11 @@ const PATHWAYS = [
     titleWhite: 'LỘ TRÌNH CHO',
     titleAccent: ' LÃNH ĐẠO TẬP SỰ',
     description: [
-      'Chương trình đào tạo quản trị viên tập sự dành cho những tài năng trẻ xuất sắc, sẵn sàng bứt phá để trở thành những nhà lãnh đạo tương lai của IPAG.',
+      'Chương trình đào tạo quản trị viên tập sự dành cho những tài năng trẻ xuất sắc,',
+      'sẵn sàng bứt phá để trở thành những nhà',
+      'lãnh đạo tương lai của IPAG.',
     ],
-    quote: '“IPAG doesn\'t just hire. We co-build your future”',
+    quote: "“IPAG doesn't just hire. We co-build your future”",
     steps: [
       {
         title: 'Foundation Immersion',
@@ -118,26 +120,28 @@ const PATHWAYS = [
     name: 'Professional Force',
     lines: ['Specialist 3-7 năm', 'Domain sâu'],
     kicker: 'Pathways to Greatness · Pathway 02',
-    titleWhite: 'LÀM CHỦ',
-    titleAccent: ' CHUYÊN MÔN',
+    titleWhite: 'LỘ TRÌNH CHO',
+    titleAccent: ' CHUYÊN GIA HIỆN TRƯỜNG',
     description: [
-      'Nơi những chuyên gia chuyên sâu trong từng lĩnh vực (Tài chính, Công nghệ, Nhân sự...) hội tụ để cùng xây dựng nền tảng vững chắc cho hệ sinh thái.',
+      'Dành cho các chuyên gia đã có kinh nghiệm, muốn phát triển sâu',
+      'trong domain và đóng góp trực tiếp vào các đội dự án chiến lược',
+      'của IPAG.',
     ],
-    quote: '“IPAG doesn\'t just hire. We co-build your future”',
+    quote: '“Chúng tôi đầu tư vào chuyên môn — và trao quyền cho bạn dẫn dắt thay đổi.”',
     steps: [
       {
-        title: 'Deep Domain Development',
-        body: 'Phát triển chuyên môn sâu rộng trong môi trường đa ngành',
+        title: 'Domain mastery',
+        body: 'Chuyên sâu hóa năng lực trong lĩnh vực trọng yếu của hệ sinh thái',
         icon: ASSETS.timeline1,
       },
       {
-        title: 'Modern Governance Mastery',
-        body: 'Làm chủ các công nghệ và quy trình quản trị hiện đại',
+        title: 'Cross-functional impact',
+        body: 'Làm việc xuyên phòng ban trên các dự án lớn, đa stakeholder',
         icon: ASSETS.timeline2,
       },
       {
-        title: 'Cross-functional Synergy',
-        body: 'Cộng hưởng sức mạnh cùng các đội ngũ đa chức năng',
+        title: 'Leadership track',
+        body: 'Chuẩn bị cho vai trò lãnh đạo chuyên môn và chủ trì initiative',
         icon: ASSETS.timeline3,
       },
     ],
@@ -147,26 +151,27 @@ const PATHWAYS = [
     name: 'Executive Serve',
     lines: ['Senior 8+ năm', 'C level path'],
     kicker: 'Pathways to Greatness · Pathway 03',
-    titleWhite: 'DẪN DẮT NHỮNG',
-    titleAccent: ' THAY ĐỔI CHIẾN LƯỢC',
+    titleWhite: 'LỘ TRÌNH CHO',
+    titleAccent: ' LÃNH ĐẠO CẤP CAO',
     description: [
-      'Dành cho những chuyên gia dày dặn kinh nghiệm, những người muốn kiến tạo giá trị thực chất và dẫn dắt sự thay đổi ở quy mô hệ thống.',
+      'Dành cho các nhà lãnh đạo kỳ cựu, cùng IPAG kiến tạo tầm nhìn',
+      'dài hạn và lan tỏa ảnh hưởng tới toàn hệ sinh thái.',
     ],
-    quote: '“IPAG doesn\'t just hire. We co-build your future”',
+    quote: '“Ở IPAG, kinh nghiệm của bạn được nhân lên qua quy mô và tốc độ tăng trưởng.”',
     steps: [
       {
-        title: 'Deep Domain Development',
-        body: 'Cơ hội nắm giữ các vị trí quản lý cấp cao và P&L ownership',
+        title: 'Strategic vision',
+        body: 'Định hướng chiến lược và ưu tiên đầu tư ở cấp độ hệ sinh thái',
         icon: ASSETS.timeline1,
       },
       {
-        title: 'Modern Governance Mastery',
-        body: 'Môi trường làm việc tự chủ, khuyến khích tư duy entrepreneur',
+        title: 'Ecosystem influence',
+        body: 'Đồng hành cùng Ban lãnh đạo trong các quyết định then chốt',
         icon: ASSETS.timeline2,
       },
       {
-        title: 'Cross-functional Synergy',
-        body: 'Kiến tạo di sản thông qua các giải pháp quản trị bền vững',
+        title: 'Legacy building',
+        body: 'Kiến tạo di sản tổ chức và năng lực lõi bền vững cho IPAG',
         icon: ASSETS.timeline3,
       },
     ],
@@ -224,7 +229,9 @@ const RECRUITMENT_STEPS = [
 function HotRibbon({ size }: { size: 'sm' | 'lg' }) {
   const wide = size === 'lg';
   const mobilePos = wide ? 'right-2 top-0 h-[45px] w-[65px]' : 'right-3 top-0 h-[33px] w-[47px]';
-  const mobileHotText = wide ? 'pt-1 text-[14px] leading-[1.4]' : 'pt-0.5 text-[10px] leading-[1.4]';
+  const mobileHotText = wide
+    ? 'pt-1 text-[14px] leading-[1.4]'
+    : 'pt-0.5 text-[10px] leading-[1.4]';
   return (
     <div
       className={`pointer-events-none absolute z-10 ${mobilePos} lg:right-2 lg:top-[-6px] lg:h-[45px] lg:w-[65px]`}
@@ -246,20 +253,14 @@ function HotRibbon({ size }: { size: 'sm' | 'lg' }) {
   );
 }
 
-function DiamondStep({
-  n,
-  bg,
-  blur,
-}: {
-  n: string;
-  bg: string;
-  blur: string;
-}) {
+function DiamondStep({ n, bg, blur }: { n: string; bg: string; blur: string }) {
   return (
     <div className="relative z-10 flex justify-center">
       <div className="flex size-[68px] items-center justify-center lg:size-[113px]">
         <div className="flex size-12 rotate-45 items-center justify-center rounded shadow-[0px_4px_20px_0px_rgba(0,0,0,0.1)] lg:size-20">
-          <div className={`relative flex size-12 items-center justify-center rounded lg:size-20 ${bg}`}>
+          <div
+            className={`relative flex size-12 items-center justify-center rounded lg:size-20 ${bg}`}
+          >
             <div
               className={`pointer-events-none absolute inset-0 rounded opacity-30 blur-sm lg:blur-[4px] ${blur}`}
               aria-hidden
@@ -322,9 +323,9 @@ export default function WeLookFor() {
                     CÙNG IPAG KIẾN TẠO SỰ NGHIỆP
                   </h1>
                   <p className="text-[14px] font-normal leading-[22px] text-[#474747] lg:mx-auto lg:max-w-[1086px] lg:text-[18px] lg:leading-7 lg:tracking-[0.18px]">
-                    Tại IPAG, chúng tôi không tìm kiếm những người chỉ làm tròn vai. Chúng tôi tìm kiếm
-                    những cộng sự cùng kiến tạo di sản — dù bạn đang ở bước khởi đầu hay đỉnh cao sự
-                    nghiệp.
+                    Tại IPAG, chúng tôi không tìm kiếm những người chỉ làm tròn vai. Chúng tôi tìm
+                    kiếm những cộng sự cùng kiến tạo di sản — dù bạn đang ở bước khởi đầu hay đỉnh
+                    cao sự nghiệp.
                   </p>
                 </div>
               </div>
@@ -437,7 +438,10 @@ export default function WeLookFor() {
                       />
                       {job.location}
                     </span>
-                    <span className="size-1 shrink-0 rounded-full bg-black/25 lg:size-1" aria-hidden />
+                    <span
+                      className="size-1 shrink-0 rounded-full bg-black/25 lg:size-1"
+                      aria-hidden
+                    />
                     <span>{job.type}</span>
                   </div>
                 </div>
@@ -523,58 +527,47 @@ export default function WeLookFor() {
                     'linear-gradient(13.01deg, rgb(0, 21, 45) 31.68%, rgb(0, 61, 130) 94.34%)',
                 }}
               >
-                <div className="grid grid-cols-1 gap-6 px-4 py-6 lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)] lg:items-start lg:gap-x-8 lg:px-20 lg:py-12">
-                  <div className="flex flex-col gap-4 lg:gap-6">
-                    <div className="flex flex-col gap-4 lg:gap-6">
-                      <div className="flex flex-col gap-2 uppercase text-shadow-[0px_4px_4px_rgba(0,0,0,0.25)] lg:gap-2">
-                        <p className="text-[14px] font-medium leading-[26px] text-white lg:text-lg lg:leading-[26px]">
-                          {pathway.kicker}
-                        </p>
-                        <p className="text-[16px] font-extrabold leading-5 lg:text-[30px] lg:leading-[60px] lg:tracking-[2px]">
-                          <span className="text-white">{pathway.titleWhite}</span>
-                          <span className="text-[#fbc17b]">{pathway.titleAccent}</span>
-                        </p>
-                      </div>
-                      <div className="text-[14px] font-normal leading-[22px] tracking-[0.14px] text-white lg:text-xl lg:leading-[33px] lg:tracking-[0.2px]">
-                        {pathway.description.map((line, li) => (
-                          <p key={li} className="mb-0">
-                            {line}
-                          </p>
-                        ))}
-                      </div>
+                <div className="grid grid-cols-1 gap-6 px-4 py-6 lg:grid-cols-[minmax(0,648px)_auto] lg:items-start lg:gap-x-8 lg:gap-y-0 lg:px-20 lg:py-12">
+                  <div className="flex flex-col gap-4 lg:col-start-1 lg:row-start-1 lg:gap-6">
+                    <div className="flex flex-col gap-2 uppercase text-shadow-[0px_4px_4px_rgba(0,0,0,0.25)] lg:gap-2">
+                      <p className="text-[14px] font-medium leading-[26px] text-white lg:text-lg lg:leading-[26px]">
+                        {pathway.kicker}
+                      </p>
+                      <p className="text-[16px] font-extrabold leading-5 lg:text-[30px] lg:leading-[60px] lg:tracking-[2px]">
+                        <span className="text-white">{pathway.titleWhite}</span>
+                        <span className="text-[#fbc17b]">{pathway.titleAccent}</span>
+                      </p>
                     </div>
-
-                    <div className="relative overflow-hidden rounded-xl border border-[rgba(123,193,255,0.6)] bg-[rgba(202,230,255,0.18)] px-[13px] py-[9px] shadow-[0px_8px_32px_0px_rgba(0,0,0,0.1)] backdrop-blur-[12px] lg:flex lg:max-w-[648px] lg:items-start lg:gap-4 lg:rounded-[20px] lg:px-[17px] lg:py-[13px]">
-                      <Sparkles
-                        className="hidden size-12 shrink-0 text-[#fbc17b] lg:block"
-                        strokeWidth={1.5}
-                        aria-hidden
-                      />
-                      <div className="relative z-10 flex min-w-0 flex-1 flex-col gap-1 pr-4 lg:pr-0">
-                        <p className="text-[10px] font-bold uppercase leading-4 tracking-[1.2px] text-[#fbc17b] lg:text-xs lg:leading-4">
-                          Talent Acquisition Team
+                    <div className="text-[14px] font-normal leading-[22px] tracking-[0.14px] text-white lg:text-xl lg:leading-[33px] lg:tracking-[0.2px]">
+                      {pathway.description.map((line, li) => (
+                        <p key={li} className="mb-0">
+                          {line}
                         </p>
-                        <p className="text-[12px] font-semibold leading-[18px] tracking-[1px] text-white lg:text-base lg:leading-7">
-                          {pathway.quote}
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="hidden lg:block lg:self-start">
-                      <button
-                        type="button"
-                        className="flex h-9 w-full items-center justify-center gap-2 rounded-full bg-white px-3 py-2.5 text-[14px] font-bold leading-[1.4] text-[#474747] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] lg:h-12 lg:w-[276px] lg:text-lg"
-                      >
-                        XEM THÊM
-                        <span className="relative size-5 lg:size-6">
-                          <img alt="" src={ASSETS.ctaArrow} className="size-5 lg:size-6" />
-                        </span>
-                      </button>
+                      ))}
                     </div>
                   </div>
 
-                  <div className="flex gap-3 lg:self-start lg:gap-7">
-                    <div className="relative flex shrink-0 flex-col items-center pt-1 lg:pt-0" aria-hidden>
+                  <div className="relative overflow-hidden rounded-xl border border-[rgba(123,193,255,0.6)] bg-[rgba(202,230,255,0.18)] px-[13px] py-[9px] shadow-[0px_8px_32px_0px_rgba(0,0,0,0.1)] backdrop-blur-[12px] lg:col-start-1 lg:row-start-2 lg:flex lg:max-w-[648px] lg:items-start lg:gap-4 lg:rounded-[20px] lg:px-[17px] lg:py-[13px]">
+                    <Sparkles
+                      className="hidden size-12 shrink-0 text-[#fbc17b] lg:block"
+                      strokeWidth={1.5}
+                      aria-hidden
+                    />
+                    <div className="relative z-10 flex min-w-0 flex-1 flex-col gap-1 pr-4 lg:pr-0">
+                      <p className="text-[10px] font-bold uppercase leading-4 tracking-[1.2px] text-[#fbc17b] lg:text-xs lg:leading-4">
+                        Talent Acquisition Team
+                      </p>
+                      <p className="text-[12px] font-semibold leading-[18px] tracking-[1px] text-white lg:text-base lg:leading-7">
+                        {pathway.quote}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex gap-3 lg:col-start-2 lg:row-start-1 lg:row-span-3 lg:self-start lg:gap-7">
+                    <div
+                      className="relative flex shrink-0 flex-col items-center pt-1 lg:pt-0"
+                      aria-hidden
+                    >
                       <div
                         className="absolute bottom-2 left-1/2 top-2 hidden w-0.5 -translate-x-1/2 lg:block"
                         style={{
@@ -620,14 +613,14 @@ export default function WeLookFor() {
                     </div>
                   </div>
 
-                  <div className="lg:hidden">
+                  <div className="lg:col-start-1 lg:row-start-3 lg:self-start">
                     <button
                       type="button"
-                      className="flex h-9 w-full items-center justify-center gap-2 rounded-full bg-white px-3 py-2.5 text-[14px] font-bold leading-[1.4] text-[#474747] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)]"
+                      className="flex h-9 w-full items-center justify-center gap-2 rounded-full bg-white px-3 py-2.5 text-[14px] font-bold leading-[1.4] text-[#474747] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] lg:h-12 lg:w-[276px] lg:text-lg"
                     >
                       XEM THÊM
-                      <span className="relative size-5">
-                        <img alt="" src={ASSETS.ctaArrow} className="size-5" />
+                      <span className="relative size-5 lg:size-6">
+                        <img alt="" src={ASSETS.ctaArrow} className="size-5 lg:size-6" />
                       </span>
                     </button>
                   </div>
@@ -646,8 +639,8 @@ export default function WeLookFor() {
               QUY TRÌNH TUYỂN DỤNG
             </h2>
             <p className="text-[14px] font-normal leading-5 text-[#474747] lg:mx-auto lg:max-w-[900px] lg:text-lg lg:leading-7">
-              Quy trình tuyển dụng tại IPAG được thiết kế để tìm kiếm sự cộng hưởng tối ưu giữa tài năng và
-              văn hóa hệ sinh thái.
+              Quy trình tuyển dụng tại IPAG được thiết kế để tìm kiếm sự cộng hưởng tối ưu giữa tài
+              năng và văn hóa hệ sinh thái.
             </p>
           </div>
 
