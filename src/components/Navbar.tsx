@@ -65,7 +65,7 @@ export default function Navbar({ forceLightNav = false }: NavbarProps) {
               <li key={item.label}>
                 <Link
                   href={item.href}
-                  className={`text-xs font-normal uppercase tracking-[0.14em] transition-opacity hover:opacity-80 ${
+                  className={`text-sm font-normal uppercase tracking-[0.14em] transition-opacity hover:opacity-80 ${
                     onLight ? 'text-neutral-800' : 'text-white'
                   }`}
                 >

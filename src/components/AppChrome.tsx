@@ -12,7 +12,8 @@ type AppChromeProps = {
 
 export default function AppChrome({ children }: AppChromeProps) {
   const pathname = usePathname();
-  const forceLightNav = pathname === '/ipag-insight' || pathname === '/we-look-for';
+  const forceLightNav =
+    pathname === '/ipag-insight' || pathname === '/we-look-for' || pathname === '/ma-program';
 
   return (
     <>
