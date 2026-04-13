@@ -166,7 +166,6 @@ function HeroSection() {
       <div aria-hidden className="pointer-events-none absolute inset-0 bg-[#145194]/8" />
 
       <div className="section-content relative z-10 flex flex-col gap-8 px-5 pb-8 pt-[120px] md:gap-12 md:px-12 md:pb-28 lg:min-h-[calc(800px-5rem)] lg:flex-row lg:items-center lg:justify-between lg:gap-8 lg:px-20">
-        
         <div id="apply" className="scroll-mt-28 text-center lg:max-w-[900px] lg:text-left">
           <h1 className="mb-5 text-2xl font-extrabold uppercase leading-[40px] tracking-[1px] text-[#fbc17b] drop-shadow-md md:mb-9 md:text-5xl md:leading-[1.15] md:tracking-[2px]">
             <span className="text-white">Khai phóng</span> năng lực,
@@ -178,10 +177,7 @@ function HeroSection() {
           <p className="mb-5 text-sm leading-[22px] tracking-[0.14px] text-white md:mb-8 md:max-w-[747px] md:text-lg md:leading-[1.85]">
             <span className="font-medium">Tại IPAG, chúng tôi tìm kiếm những </span>
             <span className="font-bold">cộng sự</span>
-            <span className="font-medium">
-              {' '}
-              sẵn sàng dấn thân vào những thử thách — để cùng{' '}
-            </span>
+            <span className="font-medium"> sẵn sàng dấn thân vào những thử thách — để cùng </span>
             <span className="font-bold">trưởng thành</span>
             <span className="font-medium">, kiến tạo </span>
             <span className="font-bold">giá trị bền vững</span>
@@ -260,7 +256,10 @@ function ProgramGlassCard({
             {title}
           </p>
         </div>
-        <div className="pointer-events-none absolute right-2 top-0 opacity-10 md:hidden" aria-hidden>
+        <div
+          className="pointer-events-none absolute right-2 top-0 opacity-10 md:hidden"
+          aria-hidden
+        >
           <GraduationCap className="size-12 text-white" />
         </div>
       </div>
@@ -325,11 +324,15 @@ function PotentialIdentitySection() {
         </div>
 
         <p className="text-center text-lg tracking-[0.48px] text-[#474747] max-md:text-[14px] max-md:leading-[22px] max-md:tracking-[0.28px] md:text-2xl">
-          <span className="font-bold text-[#292929] max-md:leading-[22px] md:leading-[40px]">IPAG </span>
+          <span className="font-bold text-[#292929] max-md:leading-[22px] md:leading-[40px]">
+            IPAG{' '}
+          </span>
           <span className="font-medium text-[#707070] max-md:leading-[22px] md:leading-[40px]">
             đồng hành cùng bạn làm chủ lộ trình chuyển hóa tiềm năng
           </span>
-          <span className="font-medium text-[#474747] max-md:leading-[22px] md:leading-[40px]">.</span>
+          <span className="font-medium text-[#474747] max-md:leading-[22px] md:leading-[40px]">
+            .
+          </span>
         </p>
         <div className="mx-auto mb-20 mt-5 h-px max-w-full bg-gradient-to-r from-transparent via-[#d0d5dd] to-transparent max-md:mb-8 max-md:mt-5 md:mt-8" />
 
@@ -344,7 +347,9 @@ function PotentialIdentitySection() {
                   className="object-cover"
                   sizes="(max-width: 1023px) 160px, 240px"
                 />
-                <span className={`absolute bottom-2 left-3 lg:bottom-3 ${imageLabelClass}`}>Integration</span>
+                <span className={`absolute bottom-2 left-3 lg:bottom-3 ${imageLabelClass}`}>
+                  Integration
+                </span>
               </div>
               <div className="relative size-[140px] shrink-0 overflow-hidden rounded-xl lg:size-[210px] lg:rounded-2xl">
                 <Image
@@ -354,7 +359,9 @@ function PotentialIdentitySection() {
                   className="object-cover"
                   sizes="(max-width: 1023px) 140px, 210px"
                 />
-                <span className={`absolute bottom-2 left-3 lg:bottom-3 ${imageLabelClass}`}>Accountability</span>
+                <span className={`absolute bottom-2 left-3 lg:bottom-3 ${imageLabelClass}`}>
+                  Accountability
+                </span>
               </div>
             </div>
             <div className="flex min-w-0 flex-1 flex-col items-start gap-4 pt-4 lg:pt-6">
@@ -366,7 +373,9 @@ function PotentialIdentitySection() {
                   className="object-cover"
                   sizes="(max-width: 1023px) 140px, 210px"
                 />
-                <span className={`absolute bottom-2 left-3 lg:bottom-3 ${imageLabelClass}`}>Partnership</span>
+                <span className={`absolute bottom-2 left-3 lg:bottom-3 ${imageLabelClass}`}>
+                  Partnership
+                </span>
               </div>
               <div className="relative size-[160px] shrink-0 overflow-hidden rounded-xl lg:size-[240px] lg:rounded-2xl">
                 <Image
@@ -376,7 +385,9 @@ function PotentialIdentitySection() {
                   className="object-cover"
                   sizes="(max-width: 1023px) 160px, 240px"
                 />
-                <span className={`absolute bottom-2 left-3 lg:bottom-3 ${imageLabelClass}`}>Greatness</span>
+                <span className={`absolute bottom-2 left-3 lg:bottom-3 ${imageLabelClass}`}>
+                  Greatness
+                </span>
               </div>
             </div>
           </div>
@@ -434,8 +445,18 @@ function JourneySection() {
           </p>
         </div>
         <div className="flex justify-center">
-         <Image src={homeJourney} alt="home journey" width={1024} className="hidden md:block object-cover w-[1024px]"  />
-         <Image src={homeJourney2} alt="home journey" width={1024} className="block md:hidden object-cover w-full"  />
+          <Image
+            src={homeJourney}
+            alt="home journey"
+            width={1024}
+            className="hidden md:block object-cover w-[1024px]"
+          />
+          <Image
+            src={homeJourney2}
+            alt="home journey"
+            width={1024}
+            className="block md:hidden object-cover w-full"
+          />
         </div>
       </div>
     </section>
@@ -488,20 +509,20 @@ function CapabilitiesSection({
               className="overflow-hidden bg-white transition rounded-[32px] shadow-[0_4px_16px_rgba(7,7,7,0.13)]"
             >
               <div className={`relative aspect-16/9`}>
-                <Image src={c.img} alt="" fill className="object-cover" sizes="(max-width:768px) 100vw, 33vw" />
+                <Image
+                  src={c.img}
+                  alt=""
+                  fill
+                  className="object-cover"
+                  sizes="(max-width:768px) 100vw, 33vw"
+                />
               </div>
               <div className="px-7 pt-5 pb-10">
-                <h3 className="font-bold text-2xl leading-8 text-[#292929]">
-                  {c.title}
-                </h3>
-                <p
-                  className="mt-2 text-sm tracking-[0.08em] font-light uppercase text-[#292929]"
-                >
+                <h3 className="font-bold text-2xl leading-8 text-[#292929]">{c.title}</h3>
+                <p className="mt-2 text-sm tracking-[0.08em] font-light uppercase text-[#292929]">
                   {c.en}
                 </p>
-                <p className="mt-5 leading-relaxed text-base text-[#474747]">
-                  {c.desc}
-                </p>
+                <p className="mt-5 leading-relaxed text-base text-[#474747]">{c.desc}</p>
               </div>
             </article>
           ))}
@@ -513,20 +534,29 @@ function CapabilitiesSection({
 
 function MidCtaBand() {
   return (
-   <>
+    <>
       <section
         className="relative overflow-hidden py-20"
-        style={{ background: 'linear-gradient(341deg, rgba(0, 116, 162, 0.20) 11.61%, rgba(170, 231, 255, 0.20) 94.37%)' }}
+        style={{
+          background:
+            'linear-gradient(341deg, rgba(0, 116, 162, 0.20) 11.61%, rgba(170, 231, 255, 0.20) 94.37%)',
+        }}
       >
         <div
           aria-hidden
           className="pointer-events-none absolute -left-16 top-1/2 h-72 w-72 -translate-y-1/2 rounded-full opacity-35 blur-[1px]"
-          style={{ background: 'radial-gradient(circle at center, rgba(125,188,228,0.5) 0%, rgba(125,188,228,0) 72%)' }}
+          style={{
+            background:
+              'radial-gradient(circle at center, rgba(125,188,228,0.5) 0%, rgba(125,188,228,0) 72%)',
+          }}
         />
         <div
           aria-hidden
           className="pointer-events-none absolute -right-16 top-1/2 h-72 w-72 -translate-y-1/2 rounded-full opacity-35 blur-[1px]"
-          style={{ background: 'radial-gradient(circle at center, rgba(125,188,228,0.5) 0%, rgba(125,188,228,0) 72%)' }}
+          style={{
+            background:
+              'radial-gradient(circle at center, rgba(125,188,228,0.5) 0%, rgba(125,188,228,0) 72%)',
+          }}
         />
         <div className="section-content flex flex-col items-center">
           <div className="text-center">
@@ -539,13 +569,16 @@ function MidCtaBand() {
           <Link
             href="#news"
             className="mt-6 inline-flex h-12 w-full max-w-[276px] items-center justify-center gap-2 rounded-full px-3 text-[18px] leading-[1.4] font-bold text-white shadow-[0_4px_8px_rgba(0,0,0,0.15)] transition hover:brightness-95 sm:w-[276px]"
-            style={{ background: 'linear-gradient(76.71deg, rgb(1, 58, 114) 3.48%, rgb(12, 113, 199) 83.47%)' }}
+            style={{
+              background:
+                'linear-gradient(76.71deg, rgb(1, 58, 114) 3.48%, rgb(12, 113, 199) 83.47%)',
+            }}
           >
             ỨNG TUYỂN NGAY
             <ArrowRight className="size-6" strokeWidth={2.2} />
           </Link>
         </div>
-      </section></>
+      </section>
+    </>
   );
 }
-
