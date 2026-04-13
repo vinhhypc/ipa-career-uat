@@ -313,7 +313,7 @@ export default function MaProgram() {
                 Bạn đã sẵn sàng?
               </p>
               <Link
-                href="/we-look-for"
+                href="/ma-program/#"
                 className="flex h-9 w-full items-center justify-center rounded-full bg-gradient-to-br from-white to-[#fff1e1] px-3 py-2.5 text-[14px] font-bold leading-[1.4] text-[#070707] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] md:h-10 md:w-[220px] md:text-[16px]"
               >
                 <span className="md:hidden">NỘP HỒ SƠ NGAY</span>
