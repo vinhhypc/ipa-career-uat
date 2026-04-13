@@ -6,9 +6,6 @@ import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
 
-const LIFE_AT_IPAG_HREF = '/life-at-ipag';
-const CONTACT_HREF = '/contact';
-
 export type NavbarProps = {
   forceLightNav?: boolean;
 };
@@ -25,17 +22,14 @@ export default function Navbar({ forceLightNav = false }: NavbarProps) {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  const isLifeAtIpag = pathname === LIFE_AT_IPAG_HREF || pathname.startsWith('/life-at-ipag');
-  const isContact = pathname === CONTACT_HREF;
-  const onLight = forceLightNav || isScrolled || isLifeAtIpag || isContact;
+  const onLight = forceLightNav || isScrolled
   const isHome = pathname === '/';
-  const homeBase = isHome ? '' : '/';
 
   const navLinks = [
-    { label: 'IPAG insight', href: `${homeBase}#` },
-    { label: 'we look for', href: `${homeBase}#we-look-for` },
-    { label: 'life at IPAG', href: LIFE_AT_IPAG_HREF },
-    { label: 'CONTACT', href: CONTACT_HREF },
+    { label: 'IPAG insight', href: '/ipag-insight' },
+    { label: 'we look for', href: '/we-look-for' },
+    { label: 'life at IPAG', href: '/life-at-ipag' },
+    { label: 'CONTACT', href: '/contact' },
   ] as const;
 
   const applyHref = isHome ? '#apply' : '/#apply';
@@ -48,7 +42,7 @@ export default function Navbar({ forceLightNav = false }: NavbarProps) {
           : `transition-colors duration-300 ${onLight ? 'border-b border-black/5 bg-white shadow-sm' : 'bg-transparent'}`
       }`}
     >
-      <div className="section-content flex items-center justify-between py-4 lg:py-7">
+      <div className="section-content max-w-[1440px] flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2" onClick={() => setMobileOpen(false)}>
           <span
             className={`flex size-10 items-center justify-center rounded-lg text-xl font-bold ${
