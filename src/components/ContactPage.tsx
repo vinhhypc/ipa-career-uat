@@ -70,7 +70,7 @@ export default function ContactPage() {
 
   return (
     <div className="bg-white">
-      <section className="section-padding pt-30! md:pt-[180px]! pb-6!">
+      <section className="section-padding pt-30! md:pt-[120px]! pb-6!">
         <div className="section-content">
           <Breadcrumbs
             // isLight
@@ -103,7 +103,7 @@ export default function ContactPage() {
           >
             <motion.div variants={ITEM_REVEAL}>
               <InfoCard
-                icon={<Mail className="size-5 text-[#145194]" />}
+                icon={<Image src="/contact/figma/mail.svg" alt="Email" width={40} height={40} />}
                 label="EMAIL TUYỂN DỤNG"
                 title="nextgen@ipam.vn"
                 desc="Mọi liên hệ tuyển dụng: gửi CV, hỏi thông tin chương trình, đặt lịch phỏng vấn."
@@ -111,7 +111,7 @@ export default function ContactPage() {
             </motion.div>
             <motion.div variants={ITEM_REVEAL}>
               <InfoCard
-                icon={<Clock className="size-5 text-[#145194]" />}
+                icon={<Image src="/contact/figma/clock.svg" alt="Clock" width={40} height={40} />}
                 label="GIỜ LÀM VIỆC"
                 title="Thứ Hai - Thứ Sáu"
                 desc="08:30 - 17:30"
@@ -145,7 +145,7 @@ export default function ContactPage() {
           </motion.div>
 
           <motion.div
-            className="mx-auto mt-10 w-full max-w-[860px] overflow-hidden rounded-[18px] border border-[#d6dbe3] bg-white shadow-[0_10px_26px_rgba(0,0,0,0.10)]"
+            className="mx-auto mt-10 w-full max-w-[960px] overflow-hidden rounded-[18px] border border-[#d6dbe3] bg-white shadow-[0_10px_26px_rgba(0,0,0,0.10)]"
             variants={ITEM_REVEAL}
           >
             <form

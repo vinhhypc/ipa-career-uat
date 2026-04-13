@@ -14,7 +14,11 @@ export default function ChuyenNhaIpagPostPage({ post }: { post: ChuyenNhaIpagPos
     .filter((p): p is ChuyenNhaIpagPost => Boolean(p));
 
   return (
-    <div className="bg-white">
+    <div
+      style={{
+        background: 'linear-gradient(180deg, #fbf9f6 0%, #ffffff 66%)',
+      }}
+    >
       <LifeAtIpagBreadcrumbs
         items={[
           { label: 'Trang chủ', href: '/' },
@@ -23,12 +27,7 @@ export default function ChuyenNhaIpagPostPage({ post }: { post: ChuyenNhaIpagPos
         ]}
       />
 
-      <section
-        className="relative overflow-hidden px-4 pb-16 md:px-12 md:pb-20 lg:px-20 lg:pb-24"
-        style={{
-          background: 'linear-gradient(180deg, #fbf9f6 0%, #ffffff 66%)',
-        }}
-      >
+      <section className="relative overflow-hidden px-4 pb-16 md:px-12 md:pb-20 lg:px-20 lg:pb-24">
         <div className="pointer-events-none absolute inset-0 opacity-35">
           <div className="absolute -right-44 top-10 h-[520px] w-[520px] rounded-full bg-[#7bc1ff]/10 blur-3xl" />
         </div>

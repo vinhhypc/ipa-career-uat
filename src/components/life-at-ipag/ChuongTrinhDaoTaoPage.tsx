@@ -288,8 +288,8 @@ export default function ChuongTrinhDaoTaoPage() {
           </div>
 
           <div className="mt-8 overflow-hidden rounded-[22px] border border-[#e8edf3] bg-white shadow-[0_8px_20px_rgba(0,0,0,0.08)]">
-            <div className="grid gap-0 md:grid-cols-[1fr_1.08fr]">
-              <div className="p-5 md:p-8">
+            <div className="grid gap-0 md:grid-cols-[1fr_1.08fr] md:min-h-[420px]">
+              <div className="flex flex-col justify-center p-5 md:p-8">
                 <h3 className="text-2xl font-extrabold uppercase text-[#145194]">
                   {currentProgram.title}
                 </h3>
@@ -307,15 +307,8 @@ export default function ChuongTrinhDaoTaoPage() {
                     </li>
                   ))}
                 </ul>
-                <Link
-                  href="/life-at-ipag?tab=chuong-trinh-dao-tao"
-                  className="mt-6 inline-flex items-center gap-2 rounded-full border border-[#145194] px-5 py-2.5 text-sm font-bold text-[#145194] transition hover:bg-[#145194] hover:text-white"
-                >
-                  Khám phá thêm
-                  <ArrowRight className="size-4" />
-                </Link>
               </div>
-              <div className="relative min-h-[220px] md:min-h-full">
+              <div className="relative min-h-[220px] md:h-full">
                 <Image
                   src={currentProgram.image}
                   alt=""
