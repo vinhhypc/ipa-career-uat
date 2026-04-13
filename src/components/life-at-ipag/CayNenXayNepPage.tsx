@@ -132,12 +132,12 @@ function JourneyColumn({
   steps: readonly { title: string; body: string }[];
 }) {
   return (
-    <div className="w-full max-w-[520px]">
+    <div className="flex h-full w-full max-w-[520px] flex-col">
       <div>
         <p className="text-lg font-normal tracking-wide text-[#fbc17b] md:text-xl">{acronym}</p>
         <p className="mt-1 text-xl font-bold text-white md:text-2xl">{subtitle}</p>
       </div>
-      <div className="relative mt-6 border-l-2 border-[rgba(254,179,122,0.45)] pl-6">
+      <div className="relative mt-6 flex-1 border-l-2 border-[rgba(254,179,122,0.45)] pl-6">
         {steps.map((s) => (
           <div key={s.title} className="relative pb-5 last:pb-0">
             <span className="absolute -left-[32px] top-5 size-3.5 rounded-full border-[3px] border-[#002b5b] bg-[#fbc17a] shadow-[0_0_16px_rgba(254,179,122,0.55)]" />
@@ -432,7 +432,7 @@ export default function CayNenXayNepPage() {
             </p>
           </div>
 
-          <div className="mx-auto mt-12 flex max-w-[1115px] flex-col items-stretch gap-12 lg:mt-16 lg:flex-row lg:items-start lg:justify-center lg:gap-10">
+          <div className="mx-auto mt-12 flex max-w-[1115px] flex-col items-stretch gap-12 lg:mt-16 lg:flex-row lg:items-stretch lg:justify-center lg:gap-10">
             <JourneyColumn acronym="TAC" subtitle="Chuyển hoá bản thân" steps={TAC_STEPS} />
             <div
               className="hidden h-auto w-px shrink-0 bg-gradient-to-b from-transparent via-[rgba(254,179,122,0.55)] to-transparent lg:block"
