@@ -17,6 +17,8 @@ export default function AppChrome({ children }: AppChromeProps) {
     '/we-look-for',
     '/ma-program',
     '/executive-serve',
+    '/life-at-ipag',
+    '/contact',
   ].includes(pathname);
 
   return (
