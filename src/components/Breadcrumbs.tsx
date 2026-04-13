@@ -40,7 +40,9 @@ export default function Breadcrumbs({
       : `${textBase} text-white/70 transition-colors hover:text-white`;
 
   const currentClass =
-    tone === 'surface' ? `${textBase} font-semibold text-[#070707]` : `${textBase} font-semibold text-white`;
+    tone === 'surface'
+      ? `${textBase} font-semibold text-[#070707]`
+      : `${textBase} font-semibold text-white`;
 
   const renderSegment = (item: BreadcrumbItem, isLast: boolean): ReactNode => {
     if (isLast) {
