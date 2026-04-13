@@ -14,7 +14,6 @@ export default function Navbar({ forceLightNav = false }: NavbarProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const pathname = usePathname();
-  console.log('🚀 ~ pathname:', pathname);
 
   useEffect(() => {
     const onScroll = () => setIsScrolled(window.scrollY > 24);
