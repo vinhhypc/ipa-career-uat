@@ -2,19 +2,17 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
 
-const NAV_LINKS = [
-  { label: 'IPAG insight', href: '#' },
-  { label: 'we look for', href: '#we-look-for' },
-  { label: 'life at IPAG', href: '#life-at-ipag' },
-  { label: 'CONTACT', href: '#contact' },
-] as const;
+const LIFE_AT_IPAG_HREF = '/life-at-ipag';
+const CONTACT_HREF = '/contact';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const onScroll = () => setIsScrolled(window.scrollY > 24);
@@ -23,7 +21,21 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  const onLight = isScrolled;
+  const isLifeAtIpag = pathname === LIFE_AT_IPAG_HREF || pathname.startsWith('/life-at-ipag');
+  const isContact = pathname === CONTACT_HREF;
+
+  const onLight = isScrolled || isLifeAtIpag || isContact;
+  const isHome = pathname === '/';
+  const homeBase = isHome ? '' : '/';
+
+  const navLinks = [
+    { label: 'IPAG insight', href: `${homeBase}#` },
+    { label: 'we look for', href: `${homeBase}#we-look-for` },
+    { label: 'life at IPAG', href: LIFE_AT_IPAG_HREF },
+    { label: 'CONTACT', href: CONTACT_HREF },
+  ] as const;
+
+  const applyHref = isHome ? '#apply' : '/#apply';
 
   return (
     <header
@@ -32,11 +44,7 @@ export default function Navbar() {
       }`}
     >
       <div className="section-content flex items-center justify-between py-4 lg:py-7">
-        <Link
-          href="/"
-          className="flex items-center gap-2"
-          onClick={() => setMobileOpen(false)}
-        >
+        <Link href="/" className="flex items-center gap-2" onClick={() => setMobileOpen(false)}>
           <span
             className={`flex size-10 items-center justify-center rounded-lg text-xl font-bold ${
               onLight ? 'bg-[#002b5b] text-white' : 'bg-white text-[#002b5b]'
@@ -55,7 +63,7 @@ export default function Navbar() {
 
         <nav className="hidden items-center gap-8 lg:flex lg:gap-10">
           <ul className="flex items-center gap-8">
-            {NAV_LINKS.map((item) => (
+            {navLinks.map((item) => (
               <li key={item.label}>
                 <Link
                   href={item.href}
@@ -69,7 +77,7 @@ export default function Navbar() {
             ))}
           </ul>
           <Link
-            href="#apply"
+            href={applyHref}
             className="rounded-full bg-white px-5 py-2.5 text-sm font-bold uppercase tracking-wide text-[#070707] transition hover:bg-[#fbc17b]/90"
           >
             apply now
@@ -95,7 +103,7 @@ export default function Navbar() {
             className="overflow-hidden border-t border-black/5 bg-white lg:hidden"
           >
             <div className="flex flex-col gap-1 px-4 py-4">
-              {NAV_LINKS.map((item) => (
+              {navLinks.map((item) => (
                 <Link
                   key={item.label}
                   href={item.href}
@@ -106,7 +114,7 @@ export default function Navbar() {
                 </Link>
               ))}
               <Link
-                href="#apply"
+                href={applyHref}
                 className="mt-2 rounded-full bg-[#002b5b] py-3 text-center text-sm font-bold uppercase text-white"
                 onClick={() => setMobileOpen(false)}
               >

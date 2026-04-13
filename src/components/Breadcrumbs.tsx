@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import { motion } from 'motion/react';
 
 type BreadcrumbItem = {
   label: string;
@@ -17,7 +16,9 @@ type BreadcrumbsProps = {
 
 const Breadcrumbs = ({ items, className = '', isLight = false }: BreadcrumbsProps) => {
   return (
-    <div className={`flex flex-row items-center gap-2 animate-[fade-right_0.8s] ${className} animate-[fade-right_0.8s]`.trim()}>
+    <div
+      className={`flex flex-row items-center gap-2 animate-[fade-right_0.8s] ${className} animate-[fade-right_0.8s]`.trim()}
+    >
       {items.map((item, index) => {
         const isLast = index === items.length - 1;
         const itemClassName = isLast

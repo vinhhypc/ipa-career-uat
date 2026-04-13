@@ -7,7 +7,6 @@ import {
   ArrowRight,
   Briefcase,
   GraduationCap,
-  Lightbulb,
   Network,
   ShieldCheck,
   Sparkles,
@@ -208,10 +207,7 @@ function HeroSection() {
           <p className="mb-8 max-w-[747px] text-base leading-[1.85] text-white md:text-lg">
             <span className="font-medium">Tại IPAG, chúng tôi tìm kiếm những </span>
             <span className="font-bold">cộng sự</span>
-            <span className="font-medium">
-              {' '}
-              sẵn sàng dấn thân vào những thử thách — để cùng{' '}
-            </span>
+            <span className="font-medium"> sẵn sàng dấn thân vào những thử thách — để cùng </span>
             <span className="font-bold">trưởng thành</span>
             <span className="font-medium">, kiến tạo </span>
             <span className="font-bold">giá trị bền vững</span>
@@ -283,7 +279,9 @@ function ProgramGlassCard({
           {deco}
         </div>
         <div>
-          <p className="mb-2 text-xs font-bold uppercase tracking-[0.12em] text-[#fbc17b]">{badge}</p>
+          <p className="mb-2 text-xs font-bold uppercase tracking-[0.12em] text-[#fbc17b]">
+            {badge}
+          </p>
           <p className="text-2xl font-extrabold uppercase tracking-wide text-white">{title}</p>
         </div>
       </div>
@@ -298,7 +296,10 @@ function PotentialIdentitySection() {
       className="scroll-mt-24 bg-[linear-gradient(6deg,#ffffff_12%,#fff2df_130%)] px-4 py-16 md:px-12 md:py-20 lg:px-20"
     >
       <div className="section-content">
-        <div id="we-look-for" className="mb-14 flex flex-col items-center justify-between gap-8 lg:flex-row lg:gap-8">
+        <div
+          id="we-look-for"
+          className="mb-14 flex flex-col items-center justify-between gap-8 lg:flex-row lg:gap-8"
+        >
           <div className="w-full max-w-[420px] text-center lg:text-left">
             <div className="mb-3 flex items-center justify-center gap-3 lg:justify-start">
               <SectionDiamond />
@@ -336,25 +337,49 @@ function PotentialIdentitySection() {
         <div className="grid gap-10 lg:grid-cols-2 lg:gap-5">
           <div className="grid grid-cols-2 gap-4">
             <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
-              <Image src={IMG.identity1} alt="" fill className="object-cover" sizes="(max-width: 1024px) 50vw, 25vw" />
+              <Image
+                src={IMG.identity1}
+                alt=""
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 50vw, 25vw"
+              />
               <span className="absolute bottom-3 left-3 rounded bg-black/45 px-2 py-1 text-xs font-bold uppercase tracking-wide text-white backdrop-blur-sm">
                 Integration
               </span>
             </div>
             <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
-              <Image src={IMG.identity2} alt="" fill className="object-cover" sizes="(max-width: 1024px) 50vw, 25vw" />
+              <Image
+                src={IMG.identity2}
+                alt=""
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 50vw, 25vw"
+              />
               <span className="absolute bottom-3 left-3 rounded bg-black/45 px-2 py-1 text-xs font-bold uppercase tracking-wide text-white backdrop-blur-sm">
                 Partnership
               </span>
             </div>
             <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
-              <Image src={IMG.identity3} alt="" fill className="object-cover" sizes="(max-width: 1024px) 50vw, 25vw" />
+              <Image
+                src={IMG.identity3}
+                alt=""
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 50vw, 25vw"
+              />
               <span className="absolute bottom-3 left-3 rounded bg-black/45 px-2 py-1 text-xs font-bold uppercase tracking-wide text-white backdrop-blur-sm">
                 Accountability
               </span>
             </div>
             <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
-              <Image src={IMG.identity4} alt="" fill className="object-cover" sizes="(max-width: 1024px) 50vw, 25vw" />
+              <Image
+                src={IMG.identity4}
+                alt=""
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 50vw, 25vw"
+              />
               <span className="absolute bottom-3 left-3 rounded bg-black/45 px-2 py-1 text-xs font-bold uppercase tracking-wide text-white backdrop-blur-sm">
                 Greatness
               </span>
@@ -378,7 +403,9 @@ function PotentialIdentitySection() {
                     </div>
                     <div>
                       <div className="mb-1 flex flex-wrap items-center gap-2 uppercase">
-                        <span className="text-xl font-bold leading-7 text-[#292929] md:text-2xl">{p.title}</span>
+                        <span className="text-xl font-bold leading-7 text-[#292929] md:text-2xl">
+                          {p.title}
+                        </span>
                         <span className="text-xs text-[#707070]">• {p.subtitle}</span>
                       </div>
                       <p className="text-sm leading-6 text-[#474747] md:text-base">{p.body}</p>
@@ -407,7 +434,13 @@ function JourneySection() {
           </p>
         </div>
         <div className="mx-auto max-w-5xl relative">
-         <Image src={homeJourney} alt="home journey" width={200} className="object-cover" sizes="(max-width: 1024px) 50vw, 25vw" />
+          <Image
+            src={homeJourney}
+            alt="home journey"
+            width={200}
+            className="object-cover"
+            sizes="(max-width: 1024px) 50vw, 25vw"
+          />
         </div>
       </div>
     </section>
@@ -460,7 +493,13 @@ function CapabilitiesSection({
               className="overflow-hidden rounded-xl border border-[#e2e8f0] bg-white shadow-sm transition hover:shadow-md"
             >
               <div className="relative aspect-[16/10]">
-                <Image src={c.img} alt="" fill className="object-cover" sizes="(max-width:768px) 100vw, 33vw" />
+                <Image
+                  src={c.img}
+                  alt=""
+                  fill
+                  className="object-cover"
+                  sizes="(max-width:768px) 100vw, 33vw"
+                />
               </div>
               <div className="p-7">
                 <h3 className="text-lg font-bold text-[#0a1628]">{c.title}</h3>
@@ -506,7 +545,7 @@ function MidCtaBand() {
   );
 }
 
-function NewsSection() {
+export function NewsSection() {
   return (
     <section id="news" className="section-padding scroll-mt-24 bg-bg-primary">
       <div className="section-content">
