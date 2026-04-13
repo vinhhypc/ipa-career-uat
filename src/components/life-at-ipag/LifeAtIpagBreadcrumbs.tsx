@@ -17,7 +17,7 @@ const DEFAULT_ITEMS = [
 
 export default function LifeAtIpagBreadcrumbs({ className, items }: LifeAtIpagBreadcrumbsProps) {
   return (
-    <section className="section-padding pt-[180px]! pb-6!">
+    <section className="section-padding pt-30! md:pt-[180px]! pb-6!">
       <div className="section-content">
         <motion.div
           initial={{ opacity: 0, y: -6 }}

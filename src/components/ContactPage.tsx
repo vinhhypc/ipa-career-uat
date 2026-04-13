@@ -70,7 +70,7 @@ export default function ContactPage() {
 
   return (
     <div className="bg-white">
-      <section className="section-padding pt-[180px]! pb-6!">
+      <section className="section-padding pt-30! md:pt-[180px]! pb-6!">
         <div className="section-content">
           <Breadcrumbs
             // isLight
@@ -87,7 +87,7 @@ export default function ContactPage() {
             alt=""
             fill
             priority
-            className="object-cover"
+            className="object-cover w-fit"
             sizes="100vw"
           />
           <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,21,45,0.25)_0%,rgba(0,21,45,0.45)_35%,rgba(0,21,45,0.65)_100%)]" />
