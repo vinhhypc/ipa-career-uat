@@ -17,7 +17,7 @@ const DEFAULT_ITEMS = [
 
 export default function LifeAtIpagBreadcrumbs({ className, items }: LifeAtIpagBreadcrumbsProps) {
   return (
-    <section className="section-padding pt-30! md:pt-[180px]! pb-6!">
+    <section className="section-padding pt-30! md:pt-[120px]! pb-6!">
       <div className="section-content">
         <motion.div
           initial={{ opacity: 0, y: -6 }}
@@ -25,7 +25,7 @@ export default function LifeAtIpagBreadcrumbs({ className, items }: LifeAtIpagBr
           transition={{ duration: 0.35, ease: 'easeOut' }}
         >
           <Breadcrumbs
-            isLight
+            // isLight
             className={className ?? 'text-sm'}
             items={items ?? [...DEFAULT_ITEMS]}
           />
