@@ -1,14 +1,14 @@
 import type { Metadata } from 'next';
-import { Plus_Jakarta_Sans } from 'next/font/google';
+// import { Plus_Jakarta_Sans } from 'next/font/google';
 import '@/globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import AppChrome from '@/components/AppChrome';
 
-const plusJakarta = Plus_Jakarta_Sans({
-  subsets: ['latin', 'vietnamese'],
-  variable: '--font-plus-jakarta',
-});
+// const plusJakarta = Plus_Jakarta_Sans({
+//   subsets: ['latin', 'vietnamese'],
+//   variable: '--font-plus-jakarta',
+// });
 
 export const metadata: Metadata = {
   title: 'IPAG Career',
@@ -21,8 +21,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="vi" className={plusJakarta.variable}>
-      <body className={`${plusJakarta.className} antialiased`}>
+    <html lang="vi">
+      <body>
         <AppChrome>
           <main>{children}</main>
         </AppChrome>

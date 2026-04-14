@@ -197,7 +197,7 @@ export default function Jobs() {
 
                     <div className="hidden h-px w-full bg-black/10 lg:block" />
                     <Link
-                      href="#"
+                      href={`/jobs/${index + 1}`}
                       className="hidden h-10 w-[155px] items-center justify-center rounded-full text-[16px] font-semibold leading-[1.4] text-white shadow-[0px_4px_8px_0px_rgba(0,0,0,0.15)] lg:inline-flex"
                       style={{
                         backgroundImage:

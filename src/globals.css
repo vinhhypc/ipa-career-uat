@@ -6,7 +6,8 @@
 }
 
 @theme {
-  --font-sans: var(--font-plus-jakarta), ui-sans-serif, system-ui, sans-serif;
+  /* --font-sans: var(--font-plus-jakarta), ui-sans-serif, system-ui, sans-serif; */
+  /* --font-sans: 'Roboto', ui-sans-serif, system-ui, sans-serif; */
   --color-brand-primary: #d2bea5;
   --color-bg-primary: #060d16;
   --color-text-secondary: #59798f;
