@@ -1,11 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import {
-  ChevronDown,
-  MapPin,
-  Search,
-} from 'lucide-react';
+import { ChevronDown, MapPin, Search } from 'lucide-react';
 
 import Breadcrumbs from '@/components/Breadcrumbs';
 
@@ -23,20 +19,69 @@ type JobItem = {
 };
 
 const JOBS: JobItem[] = [
-  { tag: 'Chuyển đổi số', title: 'Chuyên viên phân tích nghiệp vụ (Digital BA)', location: 'Hà Nội', experience: '3-5 năm' },
-  { tag: 'Chuyển đổi số', title: 'Kỹ sư phát triển phần mềm (Software Development Engineer)', location: 'Hà Nội', experience: '2-3 năm' },
-  { tag: 'Chuyển đổi số', title: 'Chuyên viên cao cấp IT Quality Management', location: 'Hà Nội', experience: '4-6 năm' },
-  { tag: 'Chuyển đổi số', title: 'Chuyên viên tư vấn khách hàng (CSA)', location: 'Hà Nội', experience: '2 năm' },
-  { tag: 'Tiêu dùng xanh', title: 'Chuyên viên tư vấn khách hàng (CSO Next Gen)', location: 'Hà Nội/Hồ Chí Minh /Thanh Hóa', experience: '1-2 năm' },
-  { tag: 'Tiêu dùng xanh', title: 'Trưởng nhóm tư vấn khách hàng Dstation', location: 'Hà Nội/Hồ Chí Minh /Thanh Hóa', experience: '3 năm' },
-  { tag: 'Đầu tư tài chính lâu dài', title: 'Nhân viên dịch vụ chứng khoán/môi giới chứng khoán', location: 'Toàn quốc', experience: '1 năm' },
-  { tag: 'Đầu tư tài chính lâu dài', title: 'Trưởng phòng kinh doanh dịch vụ chứng khoán', location: 'Toàn quốc (Ưu tiên Hà Nội/Hồ Chí Minh)', experience: '3-5 năm' },
-  { tag: 'Đầu tư tài chính lâu dài', title: 'Nhân viên dịch vụ chứng khoán/môi giới chứng khoán', location: 'Toàn quốc', experience: '1 năm' },
-  { tag: 'Đầu tư tài chính lâu dài', title: 'Trưởng phòng kinh doanh dịch vụ chứng khoán', location: 'Toàn quốc (Ưu tiên Hà Nội/Hồ Chí Minh)', experience: '3-5 năm' },
+  {
+    tag: 'Chuyển đổi số',
+    title: 'Chuyên viên phân tích nghiệp vụ (Digital BA)',
+    location: 'Hà Nội',
+    experience: '3-5 năm',
+  },
+  {
+    tag: 'Chuyển đổi số',
+    title: 'Kỹ sư phát triển phần mềm (Software Development Engineer)',
+    location: 'Hà Nội',
+    experience: '2-3 năm',
+  },
+  {
+    tag: 'Chuyển đổi số',
+    title: 'Chuyên viên cao cấp IT Quality Management',
+    location: 'Hà Nội',
+    experience: '4-6 năm',
+  },
+  {
+    tag: 'Chuyển đổi số',
+    title: 'Chuyên viên tư vấn khách hàng (CSA)',
+    location: 'Hà Nội',
+    experience: '2 năm',
+  },
+  {
+    tag: 'Tiêu dùng xanh',
+    title: 'Chuyên viên tư vấn khách hàng (CSO Next Gen)',
+    location: 'Hà Nội/Hồ Chí Minh /Thanh Hóa',
+    experience: '1-2 năm',
+  },
+  {
+    tag: 'Tiêu dùng xanh',
+    title: 'Trưởng nhóm tư vấn khách hàng Dstation',
+    location: 'Hà Nội/Hồ Chí Minh /Thanh Hóa',
+    experience: '3 năm',
+  },
+  {
+    tag: 'Đầu tư tài chính lâu dài',
+    title: 'Nhân viên dịch vụ chứng khoán/môi giới chứng khoán',
+    location: 'Toàn quốc',
+    experience: '1 năm',
+  },
+  {
+    tag: 'Đầu tư tài chính lâu dài',
+    title: 'Trưởng phòng kinh doanh dịch vụ chứng khoán',
+    location: 'Toàn quốc (Ưu tiên Hà Nội/Hồ Chí Minh)',
+    experience: '3-5 năm',
+  },
+  {
+    tag: 'Đầu tư tài chính lâu dài',
+    title: 'Nhân viên dịch vụ chứng khoán/môi giới chứng khoán',
+    location: 'Toàn quốc',
+    experience: '1 năm',
+  },
+  {
+    tag: 'Đầu tư tài chính lâu dài',
+    title: 'Trưởng phòng kinh doanh dịch vụ chứng khoán',
+    location: 'Toàn quốc (Ưu tiên Hà Nội/Hồ Chí Minh)',
+    experience: '3-5 năm',
+  },
 ];
 
 export default function Jobs() {
-
   return (
     <div className="bg-white">
       <div className="border-b border-black/5 bg-white pt-[88px] lg:pt-[104px]">
@@ -169,7 +214,9 @@ export default function Jobs() {
                       <span className="rounded bg-[#d9e6f2] px-2 py-1 text-[10px] font-semibold leading-[1.4] text-[#707070] lg:text-[12px]">
                         {job.tag}
                       </span>
-                      <span className="hidden text-[14px] leading-[26px] text-[#707070] lg:block">30/3/2026</span>
+                      <span className="hidden text-[14px] leading-[26px] text-[#707070] lg:block">
+                        30/3/2026
+                      </span>
                     </div>
 
                     <div className="flex flex-col gap-2">
@@ -179,7 +226,11 @@ export default function Jobs() {
                       <div className="min-w-0 text-[14px] leading-5 text-[#474747] lg:text-[16px] lg:leading-[26px]">
                         <div className="hidden items-center gap-2 lg:flex">
                           <span className="inline-flex items-center gap-1">
-                            <MapPin className="size-5 text-[#707070]" strokeWidth={1.6} aria-hidden />
+                            <MapPin
+                              className="size-5 text-[#707070]"
+                              strokeWidth={1.6}
+                              aria-hidden
+                            />
                             {job.location}
                           </span>
                           <span className="size-1 rounded-full bg-black/25" />
