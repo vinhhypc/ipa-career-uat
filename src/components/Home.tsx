@@ -26,6 +26,8 @@ import homeIdentity4 from '@/assets/home/home-identity-4.jpg';
 import homeJourney from '@/assets/home/home-journey.png';
 import homeJourney2 from '@/assets/home/home-journey-2.png';
 import homeBanner from '@/assets/home/banner.png';
+import homeIpag from '@/assets/home/home-ipag.png';
+import { useTypewriter } from '@/lib/useTypewriter';
 
 const IMG = {
   identity1: homeIdentity1,
@@ -148,9 +150,30 @@ export default function Home() {
 }
 
 function HeroSection() {
+  const speedMs = 32;
+  const startDelayMs = 250;
+
+  const word1 = 'năng lực';
+  const word2 = 'giá trị';
+
+  const {
+    content: word1Content,
+    caret: word1Caret,
+    isDone: isWord1Done,
+    totalChars: word1TotalChars,
+  } = useTypewriter([{ kind: 'text', text: word1 }], speedMs, startDelayMs);
+
+  const word2StartDelayMs = startDelayMs + word1TotalChars * speedMs + 200;
+
+  const {
+    content: word2Content,
+    caret: word2Caret,
+    isDone: isWord2Done,
+  } = useTypewriter([{ kind: 'text', text: word2 }], speedMs, word2StartDelayMs);
+
   return (
     <section
-      className="section-padding relative min-h-[800px] overflow-hidden bg-cover bg-center bg-no-repeat px-0! pb-0! pt-0! md:min-h-screen"
+      className="section-padding relative min-h-[600px] overflow-hidden bg-cover bg-center bg-no-repeat px-0! pb-0! pt-0! md:min-h-screen"
       style={{
         backgroundImage: `url(${homeBanner.src})`,
       }}
@@ -167,12 +190,15 @@ function HeroSection() {
 
       <div className="section-content relative z-10 flex flex-col gap-8 px-5 pb-8 pt-[120px] md:gap-12 md:px-12 md:pb-28 lg:min-h-[calc(800px-5rem)] lg:flex-row lg:items-center lg:justify-between lg:gap-8 lg:px-20">
         <div id="apply" className="scroll-mt-28 text-center lg:max-w-[900px] lg:text-left">
-          <h1 className="mb-5 text-2xl font-extrabold uppercase leading-[40px] tracking-[1px] text-[#fbc17b] drop-shadow-md md:mb-9 md:text-5xl md:leading-[1.15] md:tracking-[2px]">
-            <span className="text-white">Khai phóng</span> năng lực,
+          <h1 className="mb-5 text-2xl font-extrabold uppercase leading-[40px] tracking-[1px] text-[#fbc17b] drop-shadow-md md:mb-9 md:text-5xl md:leading-[1.25] md:tracking-[2px]">
+            <span className="text-white">Khai phóng</span> {word1Content}
+            {!isWord1Done ? word1Caret : null}
+            {isWord1Done ? ',' : null}
             <br />
             <span className="text-white">kiến tạo </span>
-            giá trị
-            <span className="text-white"> bền vững</span>
+            {word2Content}
+            {isWord1Done && !isWord2Done ? word2Caret : null}{' '}
+            <span className="text-white">bền vững</span>
           </h1>
           <p className="mb-5 text-sm leading-[22px] tracking-[0.14px] text-white md:mb-8 md:max-w-[747px] md:text-lg md:leading-[1.85]">
             <span className="font-medium">Tại IPAG, chúng tôi tìm kiếm những </span>
@@ -289,8 +315,8 @@ function PotentialIdentitySection() {
               KHAI PHÓNG GIÁ TRỊ
             </h2>
           </div>
-          <div className="relative flex size-[188px] shrink-0 items-center justify-center rounded-full border border-[#b8d2ea] bg-white text-[62px] font-black leading-none text-[#003b7a] shadow-[0_0_0_6px_rgba(188,214,238,0.28)]">
-            IPAG
+          <div className="relative flex size-[188px] shrink-0 items-center justify-center overflow-hidden rounded-full  bg-white ">
+            <Image src={homeIpag} alt="IPAG" fill className="object-contain" sizes="188px" />
           </div>
         </div>
 
@@ -308,8 +334,8 @@ function PotentialIdentitySection() {
             </h2>
           </div>
 
-          <div className="relative flex size-[188px] shrink-0 items-center justify-center rounded-full border border-[#b8d2ea] bg-white text-[62px] font-black leading-none text-[#003b7a] shadow-[0_0_0_6px_rgba(188,214,238,0.28)] md:size-[256px] md:text-[72px]">
-            IPAG
+          <div className="relative flex size-[188px] shrink-0 items-center justify-center overflow-hidden rounded-full  bg-white ">
+            <Image src={homeIpag} alt="IPAG" fill className="object-contain" sizes="188px" />
           </div>
 
           <div className="w-full text-center lg:text-right">
@@ -561,7 +587,7 @@ function MidCtaBand() {
         <div className="section-content flex flex-col items-center">
           <div className="text-center">
             <h2 className="font-bold tracking-[0.4px] text-[#002b5b] text-[28px] leading-[1.35] md:text-[40px] md:leading-[56px]">
-              Chọn lĩnh vực phù hợp để bắt đầu
+              Chọn lĩnh vực phù hợp để bắt&nbsp;đầu
               <br />
               hành trình <span className="text-[#de8f10]">kiến tạo giá trị.</span>
             </h2>

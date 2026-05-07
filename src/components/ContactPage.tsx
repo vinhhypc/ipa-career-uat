@@ -252,7 +252,9 @@ export default function ContactPage() {
           <div className="mx-auto grid w-full max-w-[1115px] gap-10 lg:grid-cols-[1fr_420px] lg:items-start">
             <motion.div className="grid gap-8 md:grid-cols-2" variants={ITEM_REVEAL}>
               <div>
-                <p className="text-2xl font-extrabold uppercase  text-[#145194]">HÀ NỘI -</p>
+                <p className="text-2xl font-extrabold uppercase text-[#145194] after:mt-2 after:block after:w-21 after:border-b-2 after:border-[#145194]">
+                  HÀ NỘI
+                </p>
                 <div className="mt-5 space-y-5">
                   <OfficeItem
                     index="01"
@@ -274,7 +276,9 @@ export default function ContactPage() {
               </div>
 
               <div>
-                <p className="text-2xl font-extrabold uppercase  text-[#145194]">HỒ CHÍ MINH</p>
+                <p className="text-2xl font-extrabold uppercase text-[#145194] after:mt-2 after:block after:w-21 after:border-b-2 after:border-[#145194]">
+                  HỒ CHÍ MINH
+                </p>
                 <div className="mt-5 space-y-5">
                   <OfficeItem
                     index="05"
@@ -498,8 +502,8 @@ function OfficeItem({ index, title, address }: { index: string; title: string; a
         {index} · {title}
       </p>
       <div className="flex items-start gap-1">
-        <MapPin size={16} className="mt-1 font-light text-[#6b7280]" />
-        <p className="text-sm leading-6 text-[#6b7280]">{address}</p>
+        <MapPin size={16} className="mt-1 font-light text-gray-700" />
+        <p className="text-sm leading-6 text-gray-700">{address}</p>
       </div>
     </div>
   );

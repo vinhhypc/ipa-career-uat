@@ -3,7 +3,16 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import type { LucideIcon } from 'lucide-react';
-import { ArrowRight, BadgeCheck, Briefcase, ChevronDown, GraduationCap, Globe } from 'lucide-react';
+import {
+  ArrowRight,
+  BadgeCheck,
+  Briefcase,
+  Check,
+  ChevronDown,
+  GraduationCap,
+  Globe,
+} from 'lucide-react';
+import { useState } from 'react';
 
 import homeBanner from '@/assets/ma-program/banner.png';
 import maHeroDecor from '@/assets/ma-program/hero-decor.png';
@@ -16,48 +25,92 @@ const PATHWAYS = [
     variant: 'blue' as const,
     title: 'PRODUCT MANAGER',
     description: 'Từ insight của người dùng đến sản phẩm mà thị trường cần',
+    keyWork: [
+      'Thiết kế, launch và scale sản phẩm với impact đo được',
+      'Phối hợp cross-functional: Marketing, Engineering, Analytics',
+      'Học cách đưa insight thành chiến lược sản phẩm cụ thể',
+    ],
+    fit: 'Ngành Business/Marketing/Engineering · Tư duy phân tích · Excel, Power BI, Jira/Notion',
   },
   {
     n: 2,
     variant: 'cream' as const,
     title: 'DIGITAL TRANSFORMATION LEAD',
     description: 'Biến công nghệ thành lời thế vận hành thực sự',
+    keyWork: [
+      'Dẫn dắt dự án chuyển đổi số tại các đơn vị trong hệ sinh thái',
+      'Kết nối công nghệ, data và con người để tạo giá trị đo được',
+      'Học các frameworks: process re-engineering, automation, agile',
+    ],
+    fit: 'Digital platforms · Data analytics · Agile delivery · Phân tích business process',
   },
   {
     n: 3,
     variant: 'cream' as const,
     title: 'BUSINESS DEVELOPMENT MANAGER',
-    description: 'Xây dựng và phát triển cơ hội kinh doanh có chiều sâu',
+    description: 'Xây dựng và phát triền cơ hội kinh doanh có chiều sâu',
+    keyWork: [
+      'Client acquisition, partnership và commercial growth strategy',
+      'Thiết kế business plan, market expansion và portfolio optimization',
+      'Làm việc trực tiếp với các đơn vị trong hệ sinh thái HWG',
+    ],
+    fit: 'Communication & negotiation · Financial data analysis · Entrepreneurial mindset',
   },
   {
     n: 4,
     variant: 'blue' as const,
     title: 'INNOVATION PROJECT MANAGER',
     description: 'Hiện thực hóa ý tưởng mới từ khái niệm đến kết quả đo được',
+    keyWork: [
+      'Quản lý innovation projects, hackathons và intrapreneurship',
+      'Từ ideation → prototype → pilot testing trong hệ sinh thái thật',
+      'Hợp tác với startups và innovation labs trong và ngoài IPAG',
+    ],
+    fit: 'Creative problem-solving · Design thinking · Agile / Lean · Curious & experimental mindset',
   },
   {
     n: 5,
     variant: 'blue' as const,
     title: 'STRATEGY & OPERATIONS MANAGER',
     description: 'Chuyển mục tiêu chiến lược thành hành động vận hành cụ thể',
+    keyWork: [
+      'Tiếp xúc corporate strategy, performance management và operational excellence',
+      'Xây dựng data-driven frameworks để tối ưu KPIs đa phòng ban',
+      'Thiết kế business plans và theo dõi hiệu suất vận hành',
+    ],
+    fit: 'Tư duy định lượng · Organizational structures · Excel, Power BI',
   },
   {
     n: 6,
     variant: 'cream' as const,
     title: 'CUSTOMER EXPERIENCE MANAGER',
     description: 'Thiết kế hành trình khách hàng mà họ nhớ mãi',
+    keyWork: [
+      'Customer journeys trên cả kênh digital và trực tiếp',
+      'Customer insights, behavioral analytics và service design',
+      'Cải thiện NPS và loyalty cho các thương hiệu trong HWG',
+    ],
+    fit: 'Empathy-driven mindset · Data interpretation · CX tools / analytics dashboards',
   },
   {
     n: 7,
     variant: 'cream' as const,
     title: 'CORPORATE GOVERNANCE LEAD',
     description: 'Gìn giữ chuẩn mực để tổ chức phát triển bền vững',
+    keyWork: [
+      'Hỗ trợ Board of Directors và hoạt động quản trị doanh nghiệp',
+      'Tuân thủ pháp lý, kiểm soát nội bộ và governance frameworks',
+      'Phối hợp các dự án quản trị cross-functional trong tập đoàn',
+    ],
+    fit: 'Ngành Law/Business/Finance · Governance & compliance · High integrity',
   },
 ] satisfies ReadonlyArray<{
   n: number;
   variant: 'blue' | 'cream';
   title: string;
   description: string;
+  keyWork: ReadonlyArray<string>;
+  fit: string;
 }>;
 
 const TIMELINE = [
@@ -168,6 +221,8 @@ function MaApplyButton({ className }: { className?: string }) {
 }
 
 export default function MaProgram() {
+  const [openPathwayIndex, setOpenPathwayIndex] = useState<number | null>(null);
+
   return (
     <div className="bg-white">
       <div className="border-b border-black/5 bg-white pt-[88px] lg:pt-[104px]">
@@ -250,43 +305,89 @@ export default function MaProgram() {
           </div>
 
           <div className="flex flex-col gap-4 md:grid md:grid-cols-2 md:gap-x-5 md:gap-y-6">
-            {PATHWAYS.map((p) => {
+            {PATHWAYS.map((p, i) => {
               const isBlue = p.variant === 'blue';
+              const isActive = i === openPathwayIndex;
               return (
                 <div
                   key={p.n}
-                  className="relative overflow-visible rounded-[28px] shadow-[0px_4px_15px_0px_rgba(0,0,0,0.12)] md:rounded-[32px]"
+                  className="relative overflow-visible rounded-[28px] md:rounded-[32px]"
                 >
                   <PathwayNumberRibbon n={p.n} />
-                  <div
-                    className={`flex items-end gap-2 rounded-[28px] px-4 py-5 md:rounded-[32px] md:px-7 md:py-8 ${
-                      isBlue
-                        ? 'bg-gradient-to-br from-[#3192e3] to-[#01386f] text-white'
-                        : 'bg-gradient-to-br from-[#ffe4c4] to-[#fbbf76] text-[#292929]'
-                    }`}
-                  >
-                    <div className="flex min-w-0 flex-1 flex-col gap-2 md:gap-2">
-                      <p className="text-[16px] font-bold leading-[24px] md:text-[24px] md:leading-[32px]">
-                        {p.title}
-                      </p>
-                      <div
-                        className={`text-[14px] font-medium leading-[20px] md:text-[18px] md:leading-[26px] ${
-                          isBlue ? 'text-white' : 'text-[#474747]'
-                        }`}
-                      >
-                        {p.description}
-                      </div>
-                    </div>
-                    <div
-                      className={`relative z-20 flex size-6 shrink-0 items-center justify-center rounded-full border p-1 md:size-7 ${
-                        isBlue ? 'border-white bg-[#06427c]' : 'border-[#707070] bg-[#fff1df]'
+                  <div className="overflow-hidden rounded-[28px] bg-white shadow-[0px_4px_15px_0px_rgba(0,0,0,0.12)] md:rounded-[32px]">
+                    <button
+                      type="button"
+                      onClick={() => setOpenPathwayIndex((prev) => (prev === i ? null : i))}
+                      aria-expanded={isActive}
+                      aria-controls={`pathway-panel-${p.n}`}
+                      className={`flex w-full items-end gap-2 px-4 py-5 text-left transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#fbc17b]/70 md:px-7 md:py-8 ${
+                        isBlue
+                          ? 'bg-gradient-to-br from-[#3192e3] to-[#01386f] text-white'
+                          : 'bg-gradient-to-br from-[#ffe4c4] to-[#fbbf76] text-[#292929]'
                       }`}
-                      aria-hidden
                     >
-                      <ChevronDown
-                        className={`size-5 md:size-7 ${isBlue ? 'text-white' : 'text-[#474747]'}`}
-                        strokeWidth={2}
-                      />
+                      <div className="flex min-w-0 flex-1 flex-col gap-2 md:gap-2">
+                        <p className="text-[16px] font-bold leading-[24px] md:text-[24px] md:leading-[32px]">
+                          {p.title}
+                        </p>
+                        <div
+                          className={`text-[14px] font-medium leading-[20px] md:text-[18px] md:leading-[26px] ${
+                            isBlue ? 'text-white' : 'text-[#474747]'
+                          }`}
+                        >
+                          {p.description}
+                        </div>
+                      </div>
+                      <div
+                        className={`relative z-20 flex size-6 shrink-0 items-center justify-center rounded-full border p-1 md:size-7 ${
+                          isBlue ? 'border-white bg-[#06427c]' : 'border-[#707070] bg-[#fff1df]'
+                        }`}
+                        aria-hidden
+                      >
+                        <ChevronDown
+                          className={`size-5 transition-transform md:size-7 ${
+                            isActive ? 'rotate-180' : ''
+                          } ${isBlue ? 'text-white' : 'text-[#474747]'}`}
+                          strokeWidth={2}
+                        />
+                      </div>
+                    </button>
+
+                    <div
+                      id={`pathway-panel-${p.n}`}
+                      className={`overflow-hidden bg-white transition-[max-height,opacity,transform] duration-300 ease-out motion-reduce:transition-none ${
+                        isActive
+                          ? 'max-h-[520px] opacity-100 translate-y-0'
+                          : 'max-h-0 opacity-0 -translate-y-1'
+                      }`}
+                    >
+                      <div className="flex flex-col gap-3 px-4 pt-4 md:px-7 md:pt-4">
+                        <p className="text-[14px] font-bold leading-[22px] text-[#474747] md:text-[16px] md:leading-[26px]">
+                          KEY WORK
+                        </p>
+                        <ul className="space-y-2">
+                          {p.keyWork.map((line) => (
+                            <li
+                              key={line}
+                              className="flex gap-2 text-[14px] leading-[20px] text-[#474747] md:text-[16px] md:leading-[22px]"
+                            >
+                              <Check
+                                className="mt-0.5 size-5 shrink-0 text-[#00377c]"
+                                strokeWidth={2}
+                                aria-hidden
+                              />
+                              <span className="min-w-0 flex-1">{line}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+
+                      <div className="mx-4 mt-4 h-px bg-black/10 md:mx-7" aria-hidden />
+
+                      <p className="px-4 pb-5 pt-4 text-[14px] font-normal leading-[22px] text-[#474747] md:px-7 md:pb-8">
+                        <span className="font-semibold italic">Phù hợp:</span>{' '}
+                        <span className="italic">{p.fit}</span>
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -327,44 +428,38 @@ export default function MaProgram() {
           </div>
 
           <div className="relative flex flex-col gap-6 rounded-[20px] md:flex-row md:gap-5">
-            {/* <div
-              className="pointer-events-none absolute left-1/2 top-[30px] z-0 hidden w-[964px] max-w-[calc(100%-2rem)] -translate-x-1/2 md:block"
-              aria-hidden
-            >
-              <Image
-                src={maTimelineConnector}
-                alt=""
-                width={964}
-                height={4}
-                className="h-auto w-full opacity-90"
-              />
-            </div> */}
-
-            {TIMELINE.map((item) => (
-              <div
-                key={item.n}
-                className="relative z-[1] flex flex-col items-center gap-4 md:flex-1 md:gap-7"
-              >
-                <div className="relative flex size-10 items-center justify-center rounded-bl-[12px] rounded-br-[4px] rounded-tl-[4px] rounded-tr-[12px] bg-gradient-to-b from-[#3192e3] to-[#01386f] shadow-[0px_20px_25px_-5px_rgba(0,0,0,0.1),0px_8px_10px_-6px_rgba(0,0,0,0.1)] md:size-[60px]">
-                  <span className="text-[18px] font-extrabold leading-[32px] text-white md:text-[24px]">
-                    {item.n}
-                  </span>
-                </div>
-                <div className="flex w-full flex-col items-center gap-1 text-center md:gap-1">
-                  <p className="text-[14px] font-semibold leading-[1.48] tracking-[0.14px] text-[#00377c] md:text-[18px] md:tracking-[0.18px]">
-                    {item.period}
-                  </p>
-                  <div className="flex w-full flex-col gap-2 md:gap-4">
-                    <p className="text-[16px] font-bold leading-[22px] text-[#292929] md:text-[24px] md:leading-[32px]">
-                      {item.title}
+            {TIMELINE.map((item, i) => {
+              const isLast = i === TIMELINE.length - 1;
+              return (
+                <div
+                  key={item.n}
+                  className={`relative z-[1] flex flex-col items-center gap-4 md:flex-1 md:gap-7 ${
+                    isLast
+                      ? ''
+                      : "md:after:absolute md:after:left-1/2 md:after:top-[30px] md:after:z-[-1] md:after:w-[calc(100%+1.25rem)] md:after:border-t-2 md:after:border-dashed md:after:border-[#7b93c7] md:after:opacity-80 md:after:content-['']"
+                  }`}
+                >
+                  <div className="relative flex size-10 items-center justify-center rounded-bl-[12px] rounded-br-[4px] rounded-tl-[4px] rounded-tr-[12px] bg-gradient-to-b from-[#3192e3] to-[#01386f] shadow-[0px_20px_25px_-5px_rgba(0,0,0,0.1),0px_8px_10px_-6px_rgba(0,0,0,0.1)] md:size-[60px]">
+                    <span className="text-[18px] font-extrabold leading-[32px] text-white md:text-[24px]">
+                      {item.n}
+                    </span>
+                  </div>
+                  <div className="flex w-full flex-col items-center gap-1 text-center md:gap-1">
+                    <p className="text-[14px] font-semibold leading-[1.48] tracking-[0.14px] text-[#00377c] md:text-[18px] md:tracking-[0.18px]">
+                      {item.period}
                     </p>
-                    <div className="text-[14px] font-normal leading-[20px] text-[#474747] md:text-[16px] md:leading-[22px]">
-                      {item.body}
+                    <div className="flex w-full flex-col gap-2 md:gap-4">
+                      <p className="text-[16px] font-bold leading-[22px] text-[#292929] md:text-[24px] md:leading-[32px]">
+                        {item.title}
+                      </p>
+                      <div className="text-[14px] font-normal leading-[20px] text-[#474747] md:text-[16px] md:leading-[22px]">
+                        {item.body}
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
@@ -426,32 +521,35 @@ export default function MaProgram() {
 
             <div className="rounded-[20px] bg-white px-4 py-5 shadow-[0px_4px_4px_0px_rgba(0,0,0,0.15)] md:w-[521px] md:max-w-full md:rounded-[32px] md:px-10 md:py-8">
               <div className="flex flex-col gap-4 md:flex-row md:gap-7">
-                <div
-                  className="relative hidden w-0 shrink-0 md:block md:min-h-[320px] md:w-2 md:self-stretch"
-                  aria-hidden
-                >
-                  <div className="absolute bottom-8 left-[5px] top-8 border-l-2 border-dashed border-[#cacaca] opacity-70" />
-                </div>
                 <div className="flex min-w-0 flex-1 flex-col gap-4 md:gap-6">
                   <h3 className="text-[18px] font-bold leading-[24px] tracking-[0.18px] text-[#292929] md:text-[24px] md:leading-[33px] md:tracking-[0.24px]">
                     Quy trình tuyển chọn
                   </h3>
-                  <div className="flex flex-col gap-3">
+                  <div className="relative flex flex-col gap-3">
+                    <div
+                      className="absolute bottom-2 left-[5px] top-2 z-0 border-l-2 border-dashed border-[#cacaca] opacity-70"
+                      aria-hidden
+                    />
                     {SELECTION_STEPS.map((label, i) => (
-                      <div
-                        key={label}
-                        className={`flex items-center gap-2 rounded-xl border border-[rgba(123,193,255,0.6)] bg-[rgba(202,230,255,0.18)] px-[13px] py-[5px] backdrop-blur-[12px] md:w-full md:max-w-[400px] md:rounded-[20px] md:px-[17px] md:py-[9px] ${
-                          i === 0 ? 'md:gap-4' : ''
-                        }`}
-                      >
-                        <div className="flex size-7 shrink-0 items-center justify-center rounded-full bg-[#d9e6f2] md:size-10">
-                          <span className="text-[16px] font-bold leading-[24px] text-[#002b5b]">
-                            {i + 1}
-                          </span>
+                      <div key={label} className="relative z-[1] flex items-center gap-3">
+                        <div
+                          className="size-3 shrink-0 rounded-full border-2 border-[#3192e3] bg-white"
+                          aria-hidden
+                        />
+                        <div
+                          className={`flex min-w-0 flex-1 items-center gap-2 rounded-xl border border-[rgba(123,193,255,0.6)] bg-[rgba(202,230,255,0.18)] px-[13px] py-[5px] backdrop-blur-[12px] md:w-full md:max-w-[400px] md:rounded-[20px] md:px-[17px] md:py-[9px] ${
+                            i === 0 ? 'md:gap-4' : ''
+                          }`}
+                        >
+                          <div className="flex size-7 shrink-0 items-center justify-center rounded-full bg-[#d9e6f2] md:size-10">
+                            <span className="text-[16px] font-bold leading-[24px] text-[#002b5b]">
+                              {i + 1}
+                            </span>
+                          </div>
+                          <p className="text-[14px] font-semibold leading-7 text-[#474747] md:text-[18px] md:leading-[28px]">
+                            {label}
+                          </p>
                         </div>
-                        <p className="text-[14px] font-semibold leading-7 text-[#474747] md:text-[18px] md:leading-[28px]">
-                          {label}
-                        </p>
                       </div>
                     ))}
                   </div>

@@ -1,5 +1,15 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { MoveLeft } from 'lucide-react';
+
+import { createPageMetadata } from '@/lib/seo';
+
+export const metadata: Metadata = createPageMetadata({
+  title: '404 - Không tìm thấy',
+  description: 'Trang bạn tìm kiếm không tồn tại hoặc đã được di dời.',
+  pathname: '/404',
+  noIndex: true,
+});
 
 export default function NotFound() {
   return (
