@@ -81,17 +81,36 @@ export default function Footer() {
               <ul className="space-y-4 text-sm text-white">
                 <li className="flex items-center gap-2">
                   <Mail className="size-5 shrink-0" strokeWidth={1.75} />
-                  <a href="mailto:nextgen@ipam.vn" className="leading-[1.4] hover:text-white/80">
+                  <a
+                    href="mailto:nextgen@ipam.vn"
+                    className="leading-[1.4] hover:text-white/80 transition-colors"
+                  >
                     nextgen@ipam.vn
                   </a>
                 </li>
-                <li className="flex items-center gap-2">
-                  <MapPin className="size-5 shrink-0" strokeWidth={1.75} />
-                  <span className="leading-[1.4]">HN: 95 Trần Thái Tông, Cầu Giấy, Hà Nội</span>
+                <li>
+                  <a
+                    href="https://www.google.com/maps/search/?api=1&query=95%20Tr%E1%BA%A7n%20Th%C3%A1i%20T%C3%B4ng%2C%20C%E1%BA%A7u%20Gi%E1%BA%A5y%2C%20H%C3%A0%20N%E1%BB%99i"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 leading-[1.4] transition-colors hover:text-white/80"
+                    aria-label="Mở bản đồ Google Maps: Hà Nội"
+                  >
+                    <MapPin className="size-5 shrink-0" strokeWidth={1.75} />
+                    <span>HN: 95 Trần Thái Tông, Cầu Giấy, Hà Nội</span>
+                  </a>
                 </li>
-                <li className="flex items-center gap-2">
-                  <MapPin className="size-5 shrink-0" strokeWidth={1.75} />
-                  <span className="leading-[1.4]">HCM: 95 90 Pasteur, Quận 1, TP. Hồ Chí Minh</span>
+                <li>
+                  <a
+                    href="https://www.google.com/maps/search/?api=1&query=90%20Pasteur%2C%20Qu%E1%BA%ADn%201%2C%20TP.%20H%E1%BB%93%20Ch%C3%AD%20Minh"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 leading-[1.4] transition-colors hover:text-white/80"
+                    aria-label="Mở bản đồ Google Maps: Hồ Chí Minh"
+                  >
+                    <MapPin className="size-5 shrink-0" strokeWidth={1.75} />
+                    <span>HCM: 95 90 Pasteur, Quận 1, TP. Hồ Chí Minh</span>
+                  </a>
                 </li>
               </ul>
             </div>

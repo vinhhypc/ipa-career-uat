@@ -644,34 +644,39 @@ export default function WeLookFor() {
             </p>
           </div>
 
-          <div className="flex flex-col rounded-[20px] lg:flex-row lg:gap-5">
+          <div className="flex flex-col rounded-[20px] lg:flex-row lg:items-stretch lg:gap-5">
             {RECRUITMENT_STEPS.map((step) => (
-              <div key={step.n} className="flex flex-col pb-8 last:pb-0 lg:flex-1 lg:pb-[60px]">
-                <div className="relative z-0 mb-[-32px] flex flex-col items-center gap-4 rounded-[20px] bg-white px-5 pb-10 pt-5 shadow-[0px_4px_15px_0px_rgba(0,0,0,0.12)] lg:mb-[-60px] lg:gap-6 lg:rounded-[32px] lg:px-5 lg:pb-20 lg:pt-10">
-                  <img alt="" src={step.icon} className="size-8 shrink-0 lg:size-10" />
-                  <div className="flex flex-col gap-1 text-center lg:gap-2">
-                    <h3 className="text-[16px] font-bold leading-6 text-[#292929] lg:text-2xl lg:leading-[34px]">
-                      {step.title}
-                    </h3>
-                    <div className="text-[14px] font-normal leading-5 text-[#474747] lg:text-base lg:leading-6">
-                      <div className="lg:hidden">
-                        {step.lines.map((line, li) => (
-                          <p key={li} className="mb-0">
-                            {line}
-                          </p>
-                        ))}
-                      </div>
-                      <div className="hidden lg:block">
-                        {step.linesLg.map((line, li) => (
-                          <p key={li} className="mb-0">
-                            {line}
-                          </p>
-                        ))}
+              <div
+                key={step.n}
+                className="flex flex-col pb-8 last:pb-0 lg:flex-1 lg:self-stretch lg:pb-[60px] lg:last:pb-[60px]"
+              >
+                <div className="relative z-0 flex flex-1 flex-col transition-transform duration-200 ease-out will-change-transform hover:z-20 hover:scale-[1.02] motion-reduce:transform-none">
+                  <div className="relative z-0 mb-[-32px] flex flex-1 flex-col items-center gap-4 rounded-[20px] bg-white px-5 pb-10 pt-5 shadow-[0px_4px_15px_0px_rgba(0,0,0,0.12)] lg:mb-[-60px] lg:gap-6 lg:rounded-[32px] lg:px-5 lg:pb-20 lg:pt-10">
+                    <img alt="" src={step.icon} className="size-8 shrink-0 lg:size-10" />
+                    <div className="flex flex-col gap-1 text-center lg:gap-2">
+                      <h3 className="text-[16px] font-bold leading-6 text-[#292929] lg:text-2xl lg:leading-[34px]">
+                        {step.title}
+                      </h3>
+                      <div className="text-[14px] font-normal leading-5 text-[#474747] lg:text-base lg:leading-6">
+                        <div className="lg:hidden">
+                          {step.lines.map((line, li) => (
+                            <p key={li} className="mb-0">
+                              {line}
+                            </p>
+                          ))}
+                        </div>
+                        <div className="hidden lg:block">
+                          {step.linesLg.map((line, li) => (
+                            <p key={li} className="mb-0">
+                              {line}
+                            </p>
+                          ))}
+                        </div>
                       </div>
                     </div>
                   </div>
+                  <DiamondStep n={step.n} bg={step.diamond} blur={step.blur} />
                 </div>
-                <DiamondStep n={step.n} bg={step.diamond} blur={step.blur} />
               </div>
             ))}
           </div>

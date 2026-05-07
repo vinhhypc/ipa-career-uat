@@ -133,6 +133,33 @@ const BLOCKS: BenefitBlock[] = [
   },
 ];
 
+const BLOCK_VIEWPORT = { once: true, amount: 0.22 } as const;
+
+const BLOCK_TITLE_VARIANTS = {
+  hidden: { opacity: 0, y: 10 },
+  show: { opacity: 1, y: 0 },
+} as const;
+
+const BLOCK_IMAGE_VARIANTS = {
+  hidden: { opacity: 0, y: 16, scale: 0.985 },
+  show: { opacity: 1, y: 0, scale: 1 },
+} as const;
+
+const BLOCK_CONTENT_CONTAINER_VARIANTS = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.085,
+      delayChildren: 0.05,
+    },
+  },
+} as const;
+
+const BLOCK_CONTENT_ITEM_VARIANTS = {
+  hidden: (xOffset: number) => ({ opacity: 0, x: xOffset }),
+  show: { opacity: 1, x: 0, transition: { duration: 0.55, ease: 'easeOut' } },
+} as const;
+
 export default function CheDoDaiNgoPage() {
   return (
     <div className="bg-white">
@@ -144,17 +171,17 @@ export default function CheDoDaiNgoPage() {
         ]}
       />
 
-      <section className="relative -mt-2 overflow-hidden bg-[#0b1a27]">
-        <div className="relative h-[240px] w-full md:h-[320px] lg:h-[380px]">
+      <section className="relative -mt-2 overflow-hidden ">
+        <div className="relative h-[420px] w-full sm:h-[460px] md:h-[480px] lg:h-[640px]">
           <Image
             src="/life-at-ipag/che-do-dai-ngo/figma/hero-bg.png"
             alt=""
             fill
             priority
-            className="object-cover"
+            className="object-cover object-[70%_center] md:object-center"
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(3,16,30,0.65)_0%,rgba(3,16,30,0.55)_38%,rgba(3,16,30,0.25)_70%,rgba(3,16,30,0.15)_100%)]" />
+          <div className="absolute inset-0 " />
           <div className="absolute inset-0 flex flex-col items-center justify-center px-4 text-center">
             <motion.h1
               className="text-2xl font-extrabold uppercase tracking-[2px] text-white drop-shadow-md md:text-4xl lg:text-5xl"
@@ -165,55 +192,128 @@ export default function CheDoDaiNgoPage() {
               Chế độ đãi ngộ
             </motion.h1>
             <motion.div
-              className="mt-5 inline-flex items-center justify-center rounded-[10px] border border-white/35 bg-white/10 px-5 py-2.5 text-sm font-semibold text-white backdrop-blur-sm md:mt-6 md:px-7 md:py-3 md:text-base"
+              className="relative mt-5 h-[64px] w-full max-w-[860px] md:mt-6 md:h-[78px] lg:h-[92px]"
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
             >
-              Trao năng lực - Nhận tương lai
+              <Image
+                src="/life-at-ipag/che-do-dai-ngo/hero-header.png"
+                alt="Trao năng lực - Nhận tương lai"
+                fill
+                priority
+                className="object-contain"
+                sizes="(max-width: 768px) 92vw, (max-width: 1024px) 720px, 860px"
+              />
             </motion.div>
           </div>
         </div>
       </section>
 
       <section className="bg-[linear-gradient(180deg,#fbf9f6_0%,#ffffff_70%)]">
-        <div className="section-padding">
+        <div className="section-padding pt-0">
           <div className="section-content">
             <div className="mx-auto w-full max-w-[1115px]">
               {BLOCKS.map((b) => (
-                <div key={b.key} className="py-10 md:py-14">
-                  <SectionTitle title={b.heading} />
-                  <div className="mt-8 grid gap-8 lg:mt-10 lg:grid-cols-[460px_1fr] lg:items-center lg:gap-14">
+                <motion.div
+                  key={b.key}
+                  className="py-6 md:py-14"
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={BLOCK_VIEWPORT}
+                  transition={{ duration: 0.55, ease: 'easeOut' }}
+                >
+                  <motion.div
+                    variants={BLOCK_TITLE_VARIANTS}
+                    className={b.reverseOnDesktop ? 'flex justify-end' : 'flex justify-start'}
+                  >
                     <div
-                      className={`relative mx-auto w-full max-w-[420px] overflow-hidden rounded-[22px] bg-white shadow-[0_10px_24px_rgba(0,0,0,0.10)] sm:max-w-[520px] lg:max-w-none ${
-                        b.reverseOnDesktop ? 'lg:order-2' : 'lg:order-1'
+                      className={`w-full max-w-[420px] sm:max-w-[520px] lg:w-[587px] ${
+                        b.reverseOnDesktop ? 'ml-auto' : 'mr-auto'
                       }`}
                     >
-                      <div className="relative aspect-square lg:aspect-[4/3]">
-                        <Image
-                          src={b.imageSrc}
-                          alt={b.imageAlt}
-                          fill
-                          className="object-cover"
-                          sizes="(max-width: 1024px) 100vw, 460px"
-                        />
-                      </div>
+                      {b.reverseOnDesktop ? (
+                        <div className="flex items-center justify-end gap-3">
+                          <p className="text-[20px] font-extrabold uppercase tracking-[1px] text-[#292929] md:text-4xl">
+                            {b.heading}
+                          </p>
+                          <span className="h-[2px] w-14 bg-[#145194]" aria-hidden />
+                        </div>
+                      ) : (
+                        <div className="flex items-center justify-start gap-3">
+                          <span className="h-[2px] w-14 bg-[#145194]" aria-hidden />
+                          <p className="text-[20px] font-extrabold uppercase tracking-[1px] text-[#292929] md:text-4xl">
+                            {b.heading}
+                          </p>
+                        </div>
+                      )}
+                    </div>
+                  </motion.div>
+
+                  <div
+                    className={
+                      b.reverseOnDesktop
+                        ? 'mt-5 grid gap-8 lg:grid-cols-[1fr_587px] lg:items-center lg:gap-14'
+                        : 'mt-5 grid gap-8 lg:grid-cols-[587px_1fr] lg:items-center lg:gap-14'
+                    }
+                  >
+                    <div
+                      className={
+                        b.reverseOnDesktop ? 'lg:order-2 lg:justify-self-end' : 'lg:order-1'
+                      }
+                    >
+                      <motion.div
+                        variants={BLOCK_IMAGE_VARIANTS}
+                        className={`relative w-full max-w-[420px] overflow-hidden rounded-[24px] bg-white shadow-[0_10px_24px_rgba(0,0,0,0.10)] sm:max-w-[520px] lg:w-[587px] lg:max-w-none ${
+                          b.reverseOnDesktop ? 'ml-auto' : 'mr-auto'
+                        }`}
+                      >
+                        <div className="relative aspect-square">
+                          <Image
+                            src={b.imageSrc}
+                            alt={b.imageAlt}
+                            fill
+                            className="object-cover"
+                            sizes="(max-width: 1024px) 100vw, 587px"
+                          />
+                        </div>
+                      </motion.div>
                     </div>
 
                     <div className={b.reverseOnDesktop ? 'lg:order-1' : 'lg:order-2'}>
-                      <TagLine text={b.tag} />
-                      <p className="mt-5 text-[15px] font-semibold leading-7 text-[#145194] md:text-[17px] md:leading-8">
-                        {b.quote}
-                      </p>
+                      <motion.div
+                        variants={BLOCK_CONTENT_CONTAINER_VARIANTS}
+                        className="lg:flex lg:min-h-[587px] lg:flex-col lg:justify-center"
+                      >
+                        <motion.div
+                          variants={BLOCK_CONTENT_ITEM_VARIANTS}
+                          custom={b.reverseOnDesktop ? -56 : 56}
+                        >
+                          <TagLine text={b.tag} />
+                        </motion.div>
+                        <motion.p
+                          variants={BLOCK_CONTENT_ITEM_VARIANTS}
+                          custom={b.reverseOnDesktop ? -56 : 56}
+                          className="mt-5 text-[15px] font-semibold leading-7 text-[#145194] md:text-[17px] md:leading-8"
+                        >
+                          {b.quote}
+                        </motion.p>
 
-                      <div className="mt-7 space-y-4">
-                        {b.items.map((it) => (
-                          <BenefitRow key={it.title} {...it} />
-                        ))}
-                      </div>
+                        <div className="mt-7 space-y-4">
+                          {b.items.map((it) => (
+                            <motion.div
+                              key={it.title}
+                              variants={BLOCK_CONTENT_ITEM_VARIANTS}
+                              custom={b.reverseOnDesktop ? -56 : 56}
+                            >
+                              <BenefitRow {...it} />
+                            </motion.div>
+                          ))}
+                        </div>
+                      </motion.div>
                     </div>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
@@ -227,7 +327,7 @@ export default function CheDoDaiNgoPage() {
         </div>
         <div className="section-content relative">
           <div className="mx-auto w-full max-w-[1115px] text-center">
-            <p className="text-lg font-extrabold uppercase tracking-[1px] text-[#145194] md:text-2xl">
+            <p className="text-base font-extrabold uppercase  text-[#145194] md:text-2xl">
               SẴN SÀNG KIẾN TẠO DI SẢN CÙNG IPAG?
             </p>
             <Link
@@ -244,24 +344,12 @@ export default function CheDoDaiNgoPage() {
   );
 }
 
-function SectionTitle({ title }: { title: string }) {
-  return (
-    <div className="flex items-center justify-center gap-4">
-      <span className="h-px w-20 bg-[#d6dbe3] md:w-28" aria-hidden />
-      <h2 className="text-base font-extrabold uppercase tracking-[2px] text-[#292929] md:text-lg">
-        {title}
-      </h2>
-      <span className="h-px w-20 bg-[#d6dbe3] md:w-28" aria-hidden />
-    </div>
-  );
-}
-
 function TagLine({ text }: { text: string }) {
   return (
-    <div className="flex items-center justify-center gap-3 text-center lg:justify-start lg:text-left">
-      <span className="hidden h-px w-10 bg-[#d6dbe3] sm:block" aria-hidden />
-      <p className="text-[13px] font-semibold text-[#8a97a6]">{text}</p>
-      <span className="hidden h-px w-10 bg-[#d6dbe3] sm:block" aria-hidden />
+    <div className="flex justify-start">
+      <span className="inline-flex w-fit items-center rounded-[8px] bg-[#d9e6f2] px-4 py-2 text-[14px] font-semibold text-[#707070]">
+        {text}
+      </span>
     </div>
   );
 }
