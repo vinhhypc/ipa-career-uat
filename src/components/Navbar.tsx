@@ -4,10 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
-import { AnimatePresence, motion } from 'motion/react';
-
-const LIFE_AT_IPAG_HREF = '/life-at-ipag';
-const CONTACT_HREF = '/contact';
+import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
 
 export type NavbarProps = {
   forceLightNav?: boolean;
@@ -17,6 +14,7 @@ export default function Navbar({ forceLightNav = false }: NavbarProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const pathname = usePathname();
+  const reduceMotion = useReducedMotion();
 
   useEffect(() => {
     const onScroll = () => setIsScrolled(window.scrollY > 24);
@@ -25,20 +23,22 @@ export default function Navbar({ forceLightNav = false }: NavbarProps) {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  const isLifeAtIpag = pathname === LIFE_AT_IPAG_HREF || pathname.startsWith('/life-at-ipag');
-  const isContact = pathname === CONTACT_HREF;
-  const onLight = forceLightNav || isScrolled || isLifeAtIpag || isContact;
+  const onLight = forceLightNav || isScrolled;
   const isHome = pathname === '/';
-  const homeBase = isHome ? '' : '/';
 
   const navLinks = [
-    { label: 'IPAG insight', href: `${homeBase}#` },
-    { label: 'we look for', href: `${homeBase}#we-look-for` },
-    { label: 'life at IPAG', href: LIFE_AT_IPAG_HREF },
-    { label: 'CONTACT', href: CONTACT_HREF },
+    { label: 'IPAG insight', href: '/ipag-insight' },
+    { label: 'we look for', href: '/we-look-for' },
+    { label: 'life at IPAG', href: '/life-at-ipag' },
+    { label: 'CONTACT', href: '/contact' },
   ] as const;
 
-  const applyHref = isHome ? '#apply' : '/#apply';
+  const applyHref = isHome ? '/jobs' : '/jobs';
+
+  const navTapTransition = { type: 'spring' as const, stiffness: 520, damping: 28 };
+  const navTapScale = reduceMotion ? undefined : ({ scale: 0.92 } as const);
+  const navTapScaleSoft = reduceMotion ? undefined : ({ scale: 0.94 } as const);
+  const navTapScalePill = reduceMotion ? undefined : ({ scale: 0.95 } as const);
 
   return (
     <header
@@ -48,7 +48,7 @@ export default function Navbar({ forceLightNav = false }: NavbarProps) {
           : `transition-colors duration-300 ${onLight ? 'border-b border-black/5 bg-white shadow-sm' : 'bg-transparent'}`
       }`}
     >
-      <div className="section-content flex items-center justify-between py-4 lg:py-7">
+      <div className="section-content max-w-[1440px] flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2" onClick={() => setMobileOpen(false)}>
           <span
             className={`flex size-10 items-center justify-center rounded-lg text-xl font-bold ${
@@ -68,24 +68,41 @@ export default function Navbar({ forceLightNav = false }: NavbarProps) {
 
         <nav className="hidden items-center gap-8 lg:flex lg:gap-10">
           <ul className="flex items-center gap-8">
-            {navLinks.map((item) => (
-              <li key={item.label}>
-                <Link
-                  href={item.href}
-                  className={`text-sm font-normal uppercase tracking-[0.14em] transition-opacity hover:opacity-80 ${
-                    onLight ? 'text-neutral-800' : 'text-white'
-                  }`}
-                >
-                  {item.label}
-                </Link>
-              </li>
-            ))}
+            {navLinks.map((item) => {
+              const isActive = pathname === item.href || pathname.startsWith(item.href + '/');
+              return (
+                <li key={item.label}>
+                  <Link
+                    href={item.href}
+                    className={`text-sm uppercase tracking-[0.14em] transition-opacity hover:opacity-80 ${
+                      isActive
+                        ? `font-bold ${onLight ? 'text-[#002b5b]' : 'text-white'}`
+                        : `font-normal ${onLight ? 'text-neutral-500' : 'text-white/70'}`
+                    }`}
+                  >
+                    <motion.span
+                      className="inline-block origin-center will-change-transform"
+                      whileTap={navTapScale}
+                      transition={navTapTransition}
+                    >
+                      {item.label}
+                    </motion.span>
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
           <Link
             href={applyHref}
             className="rounded-full bg-white px-5 py-2.5 text-sm font-bold uppercase tracking-wide text-[#070707] transition hover:bg-[#fbc17b]/90"
           >
-            apply now
+            <motion.span
+              className="inline-block origin-center will-change-transform"
+              whileTap={navTapScaleSoft}
+              transition={navTapTransition}
+            >
+              apply now
+            </motion.span>
           </Link>
         </nav>
 
@@ -108,22 +125,41 @@ export default function Navbar({ forceLightNav = false }: NavbarProps) {
             className="overflow-hidden border-t border-black/5 bg-white lg:hidden"
           >
             <div className="flex flex-col gap-1 px-4 py-4">
-              {navLinks.map((item) => (
-                <Link
-                  key={item.label}
-                  href={item.href}
-                  className="py-3 text-sm font-medium uppercase tracking-widest text-[#002b5b]"
-                  onClick={() => setMobileOpen(false)}
-                >
-                  {item.label}
-                </Link>
-              ))}
+              {navLinks.map((item) => {
+                const isActive = pathname === item.href || pathname.startsWith(item.href + '/');
+                return (
+                  <Link
+                    key={item.label}
+                    href={item.href}
+                    className={`flex items-center border-l-2 py-3 pl-3 text-sm uppercase tracking-widest transition-colors ${
+                      isActive
+                        ? 'border-[#002b5b] font-bold text-[#002b5b]'
+                        : 'border-transparent font-medium text-[#002b5b]/60'
+                    }`}
+                    onClick={() => setMobileOpen(false)}
+                  >
+                    <motion.span
+                      className="inline-block origin-center will-change-transform"
+                      whileTap={navTapScaleSoft}
+                      transition={navTapTransition}
+                    >
+                      {item.label}
+                    </motion.span>
+                  </Link>
+                );
+              })}
               <Link
                 href={applyHref}
                 className="mt-2 rounded-full bg-[#002b5b] py-3 text-center text-sm font-bold uppercase text-white"
                 onClick={() => setMobileOpen(false)}
               >
-                apply now
+                <motion.span
+                  className="inline-block origin-center will-change-transform"
+                  whileTap={navTapScalePill}
+                  transition={navTapTransition}
+                >
+                  apply now
+                </motion.span>
               </Link>
             </div>
           </motion.div>

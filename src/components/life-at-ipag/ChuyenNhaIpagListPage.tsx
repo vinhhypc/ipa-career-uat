@@ -23,17 +23,16 @@ export default function ChuyenNhaIpagListPage() {
   }, [active]);
 
   return (
-    <div className="bg-white">
+    <div
+      style={{
+        background: 'linear-gradient(180deg, #fbf9f6 0%, #ffffff 62%)',
+      }}
+    >
       <LifeAtIpagBreadcrumbs
         items={[{ label: 'Trang chủ', href: '/' }, { label: 'Chuyện nhà IPAG' }]}
       />
 
-      <section
-        className="relative overflow-hidden px-4 pb-14 md:px-12 md:pb-20 lg:px-20 lg:pb-24"
-        style={{
-          background: 'linear-gradient(180deg, #fbf9f6 0%, #ffffff 62%)',
-        }}
-      >
+      <section className="relative overflow-hidden px-4 pb-14 md:px-12 md:pb-20 lg:px-20 lg:pb-24">
         <div className="pointer-events-none absolute inset-0 opacity-40">
           <div className="absolute -right-40 top-10 h-[520px] w-[520px] rounded-full bg-[#7bc1ff]/10 blur-3xl" />
           <div className="absolute -left-40 bottom-0 h-[520px] w-[520px] rounded-full bg-[#fbc17b]/12 blur-3xl" />
@@ -88,10 +87,22 @@ function CenteredHeading({ title }: { title: string }) {
       <h1 className="text-2xl font-extrabold uppercase tracking-[1px] text-[#292929] md:text-[32px] md:leading-[40px]">
         {title}
       </h1>
-      <div className="mt-4 flex items-center justify-center gap-3">
-        <span className="h-px w-14 bg-[#cfd6df] md:w-20" aria-hidden />
-        <span className="size-1.5 rotate-45 bg-[#145194]" aria-hidden />
-        <span className="h-px w-14 bg-[#cfd6df] md:w-20" aria-hidden />
+      <div className="flex items-center justify-center gap-4 mt-4">
+        <span className="h-[1.5px] w-24 bg-[#002B5B]" />
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="21"
+          height="24"
+          viewBox="0 0 21 24"
+          fill="none"
+        >
+          <path
+            d="M10.4535 0C10.4535 0 10.0371 8.33346 0 11.933C0 11.933 8.21662 13.5586 10.4535 24C10.4535 24 11.5653 14.5768 21 11.933C21 11.933 12.0614 9.80275 10.4535 0Z"
+            fill="#002B5B"
+          />
+        </svg>
+
+        <span className="h-[1.5px] w-24 bg-[#002B5B]" />
       </div>
     </div>
   );

@@ -54,43 +54,43 @@ type HabitTone = 'warm' | 'blue';
 const HABITS: {
   title: string;
   body: string;
-  icon: LucideIcon;
+  icon: string;
   tone: HabitTone;
 }[] = [
   {
     title: 'Thẳng thắn và tức thì',
     body: 'Chúng tôi không đợi đến kỳ đánh giá. Tại IPAG, feedback xảy ra ngay khi cần thiết với tinh thần xây dựng và mục đích rõ ràng: cùng nhau tiến bộ.',
-    icon: MessageSquare,
+    icon: '/life-at-ipag/cay-nen-xay-nep/figma/group.svg',
     tone: 'warm',
   },
   {
     title: 'Đồng hành, không tự “bơi”',
     body: 'Mentor riêng biệt, Welcome kit tinh tế và lịch 1-1 sẵn sàng từ ngày đầu tiên. Bạn sẽ luôn được dẫn dắt để hòa nhập nhanh nhất với hệ sinh thái.',
-    icon: Handshake,
+    icon: '/life-at-ipag/cay-nen-xay-nep/figma/handshake.svg',
     tone: 'blue',
   },
   {
     title: 'Học từ thực tế',
     body: 'Sau mỗi dự án là khoảng lặng để nhìn lại. Chúng tôi không truy cứu lỗi lầm, chúng tôi đúc rút bài học để không lặp lại sai lầm cũ.',
-    icon: Tablet,
+    icon: '/life-at-ipag/cay-nen-xay-nep/figma/tablet.svg',
     tone: 'warm',
   },
   {
     title: 'Minh bạch tuyệt đối',
     body: 'Lãnh đạo chia sẻ trực diện về thực trạng tổ chức. Tại đây, không có câu hỏi nào là "không nên hỏi" — mọi thắc mắc đều được trân trọng.',
-    icon: Search,
+    icon: '/life-at-ipag/cay-nen-xay-nep/figma/tick.svg',
     tone: 'blue',
   },
   {
     title: 'Tái kết nối mục đích',
     body: 'Những chuyến đi về với thiên nhiên (Yên Tử, Hòa Bình...) không phải để team-building hình thức, mà để chúng ta tái kết nối với nhau và với mục đích lớn lao.',
-    icon: Link2,
+    icon: '/life-at-ipag/cay-nen-xay-nep/figma/connect.svg',
     tone: 'warm',
   },
   {
     title: 'Vinh danh bằng câu chuyện',
     body: 'Thành công tại IPAG được ghi nhận bằng những câu chuyện truyền cảm hứng. Điều bạn làm được cộng đồng ghi nhớ và trân trọng — không chỉ dừng lại ở phần thưởng.',
-    icon: Award,
+    icon: '/life-at-ipag/cay-nen-xay-nep/figma/medal.svg',
     tone: 'blue',
   },
 ];
@@ -132,12 +132,12 @@ function JourneyColumn({
   steps: readonly { title: string; body: string }[];
 }) {
   return (
-    <div className="w-full max-w-[520px]">
+    <div className="flex h-full w-full max-w-[520px] flex-col">
       <div>
         <p className="text-lg font-normal tracking-wide text-[#fbc17b] md:text-xl">{acronym}</p>
         <p className="mt-1 text-xl font-bold text-white md:text-2xl">{subtitle}</p>
       </div>
-      <div className="relative mt-6 border-l-2 border-[rgba(254,179,122,0.45)] pl-6">
+      <div className="relative mt-6 flex-1 border-l-2 border-[rgba(254,179,122,0.45)] pl-6">
         {steps.map((s) => (
           <div key={s.title} className="relative pb-5 last:pb-0">
             <span className="absolute -left-[32px] top-5 size-3.5 rounded-full border-[3px] border-[#002b5b] bg-[#fbc17a] shadow-[0_0_16px_rgba(254,179,122,0.55)]" />
@@ -199,7 +199,7 @@ export default function CayNenXayNepPage() {
       />
 
       <section className="relative -mt-2 overflow-hidden bg-[#0b1a27]">
-        <div className="relative h-[260px] w-full md:h-[320px] lg:h-[380px]">
+        <div className="relative h-[260px] w-full md:h-[380px] lg:h-[420px]">
           <Image
             src="/life-at-ipag/cay-nen-xay-nep/figma/hero.png"
             alt=""
@@ -258,7 +258,7 @@ export default function CayNenXayNepPage() {
               <h2 className="text-3xl font-extrabold uppercase tracking-[3px] text-[#292929] md:text-[40px] md:leading-[60px]">
                 Cấy nền
               </h2>
-              <div className="mt-3 h-[3px] w-10 bg-[#2e5f97]" />
+              <div className="mt-3 h-[3px] w-40 bg-[#2e5f97]" />
               <p className="mt-6 text-lg leading-8 text-[#474747] md:text-2xl md:leading-8">
                 Tại IPAG, những giá trị cốt lõi được cấy sâu để trở thành nếp sống
               </p>
@@ -370,7 +370,7 @@ export default function CayNenXayNepPage() {
               <h2 className="text-3xl font-extrabold uppercase tracking-[3px] text-[#292929] md:text-[40px] md:leading-[60px]">
                 Xây nếp
               </h2>
-              <div className="mt-3 h-[3px] w-10 bg-[#2e5f97]" />
+              <div className="mt-3 h-[3px] w-40 bg-[#2e5f97]" />
               <p className="mt-6 text-lg leading-8 text-[#474747] md:text-2xl md:leading-8">
                 Năng lực chuyển hóa thành bản năng.
               </p>
@@ -379,7 +379,7 @@ export default function CayNenXayNepPage() {
             <div className="rounded-[22px] bg-[#f1d7b2] p-px shadow-[0_18px_44px_rgba(0,0,0,0.12)]">
               <div className="grid gap-px overflow-hidden rounded-[21px] sm:grid-cols-2 lg:grid-cols-3">
                 {HABITS.map((h, idx) => {
-                  const Icon = h.icon;
+                  const src = h.icon;
                   const isDark = h.tone === 'blue';
                   return (
                     <article
@@ -389,14 +389,14 @@ export default function CayNenXayNepPage() {
                       }`}
                     >
                       <div className="flex items-start gap-3">
-                        <span
+                        {/* <span
                           className={`flex size-11 shrink-0 items-center justify-center rounded-xl md:size-[52px] ${
                             isDark ? 'bg-white/10 text-white' : 'bg-white text-[#0c71c7]'
                           }`}
-                        >
-                          <Icon className="size-5 md:size-6" strokeWidth={2} />
-                        </span>
-                        <h3 className="text-base font-bold leading-snug md:text-lg">{h.title}</h3>
+                        > */}
+                        <Image width={60} height={60} src={src} alt="image" />
+                        {/* </span> */}
+                        <h3 className="text-base font-bold  leading-snug md:text-lg">{h.title}</h3>
                       </div>
                       <p
                         className={`mt-4 text-sm leading-relaxed md:text-base ${
@@ -432,7 +432,7 @@ export default function CayNenXayNepPage() {
             </p>
           </div>
 
-          <div className="mx-auto mt-12 flex max-w-[1115px] flex-col items-stretch gap-12 lg:mt-16 lg:flex-row lg:items-start lg:justify-center lg:gap-10">
+          <div className="mx-auto mt-12 flex max-w-[1115px] flex-col items-stretch gap-12 lg:mt-16 lg:flex-row lg:items-stretch lg:justify-center lg:gap-10">
             <JourneyColumn acronym="TAC" subtitle="Chuyển hoá bản thân" steps={TAC_STEPS} />
             <div
               className="hidden h-auto w-px shrink-0 bg-gradient-to-b from-transparent via-[rgba(254,179,122,0.55)] to-transparent lg:block"

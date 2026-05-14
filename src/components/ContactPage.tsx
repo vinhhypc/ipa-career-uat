@@ -3,10 +3,30 @@
 import Image from 'next/image';
 import type { ReactNode } from 'react';
 import { useMemo, useState } from 'react';
-import { Mail, Clock, Plus } from 'lucide-react';
+import { Mail, Clock, Plus, MapPin } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
 import Breadcrumbs from '@/components/Breadcrumbs';
+
+const STAGGER_CHILDREN = {
+  hidden: {},
+  show: {
+    transition: {
+      delayChildren: 0.08,
+      staggerChildren: 0.06,
+    },
+  },
+} as const;
+
+const ITEM_REVEAL = {
+  hidden: { opacity: 0, y: 18, scale: 0.98 },
+  show: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] },
+  },
+} as const;
 
 type ContactField = {
   name: string;
@@ -37,7 +57,7 @@ const FAQ_ITEMS = [
   { q: 'Tôi chưa chọn được vị trí cụ thể, có thể gửi hồ sơ tổng quát không?', a: '' },
   { q: 'Quy trình và thời gian xử lý hồ sơ mất bao lâu?', a: '' },
   { q: 'IPAG có tuyển dụng tại khu vực TP.Hồ Chí Minh không?', a: '' },
-  { q: 'Tôi có tthể đến trực tiếp văn phòng để nộp hồ sơ không?', a: '' },
+  { q: 'Tôi có thể đến trực tiếp văn phòng để nộp hồ sơ không?', a: '' },
 ] as const;
 
 export default function ContactPage() {
@@ -50,10 +70,10 @@ export default function ContactPage() {
 
   return (
     <div className="bg-white">
-      <section className="section-padding pt-[180px]! pb-6!">
+      <section className="section-padding pt-30! md:pt-[120px]! pb-6!">
         <div className="section-content">
           <Breadcrumbs
-            isLight
+            // isLight
             className="text-sm"
             items={[{ label: 'Trang chủ', href: '/' }, { label: 'Contact' }]}
           />
@@ -67,48 +87,37 @@ export default function ContactPage() {
             alt=""
             fill
             priority
-            className="object-cover"
+            className="object-cover w-fit"
             sizes="100vw"
           />
           <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,21,45,0.25)_0%,rgba(0,21,45,0.45)_35%,rgba(0,21,45,0.65)_100%)]" />
-          {/* <div className="absolute inset-0 flex items-center justify-center px-4 text-center">
-            <div className="max-w-[820px]">
-              <motion.h1
-                className="text-2xl font-extrabold uppercase tracking-[1px] text-white md:text-4xl"
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.45 }}
-              >
-                CONTACT IPAG
-              </motion.h1>
-              <motion.p
-                className="mt-4 text-sm leading-6 text-white/85 md:text-base md:leading-7"
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.45, delay: 0.05 }}
-              >
-                Chúng tôi luôn sẵn sàng lắng nghe — dù bạn đang tìm kiếm cơ hội, muốn hỏi về chương
-                trình, hay chỉ đơn giản là muốn biết thêm về IPAG.
-              </motion.p>
-            </div>
-          </div> */}
         </div>
 
         <div className="section-content relative -mt-10 px-4 pb-12 md:-mt-12 md:px-12 lg:px-20">
-          <div className="mx-auto grid w-full max-w-[860px] gap-4 md:grid-cols-2 md:gap-6">
-            <InfoCard
-              icon={<Mail className="size-5 text-[#145194]" />}
-              label="EMAIL TUYỂN DỤNG"
-              title="nextgen@ipam.vn"
-              desc="Mọi liên hệ tuyển dụng: gửi CV, hỏi thông tin chương trình, đặt lịch phỏng vấn."
-            />
-            <InfoCard
-              icon={<Clock className="size-5 text-[#145194]" />}
-              label="GIỜ LÀM VIỆC"
-              title="Thứ Hai – Thứ Sáu"
-              desc="08:30 – 17:30"
-            />
-          </div>
+          <motion.div
+            className="mx-auto grid w-full gap-4 md:grid-cols-2 md:gap-6"
+            variants={STAGGER_CHILDREN}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.25 }}
+          >
+            <motion.div variants={ITEM_REVEAL}>
+              <InfoCard
+                icon={<Image src="/contact/figma/mail.svg" alt="Email" width={40} height={40} />}
+                label="EMAIL TUYỂN DỤNG"
+                title="nextgen@ipam.vn"
+                desc="Mọi liên hệ tuyển dụng: gửi CV, hỏi thông tin chương trình, đặt lịch phỏng vấn."
+              />
+            </motion.div>
+            <motion.div variants={ITEM_REVEAL}>
+              <InfoCard
+                icon={<Image src="/contact/figma/clock.svg" alt="Clock" width={40} height={40} />}
+                label="GIỜ LÀM VIỆC"
+                title="Thứ Hai - Thứ Sáu"
+                desc="08:30 - 17:30"
+              />
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
@@ -118,20 +127,27 @@ export default function ContactPage() {
           <div className="absolute -right-32 bottom-0 h-[520px] w-[520px] rounded-full bg-[#fbc17b]/12 blur-3xl" />
         </div>
 
-        <div className="section-content relative">
-          <div className="mx-auto w-full max-w-[860px] text-center">
-            <p className="text-[11px] font-bold uppercase tracking-[0.26em] text-[#145194]">
-              ĐỂ LẠI THÔNG TIN
-            </p>
+        <motion.div
+          className="section-content relative"
+          variants={STAGGER_CHILDREN}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.22 }}
+        >
+          <motion.div className="mx-auto w-full max-w-[860px] text-center" variants={ITEM_REVEAL}>
+            <p className="text-xs font-bold uppercase  text-[#145194]">ĐỂ LẠI THÔNG TIN</p>
             <h2 className="mt-4 text-2xl font-extrabold uppercase tracking-[1px] text-[#292929] md:text-[32px] md:leading-[40px]">
               Chúng tôi sẽ liên hệ lại
             </h2>
             <p className="mt-4 text-sm leading-6 text-[#6b7280] md:text-base md:leading-7">
               Team IPAC đọc tất cả CV và phản hồi trong 2 ngày làm việc - không có CV nào bị bỏ qua.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="mx-auto mt-10 w-full max-w-[860px] overflow-hidden rounded-[18px] border border-[#d6dbe3] bg-white shadow-[0_10px_26px_rgba(0,0,0,0.10)]">
+          <motion.div
+            className="mx-auto mt-10 w-full max-w-[960px] overflow-hidden rounded-[18px] border border-[#d6dbe3] bg-white shadow-[0_10px_26px_rgba(0,0,0,0.10)]"
+            variants={ITEM_REVEAL}
+          >
             <form
               className="p-5 md:p-8"
               onSubmit={(e) => {
@@ -183,7 +199,7 @@ export default function ContactPage() {
               </div>
 
               <div className="mt-6">
-                <label className="text-[11px] font-bold uppercase tracking-[0.26em] text-[#292929]">
+                <label className="text-xs font-bold text-[#292929]">
                   Gửi tin nhắn cho chúng tôi
                 </label>
                 <div className="mt-3 rounded-[10px] border border-[#d6dbe3] bg-white px-3 py-3">
@@ -191,7 +207,7 @@ export default function ContactPage() {
                     value={message}
                     onChange={(e) => setMessage(e.target.value.slice(0, 100))}
                     placeholder="Nhập văn bản..."
-                    className="min-h-[110px] w-full resize-none bg-transparent text-sm leading-6 text-[#292929] outline-none placeholder:text-[#9aa3af]"
+                    className="min-h-[40px] w-full resize-none bg-transparent text-sm leading-6 text-[#292929] outline-none placeholder:text-[#9aa3af]"
                   />
                   <div className="mt-2 text-right text-[12px] font-semibold text-[#8a97a6]">
                     ({messageCount}/100)
@@ -221,17 +237,23 @@ export default function ContactPage() {
                 </button>
               </div>
             </form>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </section>
 
       <section className="bg-white px-4 py-14 md:px-12 md:py-16 lg:px-20 lg:py-20">
-        <div className="section-content">
+        <motion.div
+          className="section-content"
+          variants={STAGGER_CHILDREN}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.22 }}
+        >
           <div className="mx-auto grid w-full max-w-[1115px] gap-10 lg:grid-cols-[1fr_420px] lg:items-start">
-            <div className="grid gap-8 md:grid-cols-2">
+            <motion.div className="grid gap-8 md:grid-cols-2" variants={ITEM_REVEAL}>
               <div>
-                <p className="text-sm font-extrabold uppercase tracking-[2px] text-[#145194]">
-                  HÀ NỘI -
+                <p className="text-2xl font-extrabold uppercase text-[#145194] after:mt-2 after:block after:w-21 after:border-b-2 after:border-[#145194]">
+                  HÀ NỘI
                 </p>
                 <div className="mt-5 space-y-5">
                   <OfficeItem
@@ -254,7 +276,7 @@ export default function ContactPage() {
               </div>
 
               <div>
-                <p className="text-sm font-extrabold uppercase tracking-[2px] text-[#145194]">
+                <p className="text-2xl font-extrabold uppercase text-[#145194] after:mt-2 after:block after:w-21 after:border-b-2 after:border-[#145194]">
                   HỒ CHÍ MINH
                 </p>
                 <div className="mt-5 space-y-5">
@@ -270,9 +292,12 @@ export default function ContactPage() {
                   />
                 </div>
               </div>
-            </div>
+            </motion.div>
 
-            <div className="mx-auto w-full max-w-[420px] overflow-hidden rounded-[22px] bg-white shadow-[0_10px_24px_rgba(0,0,0,0.12)] lg:mx-0">
+            <motion.div
+              className="mx-auto w-full max-w-[420px] overflow-hidden rounded-[22px] bg-white shadow-[0_10px_24px_rgba(0,0,0,0.12)] lg:mx-0"
+              variants={ITEM_REVEAL}
+            >
               <div className="relative aspect-square">
                 <Image
                   src="/contact/figma/office.png"
@@ -282,9 +307,9 @@ export default function ContactPage() {
                   sizes="420px"
                 />
               </div>
-            </div>
+            </motion.div>
           </div>
-        </div>
+        </motion.div>
       </section>
 
       <section className="relative overflow-hidden bg-[#00152d] px-4 py-16 md:px-12 lg:px-20">
@@ -293,22 +318,31 @@ export default function ContactPage() {
           <div className="absolute -left-40 bottom-0 h-[520px] w-[520px] rounded-full bg-[#fbc17b]/12 blur-3xl" />
         </div>
 
-        <div className="section-content relative">
+        <motion.div
+          className="section-content relative"
+          variants={STAGGER_CHILDREN}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.2 }}
+        >
           <div className="mx-auto w-full max-w-[1115px]">
-            <p className="text-[12px] font-extrabold uppercase tracking-[0.26em] text-white/85">
-              CÂU HỎI THƯỜNG GẶP
-            </p>
-            <h2 className="mt-4 text-2xl font-extrabold uppercase tracking-[1px] text-white md:text-[32px] md:leading-[40px]">
-              Bạn có thắc mắc?
-            </h2>
+            <motion.div variants={ITEM_REVEAL}>
+              <p className="text-[12px] font-extrabold uppercase tracking-[0.26em] text-white/85">
+                CÂU HỎI THƯỜNG GẶP
+              </p>
+              <h2 className="mt-4 text-2xl font-extrabold uppercase tracking-[1px] text-white md:text-[32px] md:leading-[40px]">
+                Bạn có thắc mắc?
+              </h2>
+            </motion.div>
 
-            <div className="mt-8 space-y-3">
+            <motion.div className="mt-8 space-y-3" variants={STAGGER_CHILDREN}>
               {FAQ_ITEMS.map((item, idx) => {
                 const isOpen = idx === openFaq;
                 return (
-                  <div
+                  <motion.div
                     key={item.q}
                     className="rounded-[14px] border border-white/12 bg-white/8 px-4 py-4 backdrop-blur-sm"
+                    variants={ITEM_REVEAL}
                   >
                     <button
                       type="button"
@@ -340,12 +374,12 @@ export default function ContactPage() {
                         </motion.div>
                       ) : null}
                     </AnimatePresence>
-                  </div>
+                  </motion.div>
                 );
               })}
-            </div>
+            </motion.div>
           </div>
-        </div>
+        </motion.div>
       </section>
     </div>
   );
@@ -363,15 +397,13 @@ function InfoCard({
   desc: string;
 }) {
   return (
-    <div className="rounded-[16px] border border-[#edf1f5] bg-white px-5 py-5 shadow-[0_10px_24px_rgba(0,0,0,0.10)]">
+    <div className="rounded-[16px]   border border-[#edf1f5] bg-white px-5 py-5 shadow-[0_10px_24px_rgba(0,0,0,0.10)]">
       <div className="flex items-start gap-3">
         <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-[#145194]/10">
           {icon}
         </span>
         <div>
-          <p className="text-[11px] font-extrabold uppercase tracking-[0.26em] text-[#145194]">
-            {label}
-          </p>
+          <p className="text-[11px] font-extrabold uppercase  text-[#145194]">{label}</p>
           <p className="mt-1 text-base font-extrabold text-[#292929]">{title}</p>
           <p className="mt-2 text-sm leading-6 text-[#6b7280]">{desc}</p>
         </div>
@@ -381,9 +413,7 @@ function InfoCard({
 }
 
 function FormSectionTitle({ title }: { title: string }) {
-  return (
-    <p className="text-[11px] font-extrabold uppercase tracking-[0.26em] text-[#145194]">{title}</p>
-  );
+  return <p className="text-base font-extrabold uppercase  text-[#145194]">{title}</p>;
 }
 
 function FieldInput({ field }: { field: ContactField }) {
@@ -391,10 +421,7 @@ function FieldInput({ field }: { field: ContactField }) {
   const requiredSuffix = field.required ? '*' : '';
   return (
     <div className={field.colSpan === 2 ? 'md:col-span-2' : ''}>
-      <label
-        htmlFor={id}
-        className="text-[11px] font-bold uppercase tracking-[0.26em] text-[#292929]"
-      >
+      <label htmlFor={id} className="text-xs font-bold text-[#292929]">
         {field.label}
         {requiredSuffix}
       </label>
@@ -426,10 +453,7 @@ function FieldSelect({
   const requiredSuffix = required ? '*' : '';
   return (
     <div>
-      <label
-        htmlFor={id}
-        className="text-[11px] font-bold uppercase tracking-[0.26em] text-[#292929]"
-      >
+      <label htmlFor={id} className="text-xs font-bold text-[#292929]">
         {label}
         {requiredSuffix}
       </label>
@@ -474,10 +498,13 @@ function CheckboxRow({
 function OfficeItem({ index, title, address }: { index: string; title: string; address: string }) {
   return (
     <div className="space-y-2">
-      <p className="text-xs font-extrabold uppercase tracking-[0.24em] text-[#292929]">
+      <p className="text-xs font-semibold uppercase  text-[#002B5B]">
         {index} · {title}
       </p>
-      <p className="text-sm leading-6 text-[#6b7280]">{address}</p>
+      <div className="flex items-start gap-1">
+        <MapPin size={16} className="mt-1 font-light text-gray-700" />
+        <p className="text-sm leading-6 text-gray-700">{address}</p>
+      </div>
     </div>
   );
 }

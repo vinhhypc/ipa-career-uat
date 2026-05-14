@@ -6,7 +6,8 @@
 }
 
 @theme {
-  --font-sans: var(--font-plus-jakarta), ui-sans-serif, system-ui, sans-serif;
+  /* --font-sans: var(--font-plus-jakarta), ui-sans-serif, system-ui, sans-serif; */
+  /* --font-sans: 'Roboto', ui-sans-serif, system-ui, sans-serif; */
   --color-brand-primary: #d2bea5;
   --color-bg-primary: #060d16;
   --color-text-secondary: #59798f;
@@ -90,9 +91,10 @@ body {
 
 @keyframes ecosystem-scroll {
   from {
-    transform: translateX(-50%);
+    transform: translateX(0);
   }
   to {
-    transform: translateX(0);
+    /* 4 bản copy ECOSYSTEM; -25% = lùi đúng một bộ để loop liền mạch, đảm bảo đủ content lấp đầy màn PC rộng */
+    transform: translateX(-25%);
   }
 }

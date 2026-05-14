@@ -1,0 +1,253 @@
+'use client';
+
+import { useState } from 'react';
+import { AnimatePresence, motion } from 'motion/react';
+
+import { ASSETS, PATHWAY_TAB_ICONS, PATHWAYS } from './constants';
+
+export default function PathwaysSection() {
+  const [pathwayIndex, setPathwayIndex] = useState(0);
+  const pathway = PATHWAYS[pathwayIndex];
+
+  return (
+    <section className="section-padding bg-gradient-to-b from-[#fef6eb] to-white to-[72%] lg:pt-14 lg:pb-20">
+      <div className="section-content flex flex-col gap-8 lg:gap-14">
+        <motion.div
+          className="flex w-full flex-col gap-2 text-center lg:gap-4"
+          initial={{ opacity: 0, y: 28 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.4 }}
+          transition={{ duration: 0.55, ease: 'easeOut' }}
+        >
+          <h2 className="text-[20px] font-bold uppercase leading-8 tracking-[1px] text-[#292929] lg:text-[40px] lg:font-extrabold lg:leading-[60px]">
+            Các chương trình tuyển dụng trọng điểm tại IPAG.
+          </h2>
+          <p className="text-[14px] font-normal leading-5 text-[#474747] lg:text-lg lg:leading-7 lg:tracking-[0.54px]">
+            Các chương trình tuyển dụng trọng điểm tại IPAG.
+          </p>
+        </motion.div>
+
+        <motion.div
+          className="flex flex-col gap-5 lg:gap-0"
+          initial={{ opacity: 0, y: 36 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.15 }}
+          transition={{ duration: 0.6, ease: 'easeOut', delay: 0.1 }}
+        >
+          <div className="flex items-center gap-2 lg:hidden">
+            <img alt="" src={ASSETS.programsStar} className="h-4 w-[14px] shrink-0" />
+            <h3 className="text-[18px] font-bold uppercase leading-[1.4] tracking-[0.18px] text-[#002b5b]">
+              Về IPAG
+            </h3>
+            <div className="relative h-0 w-[60px] shrink-0">
+              <img alt="" src={ASSETS.programsLine} className="block h-px w-full" />
+            </div>
+          </div>
+
+          <div className="flex w-full flex-col shadow-none lg:shadow-[0px_4px_12px_0px_rgba(0,0,0,0.15)]">
+            {/* Tab headers */}
+            <div className="flex w-full overflow-hidden rounded-t-[20px] border border-b-0 border-[rgba(7,7,7,0.13)] lg:rounded-t-[32px]">
+              {PATHWAYS.map((p, i) => {
+                const active = i === pathwayIndex;
+                const tabIcon = PATHWAY_TAB_ICONS[i];
+                return (
+                  <button
+                    key={p.pathway}
+                    type="button"
+                    onClick={() => setPathwayIndex(i)}
+                    className={`flex min-h-[128px] min-w-0 flex-1 flex-col items-center justify-center border-r border-[rgba(7,7,7,0.13)] px-3 py-6 text-center transition-colors last:border-r-0 lg:min-h-0 lg:gap-4 lg:px-10 lg:py-6 ${
+                      active
+                        ? 'border-b-[3px] border-[#fbc17b] bg-gradient-to-b from-[#0264b3] to-[#002b5b] text-white lg:border-b-[5px]'
+                        : 'bg-white text-[#474747] lg:border-t lg:border-[rgba(7,7,7,0.13)]'
+                    } ${i === 0 ? 'rounded-tl-[20px] lg:rounded-tl-[32px]' : ''} ${i === 2 ? 'rounded-tr-[20px] lg:rounded-tr-[32px]' : ''}`}
+                  >
+                    {tabIcon.overflow ? (
+                      <div
+                        className="relative hidden size-[60px] shrink-0 overflow-hidden lg:block"
+                        aria-hidden
+                      >
+                        <div className="absolute inset-[-20.91%_-20.9%_-20.91%_-20.92%]">
+                          <img
+                            src={tabIcon.src}
+                            alt=""
+                            className="absolute block inset-0 max-w-none size-full"
+                          />
+                        </div>
+                      </div>
+                    ) : (
+                      <img
+                        src={tabIcon.src}
+                        alt=""
+                        className="hidden size-[60px] shrink-0 lg:block"
+                        aria-hidden
+                      />
+                    )}
+                    <span
+                      className={`text-[12px] font-normal uppercase leading-4 lg:text-sm lg:leading-4 ${active ? 'text-white' : 'text-[#474747]'}`}
+                    >
+                      {p.pathway}
+                    </span>
+                    <span
+                      className={`mt-2 min-w-full text-[14px] font-bold leading-[18px] lg:mt-0 lg:text-2xl lg:leading-10 ${active ? 'text-white' : 'text-[#292929]'}`}
+                    >
+                      {p.name}
+                    </span>
+                    <div
+                      className={`mt-2 flex flex-col gap-0.5 text-[10px] font-normal leading-3 lg:mt-0 lg:flex-row lg:items-center lg:justify-center lg:gap-2 lg:text-sm lg:leading-4 ${active ? 'text-white' : 'text-[#474747]'}`}
+                    >
+                      <span>{p.lines[0]}</span>
+                      <span
+                        className={`hidden size-1 shrink-0 rounded-full lg:inline-block ${active ? 'bg-white' : 'bg-black/25'}`}
+                        aria-hidden
+                      />
+                      <span>{p.lines[1]}</span>
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Tab panel */}
+            <div
+              className="w-full rounded-b-[20px] lg:rounded-b-[32px]"
+              style={{
+                backgroundImage:
+                  'linear-gradient(13.01deg, rgb(0, 21, 45) 31.68%, rgb(0, 61, 130) 94.34%)',
+              }}
+            >
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={pathwayIndex}
+                  className="grid grid-cols-1 gap-10 px-4 py-6 lg:grid-cols-[1fr_auto] lg:items-start lg:gap-x-14 lg:gap-y-0 lg:px-20 lg:py-12"
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.35, ease: 'easeOut' }}
+                >
+                  {/* Title & description */}
+                  <motion.div
+                    className="flex flex-col gap-4 lg:col-start-1 lg:row-start-1 lg:gap-6"
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.4, ease: 'easeOut', delay: 0.05 }}
+                  >
+                    <div className="flex flex-col gap-2 uppercase text-shadow-[0px_4px_4px_rgba(0,0,0,0.25)] lg:gap-2">
+                      <p className="text-[14px] font-medium leading-[26px] text-white lg:text-lg lg:leading-[26px]">
+                        {pathway.kicker}
+                      </p>
+                      <p className="text-[16px] font-extrabold leading-5 lg:text-[30px] lg:leading-[60px] lg:tracking-[2px]">
+                        {pathway.titleAccentFirst ? (
+                          <>
+                            <span className="text-[#fbc17b]">{pathway.titleAccent}</span>
+                            <span className="text-white">{pathway.titleWhite}</span>
+                          </>
+                        ) : (
+                          <>
+                            <span className="text-white">{pathway.titleWhite}</span>
+                            <span className="text-[#fbc17b]">{pathway.titleAccent}</span>
+                          </>
+                        )}
+                      </p>
+                    </div>
+                    <div className="text-[14px] font-normal leading-[22px] tracking-[0.14px] text-white lg:text-xl lg:leading-[33px] lg:tracking-[0.2px]">
+                      {pathway.description.map((line, li) => (
+                        <p key={li} className="mb-0">
+                          {line}
+                        </p>
+                      ))}
+                    </div>
+                  </motion.div>
+
+                  {/* Quote card */}
+                  <motion.div
+                    className="relative overflow-hidden rounded-xl border border-[rgba(123,193,255,0.6)] bg-[rgba(202,230,255,0.18)] px-[13px] py-[9px] shadow-[0px_8px_32px_0px_rgba(0,0,0,0.1)] backdrop-blur-[12px] lg:col-start-1 lg:row-start-2 lg:flex lg:items-start lg:gap-4 lg:rounded-[20px] lg:px-[17px] lg:py-[13px]"
+                    initial={{ opacity: 0, y: 12 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4, ease: 'easeOut', delay: 0.15 }}
+                  >
+                    <img
+                      src={ASSETS.pathwayQuoteIcon}
+                      alt=""
+                      className="hidden size-12 shrink-0 lg:block"
+                      aria-hidden
+                    />
+                    <div className="relative z-10 flex min-w-0 flex-1 flex-col gap-1 pr-4 lg:pr-0">
+                      <p className="text-[10px] font-bold uppercase leading-4 tracking-[1.2px] text-[#fbc17b] lg:text-xs lg:leading-4">
+                        Talent Acquisition Team
+                      </p>
+                      <p className="text-[12px] font-semibold leading-[18px] tracking-[1px] text-white lg:text-base lg:leading-7">
+                        {pathway.quote}
+                      </p>
+                    </div>
+                  </motion.div>
+
+                  {/* Steps timeline */}
+                  <div className="relative flex flex-col lg:col-start-2 lg:row-start-1 lg:row-span-3 lg:max-w-[430px] lg:self-start">
+                    {/* Vertical line grows from top */}
+                    <motion.div
+                      className="absolute left-[5px] top-0 bottom-0 w-0.5 lg:left-[7px]"
+                      style={{ background: 'rgba(254, 179, 22, 0.5)', originY: 0 }}
+                      initial={{ scaleY: 0 }}
+                      animate={{ scaleY: 1 }}
+                      transition={{ duration: 0.7, ease: 'easeOut', delay: 0.2 }}
+                      aria-hidden
+                    />
+                    {pathway.steps.map((step, si) => (
+                      <motion.div
+                        key={step.title}
+                        className={`flex items-center gap-3 lg:gap-7 ${si < pathway.steps.length - 1 ? 'pb-4 lg:pb-8' : ''}`}
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.4, ease: 'easeOut', delay: 0.25 + si * 0.12 }}
+                      >
+                        {/* Dot */}
+                        <div className="relative z-10 shrink-0" aria-hidden>
+                          <div className="size-3 rounded-xl border-4 border-[#002b5b] bg-[#fbc17a] shadow-[0px_0px_20px_0px_rgba(254,179,22,0.6)] lg:size-4 lg:rounded-[12px]" />
+                        </div>
+
+                        {/* Card */}
+                        <div className="min-w-0 flex-1">
+                          <div className="flex items-center rounded-xl border border-[rgba(123,193,255,0.6)] bg-[rgba(202,230,255,0.15)] p-[13px] shadow-[0px_8px_32px_0px_rgba(0,0,0,0.1)] backdrop-blur-[12px] lg:rounded-[20px] lg:px-[17px] lg:py-[13px]">
+                            <div className="flex min-w-0 flex-1 flex-col gap-1 lg:gap-2">
+                              <div className="flex items-center gap-2 lg:gap-3">
+                                <img alt="" src={step.icon} className="size-5 shrink-0 lg:size-7" />
+                                <p className="text-[14px] font-bold leading-[22px] text-[#fbc17b] lg:text-lg lg:leading-7">
+                                  {step.title}
+                                </p>
+                              </div>
+                              <p className="text-[14px] font-normal leading-5 text-white/90 lg:text-base lg:leading-6">
+                                {step.body}
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </motion.div>
+                    ))}
+                  </div>
+
+                  {/* CTA button */}
+                  <motion.div
+                    className="lg:col-start-1 lg:row-start-3 lg:self-start"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4, ease: 'easeOut', delay: 0.3 }}
+                  >
+                    <button
+                      type="button"
+                      className="flex h-9 w-full items-center justify-center gap-2 rounded-full bg-white px-3 py-2.5 text-[14px] font-bold leading-[1.4] text-[#474747] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] lg:h-12 lg:w-[276px] lg:text-lg"
+                    >
+                      XEM THÊM
+                      <span className="relative size-5 lg:size-6">
+                        <img alt="" src={ASSETS.ctaArrow} className="size-5 lg:size-6" />
+                      </span>
+                    </button>
+                  </motion.div>
+                </motion.div>
+              </AnimatePresence>
+            </div>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
