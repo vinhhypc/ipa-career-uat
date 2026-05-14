@@ -68,24 +68,29 @@ export default function Navbar({ forceLightNav = false }: NavbarProps) {
 
         <nav className="hidden items-center gap-8 lg:flex lg:gap-10">
           <ul className="flex items-center gap-8">
-            {navLinks.map((item) => (
-              <li key={item.label}>
-                <Link
-                  href={item.href}
-                  className={`text-sm font-normal uppercase tracking-[0.14em] transition-opacity hover:opacity-80 ${
-                    onLight ? 'text-neutral-800' : 'text-white'
-                  }`}
-                >
-                  <motion.span
-                    className="inline-block origin-center will-change-transform"
-                    whileTap={navTapScale}
-                    transition={navTapTransition}
+            {navLinks.map((item) => {
+              const isActive = pathname === item.href || pathname.startsWith(item.href + '/');
+              return (
+                <li key={item.label}>
+                  <Link
+                    href={item.href}
+                    className={`text-sm uppercase tracking-[0.14em] transition-opacity hover:opacity-80 ${
+                      isActive
+                        ? `font-bold ${onLight ? 'text-[#002b5b]' : 'text-white'}`
+                        : `font-normal ${onLight ? 'text-neutral-500' : 'text-white/70'}`
+                    }`}
                   >
-                    {item.label}
-                  </motion.span>
-                </Link>
-              </li>
-            ))}
+                    <motion.span
+                      className="inline-block origin-center will-change-transform"
+                      whileTap={navTapScale}
+                      transition={navTapTransition}
+                    >
+                      {item.label}
+                    </motion.span>
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
           <Link
             href={applyHref}
@@ -120,22 +125,29 @@ export default function Navbar({ forceLightNav = false }: NavbarProps) {
             className="overflow-hidden border-t border-black/5 bg-white lg:hidden"
           >
             <div className="flex flex-col gap-1 px-4 py-4">
-              {navLinks.map((item) => (
-                <Link
-                  key={item.label}
-                  href={item.href}
-                  className="py-3 text-sm font-medium uppercase tracking-widest text-[#002b5b]"
-                  onClick={() => setMobileOpen(false)}
-                >
-                  <motion.span
-                    className="inline-block origin-center will-change-transform"
-                    whileTap={navTapScaleSoft}
-                    transition={navTapTransition}
+              {navLinks.map((item) => {
+                const isActive = pathname === item.href || pathname.startsWith(item.href + '/');
+                return (
+                  <Link
+                    key={item.label}
+                    href={item.href}
+                    className={`flex items-center border-l-2 py-3 pl-3 text-sm uppercase tracking-widest transition-colors ${
+                      isActive
+                        ? 'border-[#002b5b] font-bold text-[#002b5b]'
+                        : 'border-transparent font-medium text-[#002b5b]/60'
+                    }`}
+                    onClick={() => setMobileOpen(false)}
                   >
-                    {item.label}
-                  </motion.span>
-                </Link>
-              ))}
+                    <motion.span
+                      className="inline-block origin-center will-change-transform"
+                      whileTap={navTapScaleSoft}
+                      transition={navTapTransition}
+                    >
+                      {item.label}
+                    </motion.span>
+                  </Link>
+                );
+              })}
               <Link
                 href={applyHref}
                 className="mt-2 rounded-full bg-[#002b5b] py-3 text-center text-sm font-bold uppercase text-white"

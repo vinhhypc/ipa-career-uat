@@ -94,7 +94,7 @@ body {
     transform: translateX(0);
   }
   to {
-    /* Một hàng = 2 bản copy ECOSYSTEM; -50% = lùi đúng một bộ để loop liền mạch */
-    transform: translateX(-50%);
+    /* 4 bản copy ECOSYSTEM; -25% = lùi đúng một bộ để loop liền mạch, đảm bảo đủ content lấp đầy màn PC rộng */
+    transform: translateX(-25%);
   }
 }

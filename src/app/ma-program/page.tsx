@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
-import MaProgram from '@/components/MaProgram';
 import { createPageMetadata } from '@/lib/seo';
+import MaProgram from '@/components/MaProgram';
 
 export const metadata: Metadata = createPageMetadata({
   title: 'MA Program',

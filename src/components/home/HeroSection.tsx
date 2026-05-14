@@ -112,32 +112,21 @@ export default function HeroSection() {
 
       <div className="relative z-10 mt-auto shrink-0 overflow-hidden border-t-[0.5px] border-white/44 bg-white py-3 text-black md:absolute md:bottom-0 md:left-0 md:right-0 md:mt-0 md:py-6">
         <div className="animate-[ecosystem-scroll_24s_linear_infinite] flex w-max items-stretch gap-x-10 px-4 md:gap-x-16 md:px-10">
-          {ECOSYSTEM.map((item) => (
-            <div
-              key={`eco-1-${item.name}`}
-              className="flex shrink-0 flex-col items-start justify-center gap-0.5 leading-none"
-            >
-              <span className="text-sm font-bold leading-tight tracking-[0.14px] text-[#474747] md:text-base md:leading-[22px] md:tracking-[0.16px]">
-                {item.name}
-              </span>
-              <span className="text-[11px] font-normal leading-[14px] tracking-[0.1px] text-[#707070] md:text-xs md:leading-4 md:tracking-[0.12px]">
-                {item.sub}
-              </span>
-            </div>
-          ))}
-          {ECOSYSTEM.map((item) => (
-            <div
-              key={`eco-2-${item.name}`}
-              className="flex shrink-0 flex-col items-start justify-center gap-0.5 leading-none"
-            >
-              <span className="text-sm font-bold leading-tight tracking-[0.14px] text-[#474747] md:text-base md:leading-[22px] md:tracking-[0.16px]">
-                {item.name}
-              </span>
-              <span className="text-[11px] font-normal leading-[14px] tracking-[0.1px] text-[#707070] md:text-xs md:leading-4 md:tracking-[0.12px]">
-                {item.sub}
-              </span>
-            </div>
-          ))}
+          {[1, 2, 3, 4].flatMap((copyIdx) =>
+            ECOSYSTEM.map((item) => (
+              <div
+                key={`eco-${copyIdx}-${item.name}`}
+                className="flex shrink-0 flex-col items-start justify-center gap-0.5 leading-none"
+              >
+                <span className="text-sm font-bold leading-tight tracking-[0.14px] text-[#474747] md:text-base md:leading-[22px] md:tracking-[0.16px]">
+                  {item.name}
+                </span>
+                <span className="text-[11px] font-normal leading-[14px] tracking-[0.1px] text-[#707070] md:text-xs md:leading-4 md:tracking-[0.12px]">
+                  {item.sub}
+                </span>
+              </div>
+            )),
+          )}
         </div>
       </div>
     </section>

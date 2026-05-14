@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
-import WeLookFor from '@/components/WeLookFor';
 import { createPageMetadata } from '@/lib/seo';
+import WeLookFor from '@/components/WeLookFor';
 
 export const metadata: Metadata = createPageMetadata({
   title: 'Chúng tôi tìm kiếm',
