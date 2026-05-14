@@ -91,9 +91,10 @@ body {
 
 @keyframes ecosystem-scroll {
   from {
-    transform: translateX(-50%);
+    transform: translateX(0);
   }
   to {
-    transform: translateX(0);
+    /* Một hàng = 2 bản copy ECOSYSTEM; -50% = lùi đúng một bộ để loop liền mạch */
+    transform: translateX(-50%);
   }
 }

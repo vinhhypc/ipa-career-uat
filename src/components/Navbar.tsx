@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
-import { AnimatePresence, motion } from 'motion/react';
+import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
 
 export type NavbarProps = {
   forceLightNav?: boolean;
@@ -14,6 +14,7 @@ export default function Navbar({ forceLightNav = false }: NavbarProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const pathname = usePathname();
+  const reduceMotion = useReducedMotion();
 
   useEffect(() => {
     const onScroll = () => setIsScrolled(window.scrollY > 24);
@@ -22,7 +23,7 @@ export default function Navbar({ forceLightNav = false }: NavbarProps) {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  const onLight = forceLightNav || isScrolled
+  const onLight = forceLightNav || isScrolled;
   const isHome = pathname === '/';
 
   const navLinks = [
@@ -32,7 +33,12 @@ export default function Navbar({ forceLightNav = false }: NavbarProps) {
     { label: 'CONTACT', href: '/contact' },
   ] as const;
 
-  const applyHref = isHome ? '#apply' : '/#apply';
+  const applyHref = isHome ? '/jobs' : '/jobs';
+
+  const navTapTransition = { type: 'spring' as const, stiffness: 520, damping: 28 };
+  const navTapScale = reduceMotion ? undefined : ({ scale: 0.92 } as const);
+  const navTapScaleSoft = reduceMotion ? undefined : ({ scale: 0.94 } as const);
+  const navTapScalePill = reduceMotion ? undefined : ({ scale: 0.95 } as const);
 
   return (
     <header
@@ -70,7 +76,13 @@ export default function Navbar({ forceLightNav = false }: NavbarProps) {
                     onLight ? 'text-neutral-800' : 'text-white'
                   }`}
                 >
-                  {item.label}
+                  <motion.span
+                    className="inline-block origin-center will-change-transform"
+                    whileTap={navTapScale}
+                    transition={navTapTransition}
+                  >
+                    {item.label}
+                  </motion.span>
                 </Link>
               </li>
             ))}
@@ -79,7 +91,13 @@ export default function Navbar({ forceLightNav = false }: NavbarProps) {
             href={applyHref}
             className="rounded-full bg-white px-5 py-2.5 text-sm font-bold uppercase tracking-wide text-[#070707] transition hover:bg-[#fbc17b]/90"
           >
-            apply now
+            <motion.span
+              className="inline-block origin-center will-change-transform"
+              whileTap={navTapScaleSoft}
+              transition={navTapTransition}
+            >
+              apply now
+            </motion.span>
           </Link>
         </nav>
 
@@ -109,7 +127,13 @@ export default function Navbar({ forceLightNav = false }: NavbarProps) {
                   className="py-3 text-sm font-medium uppercase tracking-widest text-[#002b5b]"
                   onClick={() => setMobileOpen(false)}
                 >
-                  {item.label}
+                  <motion.span
+                    className="inline-block origin-center will-change-transform"
+                    whileTap={navTapScaleSoft}
+                    transition={navTapTransition}
+                  >
+                    {item.label}
+                  </motion.span>
                 </Link>
               ))}
               <Link
@@ -117,7 +141,13 @@ export default function Navbar({ forceLightNav = false }: NavbarProps) {
                 className="mt-2 rounded-full bg-[#002b5b] py-3 text-center text-sm font-bold uppercase text-white"
                 onClick={() => setMobileOpen(false)}
               >
-                apply now
+                <motion.span
+                  className="inline-block origin-center will-change-transform"
+                  whileTap={navTapScalePill}
+                  transition={navTapTransition}
+                >
+                  apply now
+                </motion.span>
               </Link>
             </div>
           </motion.div>

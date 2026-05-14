@@ -18,7 +18,7 @@ export default function Footer() {
       <div
         className="pointer-events-none absolute left-1/2 top-0 h-[370px] w-full max-w-[1115px] -translate-x-1/2 opacity-20"
         style={{
-          // backgroundImage: 'url(https://www.figma.com/api/mcp/asset/1bcb4b93-a2c3-4052-a462-9e81b609add6)',
+          backgroundImage: 'url(/footer-bg.png)',
           backgroundPosition: 'center top',
           backgroundRepeat: 'no-repeat',
           backgroundSize: 'cover',
@@ -34,10 +34,12 @@ export default function Footer() {
                 </span>
                 <span className="text-2xl font-bold tracking-[-0.05em]">IPAG Career</span>
               </div>
+
               <p className="mb-6 max-w-[558px] text-base leading-[1.4] text-white">
                 Kiến tạo hệ sinh thái năng lực, đồng hành cùng con người và doanh nghiệp trong hành
                 trình chuyển đổi bền vững.
               </p>
+
               <div className="flex items-center gap-4">
                 <a
                   href="https://www.facebook.com"

@@ -331,7 +331,7 @@ export default function CheDoDaiNgoPage() {
               SẴN SÀNG KIẾN TẠO DI SẢN CÙNG IPAG?
             </p>
             <Link
-              href="/#apply"
+              href="/jobs"
               className="mt-6 inline-flex w-full max-w-[360px] items-center justify-center gap-2 rounded-full bg-[#145194] px-6 py-3 text-sm font-extrabold uppercase tracking-wide text-white shadow-[0_10px_22px_rgba(20,81,148,0.22)] transition hover:brightness-95 sm:text-base"
             >
               Khám phá cơ hội nghề nghiệp
