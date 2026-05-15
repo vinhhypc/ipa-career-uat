@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 
-import JobDetail from '@/components/JobDetail';
 import { getJobById } from '@/data/jobs';
 import { createPageMetadata } from '@/lib/seo';
+import JobDetail from '@/components/JobDetail/index';
 
 export function generateMetadata({ params }: { params: { id: string } }): Metadata {
   const job = getJobById(params.id);

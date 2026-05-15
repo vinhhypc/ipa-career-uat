@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
-import ExecutiveServe from '@/components/ExecutiveServe';
 import { createPageMetadata } from '@/lib/seo';
+import ExecutiveServe from '@/components/ExecutiveServe/index';
 
 export const metadata: Metadata = createPageMetadata({
   title: 'Executive Serve',

@@ -2,20 +2,41 @@
 
 import Link from 'next/link';
 import { ChevronDown, MapPin, Search } from 'lucide-react';
+import { motion, type Variants } from 'motion/react';
 
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { JOBS } from '@/data/jobs';
 
-import searchHeroTextureImg from '@/assets/we-look-for/search-hero-texture.png';
-
 const ASSETS = {
-  searchHeroTexture: searchHeroTextureImg.src,
+  searchHeroTexture: '/we-look-for/search-hero-texture.png',
 } as const;
+
+const fadeUp: Variants = {
+  hidden: { opacity: 0, y: 24 },
+  visible: (i: number = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: 'easeOut' as const, delay: i * 0.08 },
+  }),
+};
+
+const fadeIn: Variants = {
+  hidden: { opacity: 0 },
+  visible: (i: number = 0) => ({
+    opacity: 1,
+    transition: { duration: 0.45, ease: 'easeOut' as const, delay: i * 0.08 },
+  }),
+};
 
 export default function Jobs() {
   return (
     <div className="bg-white">
-      <div className="border-b border-black/5 bg-white pt-[88px] lg:pt-[104px]">
+      <motion.div
+        className="border-b border-black/5 bg-white pt-[88px] lg:pt-[104px]"
+        initial="hidden"
+        animate="visible"
+        variants={fadeIn}
+      >
         <div className="section-padding !py-5">
           <div className="section-content">
             <Breadcrumbs
@@ -24,18 +45,21 @@ export default function Jobs() {
             />
           </div>
         </div>
-      </div>
+      </motion.div>
 
       {/* 1 — Hero tìm kiếm */}
       <section className="section-padding !pt-8 !pb-11 bg-white lg:!py-20">
         <div className="section-content">
           <div className="flex flex-col items-stretch justify-center rounded-[32px]">
-            <div
+            <motion.div
               className="relative flex w-full flex-col gap-6 overflow-hidden rounded-[20px] px-4 py-8 shadow-[0px_4px_20px_0px_rgba(0,0,0,0.1)] lg:gap-[52px] lg:rounded-[32px] lg:px-10 lg:py-[60px]"
               style={{
                 backgroundImage:
                   'linear-gradient(158.46deg, rgb(246, 252, 255) 9.7%, rgb(184, 221, 244) 91.3%)',
               }}
+              initial="hidden"
+              animate="visible"
+              variants={fadeUp}
             >
               <div
                 aria-hidden
@@ -48,17 +72,27 @@ export default function Jobs() {
                 />
               </div>
 
-              <div className="relative flex w-full flex-col items-center gap-2 text-center lg:gap-2">
+              <motion.div
+                className="relative flex w-full flex-col items-center gap-2 text-center lg:gap-2"
+                initial="hidden"
+                animate="visible"
+                variants={fadeUp}
+                custom={1}
+              >
                 <div className="flex w-full flex-col gap-2 lg:gap-5">
                   <h1 className="text-[24px] font-bold uppercase leading-[38px] tracking-[1px] text-[#292929] lg:text-[52px] lg:leading-[68px]">
                     KHÁM PHÁ CƠ HỘI
                   </h1>
                 </div>
-              </div>
+              </motion.div>
 
-              <form
+              <motion.form
                 className="relative flex w-full flex-col gap-4 lg:gap-7"
                 onSubmit={(e) => e.preventDefault()}
+                initial="hidden"
+                animate="visible"
+                variants={fadeUp}
+                custom={2}
               >
                 <label className="sr-only" htmlFor="job-search">
                   Tìm kiếm công việc
@@ -83,31 +117,41 @@ export default function Jobs() {
                     { label: 'Business', value: 'business', textSize: 'text-[16px]' },
                     { label: 'Program', value: 'program', textSize: 'text-[16px]' },
                     { label: 'Toàn quốc', value: 'nationwide', textSize: 'text-[16px]' },
-                  ].map((item) => (
-                    <button
+                  ].map((item, i) => (
+                    <motion.button
                       key={item.value}
                       type="button"
                       className={`flex h-10 w-full items-center justify-between rounded-lg border border-[rgba(7,7,7,0.18)] bg-white px-3 py-2.5 text-left font-medium leading-[1.4] text-[#474747] lg:min-h-12 lg:flex-1 lg:px-4 lg:py-2.5 lg:text-base ${item.textSize} lg:!text-base`}
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.35, ease: 'easeOut', delay: 0.3 + i * 0.07 }}
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
                     >
                       <span className="truncate">{item.label}</span>
                       <ChevronDown className="size-7 shrink-0 text-[#474747]" strokeWidth={1.75} />
-                    </button>
+                    </motion.button>
                   ))}
                 </div>
 
-                <button
+                <motion.button
                   type="submit"
                   className="mx-auto flex h-10 w-full items-center justify-center gap-2 rounded-full px-3 py-2.5 text-[14px] font-bold uppercase leading-[1.4] text-white shadow-[0px_4px_8px_0px_rgba(0,0,0,0.15)] lg:h-12 lg:w-[466px] lg:gap-2 lg:text-lg"
                   style={{
                     backgroundImage:
                       'linear-gradient(72.72deg, rgb(1, 58, 114) 3.48%, rgb(12, 113, 199) 83.47%)',
                   }}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, ease: 'easeOut', delay: 0.6 }}
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.97 }}
                 >
                   <Search className="size-6 text-white lg:size-7" strokeWidth={2} aria-hidden />
                   Tìm kiếm cơ hội
-                </button>
-              </form>
-            </div>
+                </motion.button>
+              </motion.form>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -115,7 +159,13 @@ export default function Jobs() {
       <section className="section-padding !pt-5 !pb-11 bg-[#fcfcfc] lg:!pt-0 lg:!pb-20">
         <div className="section-content">
           <div className="flex flex-col items-start gap-6 lg:gap-10">
-            <div className="flex items-center gap-2 lg:gap-3">
+            <motion.div
+              className="flex items-center gap-2 lg:gap-3"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.5 }}
+              variants={fadeUp}
+            >
               <svg
                 aria-hidden
                 className="h-4 w-[14px] lg:h-6 lg:w-[21px]"
@@ -132,13 +182,19 @@ export default function Jobs() {
                 Tất cả các vị trí
               </h2>
               <span className="h-px w-[60px] bg-[#0d3f77]" />
-            </div>
+            </motion.div>
 
             <div className="grid w-full grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-x-5 lg:gap-y-6">
               {JOBS.map((job, index) => (
-                <article
+                <motion.article
                   key={`${job.title}-${index}`}
                   className="rounded-[20px] border border-transparent bg-white px-4 py-5 shadow-[0px_4px_15px_0px_rgba(0,0,0,0.12)] transition-colors duration-200 hover:border-[#2f8fdf] lg:rounded-[32px] lg:px-7 lg:py-8"
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, amount: 0.15 }}
+                  variants={fadeUp}
+                  custom={index % 2}
+                  whileHover={{ y: -4, transition: { duration: 0.2 } }}
                 >
                   <div className="flex flex-col gap-2 lg:gap-3">
                     <div className="flex items-start justify-between gap-3">
@@ -189,7 +245,7 @@ export default function Jobs() {
                       Ứng tuyển
                     </Link>
                   </div>
-                </article>
+                </motion.article>
               ))}
             </div>
           </div>

@@ -41,7 +41,7 @@ export default function WhyIpagSection() {
       <div className="section-content relative z-10">
         <div className="flex w-full flex-col gap-0 md:gap-10 lg:flex-row lg:items-center lg:justify-between">
           <motion.div
-            className="w-full lg:max-w-[524px]"
+            className="w-full lg:max-w-[465px]"
             variants={FADE_LEFT_VARIANTS}
             initial="hidden"
             whileInView="show"
@@ -84,7 +84,7 @@ export default function WhyIpagSection() {
           >
             <motion.div
               variants={SCALE_IN_VARIANTS}
-              className="w-full max-w-[min(100%,300px)] shrink-0 lg:max-w-[382px]"
+              className="w-full max-w-[min(100%,300px)] shrink-0 py-4 lg:max-w-[420px] lg:px-0 lg:py-0"
             >
               <Image
                 src="/home/why-ipag-capability-bank.png"
@@ -98,7 +98,7 @@ export default function WhyIpagSection() {
               />
             </motion.div>
             <motion.div
-              className="w-full min-w-0 max-w-[501px] space-y-6 lg:space-y-10"
+              className="w-full min-w-0 max-w-[530px] space-y-6 lg:space-y-10"
               variants={STAGGER_PARENT}
             >
               {WHY_IPAG_ITEMS.map((item, index) => (

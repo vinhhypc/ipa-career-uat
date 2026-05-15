@@ -7,8 +7,6 @@ import { motion, useReducedMotion } from 'motion/react';
 
 import { useTypewriter, type TypewriterSegment } from '@/lib/useTypewriter';
 
-import insightAbout from '@/assets/ipag-insight/about.jpg';
-import phamMinhHuong from '@/assets/ipag-insight/pham-minh-huong.png';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import {
   CARD_REVEAL_VARIANTS,
@@ -209,7 +207,7 @@ export default function IpagInsight() {
             >
               <div className="relative h-[200px] w-full shrink-0 overflow-hidden sm:h-[220px] md:h-[260px] lg:h-[280px]">
                 <Image
-                  src={insightAbout}
+                  src="/ipag-insight/about.jpg"
                   alt=""
                   fill
                   className="object-cover object-bottom"
@@ -303,7 +301,7 @@ export default function IpagInsight() {
                   }}
                 />
                 <Image
-                  src={phamMinhHuong}
+                  src="/ipag-insight/pham-minh-huong.png"
                   alt="Phạm Minh Hương"
                   width={466}
                   height={466}
