@@ -1,41 +1,22 @@
-import searchHeroTextureImg from '@/assets/we-look-for/search-hero-texture.png';
-import sectionStarSvg from '@/assets/we-look-for/section-star.svg';
-import arrowRightSvg from '@/assets/we-look-for/arrow-right.svg';
-import programsStarSvg from '@/assets/we-look-for/programs-star.svg';
-import programsLineSvg from '@/assets/we-look-for/programs-line.svg';
-import timeline1Svg from '@/assets/we-look-for/timeline-1.svg';
-import timeline2Svg from '@/assets/we-look-for/timeline-2.svg';
-import timeline3Svg from '@/assets/we-look-for/timeline-3.svg';
-import ctaArrowSvg from '@/assets/we-look-for/cta-arrow.svg';
-import processClickSvg from '@/assets/we-look-for/process-click.svg';
-import processFilterSvg from '@/assets/we-look-for/process-filter.svg';
-import processChecklistSvg from '@/assets/we-look-for/process-checklist.svg';
-import processInterviewSvg from '@/assets/we-look-for/process-interview.svg';
-import processBriefcaseSvg from '@/assets/we-look-for/process-briefcase.svg';
-import pathwayTab1Svg from '@/assets/we-look-for/pathway-tab-1.svg';
-import pathwayTab2Svg from '@/assets/we-look-for/pathway-tab-2.svg';
-import pathwayTab3Png from '@/assets/we-look-for/pathway-tab-3.png';
-import pathwayQuoteIconPng from '@/assets/we-look-for/pathway-quote-icon.png';
-
 export const ASSETS = {
-  searchHeroTexture: searchHeroTextureImg.src,
-  sectionStar: sectionStarSvg.src,
-  arrowRight: arrowRightSvg.src,
-  programsStar: programsStarSvg.src,
-  programsLine: programsLineSvg.src,
-  timeline1: timeline1Svg.src,
-  timeline2: timeline2Svg.src,
-  timeline3: timeline3Svg.src,
-  ctaArrow: ctaArrowSvg.src,
-  processClick: processClickSvg.src,
-  processFilter: processFilterSvg.src,
-  processChecklist: processChecklistSvg.src,
-  processInterview: processInterviewSvg.src,
-  processBriefcase: processBriefcaseSvg.src,
-  pathwayTab1: pathwayTab1Svg.src,
-  pathwayTab2: pathwayTab2Svg.src,
-  pathwayTab3: pathwayTab3Png.src,
-  pathwayQuoteIcon: pathwayQuoteIconPng.src,
+  searchHeroTexture: '/we-look-for/search-hero-texture.png',
+  sectionStar: '/we-look-for/section-star.svg',
+  arrowRight: '/we-look-for/arrow-right.svg',
+  programsStar: '/we-look-for/programs-star.svg',
+  programsLine: '/we-look-for/programs-line.svg',
+  timeline1: '/we-look-for/timeline-1.svg',
+  timeline2: '/we-look-for/timeline-2.svg',
+  timeline3: '/we-look-for/timeline-3.svg',
+  ctaArrow: '/we-look-for/cta-arrow.svg',
+  processClick: '/we-look-for/process-click.svg',
+  processFilter: '/we-look-for/process-filter.svg',
+  processChecklist: '/we-look-for/process-checklist.svg',
+  processInterview: '/we-look-for/process-interview.svg',
+  processBriefcase: '/we-look-for/process-briefcase.svg',
+  pathwayTab1: '/we-look-for/pathway-tab-1.svg',
+  pathwayTab2: '/we-look-for/pathway-tab-2.svg',
+  pathwayTab3: '/we-look-for/pathway-tab-3.png',
+  pathwayQuoteIcon: '/we-look-for/pathway-quote-icon.png',
 } as const;
 
 export const PATHWAY_TAB_ICONS = [

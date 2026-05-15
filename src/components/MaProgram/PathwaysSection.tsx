@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { Check, ChevronDown } from 'lucide-react';
 import { useState } from 'react';
+import { AnimatePresence, motion } from 'motion/react';
 
 import { PATHWAYS } from './constants';
 import PathwayNumberRibbon from './PathwayNumberRibbon';
@@ -13,20 +14,31 @@ export default function PathwaysSection() {
   return (
     <section className="section-padding max-md:!py-11 bg-gradient-to-b from-[#fef6eb] to-white to-[72%] md:!py-20">
       <div className="section-content flex flex-col gap-8 md:gap-[52px]">
-        <div className="flex w-full flex-col items-center">
+        <motion.div
+          className="flex w-full flex-col items-center"
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.55, ease: 'easeOut' }}
+        >
           <h2 className="text-center text-[20px] font-bold uppercase leading-[32px] tracking-[1px] text-[#292929] md:text-[40px] md:font-extrabold md:leading-[60px]">
             7 PATHWAYS
           </h2>
-        </div>
+        </motion.div>
 
         <div className="flex flex-col gap-4 md:grid md:grid-cols-2 md:gap-x-5 md:gap-y-6">
           {PATHWAYS.map((p, i) => {
             const isBlue = p.variant === 'blue';
             const isActive = i === openPathwayIndex;
+            const isLeftCol = i % 2 === 0;
             return (
-              <div
+              <motion.div
                 key={p.n}
                 className="relative overflow-visible rounded-[28px] md:rounded-[32px]"
+                initial={{ opacity: 0, x: isLeftCol ? -60 : 60 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, amount: 0.15 }}
+                transition={{ duration: 0.55, ease: 'easeOut', delay: isLeftCol ? 0 : 0.08 }}
               >
                 <PathwayNumberRibbon n={p.n} />
                 <div className="overflow-hidden rounded-[28px] bg-white shadow-[0px_4px_15px_0px_rgba(0,0,0,0.12)] md:rounded-[32px]">
@@ -59,61 +71,88 @@ export default function PathwaysSection() {
                       }`}
                       aria-hidden
                     >
-                      <ChevronDown
-                        className={`size-5 transition-transform md:size-7 ${
-                          isActive ? 'rotate-180' : ''
-                        } ${isBlue ? 'text-white' : 'text-[#474747]'}`}
-                        strokeWidth={2}
-                      />
+                      <motion.div
+                        animate={{ rotate: isActive ? 180 : 0 }}
+                        transition={{ duration: 0.3, ease: 'easeOut' }}
+                      >
+                        <ChevronDown
+                          className={`size-5 md:size-7 ${isBlue ? 'text-white' : 'text-[#474747]'}`}
+                          strokeWidth={2}
+                        />
+                      </motion.div>
                     </div>
                   </button>
 
-                  <div
-                    id={`pathway-panel-${p.n}`}
-                    className={`overflow-hidden bg-white transition-[max-height,opacity,transform] duration-300 ease-out motion-reduce:transition-none ${
-                      isActive
-                        ? 'max-h-[520px] opacity-100 translate-y-0'
-                        : 'max-h-0 opacity-0 -translate-y-1'
-                    }`}
-                  >
-                    <div className="flex flex-col gap-3 px-4 pt-4 md:px-7 md:pt-4">
-                      <p className="text-[14px] font-bold leading-[22px] text-[#474747] md:text-[16px] md:leading-[26px]">
-                        KEY WORK
-                      </p>
-                      <ul className="space-y-2">
-                        {p.keyWork.map((line) => (
-                          <li
-                            key={line}
-                            className="flex gap-2 text-[14px] leading-[20px] text-[#474747] md:text-[16px] md:leading-[22px]"
+                  <AnimatePresence initial={false}>
+                    {isActive && (
+                      <motion.div
+                        id={`pathway-panel-${p.n}`}
+                        key="panel"
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: 'auto', opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.32, ease: 'easeOut' }}
+                        className="overflow-hidden bg-white"
+                      >
+                        <motion.div
+                          initial={{ y: -8 }}
+                          animate={{ y: 0 }}
+                          exit={{ y: -8 }}
+                          transition={{ duration: 0.28, ease: 'easeOut' }}
+                        >
+                          <div className="flex flex-col gap-3 px-4 pt-4 md:px-7 md:pt-4">
+                            <p className="text-[14px] font-bold leading-[22px] text-[#474747] md:text-[16px] md:leading-[26px]">
+                              KEY WORK
+                            </p>
+                            <ul className="space-y-2">
+                              {p.keyWork.map((line, li) => (
+                                <motion.li
+                                  key={line}
+                                  className="flex gap-2 text-[14px] leading-[20px] text-[#474747] md:text-[16px] md:leading-[22px]"
+                                  initial={{ opacity: 0, x: -10 }}
+                                  animate={{ opacity: 1, x: 0 }}
+                                  transition={{ duration: 0.25, ease: 'easeOut', delay: 0.06 + li * 0.06 }}
+                                >
+                                  <Check
+                                    className="mt-0.5 size-5 shrink-0 text-[#00377c]"
+                                    strokeWidth={2}
+                                    aria-hidden
+                                  />
+                                  <span className="min-w-0 flex-1">{line}</span>
+                                </motion.li>
+                              ))}
+                            </ul>
+                          </div>
+
+                          <div className="mx-4 mt-4 h-px bg-black/10 md:mx-7" aria-hidden />
+
+                          <motion.p
+                            className="px-4 pb-5 pt-4 text-[14px] font-normal leading-[22px] text-[#474747] md:px-7 md:pb-8"
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ duration: 0.3, ease: 'easeOut', delay: 0.15 }}
                           >
-                            <Check
-                              className="mt-0.5 size-5 shrink-0 text-[#00377c]"
-                              strokeWidth={2}
-                              aria-hidden
-                            />
-                            <span className="min-w-0 flex-1">{line}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    <div className="mx-4 mt-4 h-px bg-black/10 md:mx-7" aria-hidden />
-
-                    <p className="px-4 pb-5 pt-4 text-[14px] font-normal leading-[22px] text-[#474747] md:px-7 md:pb-8">
-                      <span className="font-semibold italic">Phù hợp:</span>{' '}
-                      <span className="italic">{p.fit}</span>
-                    </p>
-                  </div>
+                            <span className="font-semibold italic">Phù hợp:</span>{' '}
+                            <span className="italic">{p.fit}</span>
+                          </motion.p>
+                        </motion.div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </div>
-              </div>
+              </motion.div>
             );
           })}
 
-          <div
+          <motion.div
             className="flex w-full flex-col items-center gap-4 rounded-[28px] px-7 py-5 shadow-[0px_4px_15px_0px_rgba(0,0,0,0.15)] md:rounded-[32px] md:gap-4 md:px-7 md:py-5"
             style={{
               backgroundImage: 'linear-gradient(-84.74deg, #3192e3 18.66%, #01386f 101.28%)',
             }}
+            initial={{ opacity: 0, y: 32 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.4 }}
+            transition={{ duration: 0.55, ease: 'easeOut' }}
           >
             <p className="w-full text-center text-[16px] font-bold uppercase leading-[22px] tracking-[0.5px] text-white md:text-[24px] md:leading-[32px]">
               Bạn đã sẵn sàng?
@@ -125,7 +164,7 @@ export default function PathwaysSection() {
               <span className="md:hidden">NỘP HỒ SƠ NGAY</span>
               <span className="hidden md:inline">Nộp hồ sơ ngay</span>
             </Link>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

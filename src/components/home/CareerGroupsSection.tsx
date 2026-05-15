@@ -40,7 +40,7 @@ const CAREER_GROUP_ITEMS: CareerGroupItem[] = [
     tag: 'SENIOR',
     iconSrc: '/home/briefcase.png',
     iconHasOwnBackground: true,
-    learnMoreHref: '/we-look-for',
+    learnMoreHref: '/specialist-track',
   },
   {
     title: 'Leadership Track',

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
-import Jobs from '@/components/Jobs';
 import { createPageMetadata } from '@/lib/seo';
+import Jobs from '@/components/Jobs';
 
 export const metadata: Metadata = createPageMetadata({
   title: 'Cơ hội nghề nghiệp',
