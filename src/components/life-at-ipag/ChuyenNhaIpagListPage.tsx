@@ -51,10 +51,10 @@ export default function ChuyenNhaIpagListPage() {
                       key={c.key}
                       type="button"
                       onClick={() => setActive(c.key)}
-                      className={`rounded-full border px-4 py-2 text-xs font-semibold transition md:px-5 md:py-2.5 md:text-sm ${
+                      className={`rounded-full border cursor-pointer px-4 py-2 text-xs font-semibold transition-all duration-200 ease-out hover:-translate-y-0.5 md:px-5 md:py-2.5 md:text-sm ${
                         isActive
-                          ? 'border-[#145194] bg-white text-[#145194] shadow-[0_8px_18px_rgba(20,81,148,0.10)]'
-                          : 'border-[#d6dbe3] bg-white text-[#6b7280] hover:border-[#145194]/50 hover:text-[#145194]'
+                          ? 'border-[#145194] bg-white text-[#145194] shadow-[0_8px_18px_rgba(20,81,148,0.10)] hover:shadow-[0_10px_22px_rgba(20,81,148,0.14)]'
+                          : 'border-[#d6dbe3] bg-white text-[#6b7280] hover:border-[#145194]/50 hover:text-[#145194] hover:shadow-[0_8px_18px_rgba(20,81,148,0.10)]'
                       }`}
                     >
                       {c.label}
@@ -84,7 +84,7 @@ export default function ChuyenNhaIpagListPage() {
 function CenteredHeading({ title }: { title: string }) {
   return (
     <div className="text-center">
-      <h1 className="text-2xl font-extrabold uppercase tracking-[1px] text-[#292929] md:text-[32px] md:leading-[40px]">
+      <h1 className="text-3xl font-extrabold uppercase tracking-[1px] text-[#292929] md:text-[32px] md:leading-[40px]">
         {title}
       </h1>
       <div className="flex items-center justify-center gap-4 mt-4">
@@ -132,16 +132,16 @@ function PostCard({ post }: { post: ChuyenNhaIpagPost }) {
         <h2 className="mt-4 line-clamp-2 text-base font-extrabold text-[#292929] md:text-lg">
           {post.title}
         </h2>
-        <p className="mt-3 line-clamp-3 text-sm leading-6 text-[#6b7280]">{post.excerpt}</p>
+        <p className="mt-2 line-clamp-3 text-sm leading-6 text-[#6b7280]">{post.excerpt}</p>
 
         <Link
           href={`/life-at-ipag/chuyen-nha-ipag/${encodeURIComponent(post.slug)}`}
-          className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-[#145194]"
+          className="mt-2 inline-flex items-center gap-1 text-sm font-semibold text-[#145194] hover:text-[#0C71C7] transition duration-200 hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0C71C7]/30"
         >
           Xem chi tiết <ArrowRight className="size-4" />
         </Link>
 
-        <div className="mt-4 h-px w-full bg-gradient-to-r from-transparent via-[#e5e7eb] to-transparent" />
+        <div className="mt-2 h-px w-full bg-gradient-to-r from-transparent via-[#e5e7eb] to-transparent" />
         <div className="mt-3 flex flex-wrap items-center gap-2 text-[11px] text-[#8a97a6]">
           <span className="font-semibold text-[#6b7280]">{post.authorName}</span>
           <span className="text-[#c1c7d0]" aria-hidden>

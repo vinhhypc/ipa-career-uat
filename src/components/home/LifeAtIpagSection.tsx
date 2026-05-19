@@ -3,13 +3,20 @@
 import type { CSSProperties } from 'react';
 import Image from 'next/image';
 import { motion } from 'motion/react';
+import AutoImageSlider from '@/components/common/AutoImageSlider';
 import {
   FADE_LEFT_VARIANTS,
   REVEAL_VIEWPORT,
   SCALE_IN_VARIANTS,
 } from '@/components/home/home-motion';
 
-const LIFE_AT_IPAG_CAROUSEL_DOTS = [0, 1, 2, 3] as const;
+const LIFE_AT_IPAG_IMAGES = [
+  '/home/home-anh1.jpg',
+  '/home/home-anh2.JPG',
+  '/home/home-anh3.JPG',
+  '/home/home-anh4.JPG',
+  '/home/home-anh5.JPG',
+] as const;
 
 const LIFE_AT_IPAG_SECTION_STYLE: CSSProperties = {
   background: 'linear-gradient(13deg, #ffffff 68.6%, #fff2df 122.28%)',
@@ -47,10 +54,8 @@ export default function LifeAtIpagSection() {
                 Cuộc sống tại IPAG
               </p>
               <h2 className="text-[28px] font-bold uppercase leading-[40px] tracking-[0.7px] text-[#292929] md:text-[40px] md:leading-[60px] md:tracking-[1px]">
-                Nơi mỗi ngày
-                <br />
-                là một trải nghiệm
-                <br />
+                Nơi mỗi ngày <br className="hidden md:block" />
+                là một trải nghiệm <br className="hidden md:block" />
                 đáng nhớ
               </h2>
             </div>
@@ -64,31 +69,15 @@ export default function LifeAtIpagSection() {
             viewport={REVEAL_VIEWPORT}
           >
             <div className="relative aspect-video w-full">
-              <Image
-                src="/home/life-at-ipag-desktop.png"
+              <AutoImageSlider
+                images={LIFE_AT_IPAG_IMAGES}
                 alt="Cuộc sống tại IPAG"
-                fill
-                className="object-cover object-center"
                 sizes="(min-width: 1024px) 60vw, 100vw"
+                className="absolute inset-0"
+                imageClassName="object-cover object-center"
+                overlayStyle={LIFE_AT_IPAG_IMAGE_OVERLAY_STYLE}
+                dotsContainerClassName="absolute bottom-4 left-1/2 z-10 flex -translate-x-1/2 items-center gap-2 md:bottom-6"
               />
-              <div
-                aria-hidden
-                className="pointer-events-none absolute inset-0"
-                style={LIFE_AT_IPAG_IMAGE_OVERLAY_STYLE}
-              />
-              <div className="absolute bottom-4 left-1/2 z-10 flex -translate-x-1/2 items-center gap-2 md:bottom-6">
-                {LIFE_AT_IPAG_CAROUSEL_DOTS.map((dot) => (
-                  <span
-                    key={dot}
-                    aria-hidden
-                    className={
-                      dot === 0
-                        ? 'h-2 w-6 rounded-full bg-white transition-all duration-300'
-                        : 'h-2 w-2 rounded-full bg-white/60 transition-all duration-300'
-                    }
-                  />
-                ))}
-              </div>
             </div>
           </motion.div>
         </div>

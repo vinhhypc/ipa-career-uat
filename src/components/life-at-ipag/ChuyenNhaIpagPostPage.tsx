@@ -120,9 +120,10 @@ function RelatedCard({ post }: { post: ChuyenNhaIpagPost }) {
 
         <Link
           href={`/life-at-ipag/chuyen-nha-ipag/${encodeURIComponent(post.slug)}`}
-          className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-[#145194]"
+          className="group mt-4 inline-flex items-center gap-1 text-sm font-semibold transition duration-200 hover:scale-105 text-[#145194] transition-colors duration-300 ease-out hover:text-[#0C71C7] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0C71C7]/30"
         >
-          Xem chi tiết <ArrowRight className="size-4" />
+          Xem chi tiết{' '}
+          <ArrowRight className="size-4 transition-transform duration-300 ease-out group-hover:translate-x-1" />
         </Link>
 
         <div className="mt-4 h-px w-full bg-gradient-to-r from-transparent via-[#e5e7eb] to-transparent" />

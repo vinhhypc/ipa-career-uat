@@ -27,7 +27,7 @@ export default function LifeAtIpagStoryPanel({
     <section className="px-4 pb-16 md:px-12 md:pb-20 lg:px-20 lg:pb-24 text-[#292929]">
       <div className="section-content">
         <motion.div
-          className="relative overflow-hidden rounded-[28px] border border-[#e5e7eb] bg-white"
+          className="relative overflow-hidden rounded-[28px] bg-white shadow-[0_4px_12px_0_rgba(0,0,0,0.15)]"
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, ease: 'easeOut' }}
@@ -53,10 +53,10 @@ export default function LifeAtIpagStoryPanel({
 
               <Link
                 href={ctaHref}
-                className="mt-8 hidden items-center gap-3 rounded-[1000px] bg-[linear-gradient(88deg,#013A72_-3.48%,#0C71C7_83.47%)] px-7 py-3 text-[18px] font-bold text-white shadow-[0_4px_8px_0_rgba(0,0,0,0.15)] transition hover:brightness-95 lg:inline-flex"
+                className="group mt-8 hidden items-center gap-3 rounded-[1000px] bg-[linear-gradient(88deg,#013A72_-3.48%,#0C71C7_83.47%)] px-7 py-3 text-[18px] font-bold text-white shadow-[0_4px_8px_0_rgba(0,0,0,0.15)] transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-[1.04] hover:shadow-[0_8px_20px_rgba(0,0,0,0.18)] hover:brightness-105 active:translate-y-0 active:scale-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0C71C7]/30 lg:inline-flex"
               >
                 TÌM HIỂU THÊM
-                <ArrowRight className="size-5" />
+                <ArrowRight className="size-5 transition-transform duration-300 ease-out group-hover:translate-x-1" />
               </Link>
             </motion.div>
 
@@ -93,10 +93,10 @@ export default function LifeAtIpagStoryPanel({
             >
               <Link
                 href={ctaHref}
-                className="inline-flex items-center gap-3 rounded-[1000px] bg-[linear-gradient(88deg,#013A72_-3.48%,#0C71C7_83.47%)] px-7 py-3 text-[18px] font-bold text-white shadow-[0_4px_8px_0_rgba(0,0,0,0.15)] transition hover:brightness-95"
+                className="group inline-flex items-center gap-3 rounded-[1000px] bg-[linear-gradient(88deg,#013A72_-3.48%,#0C71C7_83.47%)] px-7 py-3 text-[18px] font-bold text-white shadow-[0_4px_8px_0_rgba(0,0,0,0.15)] transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-[1.04] hover:shadow-[0_8px_20px_rgba(0,0,0,0.18)] hover:brightness-105 active:translate-y-0 active:scale-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0C71C7]/30"
               >
                 TÌM HIỂU THÊM
-                <ArrowRight className="size-5" />
+                <ArrowRight className="size-5 transition-transform duration-300 ease-out group-hover:translate-x-1" />
               </Link>
             </motion.div>
           </div>
