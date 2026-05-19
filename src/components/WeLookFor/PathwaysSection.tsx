@@ -1,13 +1,20 @@
 'use client';
 
 import { useState } from 'react';
-import { AnimatePresence, motion } from 'motion/react';
+import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
+import Image from 'next/image';
 
 import { ASSETS, PATHWAY_TAB_ICONS, PATHWAYS } from './constants';
 
 export default function PathwaysSection() {
   const [pathwayIndex, setPathwayIndex] = useState(0);
+  const [hoveredStepIndex, setHoveredStepIndex] = useState<number | null>(null);
   const pathway = PATHWAYS[pathwayIndex];
+  const reduceMotion = useReducedMotion();
+  const tapTransition = { type: 'spring', stiffness: 520, damping: 28 } as const;
+  const hoverScalePill = reduceMotion ? undefined : { scale: 1.05 };
+  const tapScaleSoft = reduceMotion ? undefined : { scale: 0.94 };
+  const hoverScaleStep = reduceMotion ? undefined : { scale: 1.03 };
 
   return (
     <section className="section-padding bg-gradient-to-b from-[#fef6eb] to-white to-[72%] lg:pt-14 lg:pb-20">
@@ -20,10 +27,10 @@ export default function PathwaysSection() {
           transition={{ duration: 0.55, ease: 'easeOut' }}
         >
           <h2 className="text-[20px] font-bold uppercase leading-8 tracking-[1px] text-[#292929] lg:text-[40px] lg:font-extrabold lg:leading-[60px]">
-            Các chương trình tuyển dụng trọng điểm tại IPAG.
+            Các chương trình tuyển dụng trọng điểm tại IPAG
           </h2>
           <p className="text-[14px] font-normal leading-5 text-[#474747] lg:text-lg lg:leading-7 lg:tracking-[0.54px]">
-            Các chương trình tuyển dụng trọng điểm tại IPAG.
+            Các chương trình tuyển dụng trọng điểm tại IPAG
           </p>
         </motion.div>
 
@@ -35,16 +42,28 @@ export default function PathwaysSection() {
           transition={{ duration: 0.6, ease: 'easeOut', delay: 0.1 }}
         >
           <div className="flex items-center gap-2 lg:hidden">
-            <img alt="" src={ASSETS.programsStar} className="h-4 w-[14px] shrink-0" />
+            <Image
+              alt=""
+              src={ASSETS.programsStar}
+              width={14}
+              height={16}
+              className="h-4 w-[14px] shrink-0"
+            />
             <h3 className="text-[18px] font-bold uppercase leading-[1.4] tracking-[0.18px] text-[#002b5b]">
               Về IPAG
             </h3>
-            <div className="relative h-0 w-[60px] shrink-0">
-              <img alt="" src={ASSETS.programsLine} className="block h-px w-full" />
+            <div className="relative h-px w-[60px] shrink-0">
+              <Image
+                alt=""
+                src={ASSETS.programsLine}
+                fill
+                sizes="60px"
+                className="block object-contain"
+              />
             </div>
           </div>
 
-          <div className="flex w-full flex-col shadow-none lg:shadow-[0px_4px_12px_0px_rgba(0,0,0,0.15)]">
+          <div className="flex w-full flex-col shadow-none rounded-4xl ">
             {/* Tab headers */}
             <div className="flex w-full overflow-hidden rounded-t-[20px] border border-b-0 border-[rgba(7,7,7,0.13)] lg:rounded-t-[32px]">
               {PATHWAYS.map((p, i) => {
@@ -55,7 +74,7 @@ export default function PathwaysSection() {
                     key={p.pathway}
                     type="button"
                     onClick={() => setPathwayIndex(i)}
-                    className={`flex min-h-[128px] min-w-0 flex-1 flex-col items-center justify-center border-r border-[rgba(7,7,7,0.13)] px-3 py-6 text-center transition-colors last:border-r-0 lg:min-h-0 lg:gap-4 lg:px-10 lg:py-6 ${
+                    className={`flex cursor-pointer min-h-[128px] min-w-0 flex-1 flex-col items-center justify-center border-r border-[rgba(7,7,7,0.13)] px-3 py-6 text-center transition-colors last:border-r-0 lg:min-h-0 lg:gap-1 lg:px-10 lg:py-6 ${
                       active
                         ? 'border-b-[3px] border-[#fbc17b] bg-gradient-to-b from-[#0264b3] to-[#002b5b] text-white lg:border-b-[5px]'
                         : 'bg-white text-[#474747] lg:border-t lg:border-[rgba(7,7,7,0.13)]'
@@ -67,17 +86,21 @@ export default function PathwaysSection() {
                         aria-hidden
                       >
                         <div className="absolute inset-[-20.91%_-20.9%_-20.91%_-20.92%]">
-                          <img
-                            src={tabIcon.src}
+                          <Image
                             alt=""
-                            className="absolute block inset-0 max-w-none size-full"
+                            src={tabIcon.src}
+                            fill
+                            sizes="60px"
+                            className="absolute inset-0 block max-w-none object-cover"
                           />
                         </div>
                       </div>
                     ) : (
-                      <img
-                        src={tabIcon.src}
+                      <Image
                         alt=""
+                        src={tabIcon.src}
+                        width={60}
+                        height={60}
                         className="hidden size-[60px] shrink-0 lg:block"
                         aria-hidden
                       />
@@ -88,12 +111,12 @@ export default function PathwaysSection() {
                       {p.pathway}
                     </span>
                     <span
-                      className={`mt-2 min-w-full text-[14px] font-bold leading-[18px] lg:mt-0 lg:text-2xl lg:leading-10 ${active ? 'text-white' : 'text-[#292929]'}`}
+                      className={` min-w-full text-[14px] font-bold leading-[18px] lg:mt-0 lg:text-2xl lg:leading-10 ${active ? 'text-white' : 'text-[#292929]'}`}
                     >
                       {p.name}
                     </span>
                     <div
-                      className={`mt-2 flex flex-col gap-0.5 text-[10px] font-normal leading-3 lg:mt-0 lg:flex-row lg:items-center lg:justify-center lg:gap-2 lg:text-sm lg:leading-4 ${active ? 'text-white' : 'text-[#474747]'}`}
+                      className={` flex flex-col gap-0.5 text-[10px] font-normal leading-3 lg:mt-0 lg:flex-row lg:items-center lg:justify-center lg:gap-2 lg:text-sm lg:leading-4 ${active ? 'text-white' : 'text-[#474747]'}`}
                     >
                       <span>{p.lines[0]}</span>
                       <span
@@ -165,9 +188,11 @@ export default function PathwaysSection() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.4, ease: 'easeOut', delay: 0.15 }}
                   >
-                    <img
+                    <Image
                       src={ASSETS.pathwayQuoteIcon}
                       alt=""
+                      width={48}
+                      height={48}
                       className="hidden size-12 shrink-0 lg:block"
                       aria-hidden
                     />
@@ -198,19 +223,47 @@ export default function PathwaysSection() {
                         className={`flex items-center gap-3 lg:gap-7 ${si < pathway.steps.length - 1 ? 'pb-4 lg:pb-8' : ''}`}
                         initial={{ opacity: 0, x: 20 }}
                         animate={{ opacity: 1, x: 0 }}
+                        onHoverStart={() => setHoveredStepIndex(si)}
+                        onHoverEnd={() =>
+                          setHoveredStepIndex((current) => (current === si ? null : current))
+                        }
                         transition={{ duration: 0.4, ease: 'easeOut', delay: 0.25 + si * 0.12 }}
                       >
                         {/* Dot */}
                         <div className="relative z-10 shrink-0" aria-hidden>
-                          <div className="size-3 rounded-xl border-4 border-[#002b5b] bg-[#fbc17a] shadow-[0px_0px_20px_0px_rgba(254,179,22,0.6)] lg:size-4 lg:rounded-[12px]" />
+                          <motion.div
+                            className="size-3 rounded-xl border-4 border-[#002b5b] bg-[#fbc17a] lg:size-4 lg:rounded-[12px]"
+                            animate={
+                              hoveredStepIndex === si
+                                ? {
+                                    boxShadow: '0px 0px 32px 0px rgba(254,179,22,0.95)',
+                                    filter: 'brightness(1.12)',
+                                  }
+                                : {
+                                    boxShadow: '0px 0px 20px 0px rgba(254,179,22,0.6)',
+                                    filter: 'brightness(1)',
+                                  }
+                            }
+                            transition={tapTransition}
+                          />
                         </div>
 
                         {/* Card */}
                         <div className="min-w-0 flex-1">
-                          <div className="flex items-center rounded-xl border border-[rgba(123,193,255,0.6)] bg-[rgba(202,230,255,0.15)] p-[13px] shadow-[0px_8px_32px_0px_rgba(0,0,0,0.1)] backdrop-blur-[12px] lg:rounded-[20px] lg:px-[17px] lg:py-[13px]">
+                          <motion.div
+                            className="origin-left will-change-transform flex items-center rounded-xl border border-[rgba(123,193,255,0.6)] bg-[rgba(202,230,255,0.15)] p-[13px] shadow-[0px_8px_32px_0px_rgba(0,0,0,0.1)] backdrop-blur-[12px] lg:rounded-[20px] lg:px-[17px] lg:py-[13px]"
+                            whileHover={hoverScaleStep}
+                            transition={tapTransition}
+                          >
                             <div className="flex min-w-0 flex-1 flex-col gap-1 lg:gap-2">
                               <div className="flex items-center gap-2 lg:gap-3">
-                                <img alt="" src={step.icon} className="size-5 shrink-0 lg:size-7" />
+                                <Image
+                                  alt=""
+                                  src={step.icon}
+                                  width={28}
+                                  height={28}
+                                  className="size-5 shrink-0 lg:size-7"
+                                />
                                 <p className="text-[14px] font-bold leading-[22px] text-[#fbc17b] lg:text-lg lg:leading-7">
                                   {step.title}
                                 </p>
@@ -219,7 +272,7 @@ export default function PathwaysSection() {
                                 {step.body}
                               </p>
                             </div>
-                          </div>
+                          </motion.div>
                         </div>
                       </motion.div>
                     ))}
@@ -232,15 +285,24 @@ export default function PathwaysSection() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.4, ease: 'easeOut', delay: 0.3 }}
                   >
-                    <button
+                    <motion.button
                       type="button"
-                      className="flex h-9 w-full items-center justify-center gap-2 rounded-full bg-white px-3 py-2.5 text-[14px] font-bold leading-[1.4] text-[#474747] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] lg:h-12 lg:w-[276px] lg:text-lg"
+                      className="flex cursor-pointer h-9 w-full items-center justify-center gap-2 rounded-full bg-white px-3 py-2.5 text-[14px] font-bold leading-[1.4] text-[#474747] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] lg:h-12 lg:w-[276px] lg:text-lg"
+                      whileHover={hoverScalePill}
+                      whileTap={tapScaleSoft}
+                      transition={tapTransition}
                     >
                       XEM THÊM
                       <span className="relative size-5 lg:size-6">
-                        <img alt="" src={ASSETS.ctaArrow} className="size-5 lg:size-6" />
+                        <Image
+                          alt=""
+                          src={ASSETS.ctaArrow}
+                          fill
+                          sizes="24px"
+                          className="object-contain"
+                        />
                       </span>
-                    </button>
+                    </motion.button>
                   </motion.div>
                 </motion.div>
               </AnimatePresence>

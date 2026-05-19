@@ -22,7 +22,7 @@ export default function JobInfoSidebar({ onApplyClick }: JobInfoSidebarProps) {
         <button
           type="button"
           onClick={onApplyClick}
-          className="mx-auto mt-5 inline-flex h-11 w-full items-center justify-center gap-2 rounded-full bg-white px-3 text-[15px] leading-[21px] font-bold text-[#474747] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] lg:mt-6 lg:h-[52px] lg:w-[276px] lg:text-[18px] lg:leading-[25px]"
+          className="mx-auto cursor-pointer mt-5 inline-flex h-11 w-full items-center justify-center gap-2 rounded-full bg-white px-3 text-[15px] leading-[21px] font-bold text-[#474747] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-[1.04] hover:shadow-[0_8px_20px_rgba(0,0,0,0.18)] hover:brightness-105 active:translate-y-0 active:scale-100 active:shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] lg:mt-6 lg:h-[52px] lg:w-[276px] lg:text-[18px] lg:leading-[25px]"
         >
           ỨNG TUYỂN NGAY
           <ArrowRight className="size-5" />

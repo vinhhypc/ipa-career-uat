@@ -250,7 +250,7 @@ export default function ChuongTrinhDaoTaoPage() {
                   </p>
                   <a
                     href="#"
-                    className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-[#145194]"
+                    className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-[#145194] transition duration-200 hover:scale-105 hover:text-[#0C71C7]"
                   >
                     Xem thêm <ChevronRight className="size-4" />
                   </a>

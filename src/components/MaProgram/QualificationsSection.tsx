@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'motion/react';
+import Image from 'next/image';
 
 import { QUALIFICATIONS, SELECTION_STEPS } from './constants';
 import MaApplyButton from './MaApplyButton';
@@ -8,13 +9,46 @@ import MaApplyButton from './MaApplyButton';
 export default function QualificationsSection() {
   return (
     <section
-      className="section-padding max-md:!py-7 md:!py-20"
+      className="section-padding relative overflow-hidden max-md:!py-7 md:!py-20"
       style={{
         backgroundImage:
           'linear-gradient(160.3deg, rgba(170, 231, 255, 0.15) 4.3%, rgba(0, 116, 162, 0.15) 93.43%)',
       }}
     >
-      <div className="section-content flex flex-col gap-8">
+      <motion.div
+        aria-hidden
+        className="pointer-events-none absolute bottom-0 left-0 hidden h-[308px] w-[566px] select-none lg:block"
+        initial={{ opacity: 0, y: 16 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.25 }}
+        transition={{ duration: 0.6, ease: 'easeOut' }}
+      >
+        <Image
+          src="/home/epic-abstract-left.svg"
+          alt=""
+          fill
+          sizes="566px"
+          className="object-contain"
+        />
+      </motion.div>
+      <motion.div
+        aria-hidden
+        className="pointer-events-none absolute bottom-0 right-0 hidden h-[308px] w-[566px] select-none lg:block"
+        initial={{ opacity: 0, y: 16 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.25 }}
+        transition={{ duration: 0.6, ease: 'easeOut', delay: 0.05 }}
+      >
+        <Image
+          src="/home/epic-abstract-right.svg"
+          alt=""
+          fill
+          sizes="566px"
+          className="object-contain"
+        />
+      </motion.div>
+
+      <div className="section-content relative z-10 flex flex-col gap-8">
         <div className="grid grid-cols-1 items-start gap-8 md:grid-cols-[minmax(0,1fr)_521px] md:gap-x-[100px] md:gap-y-0">
           <div className="flex flex-col gap-8 md:gap-[52px]">
             <motion.div
@@ -50,7 +84,11 @@ export default function QualificationsSection() {
                         initial={{ scale: 0.5, opacity: 0 }}
                         whileInView={{ scale: 1, opacity: 1 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.4, ease: [0.34, 1.56, 0.64, 1], delay: i * 0.1 + 0.1 }}
+                        transition={{
+                          duration: 0.4,
+                          ease: [0.34, 1.56, 0.64, 1],
+                          delay: i * 0.1 + 0.1,
+                        }}
                       >
                         <Icon
                           className={`size-[18px] md:size-6 ${q.iconClass}`}
@@ -124,7 +162,11 @@ export default function QualificationsSection() {
                         initial={{ scale: 0 }}
                         whileInView={{ scale: 1 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.35, ease: [0.34, 1.56, 0.64, 1], delay: i * 0.1 + 0.25 }}
+                        transition={{
+                          duration: 0.35,
+                          ease: [0.34, 1.56, 0.64, 1],
+                          delay: i * 0.1 + 0.25,
+                        }}
                       />
                       <motion.div
                         className={`flex min-w-0 flex-1 cursor-default items-center gap-2 rounded-xl border border-[rgba(123,193,255,0.6)] bg-[rgba(202,230,255,0.18)] px-[13px] py-[5px] backdrop-blur-[12px] md:w-full md:max-w-[400px] md:rounded-[20px] md:px-[17px] md:py-[9px] ${

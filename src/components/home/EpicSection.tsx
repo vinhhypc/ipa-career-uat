@@ -89,7 +89,7 @@ export default function EpicSection() {
               key={item.key}
               variants={CARD_REVEAL_VARIANTS}
               whileHover={EPIC_CARD_HOVER}
-              className="flex flex-col gap-5 rounded-[24px] bg-white px-5 py-5 shadow-[0_4px_6px_rgba(0,0,0,0.15)] md:gap-10 md:rounded-[32px] md:px-7 md:py-8"
+              className="flex flex-col gap-5 rounded-[24px] bg-white px-5 py-5 shadow-[0_4px_6px_rgba(0,0,0,0.15)] md:gap-12 md:rounded-[32px] md:px-7 md:py-8"
             >
               <p className="text-[56px] font-extrabold leading-[56px] text-[#002b5b] md:text-[80px] md:leading-[80px]">
                 {item.key}

@@ -9,9 +9,9 @@ export type ListSection = {
 };
 
 export type RelatedJob = {
+  id: string;
   tag: string;
   title: string;
   location: string;
   type: string;
-  highlighted?: boolean;
 };

@@ -1,14 +1,17 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 import { ChevronDown, MapPin, Search } from 'lucide-react';
 import { motion, type Variants } from 'motion/react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { JOBS } from '@/data/jobs';
 
 const ASSETS = {
   searchHeroTexture: '/we-look-for/search-hero-texture.png',
+  sectionStar: '/we-look-for/section-star.svg',
 } as const;
 
 const fadeUp: Variants = {
@@ -29,6 +32,65 @@ const fadeIn: Variants = {
 };
 
 export default function Jobs() {
+  type FilterKey = 'domain' | 'business' | 'program' | 'location';
+
+  const filters = useMemo(
+    () => [
+      {
+        key: 'domain' as const,
+        defaultLabel: 'Tất cả Domain',
+        textSize: 'text-[14px]',
+        options: [
+          { label: 'Tất cả Domain', value: 'all' },
+          { label: 'Chuyển đổi số', value: 'dx' },
+        ],
+      },
+      {
+        key: 'business' as const,
+        defaultLabel: 'Business',
+        textSize: 'text-[16px]',
+        options: [
+          { label: 'Business', value: 'business' },
+          { label: 'Tài chính', value: 'finance' },
+        ],
+      },
+      {
+        key: 'program' as const,
+        defaultLabel: 'Program',
+        textSize: 'text-[16px]',
+        options: [
+          { label: 'Program', value: 'program' },
+          { label: 'MA Program', value: 'ma' },
+        ],
+      },
+      {
+        key: 'location' as const,
+        defaultLabel: 'Toàn quốc',
+        textSize: 'text-[16px]',
+        options: [
+          { label: 'Toàn quốc', value: 'nationwide' },
+          { label: 'Hà Nội', value: 'hanoi' },
+        ],
+      },
+    ],
+    [],
+  );
+
+  const [openFilter, setOpenFilter] = useState<FilterKey | null>(null);
+
+  const filterWrapRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const handlePointerDown = (event: PointerEvent) => {
+      const target = event.target as Node | null;
+      if (!target) return;
+      if (!filterWrapRef.current?.contains(target)) setOpenFilter(null);
+    };
+
+    window.addEventListener('pointerdown', handlePointerDown);
+    return () => window.removeEventListener('pointerdown', handlePointerDown);
+  }, []);
+
   return (
     <div className="bg-white">
       <motion.div
@@ -65,10 +127,13 @@ export default function Jobs() {
                 aria-hidden
                 className="pointer-events-none absolute inset-0 rounded-[20px] opacity-[0.38] mix-blend-overlay lg:rounded-[32px]"
               >
-                <img
+                <Image
                   alt=""
                   src={ASSETS.searchHeroTexture}
-                  className="absolute left-[-115%] top-0 h-full w-[290%] max-w-none object-cover lg:left-[-16.67%] lg:top-[-27.88%] lg:h-[198.79%] lg:w-[133.33%]"
+                  fill
+                  priority
+                  sizes="100vw"
+                  className="object-fill"
                 />
               </div>
 
@@ -97,7 +162,7 @@ export default function Jobs() {
                 <label className="sr-only" htmlFor="job-search">
                   Tìm kiếm công việc
                 </label>
-                <div className="flex w-full items-center gap-2 rounded-lg border border-[rgba(7,7,7,0.18)] bg-white px-3 py-2 lg:gap-2 lg:px-4 lg:py-2.5">
+                <div className="flex w-full cursor-text items-center gap-2 rounded-lg border border-[rgba(7,7,7,0.18)] bg-white px-3 py-2 transition-colors duration-200 hover:border-[rgba(0,43,91,0.35)] focus-within:border-[rgba(0,43,91,0.55)] focus-within:ring-2 focus-within:ring-[#0c71c7]/20 lg:gap-2 lg:px-4 lg:py-2.5">
                   <Search
                     className="size-6 shrink-0 text-[#707070] lg:size-7"
                     strokeWidth={1.75}
@@ -111,32 +176,65 @@ export default function Jobs() {
                   />
                 </div>
 
-                <div className="flex w-full flex-col gap-4 lg:flex-row lg:gap-5">
-                  {[
-                    { label: 'Tất cả Domain', value: 'all', textSize: 'text-[14px]' },
-                    { label: 'Business', value: 'business', textSize: 'text-[16px]' },
-                    { label: 'Program', value: 'program', textSize: 'text-[16px]' },
-                    { label: 'Toàn quốc', value: 'nationwide', textSize: 'text-[16px]' },
-                  ].map((item, i) => (
-                    <motion.button
-                      key={item.value}
-                      type="button"
-                      className={`flex h-10 w-full items-center justify-between rounded-lg border border-[rgba(7,7,7,0.18)] bg-white px-3 py-2.5 text-left font-medium leading-[1.4] text-[#474747] lg:min-h-12 lg:flex-1 lg:px-4 lg:py-2.5 lg:text-base ${item.textSize} lg:!text-base`}
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.35, ease: 'easeOut', delay: 0.3 + i * 0.07 }}
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                    >
-                      <span className="truncate">{item.label}</span>
-                      <ChevronDown className="size-7 shrink-0 text-[#474747]" strokeWidth={1.75} />
-                    </motion.button>
-                  ))}
+                <div
+                  className="flex w-full flex-col gap-4 lg:flex-row lg:gap-5"
+                  ref={filterWrapRef}
+                >
+                  {filters.map((filter) => {
+                    const selectedValue = filter.options[0]?.value ?? '';
+                    const selectedLabel = filter.defaultLabel;
+                    const isOpen = openFilter === filter.key;
+
+                    return (
+                      <div key={filter.key} className="relative w-full lg:flex-1">
+                        <button
+                          type="button"
+                          aria-haspopup="listbox"
+                          aria-expanded={isOpen}
+                          onClick={() =>
+                            setOpenFilter((prev) => (prev === filter.key ? null : filter.key))
+                          }
+                          className={`flex h-10 w-full cursor-pointer items-center justify-between rounded-lg border border-[rgba(7,7,7,0.18)] bg-white px-3 py-2.5 text-left font-medium leading-[1.4] text-[#474747] transition-colors duration-200 hover:border-[rgba(0,43,91,0.35)] hover:bg-white/95 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0c71c7]/25 lg:min-h-12 lg:px-4 lg:py-2.5 lg:text-base ${filter.textSize} lg:!text-base`}
+                        >
+                          <span className="truncate">{selectedLabel}</span>
+                          <ChevronDown
+                            className={`size-7 shrink-0 text-[#474747] transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
+                            strokeWidth={1.75}
+                          />
+                        </button>
+
+                        {isOpen ? (
+                          <div
+                            role="listbox"
+                            className="absolute left-0 top-full z-20 mt-2 w-full overflow-hidden rounded-lg border border-[rgba(7,7,7,0.18)] bg-white shadow-[0px_12px_32px_0px_rgba(0,43,91,0.18)]"
+                          >
+                            {filter.options.map((opt) => {
+                              const isSelected = opt.value === selectedValue;
+                              return (
+                                <button
+                                  key={opt.value}
+                                  type="button"
+                                  role="option"
+                                  aria-selected={isSelected}
+                                  onClick={() => {
+                                    setOpenFilter(null);
+                                  }}
+                                  className={`w-full px-3 py-2.5 text-left text-[14px] leading-[1.4] text-[#474747] transition-colors duration-150 hover:bg-black/5 lg:px-4 lg:text-base ${isSelected ? 'bg-black/5 font-semibold' : 'font-medium'}`}
+                                >
+                                  {opt.label}
+                                </button>
+                              );
+                            })}
+                          </div>
+                        ) : null}
+                      </div>
+                    );
+                  })}
                 </div>
 
                 <motion.button
                   type="submit"
-                  className="mx-auto flex h-10 w-full items-center justify-center gap-2 rounded-full px-3 py-2.5 text-[14px] font-bold uppercase leading-[1.4] text-white shadow-[0px_4px_8px_0px_rgba(0,0,0,0.15)] lg:h-12 lg:w-[466px] lg:gap-2 lg:text-lg"
+                  className="group mx-auto flex h-10 w-full cursor-pointer items-center justify-center gap-2 rounded-full px-3 py-2.5 text-[14px] font-bold uppercase leading-[1.4] text-white shadow-[0px_4px_8px_0px_rgba(0,0,0,0.15)] transition-all duration-200 ease-out hover:-translate-y-0.5 hover:shadow-[0px_12px_24px_0px_rgba(0,43,91,0.28)] active:translate-y-0 active:shadow-[0px_6px_14px_0px_rgba(0,43,91,0.22)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0c71c7]/30 lg:h-12 lg:w-[466px] lg:gap-2 lg:text-lg"
                   style={{
                     backgroundImage:
                       'linear-gradient(72.72deg, rgb(1, 58, 114) 3.48%, rgb(12, 113, 199) 83.47%)',
@@ -144,10 +242,12 @@ export default function Jobs() {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, ease: 'easeOut', delay: 0.6 }}
-                  whileHover={{ scale: 1.03 }}
-                  whileTap={{ scale: 0.97 }}
                 >
-                  <Search className="size-6 text-white lg:size-7" strokeWidth={2} aria-hidden />
+                  <Search
+                    className="size-6 text-white transition-transform duration-200 group-hover:scale-110 lg:size-7"
+                    strokeWidth={2}
+                    aria-hidden
+                  />
                   Tìm kiếm cơ hội
                 </motion.button>
               </motion.form>
@@ -166,18 +266,13 @@ export default function Jobs() {
               viewport={{ once: true, amount: 0.5 }}
               variants={fadeUp}
             >
-              <svg
-                aria-hidden
-                className="h-4 w-[14px] lg:h-6 lg:w-[21px]"
-                viewBox="0 0 21 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M11.6632 10.5121C11.6632 10.5121 11.6632 10.5119 11.6632 10.5118L14.2812 2.42468L12.7213 2.43067L9.95995 2.44128L9.95356 0.776077L8.36888 0.782162L8.37527 2.44736L5.69654 2.45766L4.13657 2.46365L6.81632 10.5302L0.0609073 14.0849L1.48199 14.973L3.99796 16.5454L3.1589 17.9812L4.60195 18.8831L5.44101 17.4473L7.87994 18.9714L9.30095 19.8594L11.9733 11.7904C11.9734 11.7903 11.9734 11.7901 11.9735 11.79C11.9735 11.7899 11.9735 11.7897 11.9736 11.7896L14.614 19.8765L16.0379 18.9929L18.4858 17.474L19.3199 18.9126L20.7675 18.0145L19.9334 16.5758L22.4587 15.0094L23.8826 14.1259L17.1397 10.5484L19.8474 2.51104L18.2874 2.50504L15.6087 2.49475L15.6151 0.829543L14.0304 0.823457L14.024 2.48866L11.2627 2.47804L9.70269 2.47205L12.3048 10.5589C12.3049 10.559 12.305 10.5592 12.305 10.5593C12.3051 10.5594 12.3051 10.5596 12.3052 10.5597L12.3048 10.5599C12.3048 10.56 12.3047 10.5601 12.3047 10.5603L11.6632 10.5121Z"
-                  fill="#002B5B"
-                />
-              </svg>
+              <Image
+                alt=""
+                src={ASSETS.sectionStar}
+                width={21}
+                height={24}
+                className="h-4 w-[14px] shrink-0 lg:h-6 lg:w-[21px]"
+              />
               <h2 className="text-[18px] font-bold uppercase leading-[1.4] tracking-[0.18px] text-[#002b5b] lg:text-[24px] lg:tracking-[0.24px]">
                 Tất cả các vị trí
               </h2>

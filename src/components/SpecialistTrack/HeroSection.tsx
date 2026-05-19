@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { motion } from 'motion/react';
 
 import { FADE_LEFT_VARIANTS, SCALE_IN_VARIANTS } from '@/components/home/home-motion';
@@ -22,10 +23,13 @@ export default function HeroSection() {
         aria-hidden
         className="pointer-events-none absolute inset-0 overflow-hidden opacity-[0.19]"
       >
-        <img
+        <Image
           src={ASSETS.bannerTexture}
           alt=""
-          className="absolute inset-0 h-full w-full max-w-none scale-x-[-1] object-cover"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover scale-x-[-1]"
         />
       </div>
 
@@ -57,9 +61,13 @@ export default function HeroSection() {
           initial="hidden"
           animate="show"
         >
-          <img
+          <Image
             src={ASSETS.heroGraphic}
             alt=""
+            width={367}
+            height={367}
+            priority
+            sizes="(min-width: 1024px) 367px, 280px"
             className="size-[280px]  opacity-70 mix-blend-color-dodge lg:size-[367px]"
           />
         </motion.div>

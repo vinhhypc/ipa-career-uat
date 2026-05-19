@@ -6,6 +6,8 @@ import { ArrowRight, Check } from 'lucide-react';
 import { motion } from 'motion/react';
 
 import {
+  FADE_LEFT_VARIANTS,
+  FADE_RIGHT_VARIANTS,
   FADE_UP_VARIANTS,
   REVEAL_VIEWPORT,
   STAGGER_PARENT,
@@ -81,50 +83,58 @@ export default function OpenRolesSection({ onOpenModal }: OpenRolesSectionProps)
                     {role.summary}
                   </p>
                 </div>
-                <div className="px-4 pb-6 pt-4 md:px-7 md:pb-8">
+                <div className="px-4 pb-6 pt-4 md:px-7">
                   <div className="grid grid-cols-1 gap-6 border-b border-[#d5d5d5] pb-4 md:grid-cols-2 md:gap-5">
                     <div>
-                      <p className="text-[13px] font-bold uppercase leading-[22px] text-[#474747] md:text-[16px]">
+                      <motion.p
+                        className="text-[13px] font-bold uppercase leading-[22px] text-[#474747] md:text-[16px]"
+                        variants={FADE_LEFT_VARIANTS}
+                      >
                         YÊU CẦU CÔNG VIỆC
-                      </p>
-                      <ul className="mt-2 space-y-1.5">
+                      </motion.p>
+                      <motion.ul className="mt-2 space-y-1.5" variants={STAGGER_PARENT}>
                         {role.requirements.map((line) => (
-                          <li
+                          <motion.li
                             key={line}
                             className="flex gap-2 text-[13px] leading-[20px] text-[#474747] md:text-[16px] md:leading-[26px]"
+                            variants={FADE_LEFT_VARIANTS}
                           >
                             <Check
                               className="mt-1 size-[18px] shrink-0 text-[#00377c] md:size-5"
                               strokeWidth={2}
                             />
                             <span>{line}</span>
-                          </li>
+                          </motion.li>
                         ))}
-                      </ul>
+                      </motion.ul>
                     </div>
                     <div>
-                      <p className="text-[13px] font-bold uppercase leading-[22px] text-[#474747] md:text-[16px]">
+                      <motion.p
+                        className="text-[13px] font-bold uppercase leading-[22px] text-[#474747] md:text-[16px]"
+                        variants={FADE_RIGHT_VARIANTS}
+                      >
                         QUYỀN LỢI & CƠ HỘI
-                      </p>
-                      <ul className="mt-2 space-y-1.5">
+                      </motion.p>
+                      <motion.ul className="mt-2 space-y-1.5" variants={STAGGER_PARENT}>
                         {role.benefits.map((line) => (
-                          <li
+                          <motion.li
                             key={line}
                             className="flex gap-2 text-[13px] leading-[20px] text-[#474747] md:text-[16px] md:leading-[26px]"
+                            variants={FADE_RIGHT_VARIANTS}
                           >
                             <Check
                               className="mt-1 size-[18px] shrink-0 text-[#00377c] md:size-5"
                               strokeWidth={2}
                             />
                             <span>{line}</span>
-                          </li>
+                          </motion.li>
                         ))}
-                      </ul>
+                      </motion.ul>
                     </div>
                   </div>
                   <Link
                     href="/we-look-for"
-                    className="mt-4 inline-flex items-center gap-1 text-[14px] font-semibold leading-[1.4] text-[#002b5b] md:text-[16px]"
+                    className="mt-4 inline-flex items-center gap-1 text-[14px] font-semibold leading-[1.4] text-[#002b5b] transition duration-200 hover:scale-105 hover:text-[#0C71C7] md:text-[16px]"
                   >
                     Xem chi tiết & Ứng tuyển
                     <ArrowRight className="size-4 md:size-5" strokeWidth={2} />
@@ -144,13 +154,13 @@ export default function OpenRolesSection({ onOpenModal }: OpenRolesSectionProps)
         >
           <Link
             href="/jobs"
-            className="flex h-12 w-full max-w-[276px] items-center justify-center rounded-full border border-[#00377c] text-[16px] font-bold text-[#002b5b] shadow-[0px_4px_8px_0px_rgba(0,0,0,0.15)] md:text-[18px]"
+            className="flex h-12 w-full max-w-[276px] items-center justify-center rounded-full border border-[#00377c] text-[16px] font-bold text-[#002b5b] shadow-[0px_4px_8px_0px_rgba(0,0,0,0.15)] transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-[1.04] hover:shadow-[0_8px_20px_rgba(0,0,0,0.18)] hover:brightness-105 active:translate-y-0 active:scale-100 active:shadow-[0px_4px_8px_0px_rgba(0,0,0,0.15)] md:text-[18px] md:hover:shadow-[0_10px_24px_rgba(0,0,0,0.15)]"
           >
             XEM THÊM VỊ TRÍ
           </Link>
           <button
             onClick={onOpenModal}
-            className="h-12 w-full max-w-[276px] cursor-pointer rounded-full bg-[linear-gradient(77deg,#013A72_3.48%,#0C71C7_83.47%)] text-[16px] font-bold text-white shadow-[0px_4px_8px_0px_rgba(0,0,0,0.15)] md:text-[18px]"
+            className="h-12 w-full max-w-[276px] cursor-pointer rounded-full bg-[linear-gradient(77deg,#013A72_3.48%,#0C71C7_83.47%)] text-[16px] font-bold text-white shadow-[0px_4px_8px_0px_rgba(0,0,0,0.15)] transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-[1.04] hover:shadow-[0_8px_20px_rgba(0,0,0,0.18)] hover:brightness-105 active:translate-y-0 active:scale-100 active:shadow-[0px_4px_8px_0px_rgba(0,0,0,0.15)] md:text-[18px] md:hover:shadow-[0_10px_24px_rgba(0,0,0,0.15)]"
           >
             ĐỂ LẠI THÔNG TIN
           </button>
