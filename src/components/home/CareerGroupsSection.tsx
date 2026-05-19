@@ -46,7 +46,7 @@ const CAREER_GROUP_ITEMS: CareerGroupItem[] = [
     title: 'Leadership Track',
     desc: 'Đồng hành xây dựng tổ chức, phát triển đội ngũ và tạo giá trị dài hạn cho hệ sinh thái.',
     tag: 'C-level',
-    iconSrc: '/home/career-icon-leadership.svg',
+    iconSrc: '/home/star.png',
     iconHasOwnBackground: true,
     learnMoreHref: '/executive-serve',
   },
@@ -87,11 +87,10 @@ function ProgramGlassCard({
     <motion.article
       variants={revealVariants}
       whileHover={{
-        y: -8,
-        scale: 1.02,
+        scale: 1.03,
         transition: { duration: 0.28, ease: [0.22, 1, 0.36, 1] },
       }}
-      className="group rounded-[32px] border border-[#7bc1ff] bg-linear-to-b from-white via-white to-[#edf7ff] px-7 py-10 shadow-[0_4px_6px_rgba(0,0,0,0.15)] transition-[box-shadow,border-color] duration-300 ease-out will-change-transform hover:border-[#5aadff] hover:shadow-[0_16px_40px_rgba(1,58,114,0.14)]"
+      className="group rounded-[32px] border border-transparent bg-white px-7 py-10 shadow-[0_4px_6px_rgba(0,0,0,0.15)] transition-[box-shadow,border-color,background] duration-300 ease-out will-change-transform hover:border-[#5aadff] hover:bg-linear-to-b hover:from-white hover:via-white hover:to-[#edf7ff] hover:shadow-[0_16px_40px_rgba(1,58,114,0.14)]"
     >
       <div className="flex items-start justify-between">
         <div
@@ -99,9 +98,12 @@ function ProgramGlassCard({
             iconHasOwnBackground ? '' : 'bg-[#4b9cf2] text-white'
           }`}
         >
-          <img
+          <Image
             src={iconSrc}
             alt=""
+            width={56}
+            height={56}
+            sizes="56px"
             className={`${iconSizeClass ?? 'size-[56px]'} ${iconScaleClass ?? ''} ${iconFitClass ?? 'object-contain'}`}
           />
         </div>
@@ -116,7 +118,7 @@ function ProgramGlassCard({
       <p className="mt-4 min-h-[66px] text-base leading-[22px] text-[#474747]">{desc}</p>
       <Link
         href={learnMoreHref}
-        className="mt-4 inline-flex items-center gap-1 text-base font-semibold text-[#002b5b] transition hover:opacity-80"
+        className="mt-4 inline-flex items-center gap-1 text-base font-semibold text-[#002b5b] transition duration-200 hover:scale-105 hover:text-[#0C71C7]"
       >
         Tìm hiểu thêm
         <ArrowRight className="size-5 transition-transform duration-300 ease-out group-hover:translate-x-1" />
@@ -185,7 +187,7 @@ export default function CareerGroupsSection() {
         >
           <Link
             href="/jobs"
-            className="inline-flex h-[52px] items-center justify-center gap-2 rounded-full px-6 text-[16px] font-bold uppercase text-white shadow-[0_4px_4px_rgba(0,0,0,0.15)] transition hover:brightness-95 md:w-[356px] md:text-[18px]"
+            className="inline-flex h-[52px] items-center justify-center gap-2 rounded-full px-6 text-[16px] font-bold uppercase text-white shadow-[0_4px_4px_rgba(0,0,0,0.15)] transition duration-200 hover:brightness-110 hover:scale-105 md:w-[356px] md:text-[18px]"
             style={CAREER_GROUP_CTA_STYLE}
           >
             Khám phá tất cả cơ hội

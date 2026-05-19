@@ -1,29 +1,83 @@
 'use client';
 
+import Image from 'next/image';
 import { ChevronDown, Search } from 'lucide-react';
+import { useMemo, useRef, useState } from 'react';
 
 import { ASSETS } from './constants';
 
 export default function HeroSection() {
+  const filters = useMemo(
+    () => [
+      {
+        key: 'domain',
+        defaultLabel: 'Tất cả Domain',
+        textSize: 'text-[14px]',
+        options: [
+          { label: 'Tất cả Domain', value: 'all' },
+          { label: 'Chuyển đổi số', value: 'dx' },
+        ],
+      },
+      {
+        key: 'business',
+        defaultLabel: 'Business',
+        textSize: 'text-[16px]',
+        options: [
+          { label: 'Business', value: 'business' },
+          { label: 'Tài chính', value: 'finance' },
+        ],
+      },
+      {
+        key: 'program',
+        defaultLabel: 'Program',
+        textSize: 'text-[16px]',
+        options: [
+          { label: 'Program', value: 'program' },
+          { label: 'MA Program', value: 'ma' },
+        ],
+      },
+      {
+        key: 'location',
+        defaultLabel: 'Toàn quốc',
+        textSize: 'text-[16px]',
+        options: [
+          { label: 'Toàn quốc', value: 'nationwide' },
+          { label: 'Hà Nội', value: 'hanoi' },
+        ],
+      },
+    ],
+    [],
+  );
+
+  const [openFilter, setOpenFilter] = useState<string | null>(null);
+  const [selected, setSelected] = useState<Record<string, string>>(() =>
+    Object.fromEntries(filters.map((filter) => [filter.key, filter.options[0]?.value ?? ''])),
+  );
+
+  const filterWrapRef = useRef<HTMLDivElement | null>(null);
+
   return (
-    <section className="section-padding !pt-8 !pb-11 bg-white lg:!py-20">
+    <section className="section-padding !pt-8 !pb-11 bg-[#faf9f7] lg:!py-20">
       <div className="section-content">
         <div className="flex flex-col items-stretch justify-center rounded-[32px]">
           <div
             className="relative flex w-full flex-col gap-6 overflow-hidden rounded-[20px] px-4 py-8 shadow-[0px_4px_20px_0px_rgba(0,0,0,0.1)] lg:gap-[52px] lg:rounded-[32px] lg:px-10 lg:py-[60px]"
             style={{
               backgroundImage:
-                'linear-gradient(158.46deg, rgb(246, 252, 255) 9.7%, rgb(184, 221, 244) 91.3%)',
+                'linear-gradient(178deg, rgba(246, 252, 255, 1) 2%, rgba(184, 221, 244, 1) 100%)',
             }}
           >
             <div
               aria-hidden
               className="pointer-events-none absolute inset-0 rounded-[20px] opacity-[0.38] mix-blend-overlay lg:rounded-[32px]"
             >
-              <img
+              <Image
                 alt=""
                 src={ASSETS.searchHeroTexture}
-                className="absolute left-[-115%] top-0 h-full w-[290%] max-w-none object-cover lg:left-[-16.67%] lg:top-[-27.88%] lg:h-[198.79%] lg:w-[133.33%]"
+                fill
+                priority
+                sizes="100vw"
+                className="object-fill"
               />
             </div>
 
@@ -37,8 +91,8 @@ export default function HeroSection() {
                 </h1>
                 <p className="text-[14px] font-normal leading-[22px] text-[#474747] lg:mx-auto lg:max-w-[1086px] lg:text-[18px] lg:leading-7 lg:tracking-[0.18px]">
                   Tại IPAG, chúng tôi không tìm kiếm những người chỉ làm tròn vai. Chúng tôi tìm
-                  kiếm những cộng sự cùng kiến tạo di sản — dù bạn đang ở bước khởi đầu hay đỉnh
-                  cao sự nghiệp.
+                  kiếm những cộng sự cùng kiến tạo di sản — dù bạn đang ở bước khởi đầu hay đỉnh cao
+                  sự nghiệp.
                 </p>
               </div>
             </div>
@@ -50,7 +104,7 @@ export default function HeroSection() {
               <label className="sr-only" htmlFor="job-search">
                 Tìm kiếm công việc
               </label>
-              <div className="flex w-full items-center gap-2 rounded-lg border border-[rgba(7,7,7,0.18)] bg-white px-3 py-2 lg:gap-2 lg:px-4 lg:py-2.5">
+              <div className="flex w-full cursor-text items-center gap-2 rounded-lg border border-[rgba(7,7,7,0.18)] bg-white px-3 py-2 transition-colors duration-200 hover:border-[rgba(0,43,91,0.35)] focus-within:border-[rgba(0,43,91,0.55)] focus-within:ring-2 focus-within:ring-[#0c71c7]/20 lg:gap-2 lg:px-4 lg:py-2.5">
                 <Search
                   className="size-6 shrink-0 text-[#707070] lg:size-7"
                   strokeWidth={1.75}
@@ -64,33 +118,79 @@ export default function HeroSection() {
                 />
               </div>
 
-              <div className="flex w-full flex-col gap-4 lg:flex-row lg:gap-5">
-                {[
-                  { label: 'Tất cả Domain', value: 'all', textSize: 'text-[14px]' },
-                  { label: 'Business', value: 'business', textSize: 'text-[16px]' },
-                  { label: 'Program', value: 'program', textSize: 'text-[16px]' },
-                  { label: 'Toàn quốc', value: 'nationwide', textSize: 'text-[16px]' },
-                ].map((item) => (
-                  <button
-                    key={item.value}
-                    type="button"
-                    className={`flex h-10 w-full items-center justify-between rounded-lg border border-[rgba(7,7,7,0.18)] bg-white px-3 py-2.5 text-left font-medium leading-[1.4] text-[#474747] lg:min-h-12 lg:flex-1 lg:px-4 lg:py-2.5 lg:text-base ${item.textSize} lg:!text-base`}
-                  >
-                    <span className="truncate">{item.label}</span>
-                    <ChevronDown className="size-7 shrink-0 text-[#474747]" strokeWidth={1.75} />
-                  </button>
-                ))}
+              <div ref={filterWrapRef} className="flex w-full flex-col gap-4 lg:flex-row lg:gap-5">
+                {filters.map((filter) => {
+                  const selectedValue = selected[filter.key];
+                  const selectedLabel =
+                    filter.options.find((opt) => opt.value === selectedValue)?.label ??
+                    filter.defaultLabel;
+                  const isOpen = openFilter === filter.key;
+
+                  return (
+                    <div key={filter.key} className="relative w-full lg:flex-1">
+                      <button
+                        type="button"
+                        className={`flex h-10 w-full cursor-pointer items-center justify-between rounded-lg border border-[rgba(7,7,7,0.18)] bg-white px-3 py-2.5 text-left font-medium leading-[1.4] text-[#474747] transition-colors duration-200 hover:border-[rgba(0,43,91,0.35)] hover:bg-white/95 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0c71c7]/25 lg:min-h-12 lg:px-4 lg:py-2.5 lg:text-base ${filter.textSize} lg:!text-base`}
+                        aria-haspopup="listbox"
+                        aria-expanded={isOpen}
+                        onClick={() =>
+                          setOpenFilter((prev) => (prev === filter.key ? null : filter.key))
+                        }
+                      >
+                        <span className="truncate">{selectedLabel}</span>
+                        <ChevronDown
+                          className={`size-7 shrink-0 text-[#474747] transition-transform duration-200 ${
+                            isOpen ? 'rotate-180' : ''
+                          }`}
+                          strokeWidth={1.75}
+                        />
+                      </button>
+
+                      {isOpen ? (
+                        <div
+                          role="listbox"
+                          className="absolute left-0 top-full z-20 mt-2 w-full overflow-hidden rounded-lg border border-[rgba(7,7,7,0.18)] bg-white shadow-[0px_12px_32px_0px_rgba(0,43,91,0.18)]"
+                        >
+                          {filter.options.map((opt) => {
+                            const isSelected = opt.value === selectedValue;
+                            return (
+                              <button
+                                key={opt.value}
+                                type="button"
+                                role="option"
+                                aria-selected={isSelected}
+                                className={`w-full px-3 py-2.5 text-left text-[14px] leading-[1.4] text-[#474747] transition-colors duration-150 hover:bg-black/5 lg:px-4 lg:text-base ${
+                                  isSelected ? 'bg-black/5 font-semibold' : 'font-medium'
+                                }`}
+                                onClick={() => {
+                                  setSelected((prev) => ({ ...prev, [filter.key]: opt.value }));
+                                  setOpenFilter(null);
+                                }}
+                              >
+                                {opt.label}
+                              </button>
+                            );
+                          })}
+                        </div>
+                      ) : null}
+                    </div>
+                  );
+                })}
               </div>
 
               <button
                 type="submit"
-                className="mx-auto flex h-10 w-full items-center justify-center gap-2 rounded-full px-3 py-2.5 text-[14px] font-bold uppercase leading-[1.4] text-white shadow-[0px_4px_8px_0px_rgba(0,0,0,0.15)] lg:h-12 lg:w-[466px] lg:gap-2 lg:text-lg"
+                className="group mx-auto flex h-10 w-full cursor-pointer items-center justify-center gap-2 rounded-full px-3 py-2.5 text-[14px] font-bold uppercase leading-[1.4] text-white shadow-[0px_4px_8px_0px_rgba(0,0,0,0.15)] transition-all duration-200 ease-out hover:-translate-y-0.5 hover:shadow-[0px_12px_24px_0px_rgba(0,43,91,0.28)] active:translate-y-0 active:shadow-[0px_6px_14px_0px_rgba(0,43,91,0.22)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0c71c7]/30 lg:h-12 lg:w-[466px] lg:gap-2 lg:text-lg"
                 style={{
                   backgroundImage:
                     'linear-gradient(72.72deg, rgb(1, 58, 114) 3.48%, rgb(12, 113, 199) 83.47%)',
                 }}
               >
-                <Search className="size-6 text-white lg:size-7" strokeWidth={2} aria-hidden />
+                <Search
+                  className="size-6 text-white transition-transform duration-200 group-hover:scale-110 lg:size-7"
+                  strokeWidth={2}
+                  aria-hidden
+                />
                 Tìm kiếm cơ hội
               </button>
             </form>

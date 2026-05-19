@@ -14,7 +14,7 @@ export default function JobDetail({ id }: { id: string }) {
 
   return (
     <div className="bg-white">
-      <div className="border-b border-black/5 bg-white pt-[88px] lg:pt-[104px]">
+      <div className="bg-white pt-[88px] lg:pt-[104px]">
         <div className="section-padding py-5!">
           <div className="section-content">
             <Breadcrumbs

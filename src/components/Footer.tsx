@@ -1,11 +1,15 @@
-﻿import Link from 'next/link';
-import { CircleDotDashed, Facebook, Linkedin, Mail, MapPin } from 'lucide-react';
+﻿import Image from 'next/image';
+import Link from 'next/link';
+import { Mail, MapPin } from 'lucide-react';
 
-const EXPLORE_LINKS = [
-  { label: 'Về IPAG', href: '#' },
-  { label: 'Cơ hội nghề nghiệp', href: '/we-look-for' },
-  { label: 'Nếp sống IPAG', href: '#life-at-ipag' },
-  { label: 'Liên hệ', href: '#contact' },
+const EXPLORE_LINKS_COL1 = [
+  { label: 'IPAG Insight', href: '/ipag-insight' },
+  { label: 'Life at IPAG', href: '#life-at-ipag' },
+];
+
+const EXPLORE_LINKS_COL2 = [
+  { label: 'We look for', href: '/we-look-for' },
+  { label: 'Contact', href: '#contact' },
 ];
 
 export default function Footer() {
@@ -35,47 +39,70 @@ export default function Footer() {
                 <span className="text-2xl font-bold tracking-[-0.05em]">IPAG Career</span>
               </div>
 
-              <p className="mb-6 max-w-[558px] text-base leading-[1.4] text-white">
+              <p className="mb-6 max-w-[558px] text-base leading-[1.4] text-white lg:hidden">
                 Kiến tạo hệ sinh thái năng lực, đồng hành cùng con người và doanh nghiệp trong hành
                 trình chuyển đổi bền vững.
               </p>
 
               <div className="flex items-center gap-4">
                 <a
+                  href="https://www.ipag.edu.vn"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="opacity-100 transition hover:opacity-80"
+                  aria-label="Website IPAG"
+                >
+                  <Image src="/icons/globe.svg" alt="Website" width={24} height={24} />
+                </a>
+                <a
                   href="https://www.facebook.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-white transition hover:text-white/80"
+                  className="opacity-100 transition hover:opacity-80"
                   aria-label="Facebook"
                 >
-                  <Facebook className="size-5" strokeWidth={1.75} />
+                  <Image src="/icons/facebook.svg" alt="Facebook" width={24} height={24} />
                 </a>
                 <a
                   href="https://www.linkedin.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-white transition hover:text-white/80"
+                  className="opacity-100 transition hover:opacity-80"
                   aria-label="LinkedIn"
                 >
-                  <Linkedin className="size-5" strokeWidth={1.75} />
+                  <Image src="/icons/linkedin.svg" alt="LinkedIn" width={24} height={24} />
                 </a>
               </div>
             </div>
 
             <div className="min-w-[220px]">
               <h3 className="mb-4 text-base font-bold leading-[1.4] text-white">Khám phá</h3>
-              <ul className="space-y-4">
-                {EXPLORE_LINKS.map((item) => (
-                  <li key={item.label}>
-                    <Link
-                      href={item.href}
-                      className="text-sm leading-[1.4] text-white transition hover:text-white/80"
-                    >
-                      {item.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+              <div className="flex gap-7 text-sm text-white">
+                <ul className="flex flex-col gap-4 uppercase">
+                  {EXPLORE_LINKS_COL1.map((item) => (
+                    <li key={item.label}>
+                      <Link
+                        href={item.href}
+                        className="leading-[1.4] transition hover:text-white/80"
+                      >
+                        {item.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+                <ul className="flex flex-col gap-4 uppercase">
+                  {EXPLORE_LINKS_COL2.map((item) => (
+                    <li key={item.label}>
+                      <Link
+                        href={item.href}
+                        className="leading-[1.4] transition hover:text-white/80"
+                      >
+                        {item.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
 
             <div className="max-w-[350px] flex-1">

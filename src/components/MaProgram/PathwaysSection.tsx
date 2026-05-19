@@ -34,9 +34,10 @@ export default function PathwaysSection() {
             return (
               <motion.div
                 key={p.n}
-                className="relative overflow-visible rounded-[28px] md:rounded-[32px]"
+                className="relative cursor-pointer overflow-visible rounded-[28px] md:rounded-[32px]"
                 initial={{ opacity: 0, x: isLeftCol ? -60 : 60 }}
                 whileInView={{ opacity: 1, x: 0 }}
+                whileHover={{ scale: 1.03, transition: { duration: 0.18, ease: 'easeOut' } }}
                 viewport={{ once: true, amount: 0.15 }}
                 transition={{ duration: 0.55, ease: 'easeOut', delay: isLeftCol ? 0 : 0.08 }}
               >
@@ -47,7 +48,7 @@ export default function PathwaysSection() {
                     onClick={() => setOpenPathwayIndex((prev) => (prev === i ? null : i))}
                     aria-expanded={isActive}
                     aria-controls={`pathway-panel-${p.n}`}
-                    className={`flex w-full items-end gap-2 px-4 py-5 text-left transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#fbc17b]/70 md:px-7 md:py-8 ${
+                    className={`flex w-full cursor-pointer items-end gap-2 px-4 py-5 text-left transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#fbc17b]/70 md:px-7 md:py-8 ${
                       isBlue
                         ? 'bg-gradient-to-br from-[#3192e3] to-[#01386f] text-white'
                         : 'bg-gradient-to-br from-[#ffe4c4] to-[#fbbf76] text-[#292929]'
@@ -111,7 +112,11 @@ export default function PathwaysSection() {
                                   className="flex gap-2 text-[14px] leading-[20px] text-[#474747] md:text-[16px] md:leading-[22px]"
                                   initial={{ opacity: 0, x: -10 }}
                                   animate={{ opacity: 1, x: 0 }}
-                                  transition={{ duration: 0.25, ease: 'easeOut', delay: 0.06 + li * 0.06 }}
+                                  transition={{
+                                    duration: 0.25,
+                                    ease: 'easeOut',
+                                    delay: 0.06 + li * 0.06,
+                                  }}
                                 >
                                   <Check
                                     className="mt-0.5 size-5 shrink-0 text-[#00377c]"
@@ -159,7 +164,7 @@ export default function PathwaysSection() {
             </p>
             <Link
               href="/we-look-for"
-              className="flex h-9 w-full items-center justify-center rounded-full bg-gradient-to-br from-white to-[#fff1e1] px-3 py-2.5 text-[14px] font-bold leading-[1.4] text-[#070707] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] md:h-10 md:w-[220px] md:text-[16px]"
+              className="flex h-9 w-full cursor-pointer items-center justify-center rounded-full bg-gradient-to-br from-white to-[#fff1e1] px-3 py-2.5 text-[14px] font-bold leading-[1.4] text-[#070707] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-[1.04] hover:shadow-[0_8px_20px_rgba(0,0,0,0.18)] hover:brightness-105 active:translate-y-0 active:scale-100 active:shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] md:h-10 md:w-[220px] md:text-[16px] md:hover:shadow-[0_10px_24px_rgba(0,0,0,0.15)]"
             >
               <span className="md:hidden">NỘP HỒ SƠ NGAY</span>
               <span className="hidden md:inline">Nộp hồ sơ ngay</span>

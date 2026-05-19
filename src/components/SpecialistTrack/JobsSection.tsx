@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 import { ChevronDown, MapPin, Search } from 'lucide-react';
 import { motion } from 'motion/react';
@@ -25,7 +26,7 @@ const FILTERS = [
   { label: 'Business', value: 'business' },
   { label: 'Program', value: 'program' },
   { label: 'Toàn quốc', value: 'nationwide' },
-];
+] as const;
 
 export default function JobsSection() {
   return (
@@ -44,14 +45,17 @@ export default function JobsSection() {
           </h2>
           {/* Decorative element */}
           <div className="flex items-center gap-3">
-            <span className="h-px w-16 bg-[#002b5b]/20 md:w-[100px]" />
-            <img
+            <span className="h-0.5 w-16 bg-[#002b5b]/20 md:w-[100px]" />
+            <Image
               src={ASSETS.iconAsterisk}
               alt=""
               aria-hidden
-              className="h-[10px] w-[9px] md:h-[14px] md:w-3"
+              width={16}
+              height={18}
+              sizes="(min-width: 768px) 16px, 13px"
+              className="h-[14px] w-[13px] md:h-[18px] md:w-4"
             />
-            <span className="h-px w-16 bg-[#002b5b]/20 md:w-[100px]" />
+            <span className="h-0.5 w-16 bg-[#002b5b]/20 md:w-[100px]" />
           </div>
         </motion.div>
 
@@ -72,10 +76,13 @@ export default function JobsSection() {
             aria-hidden
             className="pointer-events-none absolute inset-0 rounded-[20px] opacity-[0.38] mix-blend-overlay lg:rounded-[32px]"
           >
-            <img
-              alt=""
+            <Image
               src={ASSETS.searchHeroTexture}
-              className="absolute left-[-115%] top-0 h-full w-[290%] max-w-none object-cover lg:left-[-16.67%] lg:top-[-27.88%] lg:h-[198.79%] lg:w-[133.33%]"
+              alt=""
+              fill
+              priority
+              sizes="100vw"
+              className="object-fill"
             />
           </div>
 
@@ -87,7 +94,11 @@ export default function JobsSection() {
               Tìm kiếm công việc
             </label>
             <div className="flex w-full items-center gap-2 rounded-lg border border-[rgba(7,7,7,0.18)] bg-white px-3 py-2 lg:px-4 lg:py-2.5">
-              <Search className="size-6 shrink-0 text-[#707070] lg:size-7" strokeWidth={1.75} aria-hidden />
+              <Search
+                className="size-6 shrink-0 text-[#707070] lg:size-7"
+                strokeWidth={1.75}
+                aria-hidden
+              />
               <input
                 id="specialist-job-search"
                 type="search"
@@ -142,10 +153,13 @@ export default function JobsSection() {
             whileInView="visible"
             viewport={{ once: true, amount: 0.5 }}
           >
-            <img
+            <Image
               src={ASSETS.iconAsterisk}
               alt=""
               aria-hidden
+              width={21}
+              height={24}
+              sizes="(min-width: 1024px) 21px, 14px"
               className="h-4 w-[14px] lg:h-6 lg:w-[21px]"
             />
             <h3 className="text-[18px] font-bold uppercase leading-[1.4] tracking-[0.18px] text-[#002b5b] lg:text-[24px] lg:tracking-[0.24px]">

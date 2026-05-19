@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { motion } from 'motion/react';
 import { RECRUITMENT_STEPS } from './constants';
 import {
@@ -13,12 +14,12 @@ function DiamondStep({ n, bg, blur }: { n: string; bg: string; blur: string }) {
   return (
     <div className="relative z-10 flex justify-center">
       <div className="flex size-[68px] items-center justify-center lg:size-[113px]">
-        <div className="flex size-12 rotate-45 items-center justify-center rounded shadow-[0px_4px_20px_0px_rgba(0,0,0,0.1)] lg:size-20">
+        <div className="flex size-12  rotate-45 items-center justify-center shadow-[0px_4px_20px_0px_rgba(0,0,0,0.1)] lg:size-20">
           <div
-            className={`relative flex size-12 items-center justify-center rounded lg:size-20 ${bg}`}
+            className={`relative flex size-12 items-center justify-center rounded-xl lg:size-20 ${bg}`}
           >
             <div
-              className={`pointer-events-none absolute inset-0 rounded opacity-30 blur-sm lg:blur-[4px] ${blur}`}
+              className={`pointer-events-none absolute inset-0 rounded-xl opacity-30 blur-sm lg:blur-[4px] ${blur}`}
               aria-hidden
             />
             <span className="-rotate-45 font-extrabold text-[18px] leading-8 text-white lg:text-2xl lg:leading-8">
@@ -72,7 +73,14 @@ export default function RecruitmentSection() {
             >
               <div className="relative z-0 flex flex-1 flex-col transition-transform duration-200 ease-out will-change-transform hover:z-20 hover:scale-[1.02] motion-reduce:transform-none">
                 <div className="relative z-0 mb-[-32px] flex flex-1 flex-col items-center gap-4 rounded-[20px] bg-white px-5 pb-10 pt-5 shadow-[0px_4px_15px_0px_rgba(0,0,0,0.12)] lg:mb-[-60px] lg:gap-6 lg:rounded-[32px] lg:px-5 lg:pb-20 lg:pt-10">
-                  <img alt="" src={step.icon} className="size-8 shrink-0 lg:size-10" />
+                  <Image
+                    alt=""
+                    src={step.icon}
+                    width={40}
+                    height={40}
+                    sizes="(min-width: 1024px) 40px, 32px"
+                    className="size-8 shrink-0 lg:size-10"
+                  />
                   <div className="flex flex-col gap-1 text-center lg:gap-2">
                     <h3 className="text-[16px] font-bold leading-6 text-[#292929] lg:text-2xl lg:leading-[34px]">
                       {step.title}

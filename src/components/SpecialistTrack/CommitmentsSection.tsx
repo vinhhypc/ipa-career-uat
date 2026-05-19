@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { motion } from 'motion/react';
 
 import {
@@ -70,7 +71,14 @@ export default function CommitmentsSection() {
               }}
               className="flex flex-col gap-5 rounded-[32px] bg-white px-7 py-10 shadow-[0px_4px_6px_0px_rgba(0,0,0,0.15)]"
             >
-              <img src={item.icon} alt="" className="size-[60px] object-contain" />
+              <Image
+                src={item.icon}
+                alt=""
+                width={60}
+                height={60}
+                sizes="60px"
+                className="size-[60px] object-contain"
+              />
               <div className="flex flex-col gap-4">
                 <h3 className="text-[20px] font-bold leading-[28px] text-[#070707] md:text-[24px] md:leading-[32px]">
                   {item.title}

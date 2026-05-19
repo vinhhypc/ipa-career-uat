@@ -2,6 +2,7 @@ export const ASSETS = {
   searchHeroTexture: '/we-look-for/search-hero-texture.png',
   sectionStar: '/we-look-for/section-star.svg',
   arrowRight: '/we-look-for/arrow-right.svg',
+  hotRibbon: '/we-look-for/hot-ribbon.svg',
   programsStar: '/we-look-for/programs-star.svg',
   programsLine: '/we-look-for/programs-line.svg',
   timeline1: '/we-look-for/timeline-1.svg',

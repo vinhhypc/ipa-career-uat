@@ -27,8 +27,7 @@ export default function ApplyModal({ onClose }: ApplyModalProps) {
         </button>
 
         {/* Scrollable content */}
-        <div className="flex flex-1 flex-col gap-8 overflow-y-auto px-10 pt-10 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-
+        <div className="flex flex-1 flex-col gap-6 overflow-y-auto px-10 pt-10 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           {/* Header */}
           <div className="flex flex-col gap-3">
             <div className="inline-flex w-fit rounded bg-[#d9e6f2] px-2 py-1 text-[12px] font-semibold leading-[1.4] text-[#707070]">
@@ -37,22 +36,22 @@ export default function ApplyModal({ onClose }: ApplyModalProps) {
             <h2 className="text-[24px] leading-[32px] font-bold text-black">
               Ứng tuyển - Chuyên viên phân tích nghiệp vụ (Digital BA)
             </h2>
-            <div className="flex flex-wrap items-center gap-4 text-[16px] leading-[26px] text-[#474747]">
-              <span className="flex items-center gap-1">
+            <div className="flex flex-nowrap items-center gap-3 overflow-x-auto text-[14px] leading-[22px] text-[#474747] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+              <span className="flex items-center gap-1 whitespace-nowrap">
                 <BriefcaseBusiness className="size-5 text-[#707070]" />
                 <span>
                   <span className="font-semibold">Đơn vị:</span> IPAS - IPAG Group
                 </span>
               </span>
               <span className="size-1 rounded-full bg-black/25" />
-              <span className="flex items-center gap-1">
+              <span className="flex items-center gap-1 whitespace-nowrap">
                 <MapPin className="size-5 text-[#707070]" />
                 <span>
                   <span className="font-semibold">Địa điểm:</span> Hà Nội (Cầu Giấy)
                 </span>
               </span>
               <span className="size-1 rounded-full bg-black/25" />
-              <span className="flex items-center gap-1">
+              <span className="flex items-center gap-1 whitespace-nowrap">
                 <Clock3 className="size-5 text-[#707070]" />
                 <span>
                   <span className="font-semibold">Hạn chót:</span> 30/04/2026
@@ -62,7 +61,7 @@ export default function ApplyModal({ onClose }: ApplyModalProps) {
           </div>
 
           {/* Form */}
-          <div className="flex flex-col gap-8">
+          <div className="flex flex-col gap-4">
             {/* Thông tin cá nhân */}
             <div className="flex flex-col gap-4">
               <h3 className="text-[18px] leading-[32px] font-semibold text-black">
@@ -198,7 +197,8 @@ export default function ApplyModal({ onClose }: ApplyModalProps) {
             disabled={!agreed}
             className="h-12 w-full rounded-full text-[18px] font-bold uppercase leading-[1.4] tracking-wide text-white shadow-[0px_4px_4px_rgba(0,0,0,0.15)] transition-opacity disabled:opacity-50"
             style={{
-              backgroundImage: 'linear-gradient(56deg, rgb(1,58,114) 3.48%, rgb(12,113,199) 83.47%)',
+              backgroundImage:
+                'linear-gradient(56deg, rgb(1,58,114) 3.48%, rgb(12,113,199) 83.47%)',
             }}
           >
             Nộp đơn

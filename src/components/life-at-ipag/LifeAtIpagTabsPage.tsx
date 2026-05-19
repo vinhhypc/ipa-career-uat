@@ -1,6 +1,7 @@
 'use client';
 
 import { useCallback, useMemo, useState } from 'react';
+import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { AnimatePresence, motion } from 'motion/react';
 
@@ -98,36 +99,40 @@ export default function LifeAtIpagTabsPage({ initialTab }: { initialTab?: string
 
   return (
     <div
-      className=""
       style={{
         background:
-          'radial-gradient(ellipse 60% 70% at 12% 30%, rgba(251,193,123,0.22), transparent 60%), radial-gradient(ellipse 50% 60% at 72% 22%, rgba(20,81,148,0.16), transparent 55%)',
+          'linear-gradient(179deg, rgba(255, 255, 255, 1) 0%, rgba(254, 246, 235, 1) 100%)',
       }}
     >
       <LifeAtIpagBreadcrumbs />
-      <LifeAtIpagPageIntro
-        activeKey={activeKey}
-        mobileTitle="KHÁM PHÁ CƠ HỘI"
-        desktopTitle="Vững nền tảng, sáng tương lai"
-        onTabChange={onTabChange}
-      />
+      <div className="relative isolate overflow-hidden">
+        <div className="pointer-events-none absolute left-[647px] top-[-250px] -z-10 w-[1765px] max-w-none">
+          <Image src="/life-at-ipag/figma/tabs-bg.svg" alt="" width={1765} height={798} />
+        </div>
+        <LifeAtIpagPageIntro
+          activeKey={activeKey}
+          mobileTitle="KHÁM PHÁ CƠ HỘI"
+          desktopTitle="Vững nền tảng, sáng tương lai"
+          onTabChange={onTabChange}
+        />
 
-      <AnimatePresence mode="wait" initial={false}>
-        <motion.div
-          key={activeKey}
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -12 }}
-          transition={{ duration: 0.35, ease: 'easeOut' }}
-        >
-          <LifeAtIpagStoryPanel
-            title={content.title}
-            description={content.description}
-            ctaHref={content.ctaHref}
-            images={content.images}
-          />
-        </motion.div>
-      </AnimatePresence>
+        <AnimatePresence mode="wait" initial={false}>
+          <motion.div
+            key={activeKey}
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -12 }}
+            transition={{ duration: 0.35, ease: 'easeOut' }}
+          >
+            <LifeAtIpagStoryPanel
+              title={content.title}
+              description={content.description}
+              ctaHref={content.ctaHref}
+              images={content.images}
+            />
+          </motion.div>
+        </AnimatePresence>
+      </div>
     </div>
   );
 }

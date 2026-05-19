@@ -68,7 +68,7 @@ export default function WhyIpagSection() {
             </p>
             <Link
               href="/ipag-insight"
-              className="mt-7 inline-flex items-center gap-1 text-[16px] font-semibold text-[#002b5b] transition hover:opacity-80"
+              className="mt-7 inline-flex items-center gap-1 text-[16px] font-semibold text-[#002b5b] transition duration-200 hover:scale-105 hover:text-[#0C71C7]"
             >
               Tìm hiểu thêm
               <ArrowRight className="size-5" />

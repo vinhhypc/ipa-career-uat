@@ -116,25 +116,28 @@ export const BENEFITS = [
 
 export const RELATED_JOBS: RelatedJob[] = [
   {
+    id: 'digital-ba-001',
     tag: 'Chuyển đổi số',
     title: 'Chuyên viên phân tích nghiệp vụ (Digital BA)',
     location: 'Hà Nội',
     type: 'Fulltime',
-    highlighted: true,
   },
   {
+    id: 'sde-002',
     tag: 'Chuyển đổi số',
     title: 'Kỹ sư phát triển phần mềm (Software Development Engineer)',
     location: 'Hà Nội',
     type: 'Fulltime',
   },
   {
+    id: 'it-qm-003',
     tag: 'Chuyển đổi số',
     title: 'Chuyên viên cao cấp IT Quality Management',
     location: 'Hà Nội',
     type: 'Fulltime',
   },
   {
+    id: 'csa-004',
     tag: 'Tiêu dùng xanh',
     title: 'Chuyên Viên Tư Vấn Khách Hàng (CSA)',
     location: 'Hà Nội',
