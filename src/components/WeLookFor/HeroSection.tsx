@@ -118,7 +118,10 @@ export default function HeroSection() {
                 />
               </div>
 
-              <div ref={filterWrapRef} className="flex w-full flex-col gap-4 lg:flex-row lg:gap-5">
+              <div
+                ref={filterWrapRef}
+                className="grid w-full grid-cols-1 gap-4 md:grid-cols-2 md:gap-5 xl:flex xl:flex-row xl:gap-5"
+              >
                 {filters.map((filter) => {
                   const selectedValue = selected[filter.key];
                   const selectedLabel =
@@ -127,7 +130,7 @@ export default function HeroSection() {
                   const isOpen = openFilter === filter.key;
 
                   return (
-                    <div key={filter.key} className="relative w-full lg:flex-1">
+                    <div key={filter.key} className="relative w-full xl:flex-1">
                       <button
                         type="button"
                         className={`flex h-10 w-full cursor-pointer items-center justify-between rounded-lg border border-[rgba(7,7,7,0.18)] bg-white px-3 py-2.5 text-left font-medium leading-[1.4] text-[#474747] transition-colors duration-200 hover:border-[rgba(0,43,91,0.35)] hover:bg-white/95 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0c71c7]/25 lg:min-h-12 lg:px-4 lg:py-2.5 lg:text-base ${filter.textSize} lg:!text-base`}

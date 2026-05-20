@@ -41,7 +41,7 @@ export default function Navbar({ forceLightNav = false }: NavbarProps) {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 px-4 py-4 md:px-12 md:py-14 lg:px-20 lg:py-7 ${
+      className={`fixed top-0 left-0 right-0 z-50 px-4 py-4 md:px-12 md:py-14 lg:px-12 lg:py-7 xl:px-16 2xl:px-20 ${
         forceLightNav
           ? 'border-b border-black/5 bg-white shadow-sm'
           : `transition-colors duration-300 ${onLight ? 'border-b border-black/5 bg-white shadow-sm' : 'bg-transparent'}`

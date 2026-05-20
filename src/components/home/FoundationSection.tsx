@@ -86,7 +86,7 @@ export default function FoundationSection() {
         sizes="100vw"
       />
       <div className="relative z-10 mx-auto w-full px-5 py-8 text-white md:px-8 lg:px-10 xl:px-20 xl:pt-[79px]">
-        <h2 className="text-center text-[24px] font-bold uppercase leading-[1.35] tracking-[0.8px] md:text-[32px] md:leading-[48px] xl:text-[40px] xl:leading-[60px] xl:tracking-[1px]">
+        <h2 className="text-center text-[24px] font-bold uppercase leading-[1.35] tracking-[0.8px] md:text-[30px] md:leading-[44px] lg:text-[32px] lg:leading-[48px] xl:text-[40px] xl:leading-[60px] xl:tracking-[1px]">
           Nền tảng cho những hành trình sự nghiệp bền vững
         </h2>
 
@@ -102,13 +102,13 @@ export default function FoundationSection() {
               <p className="text-base font-normal uppercase leading-[20px] tracking-[0.16px] text-white/85 md:text-base md:leading-[20px]  xl:leading-[22.4px]">
                 {item.label}
               </p>
-              <p className="mt-[2px] text-[40px] font-extrabold leading-[1.15] text-[#fbc17b] tabular-nums md:text-[34px] md:leading-[1.2] xl:text-[40px] xl:leading-[52.8px]">
+              <p className="mt-[2px] text-[40px] font-extrabold leading-[1.15] text-[#fbc17b] tabular-nums md:text-[32px] md:leading-[1.2] lg:text-[34px] xl:text-[40px] xl:leading-[52.8px]">
                 <span className="inline-flex items-baseline justify-center whitespace-nowrap">
                   <span>{numberFormatter.format(animatedValues[index] ?? 0)}</span>
                   <span>{item.suffix}</span>
                 </span>
               </p>
-              <p className="mx-auto max-w-[360px] text-[13px] leading-[20px] tracking-[0.16px] text-white/85 md:max-w-none md:whitespace-nowrap md:text-[14px] md:leading-[20px] xl:text-[16px] xl:leading-[22.4px]">
+              <p className="mx-auto max-w-[360px] text-[13px] leading-[20px] tracking-[0.16px] text-white/85 md:max-w-none md:text-[14px] md:leading-[20px] lg:whitespace-nowrap xl:text-[16px] xl:leading-[22.4px]">
                 {item.desc}
               </p>
             </article>

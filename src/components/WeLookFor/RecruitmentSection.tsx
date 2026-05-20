@@ -59,7 +59,7 @@ export default function RecruitmentSection() {
         </motion.div>
 
         <motion.div
-          className="flex flex-col rounded-[20px] lg:flex-row lg:items-stretch lg:gap-5"
+          className="flex flex-wrap justify-center gap-x-5 rounded-[20px]"
           variants={STAGGER_PARENT}
           initial="hidden"
           whileInView="show"
@@ -69,7 +69,7 @@ export default function RecruitmentSection() {
             <motion.div
               key={step.n}
               variants={CARD_REVEAL_VARIANTS}
-              className="flex flex-col pb-8 last:pb-0 lg:flex-1 lg:self-stretch lg:pb-[60px] lg:last:pb-[60px]"
+              className="flex w-full max-w-[360px] flex-col pb-8 last:pb-0 sm:w-[calc((100%-20px)/2)] sm:max-w-none lg:w-[calc((100%-40px)/3)] lg:self-stretch lg:pb-[60px] lg:last:pb-[60px] xl:w-[calc((100%-80px)/5)]"
             >
               <div className="relative z-0 flex flex-1 flex-col transition-transform duration-200 ease-out will-change-transform hover:z-20 hover:scale-[1.02] motion-reduce:transform-none">
                 <div className="relative z-0 mb-[-32px] flex flex-1 flex-col items-center gap-4 rounded-[20px] bg-white px-5 pb-10 pt-5 shadow-[0px_4px_15px_0px_rgba(0,0,0,0.12)] lg:mb-[-60px] lg:gap-6 lg:rounded-[32px] lg:px-5 lg:pb-20 lg:pt-10">

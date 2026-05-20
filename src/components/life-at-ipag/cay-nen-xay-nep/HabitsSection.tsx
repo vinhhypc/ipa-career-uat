@@ -152,7 +152,7 @@ function HabitConnectorLayer() {
 export default function HabitsSection() {
   return (
     <motion.section
-      className="relative overflow-hidden px-4 py-14 md:px-12 md:py-20 lg:px-20"
+      className="relative overflow-hidden px-4 py-12 md:px-16 md:py-10 lg:px-20"
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, amount: 0.18 }}
@@ -170,9 +170,9 @@ export default function HabitsSection() {
         aria-hidden
       />
       <div className="section-content relative z-[1]">
-        <div className="mx-auto ml-0 grid w-full max-w-[1366px] gap-10 lg:grid-cols-[248px_minmax(0,1fr)] lg:items-start lg:gap-[52px]">
+        <div className="mx-auto ml-0 grid w-full max-w-[1366px] gap-10 2xl:grid-cols-[360px_1fr] 2xl:items-start 2xl:gap-16">
           <motion.div
-            className="max-w-[248px]"
+            className="max-w-full 2xl:max-w-[248px]"
             initial={{ opacity: 0, x: -18 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.4 }}
@@ -182,7 +182,7 @@ export default function HabitsSection() {
               Xây nếp
             </h2>
             <motion.div
-              className="mt-3 h-[2.5px] w-[159px] bg-[#2e5f97]"
+              className="mt-3 h-[2.5px] w-40 bg-[#2e5f97]"
               initial={{ scaleX: 0, transformOrigin: 'left' }}
               whileInView={{ scaleX: 1 }}
               viewport={{ once: true, amount: 0.8 }}
@@ -195,7 +195,7 @@ export default function HabitsSection() {
               viewport={{ once: true, amount: 0.6 }}
               transition={{ duration: 0.42, delay: 0.14, ease: 'easeOut' }}
             >
-              Năng lực chuyển hóa{'\n'}thành bản năng.
+              Năng lực chuyển hóa thành bản năng.
             </motion.p>
           </motion.div>
 
@@ -218,10 +218,17 @@ export default function HabitsSection() {
                     transition={{ duration: 0.26, ease: 'easeOut' }}
                     className={`relative flex min-h-[230px] flex-col gap-6 rounded-[28px] px-7 py-8 shadow-[0_4px_10px_rgba(0,0,0,0.18)] md:min-h-[250px] md:px-8 md:py-10 lg:min-h-[264px] lg:gap-[38px] lg:rounded-none ${cardStyle.bgClass} ${cardStyle.radiusClass}`}
                   >
-                    <div className="flex items-start gap-3">
-                      <Image width={60} height={60} src={h.icon} alt="" aria-hidden />
+                    <div className="flex items-start gap-3 md:gap-4">
+                      <Image
+                        width={60}
+                        height={60}
+                        src={h.icon}
+                        alt=""
+                        aria-hidden
+                        className="shrink-0"
+                      />
                       <h3
-                        className={`whitespace-pre-line text-[22px] font-bold leading-[28px] md:text-2xl md:leading-[30px] ${cardStyle.titleClass}`}
+                        className={`flex-1 whitespace-pre-line text-[22px] font-bold leading-[28px] md:text-2xl md:leading-[30px] lg:text-[22px] lg:leading-[28px] 2xl:text-2xl 2xl:leading-[30px] ${cardStyle.titleClass}`}
                       >
                         {h.title}
                       </h3>

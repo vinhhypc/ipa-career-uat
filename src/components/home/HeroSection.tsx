@@ -31,7 +31,6 @@ const HERO_TYPEWRITER_START_DELAY_MS = 300;
 const HERO_OVERLAY_GRADIENT_DESKTOP =
   'linear-gradient(95deg, #0b2341 0%, #103765 48%, rgba(16,55,101,0.45) 72%, rgba(16,55,101,0.18) 100%)';
 
-/** Mobile: đậm phía trên, nhạt dần để lộ tòa nhà ở 1/3 dưới (theo mockup). */
 const HERO_OVERLAY_GRADIENT_MOBILE =
   'linear-gradient(180deg, rgba(10, 25, 47, 0.98) 0%, rgba(10, 25, 47, 0.62) 52%, rgba(10, 25, 47, 0.22) 78%, rgba(10, 25, 47, 0) 100%)';
 
@@ -43,12 +42,11 @@ export default function HeroSection() {
   );
 
   return (
-    <section className="section-padding relative flex min-h-0 flex-col overflow-hidden bg-[#0a192f] px-0! pb-0! pt-0! max-md:min-h-[70svh] md:block md:min-h-screen">
+    <section className="relative flex min-h-0 min-h-[70svh] flex-col overflow-hidden bg-[#0a192f] px-4 pb-0 pt-0 md:block md:min-h-screen md:px-12 lg:px-12 xl:px-16">
       <div
         aria-hidden
         className="absolute inset-0 md:inset-auto md:top-0 md:bottom-0 md:right-0 md:w-[54%]"
       >
-        {/* Mobile: khung lớn hơn viewport + clip → ảnh “co” trong khung, lộ nhiều nội dung ảnh hơn; neo đáy giữ bố cục tòa nhà */}
         <div className="relative w-full md:hidden" style={{ aspectRatio: '9/16' }}>
           <Image
             src="/home/banner-mobile.png"
@@ -79,12 +77,12 @@ export default function HeroSection() {
         style={{ background: HERO_OVERLAY_GRADIENT_MOBILE }}
       />
 
-      <div className="relative z-10 mx-auto flex w-full max-md:min-h-0 max-md:flex-1 max-md:flex-col max-md:items-stretch max-md:justify-center max-md:py-6 max-md:pt-16 md:min-h-[706px] md:items-center md:justify-start md:px-[240px] md:pt-40">
+      <div className="section-content relative z-10 flex min-h-0 flex-1 flex-col items-stretch justify-center py-6 pt-16 sm:pt-20 md:min-h-[640px] md:flex-none md:items-start md:justify-start md:pt-28 lg:min-h-[706px] lg:pt-36 2xl:pt-40">
         <div
           id="apply"
-          className="scroll-mt-28 w-full px-5 text-center max-md:max-w-lg max-md:mx-auto md:max-w-[900px] md:px-0 md:pt-20 md:text-left"
+          className="scroll-mt-28 mx-auto w-full max-w-lg px-5 text-center md:mx-0 md:max-w-[900px] md:px-0 md:pt-16 md:text-left lg:pt-20"
         >
-          <h1 className="animate-[fade-right_700ms_ease-out_both] mb-4 text-[24px] font-extrabold leading-[32px] tracking-[1px] text-white drop-shadow-md uppercase md:mb-9 md:text-[52px] md:leading-[80px] md:tracking-[2px]">
+          <h1 className="animate-[fade-right_700ms_ease-out_both] mb-4 text-[24px] font-extrabold leading-[32px] tracking-[1px] text-white drop-shadow-md uppercase sm:text-[28px] sm:leading-[38px] md:mb-7 md:text-[40px] md:leading-[56px] md:tracking-[1.2px] lg:mb-9 lg:text-[52px] lg:leading-[80px] lg:tracking-[2px] 2xl:text-[56px]">
             <span className="flex flex-col gap-1.5 md:hidden">
               <span>
                 <strong>Cộng sự</strong> để
@@ -104,13 +102,13 @@ export default function HeroSection() {
               </span>
             </span>
           </h1>
-          <p className="mb-5 text-sm leading-[22px] tracking-[0.14px] text-white max-md:mx-auto md:mb-9 md:max-w-[747px] md:text-[18px] md:leading-[33px] md:tracking-[0.18px]">
+          <p className="mb-5 text-sm leading-[22px] tracking-[0.14px] text-white md:mb-8 md:max-w-[747px] md:text-[16px] md:leading-[28px] md:tracking-[0.16px] lg:mb-9 lg:text-[18px] lg:leading-[33px] lg:tracking-[0.18px]">
             {descriptionContent}
             {descriptionCaret}
           </p>
           <Link
             href="/jobs"
-            className="inline-flex h-11 w-[min(100%,220px)] items-center justify-center gap-2 rounded-full bg-white px-4 text-sm font-bold uppercase tracking-wide text-[#2a2a2a] shadow-[0_4px_4px_rgba(0,0,0,0.25)] transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-[1.04] hover:shadow-[0_8px_20px_rgba(0,0,0,0.18)] hover:brightness-105 active:translate-y-0 active:scale-100 active:shadow-[0_4px_4px_rgba(0,0,0,0.25)] md:h-[52px] md:w-[276px] md:normal-case md:tracking-normal md:bg-[linear-gradient(238deg,rgb(255,255,255)_34%,rgb(255,241,225)_103%)] md:px-3 md:py-2.5 md:text-[18px] md:leading-[25.2px] md:text-[#474747] md:hover:shadow-[0_10px_24px_rgba(0,0,0,0.15)]"
+            className="inline-flex h-11 w-[min(100%,220px)] items-center justify-center gap-2 rounded-full bg-white px-4 text-sm font-bold uppercase tracking-wide text-[#2a2a2a] shadow-[0_4px_4px_rgba(0,0,0,0.25)] transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-[1.04] hover:shadow-[0_8px_20px_rgba(0,0,0,0.18)] hover:brightness-105 active:translate-y-0 active:scale-100 active:shadow-[0_4px_4px_rgba(0,0,0,0.25)] sm:w-[240px] md:h-12 md:w-[240px] md:normal-case md:tracking-normal md:bg-[linear-gradient(238deg,rgb(255,255,255)_34%,rgb(255,241,225)_103%)] md:px-3 md:py-2.5 md:text-base md:leading-[22px] md:text-[#474747] md:hover:shadow-[0_10px_24px_rgba(0,0,0,0.15)] lg:h-[52px] lg:w-[276px] lg:text-[18px] lg:leading-[25.2px]"
           >
             Ứng tuyển ngay
             <ArrowRight className="size-4 shrink-0 md:size-6" strokeWidth={2} />

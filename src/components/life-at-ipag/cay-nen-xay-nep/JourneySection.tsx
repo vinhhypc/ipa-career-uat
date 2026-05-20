@@ -73,9 +73,9 @@ export default function JourneySection() {
           </p>
         </motion.div>
 
-        <div className="mx-auto mt-12 flex max-w-[1040px] flex-col items-stretch gap-12 lg:mt-[52px] lg:flex-row lg:items-center lg:justify-center lg:gap-10">
+        <div className="mx-auto mt-12 flex max-w-[1040px] flex-col items-center gap-12 lg:mt-[52px] xl:flex-row xl:items-center xl:justify-center xl:gap-10">
           <motion.div
-            className="w-full max-w-[400px]"
+            className="flex w-full justify-center xl:block xl:max-w-[400px]"
             initial="hidden"
             whileInView="show"
             viewport={JOURNEY_VIEWPORT}
@@ -85,7 +85,7 @@ export default function JourneySection() {
             <JourneyColumn acronym="TAC" subtitle="Chuyển hoá bản thân" steps={TAC_STEPS} />
           </motion.div>
           <motion.div
-            className="hidden shrink-0 origin-center lg:block"
+            className="flex shrink-0 origin-center items-center justify-center"
             initial="hidden"
             whileInView="show"
             viewport={JOURNEY_VIEWPORT}
@@ -96,14 +96,12 @@ export default function JourneySection() {
               alt=""
               width={42}
               height={15}
+              className="rotate-90 2xl:rotate-0"
               aria-hidden
             />
           </motion.div>
-          <div className="flex items-center justify-center lg:hidden" aria-hidden>
-            <div className="h-px w-28 bg-gradient-to-r from-transparent via-[rgba(254,179,122,0.55)] to-transparent" />
-          </div>
           <motion.div
-            className="w-full max-w-[400px]"
+            className="flex w-full justify-center xl:block xl:max-w-[400px]"
             initial="hidden"
             whileInView="show"
             viewport={JOURNEY_VIEWPORT}

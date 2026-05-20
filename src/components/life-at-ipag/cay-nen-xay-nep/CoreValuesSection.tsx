@@ -61,7 +61,7 @@ export default function CoreValuesSection() {
 
   return (
     <motion.section
-      className="relative overflow-hidden bg-[linear-gradient(-1deg,#ffffff_15%,#fef6eb_100%)] px-4 py-14 md:px-12 md:py-20 lg:px-20"
+      className="relative overflow-hidden bg-[linear-gradient(-1deg,#ffffff_15%,#fef6eb_100%)] px-4 py-12 md:px-16 md:py-10 lg:px-20"
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, amount: 0.2 }}
@@ -80,7 +80,7 @@ export default function CoreValuesSection() {
         aria-hidden
       />
       <div className="section-content">
-        <div className="mx-auto ml-0 grid w-full max-w-[1366px] gap-12 lg:grid-cols-[360px_1fr] lg:items-start lg:gap-16">
+        <div className="mx-auto ml-0 grid w-full max-w-[1366px] gap-12 2xl:grid-cols-[360px_1fr] 2xl:items-start 2xl:gap-16">
           <motion.div
             initial={{ opacity: 0, x: -18 }}
             whileInView={{ opacity: 1, x: 0 }}

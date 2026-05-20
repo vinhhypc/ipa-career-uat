@@ -53,7 +53,7 @@ export default function LifeAtIpagSection() {
               <p className="text-[12px] font-normal uppercase leading-[20px] tracking-[0.24px] text-[#474747] md:text-[14px] md:leading-[24px] md:tracking-[0.28px]">
                 Cuộc sống tại IPAG
               </p>
-              <h2 className="text-[28px] font-bold uppercase leading-[40px] tracking-[0.7px] text-[#292929] md:text-[40px] md:leading-[60px] md:tracking-[1px]">
+              <h2 className="text-[28px] font-bold uppercase leading-[40px] tracking-[0.7px] text-[#292929] md:text-[34px] md:leading-[48px] md:tracking-[0.9px] lg:text-[40px] lg:leading-[60px] lg:tracking-[1px] 2xl:text-[44px]">
                 Nơi mỗi ngày <br className="hidden md:block" />
                 là một trải nghiệm <br className="hidden md:block" />
                 đáng nhớ
@@ -62,7 +62,7 @@ export default function LifeAtIpagSection() {
           </motion.div>
 
           <motion.div
-            className="relative w-full flex-1 overflow-hidden rounded-[24px] md:rounded-[32px]"
+            className="relative w-full flex-1 overflow-hidden rounded-[24px] sm:rounded-[28px] md:rounded-[32px]"
             variants={SCALE_IN_VARIANTS}
             initial="hidden"
             whileInView="show"

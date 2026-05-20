@@ -90,7 +90,7 @@ function ProgramGlassCard({
         scale: 1.03,
         transition: { duration: 0.28, ease: [0.22, 1, 0.36, 1] },
       }}
-      className="group rounded-[32px] border border-transparent bg-white px-7 py-10 shadow-[0_4px_6px_rgba(0,0,0,0.15)] transition-[box-shadow,border-color,background] duration-300 ease-out will-change-transform hover:border-[#5aadff] hover:bg-linear-to-b hover:from-white hover:via-white hover:to-[#edf7ff] hover:shadow-[0_16px_40px_rgba(1,58,114,0.14)]"
+      className="group rounded-[24px] border border-transparent bg-white px-5 py-7 shadow-[0_4px_6px_rgba(0,0,0,0.15)] transition-[box-shadow,border-color,background] duration-300 ease-out will-change-transform hover:border-[#5aadff] hover:bg-linear-to-b hover:from-white hover:via-white hover:to-[#edf7ff] hover:shadow-[0_16px_40px_rgba(1,58,114,0.14)] sm:rounded-[28px] sm:px-6 sm:py-8 lg:rounded-[32px] lg:px-7 lg:py-10"
     >
       <div className="flex items-start justify-between">
         <div
@@ -111,14 +111,14 @@ function ProgramGlassCard({
           {tag}
         </span>
       </div>
-      <h3 className="mt-5 text-[32px] font-bold leading-[1.2] text-[#070707] md:text-[24px]">
+      <h3 className="mt-5 text-[24px] font-bold leading-[1.2] text-[#070707] sm:text-[26px] md:text-[28px] lg:text-[32px]">
         {title}
       </h3>
       <div className="mt-4 h-[2px] w-20 bg-[#fbc17b]" />
-      <p className="mt-4 min-h-[66px] text-base leading-[22px] text-[#474747]">{desc}</p>
+      <p className="mt-4 min-h-[66px] text-sm leading-[22px] text-[#474747] sm:text-base">{desc}</p>
       <Link
         href={learnMoreHref}
-        className="mt-4 inline-flex items-center gap-1 text-base font-semibold text-[#002b5b] transition duration-200 hover:scale-105 hover:text-[#0C71C7]"
+        className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-[#002b5b] transition duration-200 hover:scale-105 hover:text-[#0C71C7] sm:text-base"
       >
         Tìm hiểu thêm
         <ArrowRight className="size-5 transition-transform duration-300 ease-out group-hover:translate-x-1" />
@@ -151,12 +151,12 @@ export default function CareerGroupsSection() {
           <p className="text-[12px] font-normal uppercase leading-[22px] tracking-[0.24px] text-[#707070] md:text-[14px] md:leading-[32px]">
             Các nhóm nghề nghiệp tại IPAG
           </p>
-          <h2 className="mt-2 text-[28px] font-extrabold uppercase leading-[40px] tracking-[0.7px] text-[#292929] md:text-[40px] md:leading-[60px] md:tracking-[1px]">
+          <h2 className="mt-2 text-[26px] font-extrabold uppercase leading-[36px] tracking-[0.6px] text-[#292929] sm:text-[28px] sm:leading-[40px] md:text-[34px] md:leading-[48px] md:tracking-[0.9px] lg:text-[40px] lg:leading-[60px] lg:tracking-[1px] 2xl:text-[44px] 2xl:leading-[66px]">
             Chọn nhóm cơ hội phù hợp với bạn
           </h2>
         </motion.div>
         <motion.div
-          className="mt-10 grid gap-5 md:grid-cols-3"
+          className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 2xl:gap-7"
           variants={STAGGER_PARENT}
           initial="hidden"
           whileInView="show"
@@ -187,7 +187,7 @@ export default function CareerGroupsSection() {
         >
           <Link
             href="/jobs"
-            className="inline-flex h-[52px] items-center justify-center gap-2 rounded-full px-6 text-[16px] font-bold uppercase text-white shadow-[0_4px_4px_rgba(0,0,0,0.15)] transition duration-200 hover:brightness-110 hover:scale-105 md:w-[356px] md:text-[18px]"
+            className="inline-flex h-[52px] w-full max-w-[356px] items-center justify-center gap-2 rounded-full px-6 text-[16px] font-bold uppercase text-white shadow-[0_4px_4px_rgba(0,0,0,0.15)] transition duration-200 hover:brightness-110 hover:scale-105 sm:w-[320px] md:w-[356px] md:text-[18px]"
             style={CAREER_GROUP_CTA_STYLE}
           >
             Khám phá tất cả cơ hội

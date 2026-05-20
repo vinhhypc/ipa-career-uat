@@ -62,12 +62,12 @@ export default function FeaturedJobsSection() {
           </Link>
         </div>
 
-        <div className="flex flex-col gap-4 lg:flex-row lg:gap-5">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 xl:grid-cols-4">
           {FEATURED_JOBS.map((job) => (
             <Link
               key={job.id}
               href={`/jobs/${job.id}`}
-              className="group relative flex flex-1 flex-col gap-4 rounded-[20px] bg-white px-4 py-5 shadow-[0px_3px_12px_0px_rgba(0,0,0,0.08)] transition-all duration-300 ease-out hover:-translate-y-1.5 hover:shadow-[0px_10px_26px_0px_rgba(0,43,91,0.14)] lg:gap-4 lg:rounded-[32px] lg:px-7 lg:py-10"
+              className="group relative flex flex-col gap-4 rounded-[20px] bg-white px-4 py-5 shadow-[0px_3px_12px_0px_rgba(0,0,0,0.08)] transition-all duration-300 ease-out hover:-translate-y-1.5 hover:shadow-[0px_10px_26px_0px_rgba(0,43,91,0.14)] lg:gap-4 lg:rounded-[32px] lg:px-7 lg:py-10"
             >
               <HotRibbon size={job.hotSize} />
               <div className="flex flex-col gap-2 lg:gap-3">
