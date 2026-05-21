@@ -35,15 +35,15 @@ export default function JobDetail({ id }: { id: string }) {
       >
         <div className="pointer-events-none absolute -right-20 top-0 h-[380px] w-[380px] rounded-full bg-[radial-gradient(circle,rgba(13,63,119,0.08)_0%,rgba(255,255,255,0)_72%)] lg:-right-28 lg:h-[520px] lg:w-[520px]" />
         <div className="section-content relative">
-          <div className="mb-5 inline-flex rounded bg-[#d9e6f2] px-2 py-1 text-[10px] font-semibold leading-[1.4] text-[#707070] lg:mb-4 lg:text-[12px]">
+          <div className="mb-5 inline-flex rounded bg-[#d9e6f2] px-2 py-1 text-xs font-semibold leading-[1.4] text-[#707070] lg:mb-4 lg:text-xs">
             Chuyển đổi số
           </div>
 
-          <h1 className="text-[28px] leading-[38px] font-bold tracking-[0.5px] text-[#292929] lg:text-[40px] lg:leading-[48px] lg:tracking-[1px]">
+          <h1 className="text-3xl leading-[38px] font-bold tracking-[0.5px] text-[#292929] lg:text-4xl lg:leading-[48px] lg:tracking-[1px]">
             Chuyên Viên Phân Tích Nghiệp Vụ (Digital BA)
           </h1>
 
-          <div className="mt-3 flex flex-col gap-1.5 text-[14px] leading-[22px] text-[#474747] lg:mt-2 lg:flex-row lg:items-center lg:gap-4 lg:text-[16px] lg:leading-[26px]">
+          <div className="mt-3 flex flex-col gap-1.5 text-sm leading-[22px] text-[#474747] lg:mt-2 lg:flex-row lg:items-center lg:gap-4 lg:text-base lg:leading-[26px]">
             <div className="flex items-center gap-1">
               <BriefcaseBusiness className="size-[18px] text-[#707070] lg:size-5" />
               <p>
@@ -69,7 +69,7 @@ export default function JobDetail({ id }: { id: string }) {
           <div className="mt-6 grid gap-5 lg:mt-7 lg:grid-cols-[minmax(0,953px)_minmax(0,1fr)] lg:gap-5">
             <div className="space-y-6">
               <DetailCard title="Chi tiết vai trò & Trách nhiệm">
-                <p className="text-[14px] leading-[24px] text-[#474747] lg:text-[18px] lg:leading-[28px]">
+                <p className="text-sm leading-[24px] text-[#474747] lg:text-lg lg:leading-[28px]">
                   IPAS là trụ cột Công nghệ & Nền tảng của hệ sinh thái IPAG - dẫn dắt chuyển đổi số
                   và xây dựng sản phẩm số cho toàn hệ sinh thái: AnVie, VNDGo, PTICare.
                 </p>
@@ -77,14 +77,14 @@ export default function JobDetail({ id }: { id: string }) {
                   {DETAIL_SECTIONS.map((section, index) => (
                     <div key={section.title} className="space-y-2">
                       <div className="flex items-center gap-3">
-                        <div className="flex size-8 items-center justify-center rounded-full bg-[#d9e6f2] text-[14px] font-bold text-[#002b5b] lg:size-10 lg:text-[16px]">
+                        <div className="flex size-8 items-center justify-center rounded-full bg-[#d9e6f2] text-sm font-bold text-[#002b5b] lg:size-10 lg:text-base">
                           {index + 1}
                         </div>
-                        <h3 className="text-[16px] leading-[24px] font-bold text-[#292929] lg:text-[18px] lg:leading-[28px]">
+                        <h3 className="text-base leading-[24px] font-bold text-[#292929] lg:text-lg lg:leading-[28px]">
                           {section.title}
                         </h3>
                       </div>
-                      <ul className="space-y-1.5 pl-6 text-[14px] leading-[24px] text-[#474747] lg:text-[16px] lg:leading-[28px]">
+                      <ul className="space-y-1.5 pl-6 text-sm leading-[24px] text-[#474747] lg:text-base lg:leading-[28px]">
                         {section.items.map((item) => (
                           <li key={item} className="list-disc">
                             {item}
@@ -100,10 +100,10 @@ export default function JobDetail({ id }: { id: string }) {
                 <div className="space-y-6 lg:space-y-8">
                   {REQUIREMENTS.map((section) => (
                     <div key={section.title}>
-                      <h3 className="text-[16px] leading-[24px] font-bold text-[#292929] lg:text-[18px] lg:leading-[28px]">
+                      <h3 className="text-base leading-[24px] font-bold text-[#292929] lg:text-lg lg:leading-[28px]">
                         {section.title}
                       </h3>
-                      <ul className="mt-1.5 space-y-1 pl-0 text-[14px] leading-[24px] text-[#474747] lg:text-[16px] lg:leading-[28px]">
+                      <ul className="mt-1.5 space-y-1 pl-0 text-sm leading-[24px] text-[#474747] lg:text-base lg:leading-[28px]">
                         {section.items.map((item) => (
                           <li key={item} className="flex items-start gap-2">
                             <Check className="mt-1 size-4 shrink-0 text-[#0d5ba8]" />
@@ -126,10 +126,10 @@ export default function JobDetail({ id }: { id: string }) {
                           <Icon className="size-5 text-[#002b5b]" />
                         </div>
                         <div>
-                          <h3 className="text-[16px] leading-[24px] font-bold text-[#292929] lg:text-[18px] lg:leading-[28px]">
+                          <h3 className="text-base leading-[24px] font-bold text-[#292929] lg:text-lg lg:leading-[28px]">
                             {item.title}
                           </h3>
-                          <p className="text-[14px] leading-[22px] text-[#474747] lg:text-[16px] lg:leading-[22px]">
+                          <p className="text-sm leading-[22px] text-[#474747] lg:text-base lg:leading-[22px]">
                             {item.description}
                           </p>
                         </div>

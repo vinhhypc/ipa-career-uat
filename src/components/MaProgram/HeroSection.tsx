@@ -42,7 +42,7 @@ export default function HeroSection() {
           <div className="flex min-w-0 flex-1 flex-col gap-5 md:gap-6">
             <div className="md:hidden">
               <motion.p
-                className="mx-auto w-full max-w-[260px] text-[24px] font-bold uppercase leading-[40px] tracking-[2px] text-shadow-[0px_4px_4px_rgba(0,0,0,0.25)]"
+                className="mx-auto w-full max-w-[260px] text-2xl font-bold uppercase leading-[40px] tracking-[2px] text-shadow-[0px_4px_4px_rgba(0,0,0,0.25)]"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, ease: EASE, delay: 0.1 }}
@@ -54,7 +54,7 @@ export default function HeroSection() {
             </div>
             <div className="hidden md:block">
               <motion.p
-                className="max-w-[931px] text-[40px] font-extrabold uppercase leading-[60px] tracking-[2px] text-shadow-[0px_4px_4px_rgba(0,0,0,0.25)]"
+                className="max-w-[931px] text-4xl font-extrabold uppercase leading-[60px] tracking-[2px] text-shadow-[0px_4px_4px_rgba(0,0,0,0.25)]"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, ease: EASE, delay: 0.1 }}
@@ -77,7 +77,7 @@ export default function HeroSection() {
             </div>
 
             <motion.p
-              className="w-full max-w-[883px] text-[14px] font-medium leading-[22px] text-white md:text-[20px] md:font-normal md:leading-[33px] md:tracking-[0.2px]"
+              className="w-full max-w-[883px] text-sm font-medium leading-[22px] text-white md:text-xl md:font-normal md:leading-[33px] md:tracking-[0.2px]"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, ease: EASE, delay: 0.35 }}

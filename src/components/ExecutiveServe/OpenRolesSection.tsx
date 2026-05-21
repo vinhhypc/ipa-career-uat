@@ -45,7 +45,7 @@ export default function OpenRolesSection({ onOpenModal }: OpenRolesSectionProps)
 
       <div className="section-content relative z-10">
         <motion.h2
-          className="text-center text-[20px] font-bold uppercase leading-[30px] tracking-[0.4px] text-[#292929] md:text-[40px] md:leading-[48px] md:tracking-[1px]"
+          className="text-center text-xl font-bold uppercase leading-[30px] tracking-[0.4px] text-[#292929] md:text-4xl md:leading-[48px] md:tracking-[1px]"
           variants={FADE_UP_VARIANTS}
           initial="hidden"
           whileInView="show"
@@ -76,10 +76,10 @@ export default function OpenRolesSection({ onOpenModal }: OpenRolesSectionProps)
                       : 'bg-linear-to-br from-[#ffe4c4] to-[#fbbf76] text-[#292929]'
                   }`}
                 >
-                  <h3 className="text-[17px] font-bold uppercase leading-[26px] md:text-[24px] md:leading-[32px]">
+                  <h3 className="text-lg font-bold uppercase leading-[26px] md:text-2xl md:leading-[32px]">
                     {role.title}
                   </h3>
-                  <p className="mt-2 text-[13px] font-medium leading-[20px] md:text-[18px] md:leading-[26px]">
+                  <p className="mt-2 text-xs font-medium leading-[20px] md:text-lg md:leading-[26px]">
                     {role.summary}
                   </p>
                 </div>
@@ -87,7 +87,7 @@ export default function OpenRolesSection({ onOpenModal }: OpenRolesSectionProps)
                   <div className="grid grid-cols-1 gap-6 border-b border-[#d5d5d5] pb-4 md:grid-cols-2 md:gap-5">
                     <div>
                       <motion.p
-                        className="text-[13px] font-bold uppercase leading-[22px] text-[#474747] md:text-[16px]"
+                        className="text-xs font-bold uppercase leading-[22px] text-[#474747] md:text-base"
                         variants={FADE_LEFT_VARIANTS}
                       >
                         YÊU CẦU CÔNG VIỆC
@@ -96,7 +96,7 @@ export default function OpenRolesSection({ onOpenModal }: OpenRolesSectionProps)
                         {role.requirements.map((line) => (
                           <motion.li
                             key={line}
-                            className="flex gap-2 text-[13px] leading-[20px] text-[#474747] md:text-[16px] md:leading-[26px]"
+                            className="flex gap-2 text-xs leading-[20px] text-[#474747] md:text-base md:leading-[26px]"
                             variants={FADE_LEFT_VARIANTS}
                           >
                             <Check
@@ -110,7 +110,7 @@ export default function OpenRolesSection({ onOpenModal }: OpenRolesSectionProps)
                     </div>
                     <div>
                       <motion.p
-                        className="text-[13px] font-bold uppercase leading-[22px] text-[#474747] md:text-[16px]"
+                        className="text-xs font-bold uppercase leading-[22px] text-[#474747] md:text-base"
                         variants={FADE_RIGHT_VARIANTS}
                       >
                         QUYỀN LỢI & CƠ HỘI
@@ -119,7 +119,7 @@ export default function OpenRolesSection({ onOpenModal }: OpenRolesSectionProps)
                         {role.benefits.map((line) => (
                           <motion.li
                             key={line}
-                            className="flex gap-2 text-[13px] leading-[20px] text-[#474747] md:text-[16px] md:leading-[26px]"
+                            className="flex gap-2 text-xs leading-[20px] text-[#474747] md:text-base md:leading-[26px]"
                             variants={FADE_RIGHT_VARIANTS}
                           >
                             <Check
@@ -134,7 +134,7 @@ export default function OpenRolesSection({ onOpenModal }: OpenRolesSectionProps)
                   </div>
                   <Link
                     href="/we-look-for"
-                    className="mt-4 inline-flex items-center gap-1 text-[14px] font-semibold leading-[1.4] text-[#002b5b] transition duration-200 hover:scale-105 hover:text-[#0C71C7] md:text-[16px]"
+                    className="mt-4 inline-flex items-center gap-1 text-sm font-semibold leading-[1.4] text-[#002b5b] transition duration-200 hover:scale-105 hover:text-[#0C71C7] md:text-base"
                   >
                     Xem chi tiết & Ứng tuyển
                     <ArrowRight className="size-4 md:size-5" strokeWidth={2} />
@@ -154,13 +154,13 @@ export default function OpenRolesSection({ onOpenModal }: OpenRolesSectionProps)
         >
           <Link
             href="/jobs"
-            className="flex h-12 w-full max-w-[276px] items-center justify-center rounded-full border border-[#00377c] text-[16px] font-bold text-[#002b5b] shadow-[0px_4px_8px_0px_rgba(0,0,0,0.15)] transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-[1.04] hover:shadow-[0_8px_20px_rgba(0,0,0,0.18)] hover:brightness-105 active:translate-y-0 active:scale-100 active:shadow-[0px_4px_8px_0px_rgba(0,0,0,0.15)] md:text-[18px] md:hover:shadow-[0_10px_24px_rgba(0,0,0,0.15)]"
+            className="flex h-12 w-full max-w-[276px] items-center justify-center rounded-full border border-[#00377c] text-base font-bold text-[#002b5b] shadow-[0px_4px_8px_0px_rgba(0,0,0,0.15)] transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-[1.04] hover:shadow-[0_8px_20px_rgba(0,0,0,0.18)] hover:brightness-105 active:translate-y-0 active:scale-100 active:shadow-[0px_4px_8px_0px_rgba(0,0,0,0.15)] md:text-lg md:hover:shadow-[0_10px_24px_rgba(0,0,0,0.15)]"
           >
             XEM THÊM VỊ TRÍ
           </Link>
           <button
             onClick={onOpenModal}
-            className="h-12 w-full max-w-[276px] cursor-pointer rounded-full bg-[linear-gradient(77deg,#013A72_3.48%,#0C71C7_83.47%)] text-[16px] font-bold text-white shadow-[0px_4px_8px_0px_rgba(0,0,0,0.15)] transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-[1.04] hover:shadow-[0_8px_20px_rgba(0,0,0,0.18)] hover:brightness-105 active:translate-y-0 active:scale-100 active:shadow-[0px_4px_8px_0px_rgba(0,0,0,0.15)] md:text-[18px] md:hover:shadow-[0_10px_24px_rgba(0,0,0,0.15)]"
+            className="h-12 w-full max-w-[276px] cursor-pointer rounded-full bg-[linear-gradient(77deg,#013A72_3.48%,#0C71C7_83.47%)] text-base font-bold text-white shadow-[0px_4px_8px_0px_rgba(0,0,0,0.15)] transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-[1.04] hover:shadow-[0_8px_20px_rgba(0,0,0,0.18)] hover:brightness-105 active:translate-y-0 active:scale-100 active:shadow-[0px_4px_8px_0px_rgba(0,0,0,0.15)] md:text-lg md:hover:shadow-[0_10px_24px_rgba(0,0,0,0.15)]"
           >
             ĐỂ LẠI THÔNG TIN
           </button>

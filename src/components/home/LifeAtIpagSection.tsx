@@ -30,7 +30,7 @@ export default function LifeAtIpagSection() {
   return (
     <section
       id="life-at-ipag"
-      className="section-padding relative overflow-hidden"
+      className="section-padding relative overflow-hidden lg:px-12 lg:py-12 xl:px-16 xl:py-16"
       style={LIFE_AT_IPAG_SECTION_STYLE}
     >
       <div className="section-content relative z-10">
@@ -50,10 +50,10 @@ export default function LifeAtIpagSection() {
               className="h-6"
             />
             <div className="flex flex-col gap-2">
-              <p className="text-[12px] font-normal uppercase leading-[20px] tracking-[0.24px] text-[#474747] md:text-[14px] md:leading-[24px] md:tracking-[0.28px]">
+              <p className="text-xs font-normal uppercase leading-[20px] tracking-[0.24px] text-[#474747] md:text-sm md:leading-[24px] md:tracking-[0.28px]">
                 Cuộc sống tại IPAG
               </p>
-              <h2 className="text-[28px] font-bold uppercase leading-[40px] tracking-[0.7px] text-[#292929] md:text-[34px] md:leading-[48px] md:tracking-[0.9px] lg:text-[40px] lg:leading-[60px] lg:tracking-[1px] 2xl:text-[44px]">
+              <h2 className="text-3xl font-bold uppercase leading-[40px] tracking-[0.7px] text-[#292929] md:leading-[48px] md:tracking-[0.9px] lg:leading-[60px] lg:tracking-[1px] xl:text-4xl 2xl:text-5xl">
                 Nơi mỗi ngày <br className="hidden md:block" />
                 là một trải nghiệm <br className="hidden md:block" />
                 đáng nhớ

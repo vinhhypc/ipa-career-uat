@@ -65,7 +65,7 @@ export default function JourneySection() {
           viewport={JOURNEY_VIEWPORT}
           variants={JOURNEY_HEADER_VARIANTS}
         >
-          <h2 className="text-2xl font-extrabold uppercase tracking-[2px] text-white drop-shadow-sm md:text-[40px] md:leading-[60px]">
+          <h2 className="text-2xl font-extrabold uppercase tracking-[2px] text-white drop-shadow-sm md:text-4xl md:leading-[60px]">
             Hành trình chuyển hoá
           </h2>
           <p className="mt-4 text-base leading-7 text-white/90 md:text-xl md:leading-[33px]">

@@ -8,7 +8,7 @@ export default function PathwayNumberRibbon({ n }: { n: number }) {
     >
       <Image alt="" src="/ma-program/figma/pathway-tag.svg" width={65} height={45} className="h-full w-full" />
       <span
-        className="absolute font-extrabold leading-none text-[14px] text-white md:text-[20px]"
+        className="absolute font-extrabold leading-none text-sm text-white md:text-xl"
         style={{ left: '56%', top: '6.7%', transform: 'translateX(-50%)' }}
       >
         {n}

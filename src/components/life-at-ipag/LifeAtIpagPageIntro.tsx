@@ -27,7 +27,7 @@ export default function LifeAtIpagPageIntro({
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.45, ease: 'easeOut' }}
         >
-          <h1 className="text-[28px] font-bold uppercase tracking-[1px] text-[#292929] text-center md:text-[40px] md:leading-[48px]">
+          <h1 className="text-3xl font-bold uppercase tracking-[1px] text-[#292929] text-center md:text-4xl md:leading-[48px]">
             <span className="md:hidden">{mobileTitle}</span>
             <span className="hidden md:inline">{desktopTitle}</span>
           </h1>

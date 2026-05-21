@@ -19,7 +19,7 @@ export type BreadcrumbsProps = {
   'aria-label'?: string;
 };
 
-const textBase = 'text-[12px] leading-[1.4]';
+const textBase = 'text-xs leading-[1.4]';
 
 function isInternalHref(href: string) {
   return href.startsWith('/') && !href.startsWith('//');

@@ -45,7 +45,7 @@ export default function CommitmentsSection() {
     >
       <div className="section-content">
         <motion.h2
-          className="text-center text-[20px] font-bold uppercase leading-[30px] tracking-[0.4px] text-[#292929] md:text-[40px] md:leading-[48px] md:tracking-[1px]"
+          className="text-center text-xl font-bold uppercase leading-[30px] tracking-[0.4px] text-[#292929] md:text-4xl md:leading-[48px] md:tracking-[1px]"
           variants={FADE_UP_VARIANTS}
           initial="hidden"
           whileInView="show"
@@ -80,10 +80,10 @@ export default function CommitmentsSection() {
                 className="size-[60px] object-contain"
               />
               <div className="flex flex-col gap-4">
-                <h3 className="text-[20px] font-bold leading-[28px] text-[#070707] md:text-[24px] md:leading-[32px]">
+                <h3 className="text-xl font-bold leading-[28px] text-[#070707] md:text-2xl md:leading-[32px]">
                   {item.title}
                 </h3>
-                <p className="text-[14px] leading-[20px] text-[#474747] md:text-[16px] md:leading-[22px]">
+                <p className="text-sm leading-[20px] text-[#474747] md:text-base md:leading-[22px]">
                   {item.body}
                 </p>
               </div>

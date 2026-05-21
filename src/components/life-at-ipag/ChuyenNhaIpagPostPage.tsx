@@ -34,7 +34,7 @@ export default function ChuyenNhaIpagPostPage({ post }: { post: ChuyenNhaIpagPos
 
         <div className="section-content relative">
           <div className="mx-auto w-full max-w-[1115px] pt-4 md:pt-8">
-            <h1 className="text-xl font-extrabold uppercase tracking-[0.5px] text-[#292929] md:text-[28px] md:leading-[36px]">
+            <h1 className="text-xl font-extrabold uppercase tracking-[0.5px] text-[#292929] md:text-3xl md:leading-[36px]">
               {post.title}
             </h1>
             <div className="mt-4 flex items-center gap-3">
@@ -44,14 +44,14 @@ export default function ChuyenNhaIpagPostPage({ post }: { post: ChuyenNhaIpagPos
             </div>
 
             <div className="mt-5 flex flex-wrap items-center justify-between gap-4">
-              <div className="flex flex-wrap items-center gap-2 text-[12px] text-[#8a97a6]">
+              <div className="flex flex-wrap items-center gap-2 text-xs text-[#8a97a6]">
                 <span className="font-semibold text-[#6b7280]">{post.authorName}</span>
                 <span className="text-[#c1c7d0]" aria-hidden>
                   •
                 </span>
                 <span>{post.authorMeta}</span>
               </div>
-              <div className="text-[12px] font-semibold text-[#8a97a6]">{post.dateDetail}</div>
+              <div className="text-xs font-semibold text-[#8a97a6]">{post.dateDetail}</div>
             </div>
 
             <div className="mt-7 overflow-hidden rounded-[22px] border border-[#edf1f5] bg-white shadow-[0_10px_24px_rgba(0,0,0,0.10)] md:mt-10">
@@ -66,7 +66,7 @@ export default function ChuyenNhaIpagPostPage({ post }: { post: ChuyenNhaIpagPos
               </div>
             </div>
 
-            <div className="mt-8 space-y-5 text-sm leading-7 text-[#6b7280] md:mt-10 md:text-[15px] md:leading-8">
+            <div className="mt-8 space-y-5 text-sm leading-7 text-[#6b7280] md:mt-10 md:text-sm md:leading-8">
               {post.body.map((p, idx) => (
                 <p key={idx}>{p}</p>
               ))}
@@ -107,10 +107,10 @@ function RelatedCard({ post }: { post: ChuyenNhaIpagPost }) {
 
       <div className="p-4 md:p-5">
         <div className="flex items-center justify-between gap-3">
-          <span className="inline-flex items-center rounded-full bg-[#f1f5f9] px-2.5 py-1 text-[10px] font-semibold text-[#6b7280]">
+          <span className="inline-flex items-center rounded-full bg-[#f1f5f9] px-2.5 py-1 text-xs font-semibold text-[#6b7280]">
             {post.categoryLabel}
           </span>
-          <span className="text-[10px] font-semibold text-[#8a97a6]">{post.dateList}</span>
+          <span className="text-xs font-semibold text-[#8a97a6]">{post.dateList}</span>
         </div>
 
         <h3 className="mt-4 line-clamp-2 text-base font-extrabold text-[#292929] md:text-lg">
@@ -127,7 +127,7 @@ function RelatedCard({ post }: { post: ChuyenNhaIpagPost }) {
         </Link>
 
         <div className="mt-4 h-px w-full bg-gradient-to-r from-transparent via-[#e5e7eb] to-transparent" />
-        <div className="mt-3 flex flex-wrap items-center gap-2 text-[11px] text-[#8a97a6]">
+        <div className="mt-3 flex flex-wrap items-center gap-2 text-xs text-[#8a97a6]">
           <span className="font-semibold text-[#6b7280]">{post.authorName}</span>
           <span className="text-[#c1c7d0]" aria-hidden>
             •

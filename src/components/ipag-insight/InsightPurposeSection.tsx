@@ -29,10 +29,10 @@ export default function InsightPurposeSection() {
           whileInView="show"
           viewport={{ ...REVEAL_VIEWPORT, margin: '0px 0px -12% 0px' }}
         >
-          <p className="w-full max-w-[812px] text-[14px] font-normal leading-[22px] text-[#707070] md:leading-[32px]">
+          <p className="w-full max-w-[812px] text-sm font-normal leading-[22px] text-[#707070] md:leading-[32px]">
             OUR PURPOSE
           </p>
-          <h2 className="text-[20px] font-extrabold uppercase leading-[26px] tracking-[1px] text-[#292929] md:text-[40px] md:leading-[60px]">
+          <h2 className="text-xl font-extrabold uppercase leading-[26px] tracking-[1px] text-[#292929] md:text-4xl md:leading-[60px]">
             Kiến tạo di sản bền vững
           </h2>
         </motion.div>
@@ -57,12 +57,10 @@ export default function InsightPurposeSection() {
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
             </div>
-            <div className="flex flex-1 flex-col px-6 pt-6 md:px-7">
+            <div className="flex flex-1 flex-col px-6 pt-6 2xl:px-7">
               <div className="flex flex-col gap-3 pb-5">
-                <h3 className="text-left text-[24px] font-bold leading-8 text-[#070707]">
-                  Tầm nhìn
-                </h3>
-                <p className="text-left text-[16px] font-normal leading-[22px] text-[#474747]">
+                <h3 className="text-left text-2xl font-bold leading-8 text-[#070707]">Tầm nhìn</h3>
+                <p className="text-left text-base font-normal leading-[22px] text-[#474747]">
                   Trở thành Ngân hàng Năng lực (Capability Bank) - Nơi hội tụ các nguồn lực để khai
                   phóng tiềm năng con người và doanh nghiệp, kiến tạo những câu chuyện thành công
                   đột phá và tạo ra giá trị bền vững cho xã hội.
@@ -86,12 +84,10 @@ export default function InsightPurposeSection() {
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
             </div>
-            <div className="flex flex-1 flex-col px-6 pt-6 md:px-7">
+            <div className="flex flex-1 flex-col px-6 pt-6 2xl:px-7">
               <div className="flex flex-col gap-3 pb-5">
-                <h3 className="text-left text-[24px] font-bold leading-8 text-[#070707]">
-                  Sứ mệnh
-                </h3>
-                <p className="text-left text-[16px] font-normal leading-[22px] text-[#474747]">
+                <h3 className="text-left text-2xl font-bold leading-8 text-[#070707]">Sứ mệnh</h3>
+                <p className="text-left text-base font-normal leading-[22px] text-[#474747]">
                   Vận hành mô hình Ngân hàng Năng lực, kết nối cộng sinh Con người - Công nghệ -
                   Chuỗi giá trị để dẫn vốn hiệu quả và phụng sự cuộc sống trọn vẹn.
                 </p>

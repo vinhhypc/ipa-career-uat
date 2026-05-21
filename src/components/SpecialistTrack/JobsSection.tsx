@@ -40,7 +40,7 @@ export default function JobsSection() {
           whileInView="visible"
           viewport={{ once: true, amount: 0.5 }}
         >
-          <h2 className="text-center text-[20px] font-bold uppercase leading-[30px] tracking-[0.4px] text-[#292929] md:text-[40px] md:leading-[48px] md:tracking-[1px]">
+          <h2 className="text-center text-xl font-bold uppercase leading-[30px] tracking-[0.4px] text-[#292929] md:text-4xl md:leading-[48px] md:tracking-[1px]">
             Cơ hội nghề nghiệp
           </h2>
           {/* Decorative element */}
@@ -103,7 +103,7 @@ export default function JobsSection() {
                 id="specialist-job-search"
                 type="search"
                 placeholder="Tìm kiếm công việc"
-                className="min-w-0 flex-1 bg-transparent text-[14px] leading-[1.4] text-[#474747] outline-none placeholder:text-[#707070] lg:text-base"
+                className="min-w-0 flex-1 bg-transparent text-sm leading-[1.4] text-[#474747] outline-none placeholder:text-[#707070] lg:text-base"
               />
             </div>
 
@@ -112,7 +112,7 @@ export default function JobsSection() {
                 <motion.button
                   key={item.value}
                   type="button"
-                  className="flex h-10 w-full items-center justify-between rounded-lg border border-[rgba(7,7,7,0.18)] bg-white px-3 py-2.5 text-left text-[14px] font-medium leading-[1.4] text-[#474747] lg:min-h-12 lg:flex-1 lg:px-4 lg:text-base"
+                  className="flex h-10 w-full items-center justify-between rounded-lg border border-[rgba(7,7,7,0.18)] bg-white px-3 py-2.5 text-left text-sm font-medium leading-[1.4] text-[#474747] lg:min-h-12 lg:flex-1 lg:px-4 lg:text-base"
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.35, ease: 'easeOut', delay: 0.3 + i * 0.07 }}
@@ -127,7 +127,7 @@ export default function JobsSection() {
 
             <motion.button
               type="submit"
-              className="mx-auto flex h-10 w-full items-center justify-center gap-2 rounded-full px-3 py-2.5 text-[14px] font-bold uppercase leading-[1.4] text-white shadow-[0px_4px_8px_0px_rgba(0,0,0,0.15)] lg:h-[52px] lg:w-[466px] lg:text-[18px]"
+              className="mx-auto flex h-10 w-full items-center justify-center gap-2 rounded-full px-3 py-2.5 text-sm font-bold uppercase leading-[1.4] text-white shadow-[0px_4px_8px_0px_rgba(0,0,0,0.15)] lg:h-[52px] lg:w-[466px] lg:text-lg"
               style={{
                 backgroundImage:
                   'linear-gradient(69.79deg, rgb(1, 58, 114) 3.48%, rgb(12, 113, 199) 83.47%)',
@@ -162,7 +162,7 @@ export default function JobsSection() {
               sizes="(min-width: 1024px) 21px, 14px"
               className="h-4 w-[14px] lg:h-6 lg:w-[21px]"
             />
-            <h3 className="text-[18px] font-bold uppercase leading-[1.4] tracking-[0.18px] text-[#002b5b] lg:text-[24px] lg:tracking-[0.24px]">
+            <h3 className="text-lg font-bold uppercase leading-[1.4] tracking-[0.18px] text-[#002b5b] lg:text-2xl lg:tracking-[0.24px]">
               Tất cả các vị trí
             </h3>
             <span className="h-px w-[60px] bg-[#0d3f77]" />
@@ -182,19 +182,19 @@ export default function JobsSection() {
               >
                 <div className="flex flex-col gap-2 lg:gap-3">
                   <div className="flex items-start justify-between gap-3">
-                    <span className="rounded bg-[#d9e6f2] px-2 py-1 text-[10px] font-semibold leading-[1.4] text-[#707070] lg:text-[12px]">
+                    <span className="rounded bg-[#d9e6f2] px-2 py-1 text-xs font-semibold leading-[1.4] text-[#707070] lg:text-xs">
                       {job.tag}
                     </span>
-                    <span className="hidden text-[14px] leading-[26px] text-[#707070] lg:block">
+                    <span className="hidden text-sm leading-[26px] text-[#707070] lg:block">
                       30/3/2026
                     </span>
                   </div>
 
                   <div className="flex flex-col gap-2">
-                    <h4 className="text-[16px] font-bold leading-[22px] text-[#292929] lg:text-[18px] lg:leading-[26px]">
+                    <h4 className="text-base font-bold leading-[22px] text-[#292929] lg:text-lg lg:leading-[26px]">
                       {job.title}
                     </h4>
-                    <div className="min-w-0 text-[14px] leading-5 text-[#474747] lg:text-[16px] lg:leading-[26px]">
+                    <div className="min-w-0 text-sm leading-5 text-[#474747] lg:text-base lg:leading-[26px]">
                       <div className="hidden items-center gap-2 lg:flex">
                         <span className="inline-flex items-center gap-1">
                           <MapPin className="size-5 text-[#707070]" strokeWidth={1.6} aria-hidden />
@@ -216,7 +216,7 @@ export default function JobsSection() {
                   <div className="hidden h-px w-full bg-black/10 lg:block" />
                   <Link
                     href={`/jobs/${job.id}`}
-                    className="hidden h-10 w-[155px] items-center justify-center rounded-full text-[16px] font-semibold leading-[1.4] text-white shadow-[0px_4px_8px_0px_rgba(0,0,0,0.15)] lg:inline-flex"
+                    className="hidden h-10 w-[155px] items-center justify-center rounded-full text-base font-semibold leading-[1.4] text-white shadow-[0px_4px_8px_0px_rgba(0,0,0,0.15)] lg:inline-flex"
                     style={{
                       backgroundImage:
                         'linear-gradient(80.96deg, rgb(1, 58, 114) 3.48%, rgb(12, 113, 199) 83.47%)',

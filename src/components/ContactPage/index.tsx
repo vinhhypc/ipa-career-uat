@@ -112,7 +112,7 @@ export default function ContactPage() {
         >
           <motion.div className="mx-auto w-full max-w-[860px] text-center" variants={ITEM_REVEAL}>
             <p className="text-xs font-bold uppercase text-[#145194]">ĐỂ LẠI THÔNG TIN</p>
-            <h2 className="mt-4 text-2xl font-extrabold uppercase tracking-[1px] text-[#292929] md:text-[32px] md:leading-[40px]">
+            <h2 className="mt-4 text-2xl font-extrabold uppercase tracking-[1px] text-[#292929] md:text-3xl md:leading-[40px]">
               Chúng tôi sẽ liên hệ lại
             </h2>
             <p className="mt-4 text-sm leading-6 text-[#6b7280] md:text-base md:leading-7">
@@ -185,7 +185,7 @@ export default function ContactPage() {
                     placeholder="Nhập văn bản..."
                     className="min-h-[40px] w-full resize-none bg-transparent text-sm leading-6 text-[#292929] outline-none placeholder:text-[#9aa3af]"
                   />
-                  <div className="mt-2 text-right text-[12px] font-semibold text-[#8a97a6]">
+                  <div className="mt-2 text-right text-xs font-semibold text-[#8a97a6]">
                     ({messageCount}/100)
                   </div>
                 </div>
@@ -303,10 +303,10 @@ export default function ContactPage() {
         >
           <div className="mx-auto w-full max-w-[1115px]">
             <motion.div variants={ITEM_REVEAL}>
-              <p className="text-[12px] font-extrabold uppercase tracking-[0.26em] text-white/85">
+              <p className="text-xs font-extrabold uppercase tracking-[0.26em] text-white/85">
                 CÂU HỎI THƯỜNG GẶP
               </p>
-              <h2 className="mt-4 text-2xl font-extrabold uppercase tracking-[1px] text-white md:text-[32px] md:leading-[40px]">
+              <h2 className="mt-4 text-2xl font-extrabold uppercase tracking-[1px] text-white md:text-3xl md:leading-[40px]">
                 Bạn có thắc mắc?
               </h2>
             </motion.div>

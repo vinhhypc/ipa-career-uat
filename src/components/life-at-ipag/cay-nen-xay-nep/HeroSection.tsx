@@ -18,7 +18,7 @@ export default function HeroSection() {
         <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(39,60,77,0)_0%,rgba(25,44,59,0.5)_16%,rgba(11,26,39,0.78)_32%,rgba(7,29,49,1)_50%,rgba(8,24,39,0.8)_68%,rgba(53,72,94,0.5)_82%,rgba(96,111,134,0)_100%)] opacity-40" />
         <div className="absolute inset-0 flex flex-col items-center justify-center gap-8 px-4 text-center md:px-10 lg:px-[240px]">
           <motion.h1
-            className="text-[28px] font-bold uppercase leading-[38px] tracking-[0.0385em] text-white [text-shadow:0_4px_4px_rgba(0,0,0,0.25)] md:text-[52px] md:leading-[70px]"
+            className="text-3xl font-bold uppercase leading-[38px] tracking-[0.0385em] text-white [text-shadow:0_4px_4px_rgba(0,0,0,0.25)] md:text-5xl md:leading-[70px]"
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -26,7 +26,7 @@ export default function HeroSection() {
             Cấy nền — Xây nếp
           </motion.h1>
           <motion.div
-            className="relative w-full max-w-[590px] rounded-[20px_80px_20px_20px] bg-[rgba(202,255,235,0.2)] px-6 py-8 text-center text-[16px] font-semibold leading-[28px] tracking-[0.02em] text-white [text-shadow:0_4px_4px_rgba(0,0,0,0.25)] backdrop-blur-sm md:px-10 md:py-12 md:text-[24px] md:leading-[38px]"
+            className="relative w-full max-w-[590px] rounded-[20px_80px_20px_20px] bg-[rgba(202,255,235,0.2)] px-6 py-8 text-center text-base font-semibold leading-[28px] tracking-[0.02em] text-white [text-shadow:0_4px_4px_rgba(0,0,0,0.25)] backdrop-blur-sm md:px-10 md:py-12 md:text-2xl md:leading-[38px]"
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55, delay: 0.08 }}

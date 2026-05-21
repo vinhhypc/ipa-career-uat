@@ -37,11 +37,14 @@ const WHY_IPAG_SECTION_STYLE: CSSProperties = {
 
 export default function WhyIpagSection() {
   return (
-    <section className="section-padding relative" style={WHY_IPAG_SECTION_STYLE}>
+    <section
+      className="section-padding relative lg:px-12 lg:py-12 xl:px-16 xl:py-16"
+      style={WHY_IPAG_SECTION_STYLE}
+    >
       <div className="section-content relative z-10">
-        <div className="flex w-full flex-col gap-0 md:gap-10 2xl:flex-row 2xl:items-center 2xl:justify-between">
+        <div className="flex w-full flex-col gap-0 md:gap-8 xl:gap-10 lg:flex-row lg:items-center lg:justify-between">
           <motion.div
-            className="w-full 2xl:max-w-[465px]"
+            className="w-full 2xl:max-w-110 md:max-w-60 lg:max-w-62 xl:max-w-80"
             variants={FADE_LEFT_VARIANTS}
             initial="hidden"
             whileInView="show"
@@ -54,21 +57,21 @@ export default function WhyIpagSection() {
               height={24}
               className="h-6 w-auto"
             />
-            <p className="mt-7 text-[14px] font-normal leading-6 tracking-[0.28px] text-[#474747] uppercase">
+            <p className="mt-7 text-sm font-normal leading-6 tracking-[0.28px] text-[#474747] uppercase">
               VÌ SAO LÀ IPAG?
             </p>
-            <h2 className="mt-2 text-[32px] font-bold leading-tight tracking-[0.8px] text-[#292929] uppercase md:text-[34px] md:leading-[48px] lg:text-[40px] lg:leading-[60px] 2xl:text-[44px]">
-              IPAG -<span className="hidden md:inline"> </span>
-              <br className="md:hidden" />
+            <h2 className="mt-2 text-2xl font-bold leading-tight tracking-[0.8px] text-[#292929] uppercase md:leading-8 lg:text-3xl lg:leading-9 xl:text-4xl xl:leading-10">
+              IPAG -<span className="md:hidden"> </span>
+              <br className="hidden md:block" />
               Capability Bank
             </h2>
-            <p className="mt-5 text-[16px] leading-6 tracking-[0.32px] text-[#474747]">
+            <p className="mt-5 text-base leading-6 tracking-[0.32px] text-[#474747]">
               Không chỉ tạo cơ hội việc làm - IPAG xây dựng môi trường để năng lực của bạn được phát
               triển bền vững và tạo ra giá trị thực tế
             </p>
             <Link
               href="/ipag-insight"
-              className="mt-7 inline-flex items-center gap-1 text-[16px] font-semibold text-[#002b5b] transition duration-200 hover:scale-105 hover:text-[#0C71C7]"
+              className="mt-7 inline-flex items-center gap-1 text-base font-semibold text-[#002b5b] transition duration-200 hover:scale-105 hover:text-[#0C71C7]"
             >
               Tìm hiểu thêm
               <ArrowRight className="size-5" />
@@ -76,7 +79,7 @@ export default function WhyIpagSection() {
           </motion.div>
 
           <motion.div
-            className="flex w-full min-w-0 flex-col items-center gap-0 md:flex-row md:items-center md:gap-10 2xl:min-w-0 2xl:flex-1 2xl:flex-row 2xl:items-center 2xl:gap-10"
+            className="flex w-full min-w-0 flex-col items-center gap-0 md:flex-row md:items-center md:gap-10 lg:min-w-0 lg:flex-1 lg:flex-row lg:items-center lg:gap-10"
             variants={STAGGER_PARENT}
             initial="hidden"
             whileInView="show"
@@ -84,7 +87,7 @@ export default function WhyIpagSection() {
           >
             <motion.div
               variants={SCALE_IN_VARIANTS}
-              className="w-full max-w-[min(100%,300px)] shrink-0 py-4 sm:max-w-[360px] md:w-auto md:max-w-[380px] md:py-0 2xl:max-w-[420px] 2xl:px-0 2xl:py-0"
+              className="w-full max-w-[min(100%,260px)] shrink-0 py-4 sm:max-w-60 md:w-auto md:max-w-64 md:py-0 xl:max-w-72 2xl:max-w-90 lg:px-0 lg:py-0"
             >
               <Image
                 src="/home/why-ipag-capability-bank.png"
@@ -98,41 +101,41 @@ export default function WhyIpagSection() {
               />
             </motion.div>
             <motion.div
-              className="w-full min-w-0 max-w-[530px] space-y-6 md:ml-auto md:w-auto 2xl:space-y-10"
+              className="w-full min-w-0 max-w-[530px] space-y-6 md:ml-auto md:space-y-4 md:w-auto 2xl:space-y-10"
               variants={STAGGER_PARENT}
             >
               {WHY_IPAG_ITEMS.map((item, index) => (
                 <motion.article
                   key={item.title}
                   variants={FADE_RIGHT_VARIANTS}
-                  className={`w-full min-w-0 ${index === 1 ? '2xl:pl-10' : ''}`}
+                  className={`w-full min-w-0 ${index === 1 ? 'lg:pl-10' : ''}`}
                   whileHover={{
                     scale: 1.02,
                     transition: { type: 'tween', duration: 0.22, ease: [0.25, 0.1, 0.25, 1] },
                   }}
                 >
-                  <div className="flex w-full min-w-0 items-start gap-3 2xl:gap-4">
-                    <div className="flex size-12 shrink-0 items-center justify-center rounded-full bg-white p-1 shadow-[0px_4px_6px_rgba(0,0,0,0.15)] 2xl:size-20 2xl:bg-transparent 2xl:p-0 2xl:shadow-none">
-                      <div className="relative flex size-10 shrink-0 items-center justify-center overflow-hidden rounded-full bg-[linear-gradient(181.96deg,#fffaf0_85.9%,#ffc987_185.9%)] 2xl:size-20 2xl:bg-none 2xl:overflow-visible">
+                  <div className="flex w-full min-w-0 items-start gap-2 md:gap-3 2xl:gap-4">
+                    <div className="flex size-12 shrink-0 items-center justify-center rounded-full bg-white p-1 shadow-[0px_4px_6px_rgba(0,0,0,0.15)] lg:size-20 lg:bg-transparent lg:p-0 lg:shadow-none">
+                      <div className="relative flex size-10 shrink-0 items-center justify-center overflow-hidden rounded-full bg-[linear-gradient(181.96deg,#fffaf0_85.9%,#ffc987_185.9%)] lg:size-20 lg:bg-none lg:overflow-visible">
                         <Image
                           src={item.icon}
                           alt=""
                           width={80}
                           height={80}
-                          className="pointer-events-none block object-contain object-center max-2xl:absolute max-2xl:left-1/2 max-2xl:top-1/2 max-2xl:size-10 max-2xl:origin-center max-2xl:transform-[translate(-50%,calc(-50%+0.25rem))_scale(2.38)] 2xl:relative 2xl:left-auto 2xl:top-auto 2xl:size-full 2xl:transform-none 2xl:object-cover"
+                          className="pointer-events-none block object-contain object-center absolute left-1/2 top-1/2 size-10 origin-center transform-[translate(-50%,calc(-50%+0.25rem))_scale(2.38)] lg:relative lg:left-auto lg:top-auto lg:size-full lg:transform-none lg:object-cover"
                         />
                       </div>
                     </div>
                     <div className="flex min-w-0 flex-1 flex-col gap-1">
-                      <h3 className="text-base font-bold leading-[26px] text-[#292929] 2xl:text-[18px]">
+                      <h3 className="text-base font-bold leading-[26px] text-[#292929] lg:text-lg">
                         {item.title}
                       </h3>
-                      <div className="h-px w-12 shrink-0 bg-[#fbc17b] 2xl:my-2" />
+                      <div className="h-px w-12 shrink-0 bg-[#fbc17b] lg:my-2" />
                       <p
                         className={
                           index === 0
-                            ? 'text-sm leading-5 text-[#474747] 2xl:text-[16px] 2xl:leading-[22px]'
-                            : 'text-sm leading-[22px] text-[#474747] 2xl:text-[16px]'
+                            ? 'text-sm leading-5 text-[#474747] lg:text-base lg:leading-[22px]'
+                            : 'text-sm leading-[22px] text-[#474747] lg:text-base'
                         }
                       >
                         {item.desc}

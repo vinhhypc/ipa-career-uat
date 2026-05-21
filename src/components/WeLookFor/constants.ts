@@ -98,7 +98,7 @@ export const PATHWAYS = [
   },
   {
     pathway: 'Pathway 02',
-    name: 'Professional Force',
+    name: 'Specialist Track',
     lines: ['Specialist 3-7 năm', 'Domain sâu'],
     kicker: 'Pathways to Greatness · Pathway 02',
     titleAccentFirst: true,
@@ -128,7 +128,7 @@ export const PATHWAYS = [
   },
   {
     pathway: 'Pathway 03',
-    name: 'Executive Serve',
+    name: 'Leadership Track',
     lines: ['Senior 8+ năm', 'C level path'],
     kicker: 'Pathways to Greatness · Pathway 03',
     titleAccentFirst: false,
@@ -162,8 +162,7 @@ export const RECRUITMENT_STEPS = [
   {
     icon: ASSETS.processClick,
     title: 'Ứng tuyển',
-    lines: ['Nộp hồ sơ trực tuyến qua hệ thống', 'tuyển dụng của IPAG.'],
-    linesLg: ['Nộp hồ sơ trực tuyến qua', 'hệ thống tuyển dụng', 'của IPAG'],
+    text: 'Nộp hồ sơ trực tuyến qua hệ thống tuyển dụng của IPAG.',
     diamond: 'bg-[#fba741]',
     blur: 'bg-[#faa243]',
     n: '01',
@@ -171,8 +170,7 @@ export const RECRUITMENT_STEPS = [
   {
     icon: ASSETS.processFilter,
     title: 'Lọc hồ sơ',
-    lines: ['Đội ngũ Talent Acquisition sàng lọc và', 'phỏng vấn sơ loại..'],
-    linesLg: ['Đội ngũ Talent Acquisition sàng lọc và phỏng vấn', 'sơ loại'],
+    text: 'Đội ngũ Talent Acquisition sàng lọc và phỏng vấn sơ loại.',
     diamond: 'bg-[#ee8247]',
     blur: 'bg-[#ec8346]',
     n: '02',
@@ -180,8 +178,7 @@ export const RECRUITMENT_STEPS = [
   {
     icon: ASSETS.processChecklist,
     title: 'Đánh giá bài test',
-    lines: ['Đánh giá năng lực chuyên môn qua bài test', 'hoặc Case study'],
-    linesLg: ['Đánh giá năng lực', 'chuyên môn qua bài test', 'hoặc Case study'],
+    text: 'Đánh giá năng lực chuyên môn qua bài test hoặc Case study.',
     diamond: 'bg-[#2fceb3]',
     blur: 'bg-[#2fceb3]',
     n: '03',
@@ -189,8 +186,7 @@ export const RECRUITMENT_STEPS = [
   {
     icon: ASSETS.processInterview,
     title: 'Phỏng vấn',
-    lines: ['Phỏng vấn chuyên sâu cùng Hội đồng tuyển dụng và Ban lãnh đạo'],
-    linesLg: ['Phỏng vấn chuyên sâu cùng Hội đồng tuyển dụng và Ban lãnh đạo'],
+    text: 'Phỏng vấn chuyên sâu cùng Hội đồng tuyển dụng và Ban lãnh đạo.',
     diamond: 'bg-[#2fa1ce]',
     blur: 'bg-[#30a0cb]',
     n: '04',
@@ -198,8 +194,7 @@ export const RECRUITMENT_STEPS = [
   {
     icon: ASSETS.processBriefcase,
     title: 'Mời nhận việc',
-    lines: ['Nhận thư mời làm việc và bắt đầu hành trình kiến tạo tại IPAG'],
-    linesLg: ['Nhận thư mời làm việc và bắt đầu hành trình kiến tạo tại IPAG'],
+    text: 'Nhận thư mời làm việc và bắt đầu hành trình kiến tạo tại IPAG.',
     diamond: 'bg-[#0d71c7]',
     blur: 'bg-[#0e71c7]',
     n: '05',

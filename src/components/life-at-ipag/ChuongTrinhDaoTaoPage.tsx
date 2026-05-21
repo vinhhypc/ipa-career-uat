@@ -253,7 +253,7 @@ export default function ChuongTrinhDaoTaoPage() {
           <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(39,60,77,0)_0%,rgba(25,44,59,0.5)_7%,rgba(11,26,39,0.78)_24%,rgba(7,29,49,1)_51%,rgba(8,24,39,0.8)_76%,rgba(53,72,94,0.5)_96%,rgba(96,111,134,0)_100%)]" />
           <div className="absolute inset-0 flex flex-col items-center justify-center gap-6 px-4 py-12 text-center md:gap-10 md:px-10 ">
             <motion.h1
-              className="text-3xl font-bold uppercase leading-tight tracking-[0.04em] text-white drop-shadow-[0_4px_4px_rgba(0,0,0,0.25)] md:text-5xl lg:text-[52px] lg:leading-[70px]"
+              className="text-3xl font-bold uppercase leading-tight tracking-[0.04em] text-white drop-shadow-[0_4px_4px_rgba(0,0,0,0.25)] md:text-5xl lg:text-5xl lg:leading-[70px]"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.45 }}
@@ -271,7 +271,7 @@ export default function ChuongTrinhDaoTaoPage() {
               <span className="pointer-events-none absolute right-[-16px] top-6 hidden h-[166px] w-[320px] rounded-tr-[24px] border-r-2 border-t-2 border-[#FBC17B]/60 md:block" />
               <span className="pointer-events-none absolute bottom-[-2px] left-0 h-[88px] w-[48%] rounded-bl-[18px] border-b-2 border-l-2 border-[#FBC17B]/60 md:hidden" />
               <span className="pointer-events-none absolute right-0 top-4 h-[72px] w-[35%] rounded-tr-[18px] border-r-2 border-t-2 border-[#FBC17B]/60 md:hidden" />
-              <span className="relative mx-auto block max-w-[820px] whitespace-pre-line text-sm font-medium leading-7 tracking-[0.02em] text-white drop-shadow-[0_4px_4px_rgba(0,0,0,0.25)] md:text-xl md:leading-9 lg:text-[24px] lg:leading-[38px]">
+              <span className="relative mx-auto block max-w-[820px] whitespace-pre-line text-sm font-medium leading-7 tracking-[0.02em] text-white drop-shadow-[0_4px_4px_rgba(0,0,0,0.25)] md:text-xl md:leading-9 lg:text-2xl lg:leading-[38px]">
                 IPAG không chỉ xây dựng một không gian học hỏi, mà đang từng bước kiến tạo một hệ
                 sinh thái phát triển con người, nơi tri thức được tích lũy, sự dẫn dắt được tiếp nối
                 và các mối quan hệ nghề nghiệp được chuyển hóa thành năng lực tổ chức.
@@ -302,7 +302,7 @@ export default function ChuongTrinhDaoTaoPage() {
           >
             {TRAINING_STATS.map((item, index) => (
               <article key={item.label} className="flex w-[184px] flex-col items-center gap-3">
-                <div className="text-center text-[32px] font-extrabold uppercase leading-[132%] text-[#FBC17B] tabular-nums md:text-[40px]">
+                <div className="text-center text-3xl font-extrabold uppercase leading-[132%] text-[#FBC17B] tabular-nums md:text-4xl">
                   <span className="inline-flex items-baseline justify-center whitespace-nowrap">
                     <span>{numberFormatter.format(animatedTrainingValues[index] ?? 0)}</span>
                     <span>{item.suffix}</span>
@@ -344,7 +344,7 @@ export default function ChuongTrinhDaoTaoPage() {
               Tầm nhìn &amp; Mục tiêu
             </motion.p>
             <motion.h2
-              className="mt-4 text-2xl font-extrabold uppercase leading-[1.2] tracking-[0.02em] text-[#292929] md:text-[48px] md:leading-[60px]"
+              className="mt-4 text-2xl font-extrabold uppercase leading-[1.2] tracking-[0.02em] text-[#292929] md:text-5xl md:leading-[60px]"
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.45 }}
@@ -429,7 +429,7 @@ export default function ChuongTrinhDaoTaoPage() {
 
         <div className="relative mx-auto max-w-[1440px] px-4 md:px-12">
           <motion.h2
-            className="text-center text-2xl font-extrabold uppercase tracking-[1px] text-[#292929] md:text-[48px] md:leading-[60px]"
+            className="text-center text-2xl font-extrabold uppercase tracking-[1px] text-[#292929] md:text-5xl md:leading-[60px]"
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.4 }}
@@ -476,7 +476,7 @@ export default function ChuongTrinhDaoTaoPage() {
           >
             <div className="grid lg:grid-cols-[1fr_1.06fr]">
               <div className="flex flex-col justify-center px-5 py-8 md:px-10 md:py-12 lg:px-12">
-                <h3 className="text-xl font-extrabold leading-snug text-[#292929] md:text-[32px] md:leading-[42px]">
+                <h3 className="text-xl font-extrabold leading-snug text-[#292929] md:text-3xl md:leading-[42px]">
                   {currentProgram.title}
                 </h3>
                 <p className="mt-3 text-sm font-semibold leading-6 text-[#145194] md:text-base md:leading-7">
@@ -527,7 +527,7 @@ export default function ChuongTrinhDaoTaoPage() {
               Mô hình COE
             </motion.p>
             <motion.h2
-              className="mt-2 text-2xl font-extrabold uppercase leading-snug tracking-[0.02em] text-white md:text-[40px] md:leading-[56px]"
+              className="mt-2 text-2xl font-extrabold uppercase leading-snug tracking-[0.02em] text-white md:text-4xl md:leading-[56px]"
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.4 }}
@@ -595,7 +595,7 @@ export default function ChuongTrinhDaoTaoPage() {
         <div className="relative mx-auto max-w-[1440px] px-4 md:px-12">
           <div className="mx-auto flex max-w-[1200px] flex-col items-center text-center">
             <motion.h2
-              className="text-2xl font-extrabold leading-snug text-[#292929] md:text-[40px] md:leading-[52px]"
+              className="text-2xl font-extrabold leading-snug text-[#292929] md:text-4xl md:leading-[52px]"
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.4 }}
@@ -738,7 +738,7 @@ export default function ChuongTrinhDaoTaoPage() {
                     aria-hidden
                   />
 
-                  <p className="relative z-10 text-center text-lg italic leading-[1.6] tracking-[0.01em] text-[#474747] md:text-[24px]">
+                  <p className="relative z-10 text-center text-lg italic leading-[1.6] tracking-[0.01em] text-[#474747] md:text-2xl">
                     Khi con người được <strong className="font-bold italic">trao quyền</strong>,
                     được <strong className="font-bold italic">nuôi dưỡng</strong> trong một môi
                     trường đủ tốt để trưởng thành,{' '}

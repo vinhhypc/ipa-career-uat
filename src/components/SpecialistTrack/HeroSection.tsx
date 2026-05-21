@@ -40,7 +40,7 @@ export default function HeroSection() {
           initial="hidden"
           animate="show"
         >
-          <h1 className="text-[20px] font-extrabold uppercase leading-[32px] tracking-[0.8px] text-white md:text-[40px] md:leading-[60px] md:tracking-[2px]">
+          <h1 className="text-xl font-extrabold uppercase leading-[32px] tracking-[0.8px] text-white md:text-4xl md:leading-[60px] md:tracking-[2px]">
             <span className="text-[#fbc17b]">Elevate mastery</span> to excellence
           </h1>
 
@@ -48,7 +48,7 @@ export default function HeroSection() {
             <div className="h-px w-[120px] bg-[#fbc17b] md:w-[147px]" />
           </div>
 
-          <p className="mt-5 max-w-[883px] text-[13px] font-normal leading-[21px] text-white md:mt-6 md:text-[20px] md:leading-[33px] md:tracking-[0.2px]">
+          <p className="mt-5 max-w-[883px] text-xs font-normal leading-[21px] text-white md:mt-6 md:text-xl md:leading-[33px] md:tracking-[0.2px]">
             Tại IPAG, năng lực chuyên môn của bạn được nâng tầm nhờ sức mạnh cộng hưởng từ hệ sinh
             thái. Chúng tôi biến sự nhạy bén của bạn thành kết quả thực thi vượt trội, tạo ra những
             bước nhảy vọt thực chất cho sự nghiệp.

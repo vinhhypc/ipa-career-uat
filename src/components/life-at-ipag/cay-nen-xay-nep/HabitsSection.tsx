@@ -178,7 +178,7 @@ export default function HabitsSection() {
             viewport={{ once: true, amount: 0.4 }}
             transition={{ duration: 0.48, ease: 'easeOut' }}
           >
-            <h2 className="text-3xl font-extrabold uppercase tracking-[3px] text-[#292929] md:text-[40px] md:leading-[60px]">
+            <h2 className="text-3xl font-extrabold uppercase tracking-[3px] text-[#292929] md:text-4xl md:leading-[60px]">
               Xây nếp
             </h2>
             <motion.div
@@ -228,7 +228,7 @@ export default function HabitsSection() {
                         className="shrink-0"
                       />
                       <h3
-                        className={`flex-1 whitespace-pre-line text-[22px] font-bold leading-[28px] md:text-2xl md:leading-[30px] lg:text-[22px] lg:leading-[28px] 2xl:text-2xl 2xl:leading-[30px] ${cardStyle.titleClass}`}
+                        className={`flex-1 whitespace-pre-line text-xl font-bold leading-[28px] md:text-2xl md:leading-[30px] lg:text-xl lg:leading-[28px] 2xl:text-2xl 2xl:leading-[30px] ${cardStyle.titleClass}`}
                       >
                         {h.title}
                       </h3>

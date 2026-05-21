@@ -58,10 +58,10 @@ export default function QualificationsSection() {
               viewport={{ once: true, amount: 0.5 }}
               transition={{ duration: 0.55, ease: 'easeOut' }}
             >
-              <p className="w-full text-[14px] font-normal leading-[22px] text-[#707070] md:leading-[32px]">
+              <p className="w-full text-sm font-normal leading-[22px] text-[#707070] md:leading-[32px]">
                 QUALIFICATIONS
               </p>
-              <h2 className="text-[20px] font-bold uppercase leading-[26px] text-[#292929] md:text-[40px] md:leading-[1.4] md:tracking-[0.4px]">
+              <h2 className="text-xl font-bold uppercase leading-[26px] text-[#292929] md:text-4xl md:leading-[1.4] md:tracking-[0.4px]">
                 YÊU CẦU CHUNG
               </h2>
             </motion.div>
@@ -97,15 +97,15 @@ export default function QualificationsSection() {
                         />
                       </motion.div>
                       <div className="flex flex-col gap-0.5 md:gap-1">
-                        <p className="text-[10px] font-medium uppercase leading-[14px] text-[#707070] md:text-[14px] md:leading-[22px]">
+                        <p className="text-xs font-medium uppercase leading-[14px] text-[#707070] md:text-sm md:leading-[22px]">
                           {q.label}
                         </p>
-                        <p className="text-[16px] font-bold leading-[22px] text-[#292929] md:text-[18px] md:leading-[28px]">
+                        <p className="text-base font-bold leading-[22px] text-[#292929] md:text-lg md:leading-[28px]">
                           {q.value}
                         </p>
                       </div>
                     </div>
-                    <div className="text-[14px] font-normal leading-[22px] text-[#474747] md:text-[16px] md:leading-[22px] md:whitespace-nowrap">
+                    <div className="text-sm font-normal leading-[22px] text-[#474747] md:text-base md:leading-[22px] md:whitespace-nowrap">
                       {q.detail}
                     </div>
                   </motion.div>
@@ -120,7 +120,7 @@ export default function QualificationsSection() {
               viewport={{ once: true, amount: 0.5 }}
               transition={{ duration: 0.5, ease: 'easeOut', delay: 0.3 }}
             >
-              <MaApplyButton className="h-[52px] w-[276px] px-3 text-[18px] leading-[1.4]" />
+              <MaApplyButton className="h-[52px] w-[276px] px-3 text-lg leading-[1.4]" />
             </motion.div>
           </div>
 
@@ -134,7 +134,7 @@ export default function QualificationsSection() {
             <div className="flex flex-col gap-4 md:flex-row md:gap-7">
               <div className="flex min-w-0 flex-1 flex-col gap-4 md:gap-6">
                 <motion.h3
-                  className="text-[18px] font-bold leading-[24px] tracking-[0.18px] text-[#292929] md:text-[24px] md:leading-[33px] md:tracking-[0.24px]"
+                  className="text-lg font-bold leading-[24px] tracking-[0.18px] text-[#292929] md:text-2xl md:leading-[33px] md:tracking-[0.24px]"
                   initial={{ opacity: 0, y: 12 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -176,11 +176,11 @@ export default function QualificationsSection() {
                         transition={{ duration: 0.2, ease: 'easeOut' }}
                       >
                         <div className="flex size-7 shrink-0 items-center justify-center rounded-full bg-[#d9e6f2] md:size-10">
-                          <span className="text-[16px] font-bold leading-[24px] text-[#002b5b]">
+                          <span className="text-base font-bold leading-[24px] text-[#002b5b]">
                             {i + 1}
                           </span>
                         </div>
-                        <p className="text-[14px] font-semibold leading-7 text-[#474747] md:text-[18px] md:leading-[28px]">
+                        <p className="text-sm font-semibold leading-7 text-[#474747] md:text-lg md:leading-[28px]">
                           {label}
                         </p>
                       </motion.div>
@@ -199,7 +199,7 @@ export default function QualificationsSection() {
           viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 0.5, ease: 'easeOut', delay: 0.2 }}
         >
-          <MaApplyButton className="h-9 min-w-[208px] px-3 py-2.5 text-[14px] leading-[1.4]" />
+          <MaApplyButton className="h-9 min-w-[208px] px-3 py-2.5 text-sm leading-[1.4]" />
         </motion.div>
       </div>
     </section>

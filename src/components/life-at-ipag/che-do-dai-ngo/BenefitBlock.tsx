@@ -54,7 +54,7 @@ export default function BenefitBlock({ block }: { block: BenefitBlockType }) {
         >
           {block.reverseOnDesktop ? (
             <div className="flex items-center justify-end gap-3">
-              <p className="text-3xl font-extrabold uppercase tracking-[1px] text-[#292929] md:text-[40px] md:leading-[56px]">
+              <p className="text-3xl font-extrabold uppercase tracking-[1px] text-[#292929] md:text-4xl md:leading-[56px]">
                 {block.heading}
               </p>
               <span className="h-[1.5px] w-[72px] bg-[#002B5B]" aria-hidden />
@@ -62,7 +62,7 @@ export default function BenefitBlock({ block }: { block: BenefitBlockType }) {
           ) : (
             <div className="flex items-center justify-start gap-3">
               <span className="h-[1.5px] w-[72px] bg-[#002B5B]" aria-hidden />
-              <p className="text-3xl font-extrabold uppercase tracking-[1px] text-[#292929] md:text-[40px] md:leading-[56px]">
+              <p className="text-3xl font-extrabold uppercase tracking-[1px] text-[#292929] md:text-4xl md:leading-[56px]">
                 {block.heading}
               </p>
             </div>

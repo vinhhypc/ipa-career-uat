@@ -89,7 +89,7 @@ export default function QuoteSection() {
               />
               <div className="relative flex w-full max-w-[760px] justify-center rounded-[32px] bg-transparent px-2 py-6">
                 <p
-                  className="w-full max-w-[614px] text-center text-[20px] font-bold italic leading-[1.6] tracking-[0.01em] text-[#474747] md:text-[32px]"
+                  className="w-full max-w-[614px] text-center text-xl font-bold italic leading-[1.6] tracking-[0.01em] text-[#474747] md:text-3xl"
                   aria-label="Cấy nền vững thì nếp mới bền. Nếp bền thì người mới lớn"
                 >
                   {quoteContent}

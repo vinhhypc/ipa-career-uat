@@ -40,10 +40,10 @@ export default function InsightEcosystemSection() {
       <div className="section-content px-5 md:px-0">
         <div className="mx-auto flex max-w-[920px] flex-col items-center gap-4 text-center md:gap-0">
           <div className="flex flex-col gap-1">
-            <h2 className="text-[16px] font-bold leading-6 tracking-[0.16px] text-[#002b5b] uppercase md:text-[40px] md:leading-[60px] md:tracking-[0.4px]">
+            <h2 className="text-base font-bold leading-6 tracking-[0.16px] text-[#002b5b] uppercase md:text-4xl md:leading-[60px] md:tracking-[0.4px]">
               Khám phá hệ sinh thái IPA LIVING
             </h2>
-            <p className="text-[14px] font-medium leading-5 tracking-[0.14px] text-[#474747] md:mt-2 md:text-[20px] md:leading-7 md:tracking-[0.2px]">
+            <p className="text-sm font-medium leading-5 tracking-[0.14px] text-[#474747] md:mt-2 md:text-xl md:leading-7 md:tracking-[0.2px]">
               Tìm hiểu thêm về tầm nhìn, sứ mệnh và các lĩnh vực hoạt động của tập đoàn IPA.
             </p>
           </div>
@@ -51,7 +51,7 @@ export default function InsightEcosystemSection() {
             href="https://www.ipa.com.vn"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex h-9 w-[208px] max-w-full items-center justify-center gap-2 rounded-full px-3 text-[14px] leading-[1.4] font-bold text-white shadow-[0_4px_8px_rgba(0,0,0,0.15)] transition hover:brightness-95 md:mt-6 md:h-12 md:w-full md:max-w-[276px] md:text-[18px]"
+            className="inline-flex h-9 w-[208px] max-w-full items-center justify-center gap-2 rounded-full px-3 text-sm leading-[1.4] font-bold text-white shadow-[0_4px_8px_rgba(0,0,0,0.15)] transition hover:brightness-95 md:mt-6 md:h-12 md:w-full md:max-w-[276px] md:text-lg"
             style={{
               background:
                 'linear-gradient(76.71deg, rgb(1, 58, 114) 3.48%, rgb(12, 113, 199) 83.47%)',

@@ -44,16 +44,16 @@ export default function LifeAtIpagStoryPanel({
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.45, ease: 'easeOut', delay: 0.05 }}
             >
-              <p className="text-[26px] font-extrabold uppercase tracking-[1px] text-[#292929] md:text-[32px] md:leading-[38px]">
+              <p className="text-2xl font-extrabold uppercase tracking-[1px] text-[#292929] md:text-3xl md:leading-[38px]">
                 {title}
               </p>
-              <p className="mt-4 whitespace-pre-line text-base leading-7 text-[#292929]/80 md:text-[18px] md:leading-[28px]">
+              <p className="mt-4 whitespace-pre-line text-base leading-7 text-[#292929]/80 md:text-lg md:leading-[28px]">
                 {description}
               </p>
 
               <Link
                 href={ctaHref}
-                className="group mt-8 hidden items-center gap-3 rounded-[1000px] bg-[linear-gradient(88deg,#013A72_-3.48%,#0C71C7_83.47%)] px-7 py-3 text-[18px] font-bold text-white shadow-[0_4px_8px_0_rgba(0,0,0,0.15)] transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-[1.04] hover:shadow-[0_8px_20px_rgba(0,0,0,0.18)] hover:brightness-105 active:translate-y-0 active:scale-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0C71C7]/30 lg:inline-flex"
+                className="group mt-8 hidden items-center gap-3 rounded-[1000px] bg-[linear-gradient(88deg,#013A72_-3.48%,#0C71C7_83.47%)] px-7 py-3 text-lg font-bold text-white shadow-[0_4px_8px_0_rgba(0,0,0,0.15)] transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-[1.04] hover:shadow-[0_8px_20px_rgba(0,0,0,0.18)] hover:brightness-105 active:translate-y-0 active:scale-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0C71C7]/30 lg:inline-flex"
               >
                 TÌM HIỂU THÊM
                 <ArrowRight className="size-5 transition-transform duration-300 ease-out group-hover:translate-x-1" />
@@ -93,7 +93,7 @@ export default function LifeAtIpagStoryPanel({
             >
               <Link
                 href={ctaHref}
-                className="group inline-flex items-center gap-3 rounded-[1000px] bg-[linear-gradient(88deg,#013A72_-3.48%,#0C71C7_83.47%)] px-7 py-3 text-[18px] font-bold text-white shadow-[0_4px_8px_0_rgba(0,0,0,0.15)] transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-[1.04] hover:shadow-[0_8px_20px_rgba(0,0,0,0.18)] hover:brightness-105 active:translate-y-0 active:scale-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0C71C7]/30"
+                className="group inline-flex items-center gap-3 rounded-[1000px] bg-[linear-gradient(88deg,#013A72_-3.48%,#0C71C7_83.47%)] px-7 py-3 text-lg font-bold text-white shadow-[0_4px_8px_0_rgba(0,0,0,0.15)] transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-[1.04] hover:shadow-[0_8px_20px_rgba(0,0,0,0.18)] hover:brightness-105 active:translate-y-0 active:scale-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0C71C7]/30"
               >
                 TÌM HIỂU THÊM
                 <ArrowRight className="size-5 transition-transform duration-300 ease-out group-hover:translate-x-1" />

@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
 import { ASSETS, PATHWAY_TAB_ICONS, PATHWAYS } from './constants';
 
@@ -11,10 +12,24 @@ export default function PathwaysSection() {
   const [hoveredStepIndex, setHoveredStepIndex] = useState<number | null>(null);
   const pathway = PATHWAYS[pathwayIndex];
   const reduceMotion = useReducedMotion();
+  const router = useRouter();
   const tapTransition = { type: 'spring', stiffness: 520, damping: 28 } as const;
   const hoverScalePill = reduceMotion ? undefined : { scale: 1.05 };
   const tapScaleSoft = reduceMotion ? undefined : { scale: 0.94 };
   const hoverScaleStep = reduceMotion ? undefined : { scale: 1.03 };
+  const pathwayHrefByKey: Record<string, string> = {
+    maprogram: '/ma-program',
+    professionalforce: '/specialist-track',
+    executiveserve: '/executive-serve',
+  };
+  const pathwayHrefFallbackByIndex = [
+    '/ma-program',
+    '/specialist-track',
+    '/executive-serve',
+  ] as const;
+  const pathwayKey = pathway.name.toLowerCase().replace(/[^a-z0-9]+/g, '');
+  const pathwayHref =
+    pathwayHrefByKey[pathwayKey] ?? pathwayHrefFallbackByIndex[pathwayIndex] ?? '/';
 
   return (
     <section className="section-padding bg-gradient-to-b from-[#fef6eb] to-white to-[72%] md:pt-10 md:pb-16 xl:pt-14 xl:pb-20">
@@ -26,12 +41,9 @@ export default function PathwaysSection() {
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.55, ease: 'easeOut' }}
         >
-          <h2 className="text-[20px] font-bold uppercase leading-8 tracking-[1px] text-[#292929] md:text-[28px] md:leading-10 xl:text-[40px] xl:font-extrabold xl:leading-[60px]">
+          <h2 className="text-xl font-bold uppercase leading-8 tracking-[1px] text-[#292929] md:text-3xl md:leading-10 xl:text-4xl xl:font-extrabold xl:leading-[60px]">
             Các chương trình tuyển dụng trọng điểm tại IPAG
           </h2>
-          <p className="text-[14px] font-normal leading-5 text-[#474747] md:text-base md:leading-6 xl:text-lg xl:leading-7 xl:tracking-[0.54px]">
-            Các chương trình tuyển dụng trọng điểm tại IPAG
-          </p>
         </motion.div>
 
         <motion.div
@@ -49,7 +61,7 @@ export default function PathwaysSection() {
               height={16}
               className="h-4 w-[14px] shrink-0"
             />
-            <h3 className="text-[18px] font-bold uppercase leading-[1.4] tracking-[0.18px] text-[#002b5b]">
+            <h3 className="text-lg font-bold uppercase leading-[1.4] tracking-[0.18px] text-[#002b5b]">
               Về IPAG
             </h3>
             <div className="relative h-px w-[60px] shrink-0">
@@ -106,17 +118,17 @@ export default function PathwaysSection() {
                       />
                     )}
                     <span
-                      className={`text-[12px] font-normal uppercase leading-4 md:text-[13px] md:leading-4 xl:text-sm xl:leading-4 ${active ? 'text-white' : 'text-[#474747]'}`}
+                      className={`text-xs font-normal uppercase leading-4 md:text-xs md:leading-4 xl:text-sm xl:leading-4 ${active ? 'text-white' : 'text-[#474747]'}`}
                     >
                       {p.pathway}
                     </span>
                     <span
-                      className={` min-w-full text-[14px] font-bold leading-[18px] md:text-[18px] md:leading-6 xl:mt-0 xl:text-2xl xl:leading-10 ${active ? 'text-white' : 'text-[#292929]'}`}
+                      className={` min-w-full text-sm font-bold leading-[18px] md:text-lg md:leading-6 xl:mt-0 xl:text-2xl xl:leading-10 ${active ? 'text-white' : 'text-[#292929]'}`}
                     >
                       {p.name}
                     </span>
                     <div
-                      className={`flex flex-col items-center justify-center gap-0.5 text-[10px] font-normal leading-3 md:text-xs md:leading-4 xl:mt-0 xl:flex-row xl:gap-2 xl:text-sm xl:leading-4 ${
+                      className={`flex flex-col items-center justify-center gap-0.5 text-xs font-normal leading-3 md:text-xs md:leading-4 xl:mt-0 xl:flex-row xl:gap-2 xl:text-sm xl:leading-4 ${
                         active ? 'text-white' : 'text-[#474747]'
                       }`}
                     >
@@ -145,73 +157,77 @@ export default function PathwaysSection() {
               <AnimatePresence mode="wait">
                 <motion.div
                   key={pathwayIndex}
-                  className="grid grid-cols-1 gap-10 px-4 py-6 md:gap-8 md:px-8 md:py-8 xl:grid-cols-[minmax(0,1fr)_360px] xl:items-start xl:gap-x-8 xl:gap-y-0 xl:px-10 xl:py-10 2xl:grid-cols-[minmax(0,1fr)_430px] 2xl:gap-x-14 2xl:px-20 2xl:py-12"
+                  className="grid grid-cols-1 gap-10 px-4 py-6 md:gap-8 md:px-8 md:py-8 xl:grid-cols-[minmax(0,1fr)_400px] xl:items-center xl:gap-x-8 xl:gap-y-0 xl:px-10 xl:py-10 2xl:grid-cols-[minmax(0,1fr)_460px] 2xl:gap-x-14 2xl:px-20 2xl:py-12"
                   initial={{ opacity: 0, y: 16 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
                   transition={{ duration: 0.35, ease: 'easeOut' }}
                 >
-                  {/* Title & description */}
-                  <motion.div
-                    className="flex flex-col gap-4 md:gap-5 xl:col-start-1 xl:row-start-1 xl:gap-5 2xl:gap-6"
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.4, ease: 'easeOut', delay: 0.05 }}
-                  >
-                    <div className="flex flex-col gap-2 uppercase text-shadow-[0px_4px_4px_rgba(0,0,0,0.25)] md:gap-3 xl:gap-2">
-                      <p className="text-[14px] font-medium leading-[26px] text-white md:text-base md:leading-6 xl:text-[15px] xl:leading-6 2xl:text-lg 2xl:leading-[26px]">
-                        {pathway.kicker}
-                      </p>
-                      <p className="text-[16px] font-extrabold leading-5 md:text-[24px] md:leading-8 md:tracking-[1px] xl:text-[26px] xl:leading-10 xl:tracking-[1.5px] 2xl:text-[30px] 2xl:leading-[60px] 2xl:tracking-[2px]">
-                        {pathway.titleAccentFirst ? (
-                          <>
-                            <span className="text-[#fbc17b]">{pathway.titleAccent}</span>
-                            <span className="text-white">{pathway.titleWhite}</span>
-                          </>
-                        ) : (
-                          <>
-                            <span className="text-white">{pathway.titleWhite}</span>
-                            <span className="text-[#fbc17b]">{pathway.titleAccent}</span>
-                          </>
-                        )}
-                      </p>
-                    </div>
-                    <div className="text-[14px] font-normal leading-[22px] tracking-[0.14px] text-white md:text-base md:leading-7 xl:text-[17px] xl:leading-8 2xl:text-xl 2xl:leading-[33px] 2xl:tracking-[0.2px]">
-                      {pathway.description.map((line, li) => (
-                        <p key={li} className="mb-0">
-                          {line}
+                  <div className="flex flex-col gap-5 md:gap-6 xl:col-start-1 xl:gap-7 2xl:gap-8">
+                    {/* Title & description */}
+                    <motion.div
+                      className="flex flex-col gap-4 md:gap-5"
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.4, ease: 'easeOut', delay: 0.05 }}
+                    >
+                      <div className="flex flex-col gap-2 uppercase text-shadow-[0px_4px_4px_rgba(0,0,0,0.25)] md:gap-3 xl:gap-2">
+                        <p className="text-sm font-medium leading-[26px] text-white md:text-base md:leading-6 xl:text-sm xl:leading-6 2xl:text-lg 2xl:leading-[26px]">
+                          {pathway.kicker}
                         </p>
-                      ))}
-                    </div>
-                  </motion.div>
+                        <p className="text-base font-extrabold leading-5 md:text-2xl md:leading-8 md:tracking-[1px] xl:text-2xl xl:leading-10 xl:tracking-[1.5px] 2xl:text-3xl 2xl:leading-[60px] 2xl:tracking-[2px]">
+                          {pathway.titleAccentFirst ? (
+                            <>
+                              <span className="text-[#fbc17b]">{pathway.titleAccent}</span>
+                              <span className="text-white">{pathway.titleWhite}</span>
+                            </>
+                          ) : (
+                            <>
+                              <span className="text-white">{pathway.titleWhite}</span>
+                              <span className="text-[#fbc17b]">{pathway.titleAccent}</span>
+                            </>
+                          )}
+                        </p>
+                      </div>
+                      <div className="text-sm font-normal leading-[22px] tracking-[0.14px] text-white md:text-base md:leading-7 xl:text-lg xl:leading-8 2xl:text-xl 2xl:leading-[33px] 2xl:tracking-[0.2px]">
+                        {pathway.description.map((line, li) => (
+                          <p key={li} className="mb-0">
+                            {line}
+                          </p>
+                        ))}
+                      </div>
+                    </motion.div>
 
-                  {/* Quote card */}
-                  <motion.div
-                    className="relative overflow-hidden rounded-xl border border-[rgba(123,193,255,0.6)] bg-[rgba(202,230,255,0.18)] px-[13px] py-[9px] shadow-[0px_8px_32px_0px_rgba(0,0,0,0.1)] backdrop-blur-[12px] md:rounded-[16px] md:px-4 md:py-3 xl:col-start-1 xl:row-start-2 xl:flex xl:items-start xl:gap-3 xl:rounded-[18px] xl:px-4 xl:py-3 2xl:gap-4 2xl:rounded-[20px] 2xl:px-[17px] 2xl:py-[13px]"
-                    initial={{ opacity: 0, y: 12 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.4, ease: 'easeOut', delay: 0.15 }}
-                  >
-                    <Image
-                      src={ASSETS.pathwayQuoteIcon}
-                      alt=""
-                      width={48}
-                      height={48}
-                      className="mb-2 block size-9 shrink-0 md:size-10 xl:mb-0 2xl:size-12"
-                      aria-hidden
-                    />
-                    <div className="relative z-10 flex min-w-0 flex-1 flex-col gap-1 pr-4 md:gap-2 xl:pr-0">
-                      <p className="text-[10px] font-bold uppercase leading-4 tracking-[1.2px] text-[#fbc17b] md:text-xs md:leading-4">
-                        Talent Acquisition Team
-                      </p>
-                      <p className="text-[12px] font-semibold leading-[18px] tracking-[1px] text-white md:text-[14px] md:leading-6 xl:text-[15px] xl:leading-6 2xl:text-base 2xl:leading-7">
-                        {pathway.quote}
-                      </p>
-                    </div>
-                  </motion.div>
+                    {/* CTA button */}
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.4, ease: 'easeOut', delay: 0.3 }}
+                    >
+                      <motion.button
+                        type="button"
+                        className="mx-auto flex cursor-pointer h-9 w-full max-w-[400px] items-center justify-center gap-2 rounded-full bg-white px-3 py-2.5 text-sm font-bold leading-[1.4] text-[#474747] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] md:h-11 md:px-5 md:text-base lg:mx-0 lg:w-[276px] lg:max-w-none xl:h-11 xl:px-6 xl:text-base 2xl:h-12 2xl:text-lg"
+                        whileHover={hoverScalePill}
+                        whileTap={tapScaleSoft}
+                        transition={tapTransition}
+                        onClick={() => router.push(pathwayHref)}
+                      >
+                        XEM THÊM
+                        <span className="relative size-3 2xl:size-4">
+                          <Image
+                            alt=""
+                            src={ASSETS.ctaArrow}
+                            fill
+                            sizes="24px"
+                            className="object-contain"
+                          />
+                        </span>
+                      </motion.button>
+                    </motion.div>
+                  </div>
 
                   {/* Steps timeline */}
-                  <div className="relative flex flex-col xl:col-start-2 xl:row-start-1 xl:row-span-3 xl:max-w-[360px] xl:self-start 2xl:max-w-[430px]">
+                  <div className="relative flex flex-col xl:col-start-2 xl:max-w-[400px] xl:self-start 2xl:max-w-[460px]">
                     {/* Vertical line grows from top */}
                     <motion.div
                       className="absolute left-[5px] top-0 bottom-0 w-0.5 lg:left-[7px]"
@@ -268,11 +284,11 @@ export default function PathwaysSection() {
                                   height={28}
                                   className="size-5 shrink-0 md:size-6 xl:size-6 2xl:size-7"
                                 />
-                                <p className="text-[14px] font-bold leading-[22px] text-[#fbc17b] md:text-base md:leading-6 xl:text-base xl:leading-6 2xl:text-lg 2xl:leading-7">
+                                <p className="text-sm font-bold leading-[22px] text-[#fbc17b] md:text-base md:leading-6 xl:text-base xl:leading-6 2xl:text-lg 2xl:leading-7">
                                   {step.title}
                                 </p>
                               </div>
-                              <p className="text-[14px] font-normal leading-5 text-white/90 md:text-[15px] md:leading-6 xl:text-[15px] xl:leading-6 2xl:text-base 2xl:leading-6">
+                              <p className="text-sm font-normal leading-5 text-white/90 md:text-sm md:leading-6 xl:text-sm xl:leading-6 2xl:text-base 2xl:leading-6">
                                 {step.body}
                               </p>
                             </div>
@@ -281,33 +297,6 @@ export default function PathwaysSection() {
                       </motion.div>
                     ))}
                   </div>
-
-                  {/* CTA button */}
-                  <motion.div
-                    className="xl:col-start-1 xl:row-start-3 xl:justify-self-center 2xl:justify-self-start"
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.4, ease: 'easeOut', delay: 0.3 }}
-                  >
-                    <motion.button
-                      type="button"
-                      className="mx-auto flex cursor-pointer h-9 w-full max-w-[400px] items-center justify-center gap-2 rounded-full bg-white px-3 py-2.5 text-[14px] font-bold leading-[1.4] text-[#474747] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] md:h-11 md:px-5 md:text-base xl:h-11 xl:px-6 xl:text-base 2xl:mx-0 2xl:h-12 2xl:w-[276px] 2xl:max-w-none 2xl:text-lg"
-                      whileHover={hoverScalePill}
-                      whileTap={tapScaleSoft}
-                      transition={tapTransition}
-                    >
-                      XEM THÊM
-                      <span className="relative size-3 2xl:size-4">
-                        <Image
-                          alt=""
-                          src={ASSETS.ctaArrow}
-                          fill
-                          sizes="24px"
-                          className="object-contain"
-                        />
-                      </span>
-                    </motion.button>
-                  </motion.div>
                 </motion.div>
               </AnimatePresence>
             </div>

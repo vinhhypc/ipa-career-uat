@@ -77,12 +77,12 @@ export default function HeroSection() {
         style={{ background: HERO_OVERLAY_GRADIENT_MOBILE }}
       />
 
-      <div className="section-content relative z-10 flex min-h-0 flex-1 flex-col items-stretch justify-center py-6 pt-16 sm:pt-20 md:min-h-[640px] md:flex-none md:items-start md:justify-start md:pt-28 md:px-12 lg:min-h-[706px] lg:px-12 lg:pt-36 xl:px-16 2xl:pt-40">
+      <div className="section-content relative z-10 flex min-h-0 flex-1 flex-col items-stretch justify-center py-6 pt-16 sm:pt-20 md:min-h-[640px] md:flex-none md:items-start md:justify-start md:pt-28 md:px-12 lg:min-h-[706px] lg:px-12 lg:pt-36 xl:px-16 xl:pt-40">
         <div
           id="apply"
           className="scroll-mt-28 mx-auto w-full max-w-lg px-5 text-center md:mx-0 md:max-w-[900px] md:px-0 md:pt-16 md:text-left lg:pt-20"
         >
-          <h1 className="animate-[fade-right_700ms_ease-out_both] mb-4 text-[24px] font-extrabold leading-[32px] tracking-[1px] text-white drop-shadow-md uppercase sm:text-[28px] sm:leading-[38px] md:mb-7 md:text-[40px] md:leading-[56px] md:tracking-[1.2px] lg:mb-9 lg:text-[52px] lg:leading-[80px] lg:tracking-[2px] 2xl:text-[56px]">
+          <h1 className="animate-[fade-right_700ms_ease-out_both] mb-4 text-2xl font-extrabold leading-[32px] tracking-[1px] text-white drop-shadow-md uppercase sm:leading-[38px] md:mb-7 md:text-3xl md:leading-[56px] md:tracking-[1.2px] lg:mb-9 lg:text-4xl lg:leading-[68px] lg:tracking-[2px] xl:text-5xl xl:leading-[80px]">
             <span className="flex flex-col gap-1.5 md:hidden">
               <span>
                 <strong>Cộng sự</strong> để
@@ -102,13 +102,13 @@ export default function HeroSection() {
               </span>
             </span>
           </h1>
-          <p className="mb-5 text-sm leading-[22px] tracking-[0.14px] text-white md:mb-8 md:max-w-[747px] md:text-[16px] md:leading-[28px] md:tracking-[0.16px] lg:mb-9 lg:text-[18px] lg:leading-[33px] lg:tracking-[0.18px]">
+          <p className="mb-5 text-sm leading-[22px] tracking-[0.14px] text-white md:mb-8 md:max-w-156 xl:max-w-2xl md:text-base md:leading-[28px] md:tracking-[0.16px] lg:mb-9 lg:text-lg lg:leading-[33px] lg:tracking-[0.18px]">
             {descriptionContent}
             {descriptionCaret}
           </p>
           <Link
             href="/jobs"
-            className="inline-flex h-11 w-[min(100%,220px)] items-center justify-center gap-2 rounded-full bg-white px-4 text-sm font-bold uppercase tracking-wide text-[#2a2a2a] shadow-[0_4px_4px_rgba(0,0,0,0.25)] transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-[1.04] hover:shadow-[0_8px_20px_rgba(0,0,0,0.18)] hover:brightness-105 active:translate-y-0 active:scale-100 active:shadow-[0_4px_4px_rgba(0,0,0,0.25)] sm:w-[240px] md:h-12 md:w-[240px] md:normal-case md:tracking-normal md:bg-[linear-gradient(238deg,rgb(255,255,255)_34%,rgb(255,241,225)_103%)] md:px-3 md:py-2.5 md:text-base md:leading-[22px] md:text-[#474747] md:hover:shadow-[0_10px_24px_rgba(0,0,0,0.15)] lg:h-[52px] lg:w-[276px] lg:text-[18px] lg:leading-[25.2px]"
+            className="inline-flex uppercase h-11 w-[min(100%,220px)] items-center justify-center gap-2 rounded-full bg-white px-4 text-sm font-bold uppercase tracking-wide text-[#2a2a2a] shadow-[0_4px_4px_rgba(0,0,0,0.25)] transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-[1.04] hover:shadow-[0_8px_20px_rgba(0,0,0,0.18)] hover:brightness-105 active:translate-y-0 active:scale-100 active:shadow-[0_4px_4px_rgba(0,0,0,0.25)] sm:w-[240px] md:h-12 md:w-[240px] md:normal-case md:tracking-normal md:bg-[linear-gradient(238deg,rgb(255,255,255)_34%,rgb(255,241,225)_103%)] md:px-3 md:py-2.5 md:text-base md:leading-[22px] md:text-[#474747] md:hover:shadow-[0_10px_24px_rgba(0,0,0,0.15)] lg:h-[52px] lg:w-[276px] lg:text-lg lg:leading-[25.2px]"
           >
             Ứng tuyển ngay
             <ArrowRight className="size-4 shrink-0 md:size-6" strokeWidth={2} />
@@ -127,7 +127,7 @@ export default function HeroSection() {
                 <span className="text-sm font-bold leading-tight tracking-[0.14px] text-[#474747] md:text-base md:leading-[22px] md:tracking-[0.16px]">
                   {item.name}
                 </span>
-                <span className="text-[11px] font-normal leading-[14px] tracking-[0.1px] text-[#707070] md:text-xs md:leading-4 md:tracking-[0.12px]">
+                <span className="text-xs font-normal leading-[14px] tracking-[0.1px] text-[#707070] md:text-xs md:leading-4 md:tracking-[0.12px]">
                   {item.sub}
                 </span>
               </div>

@@ -21,7 +21,7 @@ export default function PathwaysSection() {
           viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 0.55, ease: 'easeOut' }}
         >
-          <h2 className="text-center text-[20px] font-bold uppercase leading-[32px] tracking-[1px] text-[#292929] md:text-[40px] md:font-extrabold md:leading-[60px]">
+          <h2 className="text-center text-xl font-bold uppercase leading-[32px] tracking-[1px] text-[#292929] md:text-4xl md:font-extrabold md:leading-[60px]">
             7 PATHWAYS
           </h2>
         </motion.div>
@@ -55,11 +55,11 @@ export default function PathwaysSection() {
                     }`}
                   >
                     <div className="flex min-w-0 flex-1 flex-col gap-2 md:gap-2">
-                      <p className="text-[16px] font-bold leading-[24px] md:text-[24px] md:leading-[32px]">
+                      <p className="text-base font-bold leading-[24px] md:text-2xl md:leading-[32px]">
                         {p.title}
                       </p>
                       <div
-                        className={`text-[14px] font-medium leading-[20px] md:text-[18px] md:leading-[26px] ${
+                        className={`text-sm font-medium leading-[20px] md:text-lg md:leading-[26px] ${
                           isBlue ? 'text-white' : 'text-[#474747]'
                         }`}
                       >
@@ -102,14 +102,14 @@ export default function PathwaysSection() {
                           transition={{ duration: 0.28, ease: 'easeOut' }}
                         >
                           <div className="flex flex-col gap-3 px-4 pt-4 md:px-7 md:pt-4">
-                            <p className="text-[14px] font-bold leading-[22px] text-[#474747] md:text-[16px] md:leading-[26px]">
+                            <p className="text-sm font-bold leading-[22px] text-[#474747] md:text-base md:leading-[26px]">
                               KEY WORK
                             </p>
                             <ul className="space-y-2">
                               {p.keyWork.map((line, li) => (
                                 <motion.li
                                   key={line}
-                                  className="flex gap-2 text-[14px] leading-[20px] text-[#474747] md:text-[16px] md:leading-[22px]"
+                                  className="flex gap-2 text-sm leading-[20px] text-[#474747] md:text-base md:leading-[22px]"
                                   initial={{ opacity: 0, x: -10 }}
                                   animate={{ opacity: 1, x: 0 }}
                                   transition={{
@@ -132,7 +132,7 @@ export default function PathwaysSection() {
                           <div className="mx-4 mt-4 h-px bg-black/10 md:mx-7" aria-hidden />
 
                           <motion.p
-                            className="px-4 pb-5 pt-4 text-[14px] font-normal leading-[22px] text-[#474747] md:px-7 md:pb-8"
+                            className="px-4 pb-5 pt-4 text-sm font-normal leading-[22px] text-[#474747] md:px-7 md:pb-8"
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             transition={{ duration: 0.3, ease: 'easeOut', delay: 0.15 }}
@@ -159,12 +159,12 @@ export default function PathwaysSection() {
             viewport={{ once: true, amount: 0.4 }}
             transition={{ duration: 0.55, ease: 'easeOut' }}
           >
-            <p className="w-full text-center text-[16px] font-bold uppercase leading-[22px] tracking-[0.5px] text-white md:text-[24px] md:leading-[32px]">
+            <p className="w-full text-center text-base font-bold uppercase leading-[22px] tracking-[0.5px] text-white md:text-2xl md:leading-[32px]">
               Bạn đã sẵn sàng?
             </p>
             <Link
               href="/we-look-for"
-              className="flex h-9 w-full cursor-pointer items-center justify-center rounded-full bg-gradient-to-br from-white to-[#fff1e1] px-3 py-2.5 text-[14px] font-bold leading-[1.4] text-[#070707] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-[1.04] hover:shadow-[0_8px_20px_rgba(0,0,0,0.18)] hover:brightness-105 active:translate-y-0 active:scale-100 active:shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] md:h-10 md:w-[220px] md:text-[16px] md:hover:shadow-[0_10px_24px_rgba(0,0,0,0.15)]"
+              className="flex h-9 w-full cursor-pointer items-center justify-center rounded-full bg-gradient-to-br from-white to-[#fff1e1] px-3 py-2.5 text-sm font-bold leading-[1.4] text-[#070707] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-[1.04] hover:shadow-[0_8px_20px_rgba(0,0,0,0.18)] hover:brightness-105 active:translate-y-0 active:scale-100 active:shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] md:h-10 md:w-[220px] md:text-base md:hover:shadow-[0_10px_24px_rgba(0,0,0,0.15)]"
             >
               <span className="md:hidden">NỘP HỒ SƠ NGAY</span>
               <span className="hidden md:inline">Nộp hồ sơ ngay</span>

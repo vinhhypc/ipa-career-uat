@@ -32,7 +32,7 @@ export default function FeaturedJobsSection() {
               height={24}
               className="h-4 w-[14px] shrink-0 lg:h-6 lg:w-[21px]"
             />
-            <h2 className="text-[18px] font-bold uppercase leading-[1.4] tracking-[0.18px] text-[#002b5b] lg:text-[30px] lg:tracking-normal">
+            <h2 className="text-lg font-bold uppercase leading-[1.4] tracking-[0.18px] text-[#002b5b] lg:text-3xl lg:tracking-normal">
               Vị trí nổi bật
             </h2>
             <div className="relative hidden h-px w-[60px] shrink-0 lg:block">
@@ -47,7 +47,7 @@ export default function FeaturedJobsSection() {
           </div>
           <Link
             href="/jobs"
-            className="inline-flex shrink-0 items-center gap-1 text-[14px] font-bold leading-[1.4] text-[#002b5b] transition duration-200 hover:scale-105 hover:text-[#0C71C7] lg:gap-1 lg:text-lg"
+            className="inline-flex shrink-0 items-center gap-1 text-sm font-bold leading-[1.4] text-[#002b5b] transition duration-200 hover:scale-105 hover:text-[#0C71C7] lg:gap-1 lg:text-lg"
           >
             Xem tất cả
             <span className="inline-flex size-5 items-center justify-center overflow-hidden lg:size-6">
@@ -71,13 +71,13 @@ export default function FeaturedJobsSection() {
             >
               <HotRibbon size={job.hotSize} />
               <div className="flex flex-col gap-2 lg:gap-3">
-                <span className="inline-flex w-fit rounded bg-[#d9e6f2] px-2 py-1 text-[10px] font-semibold leading-[1.4] text-[#707070] lg:px-2 lg:py-1 lg:text-xs">
+                <span className="inline-flex w-fit rounded bg-[#d9e6f2] px-2 py-1 text-xs font-semibold leading-[1.4] text-[#707070] lg:px-2 lg:py-1 lg:text-xs">
                   {job.tag}
                 </span>
-                <h3 className="text-[16px] font-bold leading-[22px] text-[#292929] transition-colors duration-300 group-hover:text-[#002b5b] lg:text-lg lg:leading-[26px]">
+                <h3 className="text-base font-bold leading-[22px] text-[#292929] transition-colors duration-300 group-hover:text-[#002b5b] lg:text-lg lg:leading-[26px]">
                   {job.title}
                 </h3>
-                <div className="flex flex-wrap items-center gap-2 text-[14px] font-normal leading-5 text-[#474747] lg:gap-2 lg:text-base lg:leading-[26px]">
+                <div className="flex flex-wrap items-center gap-2 text-sm font-normal leading-5 text-[#474747] lg:gap-2 lg:text-base lg:leading-[26px]">
                   <span className="inline-flex items-center gap-1 lg:gap-1">
                     <MapPin
                       className="size-5 shrink-0 text-[#474747] lg:size-5"

@@ -24,7 +24,7 @@ const INSIGHT_QUOTE_FULL_TEXT =
   'Tại IPAG, chúng tôi không chỉ rót vốn, chúng tôi đầu tư năng lực. Chúng tôi không chỉ xây dựng doanh nghiệp, chúng tôi kiến tạo tầm vóc.';
 
 const INSIGHT_QUOTE_MARK_OPEN_CLASS =
-  'pointer-events-none select-none font-serif font-normal leading-none text-[#de8f10] text-[5rem]';
+  'pointer-events-none select-none font-serif font-normal leading-none text-[#de8f10] text-7xl';
 
 function InsightQuoteTypewriter() {
   const prefersReducedMotion = useReducedMotion();
@@ -46,15 +46,15 @@ function InsightQuoteTypewriter() {
   const showClose = prefersReducedMotion || isDone;
 
   return (
-    <div className="relative w-full">
+    <div className="relative w-full pb-10">
       <span
         aria-hidden
-        className={`${INSIGHT_QUOTE_MARK_OPEN_CLASS} absolute left-0 top-0 z-10 -translate-x-1 -translate-y-1 sm:-translate-x-0.5 sm:-translate-y-0.5`}
+        className={`${INSIGHT_QUOTE_MARK_OPEN_CLASS} absolute left-0 top-0 z-10 -translate-x-2 -translate-y-2`}
       >
         &ldquo;
       </span>
       <p
-        className="text-pretty pl-10 text-[16px] font-bold leading-[1.6] text-[#474747] sm:pl-11 sm:text-[18px] md:pl-12 md:text-[22px] lg:text-[24px]"
+        className="text-pretty pl-10 pr-4 text-base font-bold leading-[1.6] text-[#474747] sm:pl-12 sm:pr-6 sm:text-lg md:pl-14 md:pr-10 md:text-xl lg:pl-16 lg:pr-0 lg:text-2xl"
         aria-label={INSIGHT_QUOTE_FULL_TEXT}
       >
         {renderedContent}
@@ -65,15 +65,15 @@ function InsightQuoteTypewriter() {
             aria-hidden
           />
         )}
-        {showClose && (
-          <span
-            aria-hidden
-            className="pointer-events-none select-none font-serif font-normal leading-[0] text-[#de8f10] text-[4rem] sm:text-[4.5rem] inline-block align-bottom relative top-[0.1em] ml-0.5"
-          >
-            &rdquo;
-          </span>
-        )}
       </p>
+      {showClose && (
+        <span
+          aria-hidden
+          className="pointer-events-none select-none font-serif font-normal leading-none text-[#de8f10] text-6xl sm:text-7xl absolute bottom-0 right-0 translate-x-1 translate-y-2"
+        >
+          &rdquo;
+        </span>
+      )}
     </div>
   );
 }
@@ -96,20 +96,20 @@ export default function InsightMessageSection() {
       >
         <motion.h2
           variants={FADE_UP_VARIANTS}
-          className="text-center text-[20px] font-extrabold uppercase leading-8 tracking-[1px] text-[#292929] md:text-[40px] md:leading-[60px]"
+          className="text-center text-xl font-extrabold uppercase leading-8 tracking-[1px] text-[#292929] md:text-4xl md:leading-[60px]"
         >
           Thông điệp từ ipag
         </motion.h2>
 
         <motion.div
           variants={FADE_UP_VARIANTS}
-          className="relative flex w-full flex-col gap-8 rounded-[32px] md:gap-10 lg:flex-row lg:items-center lg:gap-[68px] lg:p-0"
+          className="relative lg:mx-4 2xl:mx-0 flex w-full flex-col gap-8 rounded-[32px] md:gap-10 lg:grid lg:grid-cols-5 lg:items-center lg:gap-[68px] lg:p-0"
         >
           <motion.div
             variants={FADE_LEFT_VARIANTS}
-            className="relative flex shrink-0 justify-center px-4 pt-8 lg:px-0 lg:pt-0"
+            className="relative flex shrink-0 justify-center px-4 pt-8 lg:col-span-2 lg:px-0 lg:pt-0"
           >
-            <div className="relative mx-auto w-full max-w-[320px] pb-4 sm:max-w-[360px] md:max-w-[390px] lg:mx-0 lg:mr-[-72px] lg:max-w-[460px] xl:mr-[-110px] xl:max-w-[560px] 2xl:mr-[-132px] 2xl:max-w-[620px]">
+            <div className="relative mx-auto w-full max-w-[320px] pb-4 sm:max-w-[360px] md:max-w-[390px] lg:mx-0 lg:mr-0 lg:max-w-none xl:mr-0 xl:max-w-none 2xl:mr-0 2xl:max-w-none">
               <div
                 className="absolute bottom-4 left-[-20px] top-[-22px] w-[84px] rounded-t-[20px] sm:left-[-24px] sm:w-[92px] md:left-[-28px] md:w-[100px] lg:left-[-30px] lg:top-[-24px] lg:w-[96px] xl:left-[-38px] xl:top-[-28px] xl:w-[122px] 2xl:left-[-44px] 2xl:top-[-32px] 2xl:w-[138px]"
                 style={{
@@ -148,10 +148,10 @@ export default function InsightMessageSection() {
 
           <motion.div
             variants={FADE_RIGHT_VARIANTS}
-            className="relative flex min-w-0 flex-1 flex-col gap-4 px-4 pb-10 pt-6 md:px-6 md:pb-12 lg:gap-7 lg:px-8 lg:py-6"
+            className="relative flex min-w-0 flex-col gap-2 px-0 pb-10  md:px-6 md:pb-12 lg:col-span-3 lg:gap-7 lg:px-8 lg:py-6"
           >
-            <blockquote className="mx-auto w-full max-w-[min(100%,700px)] border-0 p-0">
-              <div className="relative z-10 mx-auto max-w-[700px] px-4 pt-8 text-center tracking-[0.24px] sm:pt-10  md:pt-12">
+            <blockquote className="mx-auto w-full max-w-none border-0 p-0 lg:max-w-[min(100%,700px)]">
+              <div className="relative z-10 mx-auto w-full max-w-none pt-8 text-center tracking-[0.24px] sm:pt-10 md:pt-12 lg:max-w-[700px]">
                 <InsightQuoteTypewriter />
               </div>
             </blockquote>
@@ -160,10 +160,10 @@ export default function InsightMessageSection() {
               <div className="flex w-full max-w-[min(100%,420px)] items-center justify-center gap-4">
                 <div className="h-0.5 w-[60px] shrink-0 bg-[#002b5b]/45" aria-hidden />
                 <div className="flex shrink-0 flex-col gap-1 text-center leading-[1.4]">
-                  <p className="text-[16px] font-bold uppercase text-[#002b5b] md:text-[18px] lg:text-[20px]">
+                  <p className="text-base font-bold uppercase text-[#002b5b] md:text-lg lg:text-xl">
                     Phạm minh hương
                   </p>
-                  <p className="text-[14px] font-normal text-[#474747] md:text-[15px] lg:text-[16px]">
+                  <p className="text-sm font-normal text-[#474747] md:text-sm lg:text-base">
                     Thành viên sáng lập IPAG
                   </p>
                 </div>

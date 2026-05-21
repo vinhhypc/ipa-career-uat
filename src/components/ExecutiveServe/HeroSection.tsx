@@ -29,7 +29,7 @@ export default function HeroSection() {
           initial="hidden"
           animate="show"
         >
-          <h1 className="text-[20px] font-extrabold uppercase leading-[32px] tracking-[0.8px] text-white md:text-[40px] md:leading-[60px] md:tracking-[2px]">
+          <h1 className="text-xl font-extrabold uppercase leading-[32px] tracking-[0.8px] text-white md:text-4xl md:leading-[60px] md:tracking-[2px]">
             Beyond your legacy.
             <br />
             Let&apos;s co-build the <span className="text-[#fbc17b]">extraordinary</span>
@@ -38,7 +38,7 @@ export default function HeroSection() {
             <div className="h-px w-[120px] bg-[#fbc17b] md:w-[147px]" />
           </div>
 
-          <p className="mt-5 max-w-[883px] text-[13px] font-medium leading-[21px] text-white md:mt-6 md:text-[20px] md:font-normal md:leading-[33px] md:tracking-[0.2px]">
+          <p className="mt-5 max-w-[883px] text-xs font-medium leading-[21px] text-white md:mt-6 md:text-xl md:font-normal md:leading-[33px] md:tracking-[0.2px]">
             Tại IPAG, bạn được trao quyền tự chủ tối ưu để hoạch định chiến lược, quản lý ngân
             sách và dẫn dắt đội ngũ.
             <br />

@@ -39,7 +39,7 @@ export default function Jobs() {
       {
         key: 'domain' as const,
         defaultLabel: 'Tất cả Domain',
-        textSize: 'text-[14px]',
+        textSize: 'text-sm',
         options: [
           { label: 'Tất cả Domain', value: 'all' },
           { label: 'Chuyển đổi số', value: 'dx' },
@@ -48,7 +48,7 @@ export default function Jobs() {
       {
         key: 'business' as const,
         defaultLabel: 'Business',
-        textSize: 'text-[16px]',
+        textSize: 'text-base',
         options: [
           { label: 'Business', value: 'business' },
           { label: 'Tài chính', value: 'finance' },
@@ -57,7 +57,7 @@ export default function Jobs() {
       {
         key: 'program' as const,
         defaultLabel: 'Program',
-        textSize: 'text-[16px]',
+        textSize: 'text-base',
         options: [
           { label: 'Program', value: 'program' },
           { label: 'MA Program', value: 'ma' },
@@ -66,7 +66,7 @@ export default function Jobs() {
       {
         key: 'location' as const,
         defaultLabel: 'Toàn quốc',
-        textSize: 'text-[16px]',
+        textSize: 'text-base',
         options: [
           { label: 'Toàn quốc', value: 'nationwide' },
           { label: 'Hà Nội', value: 'hanoi' },
@@ -145,7 +145,7 @@ export default function Jobs() {
                 custom={1}
               >
                 <div className="flex w-full flex-col gap-2 lg:gap-5">
-                  <h1 className="text-[24px] font-bold uppercase leading-[38px] tracking-[1px] text-[#292929] lg:text-[52px] lg:leading-[68px]">
+                  <h1 className="text-2xl font-bold uppercase leading-[38px] tracking-[1px] text-[#292929] lg:text-5xl lg:leading-[68px]">
                     KHÁM PHÁ CƠ HỘI
                   </h1>
                 </div>
@@ -172,7 +172,7 @@ export default function Jobs() {
                     id="job-search"
                     type="search"
                     placeholder="Tìm kiếm công việc"
-                    className="min-w-0 flex-1 bg-transparent text-[14px] leading-[1.4] text-[#474747] outline-none placeholder:text-[#707070] lg:text-base"
+                    className="min-w-0 flex-1 bg-transparent text-sm leading-[1.4] text-[#474747] outline-none placeholder:text-[#707070] lg:text-base"
                   />
                 </div>
 
@@ -219,7 +219,7 @@ export default function Jobs() {
                                   onClick={() => {
                                     setOpenFilter(null);
                                   }}
-                                  className={`w-full px-3 py-2.5 text-left text-[14px] leading-[1.4] text-[#474747] transition-colors duration-150 hover:bg-black/5 lg:px-4 lg:text-base ${isSelected ? 'bg-black/5 font-semibold' : 'font-medium'}`}
+                                  className={`w-full px-3 py-2.5 text-left text-sm leading-[1.4] text-[#474747] transition-colors duration-150 hover:bg-black/5 lg:px-4 lg:text-base ${isSelected ? 'bg-black/5 font-semibold' : 'font-medium'}`}
                                 >
                                   {opt.label}
                                 </button>
@@ -234,7 +234,7 @@ export default function Jobs() {
 
                 <motion.button
                   type="submit"
-                  className="group mx-auto flex h-10 w-full cursor-pointer items-center justify-center gap-2 rounded-full px-3 py-2.5 text-[14px] font-bold uppercase leading-[1.4] text-white shadow-[0px_4px_8px_0px_rgba(0,0,0,0.15)] transition-all duration-200 ease-out hover:-translate-y-0.5 hover:shadow-[0px_12px_24px_0px_rgba(0,43,91,0.28)] active:translate-y-0 active:shadow-[0px_6px_14px_0px_rgba(0,43,91,0.22)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0c71c7]/30 lg:h-12 lg:w-[466px] lg:gap-2 lg:text-lg"
+                  className="group mx-auto flex h-10 w-full cursor-pointer items-center justify-center gap-2 rounded-full px-3 py-2.5 text-sm font-bold uppercase leading-[1.4] text-white shadow-[0px_4px_8px_0px_rgba(0,0,0,0.15)] transition-all duration-200 ease-out hover:-translate-y-0.5 hover:shadow-[0px_12px_24px_0px_rgba(0,43,91,0.28)] active:translate-y-0 active:shadow-[0px_6px_14px_0px_rgba(0,43,91,0.22)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0c71c7]/30 lg:h-12 lg:w-[466px] lg:gap-2 lg:text-lg"
                   style={{
                     backgroundImage:
                       'linear-gradient(72.72deg, rgb(1, 58, 114) 3.48%, rgb(12, 113, 199) 83.47%)',
@@ -273,7 +273,7 @@ export default function Jobs() {
                 height={24}
                 className="h-4 w-[14px] shrink-0 lg:h-6 lg:w-[21px]"
               />
-              <h2 className="text-[18px] font-bold uppercase leading-[1.4] tracking-[0.18px] text-[#002b5b] lg:text-[24px] lg:tracking-[0.24px]">
+              <h2 className="text-lg font-bold uppercase leading-[1.4] tracking-[0.18px] text-[#002b5b] lg:text-2xl lg:tracking-[0.24px]">
                 Tất cả các vị trí
               </h2>
               <span className="h-px w-[60px] bg-[#0d3f77]" />
@@ -293,19 +293,19 @@ export default function Jobs() {
                 >
                   <div className="flex flex-col gap-2 lg:gap-3">
                     <div className="flex items-start justify-between gap-3">
-                      <span className="rounded bg-[#d9e6f2] px-2 py-1 text-[10px] font-semibold leading-[1.4] text-[#707070] lg:text-[12px]">
+                      <span className="rounded bg-[#d9e6f2] px-2 py-1 text-xs font-semibold leading-[1.4] text-[#707070] lg:text-xs">
                         {job.tag}
                       </span>
-                      <span className="hidden text-[14px] leading-[26px] text-[#707070] lg:block">
+                      <span className="hidden text-sm leading-[26px] text-[#707070] lg:block">
                         30/3/2026
                       </span>
                     </div>
 
                     <div className="flex flex-col gap-2">
-                      <h3 className="text-[16px] font-bold leading-[22px] text-[#292929] lg:text-[18px] lg:leading-[26px]">
+                      <h3 className="text-base font-bold leading-[22px] text-[#292929] lg:text-lg lg:leading-[26px]">
                         {job.title}
                       </h3>
-                      <div className="min-w-0 text-[14px] leading-5 text-[#474747] lg:text-[16px] lg:leading-[26px]">
+                      <div className="min-w-0 text-sm leading-5 text-[#474747] lg:text-base lg:leading-[26px]">
                         <div className="hidden items-center gap-2 lg:flex">
                           <span className="inline-flex items-center gap-1">
                             <MapPin
@@ -331,7 +331,7 @@ export default function Jobs() {
                     <div className="hidden h-px w-full bg-black/10 lg:block" />
                     <Link
                       href={`/jobs/${job.id}`}
-                      className="hidden h-10 w-[155px] items-center justify-center rounded-full text-[16px] font-semibold leading-[1.4] text-white shadow-[0px_4px_8px_0px_rgba(0,0,0,0.15)] lg:inline-flex"
+                      className="hidden h-10 w-[155px] items-center justify-center rounded-full text-base font-semibold leading-[1.4] text-white shadow-[0px_4px_8px_0px_rgba(0,0,0,0.15)] lg:inline-flex"
                       style={{
                         backgroundImage:
                           'linear-gradient(80.96deg, rgb(1, 58, 114) 3.48%, rgb(12, 113, 199) 83.47%)',

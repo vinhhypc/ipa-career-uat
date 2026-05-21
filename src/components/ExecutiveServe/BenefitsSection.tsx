@@ -17,7 +17,7 @@ export default function BenefitsSection() {
     <section className="section-padding max-md:py-11! md:py-20!">
       <div className="section-content">
         <motion.h2
-          className="text-center text-[20px] font-bold uppercase leading-[30px] tracking-[0.4px] text-[#292929] md:text-[40px] md:leading-[48px] md:tracking-[1px]"
+          className="text-center text-xl font-bold uppercase leading-[30px] tracking-[0.4px] text-[#292929] md:text-4xl md:leading-[48px] md:tracking-[1px]"
           variants={FADE_UP_VARIANTS}
           initial="hidden"
           whileInView="show"
@@ -44,13 +44,13 @@ export default function BenefitsSection() {
               className="rounded-[32px] bg-white px-7 py-8 shadow-[0px_4px_12px_0px_rgba(0,0,0,0.15)]"
             >
               <Image src={item.icon} alt="" width={60} height={60} className="size-[60px]" />
-              <p className="mt-5 text-[14px] font-semibold leading-[1.48] tracking-[0.14px] text-[#00377c]">
+              <p className="mt-5 text-sm font-semibold leading-[1.48] tracking-[0.14px] text-[#00377c]">
                 {item.label}
               </p>
-              <h3 className="mt-1 text-[20px] font-bold leading-[28px] text-[#070707] md:text-[24px] md:leading-[32px]">
+              <h3 className="mt-1 text-xl font-bold leading-[28px] text-[#070707] md:text-2xl md:leading-[32px]">
                 {item.title}
               </h3>
-              <p className="mt-4 text-[14px] leading-[20px] text-[#474747] md:text-[16px] md:leading-[22px]">
+              <p className="mt-4 text-sm leading-[20px] text-[#474747] md:text-base md:leading-[22px]">
                 {item.body}
               </p>
             </motion.article>

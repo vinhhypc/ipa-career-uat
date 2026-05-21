@@ -22,7 +22,7 @@ function DiamondStep({ n, bg, blur }: { n: string; bg: string; blur: string }) {
               className={`pointer-events-none absolute inset-0 rounded-xl opacity-30 blur-sm lg:blur-[4px] ${blur}`}
               aria-hidden
             />
-            <span className="-rotate-45 font-extrabold text-[18px] leading-8 text-white lg:text-2xl lg:leading-8">
+            <span className="-rotate-45 font-extrabold text-lg leading-8 text-white lg:text-2xl lg:leading-8">
               {n}
             </span>
           </div>
@@ -45,17 +45,10 @@ export default function RecruitmentSection() {
         >
           <motion.h2
             variants={FADE_UP_VARIANTS}
-            className="text-[20px] font-bold uppercase leading-8 tracking-[1px] text-[#292929] lg:text-[40px] lg:leading-[48px]"
+            className="text-xl font-bold uppercase leading-8 tracking-[1px] text-[#292929] lg:text-4xl lg:leading-[48px]"
           >
             QUY TRÌNH TUYỂN DỤNG
           </motion.h2>
-          <motion.p
-            variants={FADE_UP_VARIANTS}
-            className="text-[14px] font-normal leading-5 text-[#474747] lg:mx-auto lg:max-w-[960px] lg:text-lg lg:leading-7"
-          >
-            Quy trình tuyển dụng tại IPAG được thiết kế để tìm kiếm sự cộng hưởng tối ưu giữa tài
-            năng và văn hóa hệ sinh thái.
-          </motion.p>
         </motion.div>
 
         <motion.div
@@ -82,24 +75,11 @@ export default function RecruitmentSection() {
                     className="size-8 shrink-0 lg:size-10"
                   />
                   <div className="flex flex-col gap-1 text-center lg:gap-2">
-                    <h3 className="text-[16px] font-bold leading-6 text-[#292929] lg:text-2xl lg:leading-[34px]">
+                    <h3 className="text-base lg:text-xl font-bold leading-6 text-[#292929] 2xl:text-2xl 2xl:leading-[34px]">
                       {step.title}
                     </h3>
-                    <div className="text-[14px] font-normal leading-5 text-[#474747] lg:text-base lg:leading-6">
-                      <div className="lg:hidden">
-                        {step.lines.map((line, li) => (
-                          <p key={li} className="mb-0">
-                            {line}
-                          </p>
-                        ))}
-                      </div>
-                      <div className="hidden lg:block">
-                        {step.linesLg.map((line, li) => (
-                          <p key={li} className="mb-0">
-                            {line}
-                          </p>
-                        ))}
-                      </div>
+                    <div className="text-sm font-normal leading-5 text-[#474747] lg:text-base lg:leading-6">
+                      <p className="mb-0">{step.text}</p>
                     </div>
                   </div>
                 </div>

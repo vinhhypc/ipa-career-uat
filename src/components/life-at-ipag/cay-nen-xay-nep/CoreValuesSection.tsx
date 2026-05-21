@@ -87,7 +87,7 @@ export default function CoreValuesSection() {
             viewport={{ once: true, amount: 0.35 }}
             transition={{ duration: 0.5, ease: 'easeOut' }}
           >
-            <h2 className="text-3xl font-extrabold uppercase tracking-[3px] text-[#292929] md:text-[40px] md:leading-[60px]">
+            <h2 className="text-3xl font-extrabold uppercase tracking-[3px] text-[#292929] md:text-4xl md:leading-[60px]">
               Cấy nền
             </h2>
             <motion.div

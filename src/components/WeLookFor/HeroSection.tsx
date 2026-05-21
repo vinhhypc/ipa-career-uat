@@ -12,7 +12,7 @@ export default function HeroSection() {
       {
         key: 'domain',
         defaultLabel: 'Tất cả Domain',
-        textSize: 'text-[14px]',
+        textSize: 'text-sm',
         options: [
           { label: 'Tất cả Domain', value: 'all' },
           { label: 'Chuyển đổi số', value: 'dx' },
@@ -21,7 +21,7 @@ export default function HeroSection() {
       {
         key: 'business',
         defaultLabel: 'Business',
-        textSize: 'text-[16px]',
+        textSize: 'text-base',
         options: [
           { label: 'Business', value: 'business' },
           { label: 'Tài chính', value: 'finance' },
@@ -30,7 +30,7 @@ export default function HeroSection() {
       {
         key: 'program',
         defaultLabel: 'Program',
-        textSize: 'text-[16px]',
+        textSize: 'text-base',
         options: [
           { label: 'Program', value: 'program' },
           { label: 'MA Program', value: 'ma' },
@@ -39,7 +39,7 @@ export default function HeroSection() {
       {
         key: 'location',
         defaultLabel: 'Toàn quốc',
-        textSize: 'text-[16px]',
+        textSize: 'text-base',
         options: [
           { label: 'Toàn quốc', value: 'nationwide' },
           { label: 'Hà Nội', value: 'hanoi' },
@@ -82,17 +82,13 @@ export default function HeroSection() {
             </div>
 
             <div className="relative flex w-full flex-col items-center gap-2 text-center lg:gap-2">
-              <p className="w-full text-[12px] font-normal leading-5 tracking-[0.12px] text-[#707070] lg:text-[14px] lg:leading-8 lg:tracking-[0.14px]">
-                CƠ HỘI NGHỀ NGHIỆP - BA CON ĐƯỜNG KIẾN TẠO GIÁ TRỊ
-              </p>
               <div className="flex w-full flex-col gap-2 lg:gap-5">
-                <h1 className="text-[24px] font-bold uppercase leading-[38px] tracking-[1px] text-[#292929] lg:text-[52px] lg:leading-[68px]">
+                <h1 className="text-2xl font-bold uppercase leading-[38px] tracking-[1px] text-[#292929] lg:text-4xl 2xl:text-5xl 2xl:leading-[68px]">
                   CÙNG IPAG KIẾN TẠO SỰ NGHIỆP
                 </h1>
-                <p className="text-[14px] font-normal leading-[22px] text-[#474747] lg:mx-auto lg:max-w-[1086px] lg:text-[18px] lg:leading-7 lg:tracking-[0.18px]">
-                  Tại IPAG, chúng tôi không tìm kiếm những người chỉ làm tròn vai. Chúng tôi tìm
-                  kiếm những cộng sự cùng kiến tạo di sản — dù bạn đang ở bước khởi đầu hay đỉnh cao
-                  sự nghiệp.
+                <p className="text-sm font-normal leading-[22px] text-[#474747] md:text-base lg:mx-auto lg:max-w-[1086px] 2xl:text-lg 2xl:leading-7 2xl:tracking-[0.18px]">
+                  IPAG mở cơ hội giúp bạn làm chủ sự nghiệp tại nhiều vị trí. Chúng tôi tìm kiếm
+                  những cộng sự ở mọi cấp độ để cùng kiến tạo di sản.
                 </p>
               </div>
             </div>
@@ -114,7 +110,7 @@ export default function HeroSection() {
                   id="job-search"
                   type="search"
                   placeholder="Tìm kiếm công việc"
-                  className="min-w-0 flex-1 bg-transparent text-[14px] leading-[1.4] text-[#474747] outline-none placeholder:text-[#707070] lg:text-base"
+                  className="min-w-0 flex-1 bg-transparent text-sm leading-[1.4] text-[#474747] outline-none placeholder:text-[#707070] lg:text-base"
                 />
               </div>
 
@@ -162,7 +158,7 @@ export default function HeroSection() {
                                 type="button"
                                 role="option"
                                 aria-selected={isSelected}
-                                className={`w-full px-3 py-2.5 text-left text-[14px] leading-[1.4] text-[#474747] transition-colors duration-150 hover:bg-black/5 lg:px-4 lg:text-base ${
+                                className={`w-full px-3 py-2.5 text-left text-sm leading-[1.4] text-[#474747] transition-colors duration-150 hover:bg-black/5 lg:px-4 lg:text-base ${
                                   isSelected ? 'bg-black/5 font-semibold' : 'font-medium'
                                 }`}
                                 onClick={() => {
@@ -183,7 +179,7 @@ export default function HeroSection() {
 
               <button
                 type="submit"
-                className="group mx-auto flex h-10 w-full cursor-pointer items-center justify-center gap-2 rounded-full px-3 py-2.5 text-[14px] font-bold uppercase leading-[1.4] text-white shadow-[0px_4px_8px_0px_rgba(0,0,0,0.15)] transition-all duration-200 ease-out hover:-translate-y-0.5 hover:shadow-[0px_12px_24px_0px_rgba(0,43,91,0.28)] active:translate-y-0 active:shadow-[0px_6px_14px_0px_rgba(0,43,91,0.22)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0c71c7]/30 lg:h-12 lg:w-[466px] lg:gap-2 lg:text-lg"
+                className="group mx-auto flex h-10 w-full cursor-pointer items-center justify-center gap-2 rounded-full px-3 py-2.5 text-sm font-bold uppercase leading-[1.4] text-white shadow-[0px_4px_8px_0px_rgba(0,0,0,0.15)] transition-all duration-200 ease-out hover:-translate-y-0.5 hover:shadow-[0px_12px_24px_0px_rgba(0,43,91,0.28)] active:translate-y-0 active:shadow-[0px_6px_14px_0px_rgba(0,43,91,0.22)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0c71c7]/30 lg:h-12 lg:w-[466px] lg:gap-2 lg:text-lg"
                 style={{
                   backgroundImage:
                     'linear-gradient(72.72deg, rgb(1, 58, 114) 3.48%, rgb(12, 113, 199) 83.47%)',

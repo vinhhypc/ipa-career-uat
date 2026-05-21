@@ -84,7 +84,7 @@ export default function ChuyenNhaIpagListPage() {
 function CenteredHeading({ title }: { title: string }) {
   return (
     <div className="text-center">
-      <h1 className="text-3xl font-extrabold uppercase tracking-[1px] text-[#292929] md:text-[32px] md:leading-[40px]">
+      <h1 className="text-3xl font-extrabold uppercase tracking-[1px] text-[#292929] md:text-3xl md:leading-[40px]">
         {title}
       </h1>
       <div className="flex items-center justify-center gap-4 mt-4">
@@ -123,10 +123,10 @@ function PostCard({ post }: { post: ChuyenNhaIpagPost }) {
 
       <div className="p-4 md:p-5">
         <div className="flex items-center justify-between gap-3">
-          <span className="inline-flex items-center rounded-full bg-[#f1f5f9] px-2.5 py-1 text-[10px] font-semibold text-[#6b7280]">
+          <span className="inline-flex items-center rounded-full bg-[#f1f5f9] px-2.5 py-1 text-xs font-semibold text-[#6b7280]">
             {post.categoryLabel}
           </span>
-          <span className="text-[10px] font-semibold text-[#8a97a6]">{post.dateList}</span>
+          <span className="text-xs font-semibold text-[#8a97a6]">{post.dateList}</span>
         </div>
 
         <h2 className="mt-4 line-clamp-2 text-base font-extrabold text-[#292929] md:text-lg">
@@ -142,7 +142,7 @@ function PostCard({ post }: { post: ChuyenNhaIpagPost }) {
         </Link>
 
         <div className="mt-2 h-px w-full bg-gradient-to-r from-transparent via-[#e5e7eb] to-transparent" />
-        <div className="mt-3 flex flex-wrap items-center gap-2 text-[11px] text-[#8a97a6]">
+        <div className="mt-3 flex flex-wrap items-center gap-2 text-xs text-[#8a97a6]">
           <span className="font-semibold text-[#6b7280]">{post.authorName}</span>
           <span className="text-[#c1c7d0]" aria-hidden>
             •

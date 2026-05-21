@@ -150,7 +150,7 @@ export default function LifeAtIpagTabs({ activeKey, onChange, className }: LifeA
             ? 'border-[#002b5b] bg-[#e7f0fa] text-[#002b5b]'
             : 'border-[#e5e7eb] bg-white text-[#707070]';
 
-          const baseClassName = `flex h-10 items-center justify-center rounded-full border px-3 text-center text-[13px] font-medium transition-all duration-200 ease-out ${active} ${
+          const baseClassName = `flex h-10 items-center justify-center rounded-full border px-3 text-center text-xs font-medium transition-all duration-200 ease-out ${active} ${
             isEnabled ? 'hover:scale-[1.03] active:scale-100' : 'opacity-45'
           }`;
 

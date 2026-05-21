@@ -30,13 +30,13 @@ export default function ApplyModal({ onClose }: ApplyModalProps) {
         <div className="flex flex-1 flex-col gap-6 overflow-y-auto px-10 pt-10 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           {/* Header */}
           <div className="flex flex-col gap-3">
-            <div className="inline-flex w-fit rounded bg-[#d9e6f2] px-2 py-1 text-[12px] font-semibold leading-[1.4] text-[#707070]">
+            <div className="inline-flex w-fit rounded bg-[#d9e6f2] px-2 py-1 text-xs font-semibold leading-[1.4] text-[#707070]">
               Chuyển đổi số
             </div>
-            <h2 className="text-[24px] leading-[32px] font-bold text-black">
+            <h2 className="text-2xl leading-[32px] font-bold text-black">
               Ứng tuyển - Chuyên viên phân tích nghiệp vụ (Digital BA)
             </h2>
-            <div className="flex flex-nowrap items-center gap-3 overflow-x-auto text-[14px] leading-[22px] text-[#474747] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+            <div className="flex flex-nowrap items-center gap-3 overflow-x-auto text-sm leading-[22px] text-[#474747] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
               <span className="flex items-center gap-1 whitespace-nowrap">
                 <BriefcaseBusiness className="size-5 text-[#707070]" />
                 <span>
@@ -64,14 +64,14 @@ export default function ApplyModal({ onClose }: ApplyModalProps) {
           <div className="flex flex-col gap-4">
             {/* Thông tin cá nhân */}
             <div className="flex flex-col gap-4">
-              <h3 className="text-[18px] leading-[32px] font-semibold text-black">
+              <h3 className="text-lg leading-[32px] font-semibold text-black">
                 THÔNG TIN CỦA BẠN
               </h3>
               <div className="flex flex-col gap-4">
                 <div className="flex flex-col gap-2">
                   <label
                     htmlFor="apply-name"
-                    className="text-[14px] leading-[1.2] font-bold text-[#292929]"
+                    className="text-sm leading-[1.2] font-bold text-[#292929]"
                   >
                     Họ tên*
                   </label>
@@ -79,14 +79,14 @@ export default function ApplyModal({ onClose }: ApplyModalProps) {
                     id="apply-name"
                     type="text"
                     placeholder="Nhập họ tên"
-                    className="w-full rounded-lg border border-black/18 bg-white px-4 py-[10px] text-[16px] leading-[1.4] text-[#474747] outline-none placeholder:text-[#707070] focus:border-[#0d5ba8] focus:ring-1 focus:ring-[#0d5ba8]"
+                    className="w-full rounded-lg border border-black/18 bg-white px-4 py-[10px] text-base leading-[1.4] text-[#474747] outline-none placeholder:text-[#707070] focus:border-[#0d5ba8] focus:ring-1 focus:ring-[#0d5ba8]"
                   />
                 </div>
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                   <div className="flex flex-col gap-2">
                     <label
                       htmlFor="apply-email"
-                      className="text-[14px] leading-[1.2] font-bold text-[#292929]"
+                      className="text-sm leading-[1.2] font-bold text-[#292929]"
                     >
                       Email*
                     </label>
@@ -94,13 +94,13 @@ export default function ApplyModal({ onClose }: ApplyModalProps) {
                       id="apply-email"
                       type="email"
                       placeholder="Nhập email"
-                      className="w-full rounded-lg border border-black/18 bg-white px-4 py-[10px] text-[16px] leading-[1.4] text-[#474747] outline-none placeholder:text-[#707070] focus:border-[#0d5ba8] focus:ring-1 focus:ring-[#0d5ba8]"
+                      className="w-full rounded-lg border border-black/18 bg-white px-4 py-[10px] text-base leading-[1.4] text-[#474747] outline-none placeholder:text-[#707070] focus:border-[#0d5ba8] focus:ring-1 focus:ring-[#0d5ba8]"
                     />
                   </div>
                   <div className="flex flex-col gap-2">
                     <label
                       htmlFor="apply-phone"
-                      className="text-[14px] leading-[1.2] font-bold text-[#292929]"
+                      className="text-sm leading-[1.2] font-bold text-[#292929]"
                     >
                       Số điện thoại*
                     </label>
@@ -108,7 +108,7 @@ export default function ApplyModal({ onClose }: ApplyModalProps) {
                       id="apply-phone"
                       type="tel"
                       placeholder="Nhập số điện thoại"
-                      className="w-full rounded-lg border border-black/18 bg-white px-4 py-[10px] text-[16px] leading-[1.4] text-[#474747] outline-none placeholder:text-[#707070] focus:border-[#0d5ba8] focus:ring-1 focus:ring-[#0d5ba8]"
+                      className="w-full rounded-lg border border-black/18 bg-white px-4 py-[10px] text-base leading-[1.4] text-[#474747] outline-none placeholder:text-[#707070] focus:border-[#0d5ba8] focus:ring-1 focus:ring-[#0d5ba8]"
                     />
                   </div>
                 </div>
@@ -117,7 +117,7 @@ export default function ApplyModal({ onClose }: ApplyModalProps) {
 
             {/* Hồ sơ ứng tuyển */}
             <div className="flex flex-col gap-4">
-              <h3 className="text-[18px] leading-[32px] font-semibold text-black">
+              <h3 className="text-lg leading-[32px] font-semibold text-black">
                 HỒ SƠ ỨNG TUYỂN
               </h3>
               <div className="flex flex-col gap-4">
@@ -135,7 +135,7 @@ export default function ApplyModal({ onClose }: ApplyModalProps) {
                   <div className="flex flex-col gap-2">
                     <label
                       htmlFor="apply-linkedin"
-                      className="text-[14px] leading-[1.2] font-bold text-[#292929]"
+                      className="text-sm leading-[1.2] font-bold text-[#292929]"
                     >
                       LinkedIn Profile
                     </label>
@@ -143,13 +143,13 @@ export default function ApplyModal({ onClose }: ApplyModalProps) {
                       id="apply-linkedin"
                       type="url"
                       placeholder="linkedin.com/in/your-profile"
-                      className="w-full rounded-lg border border-black/18 bg-white px-4 py-[10px] text-[16px] leading-[1.4] text-[#474747] outline-none placeholder:text-[#707070] focus:border-[#0d5ba8] focus:ring-1 focus:ring-[#0d5ba8]"
+                      className="w-full rounded-lg border border-black/18 bg-white px-4 py-[10px] text-base leading-[1.4] text-[#474747] outline-none placeholder:text-[#707070] focus:border-[#0d5ba8] focus:ring-1 focus:ring-[#0d5ba8]"
                     />
                   </div>
                   <div className="flex flex-col gap-2">
                     <label
                       htmlFor="apply-source"
-                      className="text-[14px] leading-[1.2] font-bold text-[#292929]"
+                      className="text-sm leading-[1.2] font-bold text-[#292929]"
                     >
                       Bạn biết đến IPAG qua đâu?
                     </label>
@@ -157,7 +157,7 @@ export default function ApplyModal({ onClose }: ApplyModalProps) {
                       <select
                         id="apply-source"
                         defaultValue=""
-                        className="w-full appearance-none rounded-lg border border-black/18 bg-white px-4 py-[10px] text-[16px] leading-[1.4] text-[#474747] outline-none focus:border-[#0d5ba8] focus:ring-1 focus:ring-[#0d5ba8]"
+                        className="w-full appearance-none rounded-lg border border-black/18 bg-white px-4 py-[10px] text-base leading-[1.4] text-[#474747] outline-none focus:border-[#0d5ba8] focus:ring-1 focus:ring-[#0d5ba8]"
                       >
                         <option value="" disabled>
                           Chọn nguồn
@@ -183,7 +183,7 @@ export default function ApplyModal({ onClose }: ApplyModalProps) {
                 onChange={(e) => setAgreed(e.target.checked)}
                 className="size-5 rounded border border-black/18 accent-[#0d5ba8]"
               />
-              <span className="text-[14px] leading-[1.4] text-[#474747]">
+              <span className="text-sm leading-[1.4] text-[#474747]">
                 Tôi đã đọc và đồng ý với điều khoản tuyển dụng của IPAG
               </span>
             </label>
@@ -195,7 +195,7 @@ export default function ApplyModal({ onClose }: ApplyModalProps) {
           <button
             type="submit"
             disabled={!agreed}
-            className="h-12 w-full rounded-full text-[18px] font-bold uppercase leading-[1.4] tracking-wide text-white shadow-[0px_4px_4px_rgba(0,0,0,0.15)] transition-opacity disabled:opacity-50"
+            className="h-12 w-full rounded-full text-lg font-bold uppercase leading-[1.4] tracking-wide text-white shadow-[0px_4px_4px_rgba(0,0,0,0.15)] transition-opacity disabled:opacity-50"
             style={{
               backgroundImage:
                 'linear-gradient(56deg, rgb(1,58,114) 3.48%, rgb(12,113,199) 83.47%)',

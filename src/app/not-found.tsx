@@ -19,7 +19,7 @@ export default function NotFound() {
         <div className="absolute top-1/2 left-1/2 h-[300px] w-[300px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand-white blur-[100px]" />
 
         <div className="relative z-10">
-          <h1 className="font-gotham text-9xl font-black tracking-tighter text-brand-black/5 md:text-[12rem]">
+          <h1 className="font-gotham text-9xl font-black tracking-tighter text-brand-black/5 md:text-9xl">
             404
           </h1>
           <div className="-mt-12 md:-mt-20">

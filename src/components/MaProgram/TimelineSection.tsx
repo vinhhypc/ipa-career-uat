@@ -15,10 +15,10 @@ export default function TimelineSection() {
           viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 0.55, ease: 'easeOut' }}
         >
-          <p className="w-full text-[14px] font-normal leading-[22px] text-[#707070] md:leading-[32px]">
+          <p className="w-full text-sm font-normal leading-[22px] text-[#707070] md:leading-[32px]">
             THE JOURNEY
           </p>
-          <h2 className="text-[20px] font-bold uppercase leading-[26px] text-[#292929] md:text-[40px] md:leading-[48px] md:tracking-[1px]">
+          <h2 className="text-xl font-bold uppercase leading-[26px] text-[#292929] md:text-4xl md:leading-[48px] md:tracking-[1px]">
             Timeline 24 tháng
           </h2>
         </motion.div>
@@ -46,7 +46,7 @@ export default function TimelineSection() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, ease: [0.34, 1.56, 0.64, 1], delay: i * 0.15 + 0.1 }}
                 >
-                  <span className="text-[18px] font-extrabold leading-[32px] text-white md:text-[24px]">
+                  <span className="text-lg font-extrabold leading-[32px] text-white md:text-2xl">
                     {item.n}
                   </span>
                 </motion.div>
@@ -57,14 +57,14 @@ export default function TimelineSection() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.45, ease: 'easeOut', delay: i * 0.15 + 0.22 }}
                 >
-                  <p className="text-[14px] font-semibold leading-[1.48] tracking-[0.14px] text-[#00377c] md:text-[18px] md:tracking-[0.18px]">
+                  <p className="text-sm font-semibold leading-[1.48] tracking-[0.14px] text-[#00377c] md:text-lg md:tracking-[0.18px]">
                     {item.period}
                   </p>
                   <div className="flex w-full flex-col gap-2 md:gap-4">
-                    <p className="text-[16px] font-bold leading-[22px] text-[#292929] md:text-[24px] md:leading-[32px]">
+                    <p className="text-base font-bold leading-[22px] text-[#292929] md:text-2xl md:leading-[32px]">
                       {item.title}
                     </p>
-                    <div className="text-[14px] font-normal leading-[20px] text-[#474747] md:text-[16px] md:leading-[22px]">
+                    <div className="text-sm font-normal leading-[20px] text-[#474747] md:text-base md:leading-[22px]">
                       {item.body}
                     </div>
                   </div>

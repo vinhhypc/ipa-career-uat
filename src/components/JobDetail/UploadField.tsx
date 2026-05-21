@@ -19,7 +19,7 @@ export default function UploadField({ label, hint, id }: UploadFieldProps) {
 
   return (
     <div className="flex flex-col gap-2">
-      <label className="text-[14px] leading-[1.2] font-bold text-[#292929]">{label}</label>
+      <label className="text-sm leading-[1.2] font-bold text-[#292929]">{label}</label>
       <div
         className="flex h-[160px] cursor-pointer flex-col items-center justify-center gap-2 rounded border border-dashed border-[#ccc] bg-white p-5 text-center transition-colors hover:border-[#0d5ba8]"
         onClick={() => inputRef.current?.click()}
@@ -39,13 +39,13 @@ export default function UploadField({ label, hint, id }: UploadFieldProps) {
         />
         <Upload className="size-10 text-[#0d5ba8]" />
         {fileName ? (
-          <p className="text-[14px] font-bold leading-[1.2] text-[#292929]">{fileName}</p>
+          <p className="text-sm font-bold leading-[1.2] text-[#292929]">{fileName}</p>
         ) : (
           <>
-            <p className="text-[14px] font-bold leading-[1.2] text-[#292929]">
+            <p className="text-sm font-bold leading-[1.2] text-[#292929]">
               Kéo thả hoặc chọn file
             </p>
-            <p className="text-[14px] leading-[1.4] text-[#707070]">{hint}</p>
+            <p className="text-sm leading-[1.4] text-[#707070]">{hint}</p>
           </>
         )}
       </div>

@@ -30,12 +30,12 @@ export default function CtaSection() {
 
       <div className="section-content relative z-[1]">
         <div className="mx-auto w-full max-w-[1115px] text-center">
-          <p className="text-xl font-bold uppercase text-[#002B5B] sm:text-2xl md:text-[40px] md:leading-[60px]">
+          <p className="text-xl font-bold uppercase text-[#002B5B] sm:text-2xl md:text-4xl md:leading-[60px]">
             Sẵn sàng kiến tạo di sản cùng IPAG?
           </p>
           <Link
             href="/jobs"
-            className="group mt-6 inline-flex h-12 w-full max-w-[430px] cursor-pointer items-center justify-center gap-2 rounded-full px-6 text-[14px] font-bold uppercase tracking-[0.02em] text-white shadow-[0px_4px_8px_0px_rgba(0,0,0,0.15)] transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-[1.04] hover:shadow-[0_8px_20px_rgba(0,0,0,0.18)] hover:brightness-105 active:translate-y-0 active:scale-100 active:shadow-[0px_4px_8px_0px_rgba(0,0,0,0.15)] sm:text-[16px] md:text-[18px]"
+            className="group mt-6 inline-flex h-12 w-full max-w-[430px] cursor-pointer items-center justify-center gap-2 rounded-full px-6 text-sm font-bold uppercase tracking-[0.02em] text-white shadow-[0px_4px_8px_0px_rgba(0,0,0,0.15)] transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-[1.04] hover:shadow-[0_8px_20px_rgba(0,0,0,0.18)] hover:brightness-105 active:translate-y-0 active:scale-100 active:shadow-[0px_4px_8px_0px_rgba(0,0,0,0.15)] sm:text-base md:text-lg"
             style={{
               backgroundImage: 'linear-gradient(41deg, rgb(1, 58, 114) 0%, rgb(12, 113, 199) 100%)',
             }}

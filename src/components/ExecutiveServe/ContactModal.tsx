@@ -11,9 +11,9 @@ interface ContactModalProps {
 }
 
 const INPUT_CLS =
-  'h-12 w-full rounded-lg border border-black/18 px-4 text-[16px] text-[#292929] placeholder:text-[#707070] outline-none focus:border-[#00377c] transition-colors bg-white';
+  'h-12 w-full rounded-lg border border-black/18 px-4 text-base text-[#292929] placeholder:text-[#707070] outline-none focus:border-[#00377c] transition-colors bg-white';
 
-const LABEL_CLS = 'text-[14px] font-bold leading-[1.2] text-[#292929]';
+const LABEL_CLS = 'text-sm font-bold leading-[1.2] text-[#292929]';
 
 export default function ContactModal({ onClose }: ContactModalProps) {
   const [form, setForm] = useState({
@@ -69,7 +69,7 @@ export default function ContactModal({ onClose }: ContactModalProps) {
           <X className="size-5" strokeWidth={2} />
         </button>
 
-        <h2 className="text-[24px] font-bold leading-[32px] text-black">Để lại thông tin</h2>
+        <h2 className="text-2xl font-bold leading-[32px] text-black">Để lại thông tin</h2>
 
         <form onSubmit={handleSubmit} className="mt-8 flex flex-col gap-7">
           {/* ── Họ tên + Số điện thoại ── */}
@@ -106,8 +106,8 @@ export default function ContactModal({ onClose }: ContactModalProps) {
           {/* ── Lĩnh vực chuyên môn ── */}
           <div className="flex flex-col gap-4">
             <div className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5">
-              <span className="text-[16px] font-semibold text-black">Lĩnh vực chuyên môn*</span>
-              <span className="text-[14px] italic text-[#707070]">
+              <span className="text-base font-semibold text-black">Lĩnh vực chuyên môn*</span>
+              <span className="text-sm italic text-[#707070]">
                 (Bắt buộc · Tối đa {MAX_EXPERTISE} lựa chọn)
               </span>
             </div>
@@ -140,7 +140,7 @@ export default function ContactModal({ onClose }: ContactModalProps) {
                         {checked && <Check className="size-3 text-white" strokeWidth={3} />}
                       </span>
                     </span>
-                    <span className="text-[16px] leading-[1.4] text-[#474747]">{opt.label}</span>
+                    <span className="text-base leading-[1.4] text-[#474747]">{opt.label}</span>
                   </label>
                 );
               })}
@@ -208,7 +208,7 @@ export default function ContactModal({ onClose }: ContactModalProps) {
                       {checked && <Check className="size-3 text-white" strokeWidth={3} />}
                     </span>
                   </span>
-                  <span className="text-[14px] leading-normal text-[#474747]">{text}</span>
+                  <span className="text-sm leading-normal text-[#474747]">{text}</span>
                 </label>
               );
             })}
@@ -217,7 +217,7 @@ export default function ContactModal({ onClose }: ContactModalProps) {
           {/* ── Submit ── */}
           <button
             type="submit"
-            className="h-12 w-full cursor-pointer rounded-full bg-[linear-gradient(56deg,#013A72_3.48%,#0C71C7_83.47%)] text-[18px] font-bold uppercase tracking-wide text-white shadow-[0px_4px_4px_rgba(0,0,0,0.15)] transition-opacity hover:opacity-90"
+            className="h-12 w-full cursor-pointer rounded-full bg-[linear-gradient(56deg,#013A72_3.48%,#0C71C7_83.47%)] text-lg font-bold uppercase tracking-wide text-white shadow-[0px_4px_4px_rgba(0,0,0,0.15)] transition-opacity hover:opacity-90"
           >
             Gửi thông tin
           </button>
