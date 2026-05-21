@@ -21,14 +21,13 @@ type CareerGroupItem = {
   iconScaleClass?: string;
   iconFitClass?: string;
   iconHasOwnBackground?: boolean;
-  /** Trang “Tìm hiểu thêm” tương ứng từng nhóm */
   learnMoreHref: string;
 };
 
 const CAREER_GROUP_ITEMS: CareerGroupItem[] = [
   {
     title: 'MA Program',
-    desc: 'Khởi đầu hành trình nghề nghiệp với lộ trình đào tạo bài bản cùng sự dẫn dắt từ đội ngũ nhân sự cấp cao và chuyên gia trong tổ chức.',
+    desc: 'Trải nghiệm "khởi nghiệp" trong lòng doanh nghiệp - dành cho những ai khao khát thử thách bản thân, chủ động kiến tạo sự nghiệp của riêng mình.',
     tag: 'FRESH',
     iconSrc: '/home/career-icon-ma.svg',
     iconHasOwnBackground: true,
@@ -44,7 +43,7 @@ const CAREER_GROUP_ITEMS: CareerGroupItem[] = [
   },
   {
     title: 'Leadership Track',
-    desc: 'Đồng hành xây dựng tổ chức, phát triển đội ngũ và tạo giá trị dài hạn cho hệ sinh thái.',
+    desc: 'Đồng hành xây dựng chiến lược cho tổ chức, phát triển đội ngũ và tạo giá trị dài hạn cho hệ sinh thái.',
     tag: 'C-level',
     iconSrc: '/home/star.png',
     iconHasOwnBackground: true,

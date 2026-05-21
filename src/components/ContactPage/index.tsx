@@ -1,64 +1,19 @@
 'use client';
 
 import Image from 'next/image';
-import type { ReactNode } from 'react';
 import { useMemo, useState } from 'react';
-import { Mail, Clock, Plus, MapPin } from 'lucide-react';
+import { Plus } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
 import Breadcrumbs from '@/components/Breadcrumbs';
 
-const STAGGER_CHILDREN = {
-  hidden: {},
-  show: {
-    transition: {
-      delayChildren: 0.08,
-      staggerChildren: 0.06,
-    },
-  },
-} as const;
-
-const ITEM_REVEAL = {
-  hidden: { opacity: 0, y: 18, scale: 0.98 },
-  show: {
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] },
-  },
-} as const;
-
-type ContactField = {
-  name: string;
-  label: string;
-  required?: boolean;
-  placeholder?: string;
-  type?: 'text' | 'email' | 'tel';
-  colSpan?: 1 | 2;
-};
-
-const PERSONAL_FIELDS: ContactField[] = [
-  { name: 'fullName', label: 'Họ tên', required: true, placeholder: 'Nhập họ tên' },
-  { name: 'email', label: 'Email', required: true, placeholder: 'Nhập email', type: 'email' },
-  {
-    name: 'phone',
-    label: 'Số điện thoại',
-    required: true,
-    placeholder: 'Nhập số điện thoại',
-    type: 'tel',
-  },
-] as const;
-
-const FAQ_ITEMS = [
-  {
-    q: 'Tôi nên gửi hồ sơ ứng tuyển theo cách nào?',
-    a: 'Bạn có thể ứng tuyển trực tiếp qua biểu mẫu trên website này hoặc gửi CV về mail nextgen@ipam.vn theo cú pháp: [Tên vị trí] - [Họ tên]. Đội ngũ tuyển dụng sẽ phản hồi thông tin đến bạn trong vòng 02 ngày làm việc',
-  },
-  { q: 'Tôi chưa chọn được vị trí cụ thể, có thể gửi hồ sơ tổng quát không?', a: '' },
-  { q: 'Quy trình và thời gian xử lý hồ sơ mất bao lâu?', a: '' },
-  { q: 'IPAG có tuyển dụng tại khu vực TP.Hồ Chí Minh không?', a: '' },
-  { q: 'Tôi có thể đến trực tiếp văn phòng để nộp hồ sơ không?', a: '' },
-] as const;
+import CheckboxRow from './CheckboxRow';
+import FieldInput from './FieldInput';
+import FieldSelect from './FieldSelect';
+import FormSectionTitle from './FormSectionTitle';
+import InfoCard from './InfoCard';
+import OfficeItem from './OfficeItem';
+import { FAQ_ITEMS, ITEM_REVEAL, PERSONAL_FIELDS, STAGGER_CHILDREN } from './constants';
 
 export default function ContactPage() {
   const [message, setMessage] = useState('');
@@ -73,48 +28,69 @@ export default function ContactPage() {
       <section className="section-padding pt-30! md:pt-[120px]! pb-6!">
         <div className="section-content">
           <Breadcrumbs
-            // isLight
             className="text-sm"
             items={[{ label: 'Trang chủ', href: '/' }, { label: 'Contact' }]}
           />
         </div>
       </section>
 
-      <section className="relative overflow-hidden bg-[#00152d]">
-        <div className="relative h-[230px] w-full md:h-[280px] lg:h-[320px]">
+      <section className="relative overflow-hidden bg-[#f2fbff]">
+        <div className="relative h-72 w-full sm:h-80 md:h-96 lg:h-[580px]">
           <Image
             src="/contact/figma/hero.png"
-            alt=""
+            alt="Contact IPAG"
             fill
             priority
-            className="object-cover w-fit"
+            className="object-cover"
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,21,45,0.25)_0%,rgba(0,21,45,0.45)_35%,rgba(0,21,45,0.65)_100%)]" />
+          <div className="absolute inset-0 bg-gradient-to-tr from-[#00152d] to-[#06213f] opacity-85" />
+          <motion.div
+            className="section-content absolute inset-0 flex flex-col items-center justify-center gap-6 px-4 text-center"
+            variants={STAGGER_CHILDREN}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.3 }}
+          >
+            <motion.h1
+              className="max-w-4xl text-3xl font-extrabold uppercase tracking-wider text-white drop-shadow md:text-4xl md:leading-snug lg:text-5xl"
+              variants={ITEM_REVEAL}
+            >
+              CONTACT IPAG
+            </motion.h1>
+            <motion.div className="h-1 w-36 bg-[#fbc17b]" variants={ITEM_REVEAL} />
+            <motion.p
+              className="max-w-3xl text-base leading-relaxed text-white/90 sm:text-lg lg:text-xl"
+              variants={ITEM_REVEAL}
+            >
+              Chúng tôi luôn sẵn sàng lắng nghe — dù bạn đang tìm kiếm cơ hội, muốn hỏi về chương
+              trình, hay chỉ đơn giản là muốn biết thêm về IPAG.
+            </motion.p>
+          </motion.div>
         </div>
 
-        <div className="section-content relative -mt-10 px-4 pb-12 md:-mt-12 md:px-12 lg:px-20">
+        <div className="section-padding relative -mt-16 pt-0 pb-14 md:-mt-24 lg:-mt-28">
           <motion.div
-            className="mx-auto grid w-full gap-4 md:grid-cols-2 md:gap-6"
+            className="section-content mx-auto grid w-full max-w-5xl items-stretch gap-5 md:grid-cols-2 md:gap-6"
             variants={STAGGER_CHILDREN}
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, amount: 0.25 }}
           >
-            <motion.div variants={ITEM_REVEAL}>
+            <motion.div variants={ITEM_REVEAL} className="h-full">
               <InfoCard
-                icon={<Image src="/contact/figma/mail.svg" alt="Email" width={40} height={40} />}
+                icon={<Image src="/contact/figma/mail.svg" alt="Email" width={60} height={60} />}
                 label="EMAIL TUYỂN DỤNG"
                 title="nextgen@ipam.vn"
                 desc="Mọi liên hệ tuyển dụng: gửi CV, hỏi thông tin chương trình, đặt lịch phỏng vấn."
               />
             </motion.div>
-            <motion.div variants={ITEM_REVEAL}>
+            <motion.div variants={ITEM_REVEAL} className="h-full">
               <InfoCard
-                icon={<Image src="/contact/figma/clock.svg" alt="Clock" width={40} height={40} />}
+                icon={<Image src="/contact/figma/clock.svg" alt="Clock" width={60} height={60} />}
                 label="GIỜ LÀM VIỆC"
-                title="Thứ Hai - Thứ Sáu"
-                desc="08:30 - 17:30"
+                title="Thứ Hai – Thứ Sáu"
+                desc="08:30 – 17:30"
               />
             </motion.div>
           </motion.div>
@@ -135,7 +111,7 @@ export default function ContactPage() {
           viewport={{ once: true, amount: 0.22 }}
         >
           <motion.div className="mx-auto w-full max-w-[860px] text-center" variants={ITEM_REVEAL}>
-            <p className="text-xs font-bold uppercase  text-[#145194]">ĐỂ LẠI THÔNG TIN</p>
+            <p className="text-xs font-bold uppercase text-[#145194]">ĐỂ LẠI THÔNG TIN</p>
             <h2 className="mt-4 text-2xl font-extrabold uppercase tracking-[1px] text-[#292929] md:text-[32px] md:leading-[40px]">
               Chúng tôi sẽ liên hệ lại
             </h2>
@@ -259,7 +235,7 @@ export default function ContactPage() {
                   <OfficeItem
                     index="01"
                     title="HEADQUARTERS"
-                    address="95 Trần Thái Tông, Cầu Giấy, Hà Nội"
+                    address="95 Trần Thái Tông, phường Dịch Vọng Hậu, Hà Nội"
                   />
                   <OfficeItem
                     index="02"
@@ -283,7 +259,7 @@ export default function ContactPage() {
                   <OfficeItem
                     index="05"
                     title="SOUTHERN OFFICE"
-                    address="90 Pasteur, Quận 1, TP. Hồ Chí Minh"
+                    address="90 Pasteur, phường Sài Gòn, TP. Hồ Chí Minh"
                   />
                   <OfficeItem
                     index="06"
@@ -381,130 +357,6 @@ export default function ContactPage() {
           </div>
         </motion.div>
       </section>
-    </div>
-  );
-}
-
-function InfoCard({
-  icon,
-  label,
-  title,
-  desc,
-}: {
-  icon: ReactNode;
-  label: string;
-  title: string;
-  desc: string;
-}) {
-  return (
-    <div className="rounded-[16px]   border border-[#edf1f5] bg-white px-5 py-5 shadow-[0_10px_24px_rgba(0,0,0,0.10)]">
-      <div className="flex items-start gap-3">
-        <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-[#145194]/10">
-          {icon}
-        </span>
-        <div>
-          <p className="text-[11px] font-extrabold uppercase  text-[#145194]">{label}</p>
-          <p className="mt-1 text-base font-extrabold text-[#292929]">{title}</p>
-          <p className="mt-2 text-sm leading-6 text-[#6b7280]">{desc}</p>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function FormSectionTitle({ title }: { title: string }) {
-  return <p className="text-base font-extrabold uppercase  text-[#145194]">{title}</p>;
-}
-
-function FieldInput({ field }: { field: ContactField }) {
-  const id = `contact-${field.name}`;
-  const requiredSuffix = field.required ? '*' : '';
-  return (
-    <div className={field.colSpan === 2 ? 'md:col-span-2' : ''}>
-      <label htmlFor={id} className="text-xs font-bold text-[#292929]">
-        {field.label}
-        {requiredSuffix}
-      </label>
-      <input
-        id={id}
-        name={field.name}
-        type={field.type ?? 'text'}
-        placeholder={field.placeholder}
-        className="mt-2 h-[40px] w-full rounded-[10px] border border-[#d6dbe3] bg-white px-3 text-sm text-[#292929] outline-none placeholder:text-[#9aa3af] focus:border-[#145194]/60"
-      />
-    </div>
-  );
-}
-
-function FieldSelect({
-  label,
-  name,
-  required,
-  options,
-  defaultValue,
-}: {
-  label: string;
-  name: string;
-  required?: boolean;
-  options: string[];
-  defaultValue?: string;
-}) {
-  const id = `contact-${name}`;
-  const requiredSuffix = required ? '*' : '';
-  return (
-    <div>
-      <label htmlFor={id} className="text-xs font-bold text-[#292929]">
-        {label}
-        {requiredSuffix}
-      </label>
-      <select
-        id={id}
-        name={name}
-        defaultValue={defaultValue}
-        className="mt-2 h-[40px] w-full rounded-[10px] border border-[#d6dbe3] bg-white px-3 text-sm text-[#292929] outline-none focus:border-[#145194]/60"
-      >
-        {options.map((o) => (
-          <option key={o} value={o}>
-            {o}
-          </option>
-        ))}
-      </select>
-    </div>
-  );
-}
-
-function CheckboxRow({
-  checked,
-  onChange,
-  label,
-}: {
-  checked: boolean;
-  onChange: (v: boolean) => void;
-  label: string;
-}) {
-  return (
-    <label className="flex cursor-pointer items-start gap-3 text-sm text-[#6b7280]">
-      <input
-        type="checkbox"
-        checked={checked}
-        onChange={(e) => onChange(e.target.checked)}
-        className="mt-1 size-4 accent-[#145194]"
-      />
-      <span className="leading-6">{label}</span>
-    </label>
-  );
-}
-
-function OfficeItem({ index, title, address }: { index: string; title: string; address: string }) {
-  return (
-    <div className="space-y-2">
-      <p className="text-xs font-semibold uppercase  text-[#002B5B]">
-        {index} · {title}
-      </p>
-      <div className="flex items-start gap-1">
-        <MapPin size={16} className="mt-1 font-light text-gray-700" />
-        <p className="text-sm leading-6 text-gray-700">{address}</p>
-      </div>
     </div>
   );
 }

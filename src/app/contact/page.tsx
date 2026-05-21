@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
-import ContactPage from '@/components/ContactPage';
 import { createPageMetadata } from '@/lib/seo';
+import ContactPage from '@/components/ContactPage/index';
 
 export const metadata: Metadata = createPageMetadata({
   title: 'Liên hệ',

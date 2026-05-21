@@ -126,7 +126,7 @@ export default function Footer() {
                     aria-label="Mở bản đồ Google Maps: Hà Nội"
                   >
                     <MapPin className="size-5 shrink-0" strokeWidth={1.75} />
-                    <span>HN: 95 Trần Thái Tông, Cầu Giấy, Hà Nội</span>
+                    <span>HN: 95 Trần Thái Tông, phường Dịch Vọng Hậu, Hà Nội</span>
                   </a>
                 </li>
                 <li>
@@ -138,7 +138,7 @@ export default function Footer() {
                     aria-label="Mở bản đồ Google Maps: Hồ Chí Minh"
                   >
                     <MapPin className="size-5 shrink-0" strokeWidth={1.75} />
-                    <span>HCM: 95 90 Pasteur, Quận 1, TP. Hồ Chí Minh</span>
+                    <span>HCM: 90 Pasteur, phường Sài Gòn, TP. Hồ Chí Minh</span>
                   </a>
                 </li>
               </ul>

@@ -42,12 +42,12 @@ export default function HeroSection() {
   );
 
   return (
-    <section className="relative flex min-h-0 min-h-[70svh] flex-col overflow-hidden bg-[#0a192f] px-4 pb-0 pt-0 md:block md:min-h-screen md:px-12 lg:px-12 xl:px-16">
+    <section className="relative flex min-h-[70svh] flex-col overflow-x-hidden bg-[#0a192f] pb-0 pt-0 md:block md:min-h-screen">
       <div
         aria-hidden
-        className="absolute inset-0 md:inset-auto md:top-0 md:bottom-0 md:right-0 md:w-[54%]"
+        className="absolute inset-0 overflow-hidden md:inset-auto md:top-0 md:bottom-0 md:right-0 md:w-[54%]"
       >
-        <div className="relative w-full md:hidden" style={{ aspectRatio: '9/16' }}>
+        <div className="relative size-full md:hidden">
           <Image
             src="/home/banner-mobile.png"
             alt="IPAG Career banner"
@@ -77,7 +77,7 @@ export default function HeroSection() {
         style={{ background: HERO_OVERLAY_GRADIENT_MOBILE }}
       />
 
-      <div className="section-content relative z-10 flex min-h-0 flex-1 flex-col items-stretch justify-center py-6 pt-16 sm:pt-20 md:min-h-[640px] md:flex-none md:items-start md:justify-start md:pt-28 lg:min-h-[706px] lg:pt-36 2xl:pt-40">
+      <div className="section-content relative z-10 flex min-h-0 flex-1 flex-col items-stretch justify-center py-6 pt-16 sm:pt-20 md:min-h-[640px] md:flex-none md:items-start md:justify-start md:pt-28 md:px-12 lg:min-h-[706px] lg:px-12 lg:pt-36 xl:px-16 2xl:pt-40">
         <div
           id="apply"
           className="scroll-mt-28 mx-auto w-full max-w-lg px-5 text-center md:mx-0 md:max-w-[900px] md:px-0 md:pt-16 md:text-left lg:pt-20"

@@ -16,7 +16,7 @@ import {
 const WHY_IPAG_ITEMS = [
   {
     title: 'Con người',
-    desc: 'Trao quyền và phát triển để mỗi cá nhân phát huy năng lực và tạo ra giá trị thực tiễn.',
+    desc: 'Trao quyền và tạo điều kiện để mỗi cá nhân phát huy năng lực và kiến tạo ảnh hưởng thực tiễn.',
     icon: '/home/why-ipag-icon-human.png',
   },
   {
@@ -63,8 +63,8 @@ export default function WhyIpagSection() {
               Capability Bank
             </h2>
             <p className="mt-5 text-[16px] leading-6 tracking-[0.32px] text-[#474747]">
-              Chúng tôi không chỉ tạo công việc. Chúng tôi xây dựng môi trường để năng lực con người
-              được phát triển bền vững và tạo ra giá trị thật.
+              Không chỉ tạo cơ hội việc làm - IPAG xây dựng môi trường để năng lực của bạn được phát
+              triển bền vững và tạo ra giá trị thực tế
             </p>
             <Link
               href="/ipag-insight"
