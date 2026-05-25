@@ -75,7 +75,7 @@ export const PATHWAYS = [
     titleWhite: 'LỘ TRÌNH CHO',
     titleAccent: ' LÃNH ĐẠO TẬP SỰ',
     description: [
-      'Chương trình đào tạo quản trị viên tập sự dành cho những tài năng trẻ xuất sắc, sẵn sàng bứt phá để trở thành những nhà,lãnh đạo tương lai của IPAG.',
+      'Trải nghiệm "khởi nghiệp" trong lòng doanh nghiệp - dành cho những ai khao khát thử thách bản thân, chủ động kiến tạo sự nghiệp của riêng mình.',
     ],
     quote: `"IPAG doesn't just hire. We co-build your future"`,
     steps: [

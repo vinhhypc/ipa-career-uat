@@ -282,23 +282,10 @@ export default function ChuongTrinhDaoTaoPage() {
       </section>
 
       <section className="relative overflow-hidden bg-[linear-gradient(-56deg,rgba(2,42,54,1)_0%,rgba(10,59,116,1)_100%)] py-16 md:py-20">
-        <div className="pointer-events-none absolute inset-x-0 top-0 flex h-[272px] justify-center opacity-30">
-          <div className="relative h-full w-full max-w-[1200px]">
-            <Image
-              src="/life-at-ipag/chuong-trinh-dao-tao/figma/training-stats-bg-7300f4.png"
-              alt=""
-              fill
-              className="object-contain"
-              sizes="(min-width: 1280px) 1200px, 100vw"
-              quality={100}
-            />
-          </div>
-        </div>
-        <div className="relative mx-auto max-w-[1440px] px-4 md:px-12">
-          <h2 className="sr-only">Số liệu đào tạo tại IPAG</h2>
+        <div className="relative mx-auto xl:mx-0 px-4 md:px-12">
           <div
             ref={trainingStatsRef}
-            className="mx-auto grid justify-items-center gap-10 md:grid-cols-2 xl:grid-cols-[repeat(4,184px)] xl:justify-center xl:gap-[121px]"
+            className="mx-auto grid justify-items-center gap-10 md:grid-cols-2 xl:grid-cols-[repeat(4,184px)] xl:justify-center xl:gap-16 2xl:gap-20"
           >
             {TRAINING_STATS.map((item, index) => (
               <article key={item.label} className="flex w-[184px] flex-col items-center gap-3">

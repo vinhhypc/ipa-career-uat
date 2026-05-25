@@ -1,15 +1,16 @@
 'use client';
 
-import Link from 'next/link';
 import { Check, ChevronDown } from 'lucide-react';
 import { useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 
 import { PATHWAYS } from './constants';
+import { useMaApplyModal } from './MaApplyModalProvider';
 import PathwayNumberRibbon from './PathwayNumberRibbon';
 
 export default function PathwaysSection() {
   const [openPathwayIndex, setOpenPathwayIndex] = useState<number | null>(null);
+  const { open } = useMaApplyModal();
 
   return (
     <section className="section-padding max-md:!py-11 bg-gradient-to-b from-[#fef6eb] to-white to-[72%] md:!py-20">
@@ -162,13 +163,15 @@ export default function PathwaysSection() {
             <p className="w-full text-center text-base font-bold uppercase leading-[22px] tracking-[0.5px] text-white md:text-2xl md:leading-[32px]">
               Bạn đã sẵn sàng?
             </p>
-            <Link
-              href="/we-look-for"
+            <button
+              type="button"
+              onClick={open}
               className="flex h-9 w-full cursor-pointer items-center justify-center rounded-full bg-gradient-to-br from-white to-[#fff1e1] px-3 py-2.5 text-sm font-bold leading-[1.4] text-[#070707] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-[1.04] hover:shadow-[0_8px_20px_rgba(0,0,0,0.18)] hover:brightness-105 active:translate-y-0 active:scale-100 active:shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] md:h-10 md:w-[220px] md:text-base md:hover:shadow-[0_10px_24px_rgba(0,0,0,0.15)]"
+              aria-haspopup="dialog"
             >
               <span className="md:hidden">NỘP HỒ SƠ NGAY</span>
               <span className="hidden md:inline">Nộp hồ sơ ngay</span>
-            </Link>
+            </button>
           </motion.div>
         </div>
       </div>

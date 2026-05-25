@@ -85,28 +85,25 @@ export default function FoundationSection() {
         className="object-cover object-center opacity-25 saturate-105"
         sizes="100vw"
       />
-      <div className="relative z-10 mx-auto w-full px-5 py-8 text-white md:px-8 lg:px-10 xl:px-20 xl:pt-[79px]">
+      <div className="relative z-10  mx-auto w-full px-5 py-8 text-white md:px-2 lg:px-4 xl:px-6 2xl:px-10 xl:pt-[79px]">
         <h2 className="text-center text-2xl font-bold uppercase leading-[1.35] tracking-[0.8px] md:text-3xl md:leading-[44px] lg:text-3xl lg:leading-[48px] xl:text-4xl xl:leading-[60px] xl:tracking-[1px]">
           Nền tảng cho những hành trình sự nghiệp bền vững
         </h2>
 
         <div
           ref={statsRef}
-          className="mx-auto mt-8 grid max-w-[399px] gap-10 md:mt-10 md:max-w-none md:grid-cols-3 xl:mt-[52px] xl:gap-x-8 "
+          className="mx-auto mt-8 grid max-w-[410px] gap-8 md:mt-10 md:max-w-6xl md:grid-cols-3 xl:mt-[52px] xl:max-w-7xl xl:gap-x-8 2xl:mx-0 2xl:max-w-none"
         >
           {FOUNDATION_STATS.map((item, index) => (
-            <article
-              key={item.label}
-              className="text-center md:min-w-0 xl:w-[399px] flex flex-col gap-2"
-            >
-              <p className="text-base font-normal uppercase leading-[20px] tracking-[0.16px] text-white/85 md:text-base md:leading-[20px]  xl:leading-[22.4px]">
-                {item.label}
-              </p>
-              <p className="mt-[2px] text-4xl font-extrabold leading-[1.15] text-[#fbc17b] tabular-nums md:text-3xl md:leading-[1.2] lg:text-4xl xl:text-4xl xl:leading-[52.8px]">
+            <article key={item.label} className="flex flex-col gap-2 text-center md:min-w-0">
+              <p className="text-4xl font-extrabold leading-[1.15] text-[#fbc17b] tabular-nums md:text-3xl md:leading-[1.2] lg:text-4xl xl:text-4xl xl:leading-[52.8px]">
                 <span className="inline-flex items-baseline justify-center whitespace-nowrap">
                   <span>{numberFormatter.format(animatedValues[index] ?? 0)}</span>
                   <span>{item.suffix}</span>
                 </span>
+              </p>
+              <p className="text-base font-normal uppercase leading-[20px] tracking-[0.16px] text-white/85 md:text-base md:leading-[20px] xl:leading-[22.4px]">
+                {item.label}
               </p>
               <p className="mx-auto max-w-[380px] text-xs leading-[20px] tracking-[0.16px] text-white/85 md:max-w-50 lg:max-w-72 xl:max-w-full md:line-clamp-2 md:text-sm md:leading-[20px] 2xl:max-w-none 2xl:line-clamp-none 2xl:text-base xl:leading-[22.4px]">
                 {item.desc}

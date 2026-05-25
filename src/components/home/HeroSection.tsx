@@ -42,7 +42,7 @@ export default function HeroSection() {
   );
 
   return (
-    <section className="relative flex min-h-[70svh] flex-col overflow-x-hidden bg-[#0a192f] pb-0 pt-0 md:block md:min-h-screen">
+    <section className="relative flex h-svh flex-col overflow-x-hidden bg-[#0a192f] pt-20 sm:pt-24 md:block md:h-auto md:min-h-screen md:pt-0">
       <div
         aria-hidden
         className="absolute inset-0 overflow-hidden md:inset-auto md:top-0 md:bottom-0 md:right-0 md:w-[54%]"
@@ -77,42 +77,44 @@ export default function HeroSection() {
         style={{ background: HERO_OVERLAY_GRADIENT_MOBILE }}
       />
 
-      <div className="section-content relative z-10 flex min-h-0 flex-1 flex-col items-stretch justify-center py-6 pt-16 sm:pt-20 md:min-h-[640px] md:flex-none md:items-start md:justify-start md:pt-28 md:px-12 lg:min-h-[706px] lg:px-12 lg:pt-36 xl:px-16 xl:pt-40">
-        <div
-          id="apply"
-          className="scroll-mt-28 mx-auto w-full max-w-lg px-5 text-center md:mx-0 md:max-w-[900px] md:px-0 md:pt-16 md:text-left lg:pt-20"
-        >
-          <h1 className="animate-[fade-right_700ms_ease-out_both] mb-4 text-2xl font-extrabold leading-[32px] tracking-[1px] text-white drop-shadow-md uppercase sm:leading-[38px] md:mb-7 md:text-3xl md:leading-[56px] md:tracking-[1.2px] lg:mb-9 lg:text-4xl lg:leading-[68px] lg:tracking-[2px] xl:text-5xl xl:leading-[80px]">
-            <span className="flex flex-col gap-1.5 md:hidden">
-              <span>
-                <strong>Cộng sự</strong> để
-              </span>
-              <span>
-                <strong>Trưởng thành</strong>
-              </span>
-              <span className="text-[#e8a04a]">
-                <strong>Đồng hành</strong> để <strong>bứt phá</strong>
-              </span>
-            </span>
-            <span className="hidden md:inline">
-              <strong>Cộng sự</strong> để <strong>trưởng thành</strong>
-              <br />
-              <span className="text-[#fbc17b]">
-                <strong>Đồng hành</strong> để <strong>bứt phá</strong>
-              </span>
-            </span>
-          </h1>
-          <p className="mb-5 text-sm leading-[22px] tracking-[0.14px] text-white md:mb-8 md:max-w-156 xl:max-w-2xl md:text-base md:leading-[28px] md:tracking-[0.16px] lg:mb-9 lg:text-lg lg:leading-[33px] lg:tracking-[0.18px]">
-            {descriptionContent}
-            {descriptionCaret}
-          </p>
-          <Link
-            href="/jobs"
-            className="inline-flex uppercase h-11 w-[min(100%,220px)] items-center justify-center gap-2 rounded-full bg-white px-4 text-sm font-bold uppercase tracking-wide text-[#2a2a2a] shadow-[0_4px_4px_rgba(0,0,0,0.25)] transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-[1.04] hover:shadow-[0_8px_20px_rgba(0,0,0,0.18)] hover:brightness-105 active:translate-y-0 active:scale-100 active:shadow-[0_4px_4px_rgba(0,0,0,0.25)] sm:w-[240px] md:h-12 md:w-[240px] md:normal-case md:tracking-normal md:bg-[linear-gradient(238deg,rgb(255,255,255)_34%,rgb(255,241,225)_103%)] md:px-3 md:py-2.5 md:text-base md:leading-[22px] md:text-[#474747] md:hover:shadow-[0_10px_24px_rgba(0,0,0,0.15)] lg:h-[52px] lg:w-[276px] lg:text-lg lg:leading-[25.2px]"
+      <div className="relative z-10 flex flex-1 px-4 md:px-12 lg:px-12 xl:px-16 2xl:px-20">
+        <div className="section-content flex min-h-0 w-full flex-col items-stretch justify-center py-8 sm:py-10 md:min-h-[640px] md:flex-none md:items-start md:justify-start md:py-6 md:pt-28 lg:min-h-[706px] lg:pt-36 xl:pt-40">
+          <div
+            id="apply"
+            className="scroll-mt-28 mx-auto w-full max-w-lg text-center md:mx-0 md:max-w-[900px] md:pt-16 md:text-left lg:pt-20"
           >
-            Ứng tuyển ngay
-            <ArrowRight className="size-4 shrink-0 md:size-6" strokeWidth={2} />
-          </Link>
+            <h1 className="animate-[fade-right_700ms_ease-out_both] mb-4 text-2xl font-extrabold leading-[32px] tracking-[1px] text-white drop-shadow-md uppercase sm:leading-[38px] md:mb-7 md:text-3xl md:leading-[56px] md:tracking-[1.2px] lg:mb-9 lg:text-4xl lg:leading-[68px] lg:tracking-[2px] xl:text-5xl xl:leading-[80px]">
+              <span className="flex flex-col gap-1.5 md:hidden">
+                <span>
+                  <strong>Cộng sự</strong> để
+                </span>
+                <span>
+                  <strong>Trưởng thành</strong>
+                </span>
+                <span className="text-[#e8a04a]">
+                  <strong>Đồng hành</strong> để <strong>bứt phá</strong>
+                </span>
+              </span>
+              <span className="hidden md:inline">
+                <strong>Cộng sự</strong> để <strong>trưởng thành</strong>
+                <br />
+                <span className="text-[#fbc17b]">
+                  <strong>Đồng hành</strong> để <strong>bứt phá</strong>
+                </span>
+              </span>
+            </h1>
+            <p className="mb-5 text-sm leading-[22px] tracking-[0.14px] text-white md:mb-8 md:max-w-156 xl:max-w-2xl md:text-base md:leading-[28px] md:tracking-[0.16px] lg:mb-9 lg:text-lg lg:leading-[33px] lg:tracking-[0.18px]">
+              {descriptionContent}
+              {descriptionCaret}
+            </p>
+            <Link
+              href="/jobs"
+              className="inline-flex uppercase h-11 w-[min(100%,220px)] items-center justify-center gap-2 rounded-full bg-white px-4 text-sm font-bold uppercase tracking-wide text-[#2a2a2a] shadow-[0_4px_4px_rgba(0,0,0,0.25)] transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-[1.04] hover:shadow-[0_8px_20px_rgba(0,0,0,0.18)] hover:brightness-105 active:translate-y-0 active:scale-100 active:shadow-[0_4px_4px_rgba(0,0,0,0.25)] sm:w-[240px] md:h-12 md:w-[240px] md:normal-case md:tracking-normal md:bg-[linear-gradient(238deg,rgb(255,255,255)_34%,rgb(255,241,225)_103%)] md:px-3 md:py-2.5 md:text-base md:leading-[22px] md:text-[#474747] md:hover:shadow-[0_10px_24px_rgba(0,0,0,0.15)] lg:h-[52px] lg:w-[276px] lg:text-lg lg:leading-[25.2px]"
+            >
+              Ứng tuyển ngay
+              <ArrowRight className="size-4 shrink-0 md:size-6" strokeWidth={2} />
+            </Link>
+          </div>
         </div>
       </div>
 
