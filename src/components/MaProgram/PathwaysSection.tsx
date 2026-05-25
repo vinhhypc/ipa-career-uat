@@ -151,7 +151,7 @@ export default function PathwaysSection() {
           })}
 
           <motion.div
-            className="flex w-full flex-col items-center gap-4 rounded-[28px] px-7 py-5 shadow-[0px_4px_15px_0px_rgba(0,0,0,0.15)] md:rounded-[32px] md:gap-4 md:px-7 md:py-5"
+            className="flex h-fit w-full flex-col items-center gap-4 rounded-[28px] px-7 py-5 shadow-[0px_4px_15px_0px_rgba(0,0,0,0.15)] md:rounded-[32px] md:gap-4 md:px-7 md:py-5"
             style={{
               backgroundImage: 'linear-gradient(-84.74deg, #3192e3 18.66%, #01386f 101.28%)',
             }}

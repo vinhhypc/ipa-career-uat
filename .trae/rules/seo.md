@@ -1,0 +1,1 @@
+1. Các page nên ưu tiên server side rendering

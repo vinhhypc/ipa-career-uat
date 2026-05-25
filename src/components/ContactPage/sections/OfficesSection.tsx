@@ -16,7 +16,7 @@ export default function OfficesSection() {
         whileInView="show"
         viewport={{ once: true, amount: 0.22 }}
       >
-        <div className="mx-auto grid w-full max-w-[1115px] gap-10 lg:grid-cols-[1fr_420px] lg:items-start">
+        <div className="mx-auto grid w-full max-w-full gap-10 lg:grid-cols-[1fr_420px] lg:items-start">
           <motion.div className="grid gap-8 md:grid-cols-2" variants={ITEM_REVEAL}>
             <div>
               <p className="text-2xl font-extrabold uppercase text-[#145194] after:mt-2 after:block after:w-21 after:border-b-2 after:border-[#145194]">

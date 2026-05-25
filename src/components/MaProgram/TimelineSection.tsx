@@ -19,11 +19,11 @@ export default function TimelineSection() {
             THE JOURNEY
           </p>
           <h2 className="text-xl font-bold uppercase leading-[26px] text-[#292929] md:text-4xl md:leading-[48px] md:tracking-[1px]">
-            Timeline 24 tháng
+            Lộ trình kiến tạo sự nghiệp
           </h2>
         </motion.div>
 
-        <div className="relative flex flex-col gap-6 rounded-[20px] md:flex-row md:gap-5">
+        <div className="relative flex flex-col gap-6 rounded-[20px] md:flex-row md:gap-5 xl:gap-10">
           {TIMELINE.map((item, i) => {
             const isLast = i === TIMELINE.length - 1;
             return (

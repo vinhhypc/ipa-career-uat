@@ -5,6 +5,7 @@ export type ChuyenNhaIpagCategoryKey =
   | 'hoat-dong-su-kien';
 
 export type ChuyenNhaIpagPost = {
+  id?: string;
   slug: string;
   title: string;
   excerpt: string;

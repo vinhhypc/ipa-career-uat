@@ -7,11 +7,20 @@ import {
   CHUYEN_NHA_IPAG_POSTS,
   type ChuyenNhaIpagPost,
 } from '@/components/life-at-ipag/ChuyenNhaIpagData';
+import SafeHtml from '@/components/life-at-ipag/chuyen-nha-ipag/SafeHtml';
 
-export default function ChuyenNhaIpagPostPage({ post }: { post: ChuyenNhaIpagPost }) {
-  const related = post.relatedSlugs
-    .map((slug) => CHUYEN_NHA_IPAG_POSTS.find((p) => p.slug === slug) ?? null)
-    .filter((p): p is ChuyenNhaIpagPost => Boolean(p));
+export default function ChuyenNhaIpagPostPage({
+  post,
+  htmlContent,
+}: {
+  post: ChuyenNhaIpagPost;
+  htmlContent?: string;
+}) {
+  const related = post.relatedSlugs?.length
+    ? post.relatedSlugs
+        .map((slug) => CHUYEN_NHA_IPAG_POSTS.find((p) => p.slug === slug) ?? null)
+        .filter((p): p is ChuyenNhaIpagPost => Boolean(p) && Boolean(p?.id))
+    : [];
 
   return (
     <div
@@ -54,37 +63,50 @@ export default function ChuyenNhaIpagPostPage({ post }: { post: ChuyenNhaIpagPos
               <div className="text-xs font-semibold text-[#8a97a6]">{post.dateDetail}</div>
             </div>
 
-            <div className="mt-7 overflow-hidden rounded-[22px] border border-[#edf1f5] bg-white shadow-[0_10px_24px_rgba(0,0,0,0.10)] md:mt-10">
-              <div className="relative aspect-[16/9] md:aspect-[21/9]">
-                <Image
-                  src={post.heroImageSrc}
-                  alt=""
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 1115px"
-                />
+            {post.heroImageSrc ? (
+              <div className="mt-7 overflow-hidden rounded-[22px] border border-[#edf1f5] bg-white shadow-[0_10px_24px_rgba(0,0,0,0.10)] md:mt-10">
+                <div className="relative aspect-[16/9] md:aspect-[21/9]">
+                  <Image
+                    src={post.heroImageSrc}
+                    alt=""
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 100vw, 1115px"
+                  />
+                </div>
               </div>
-            </div>
+            ) : null}
 
-            <div className="mt-8 space-y-5 text-sm leading-7 text-[#6b7280] md:mt-10 md:text-sm md:leading-8">
-              {post.body.map((p, idx) => (
-                <p key={idx}>{p}</p>
-              ))}
-            </div>
-
-            <div className="mt-10 h-px w-full bg-gradient-to-r from-transparent via-[#e5e7eb] to-transparent md:mt-14" />
-
-            <div className="mt-10 md:mt-12">
-              <h2 className="text-base font-extrabold uppercase tracking-[1px] text-[#292929] md:text-lg">
-                BÀI VIẾT LIÊN QUAN
-              </h2>
-
-              <div className="mt-6 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-                {related.slice(0, 3).map((p) => (
-                  <RelatedCard key={p.slug} post={p} />
+            {htmlContent ? (
+              <SafeHtml
+                html={htmlContent}
+                className="mt-8 text-sm leading-7 text-[#6b7280] md:mt-10 md:text-sm md:leading-8 [&_img]:max-w-full [&_img]:h-auto [&_img]:rounded-[18px] [&_img]:border [&_img]:border-[#edf1f5] [&_img]:shadow-[0_8px_22px_rgba(0,0,0,0.08)] [&_p]:mb-5 [&_ul]:list-disc [&_ul]:pl-5 [&_ol]:list-decimal [&_ol]:pl-5 [&_a]:text-[#145194] [&_a:hover]:text-[#0C71C7]"
+              />
+            ) : (
+              <div className="mt-8 space-y-5 text-sm leading-7 text-[#6b7280] md:mt-10 md:text-sm md:leading-8">
+                {post.body.map((p, idx) => (
+                  <p key={idx}>{p}</p>
                 ))}
               </div>
-            </div>
+            )}
+
+            {related.length ? (
+              <>
+                <div className="mt-10 h-px w-full bg-gradient-to-r from-transparent via-[#e5e7eb] to-transparent md:mt-14" />
+
+                <div className="mt-10 md:mt-12">
+                  <h2 className="text-base font-extrabold uppercase tracking-[1px] text-[#292929] md:text-lg">
+                    BÀI VIẾT LIÊN QUAN
+                  </h2>
+
+                  <div className="mt-6 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+                    {related.slice(0, 3).map((p) => (
+                      <RelatedCard key={p.slug} post={p} />
+                    ))}
+                  </div>
+                </div>
+              </>
+            ) : null}
           </div>
         </div>
       </section>
@@ -119,7 +141,9 @@ function RelatedCard({ post }: { post: ChuyenNhaIpagPost }) {
         <p className="mt-3 line-clamp-3 text-sm leading-6 text-[#6b7280]">{post.excerpt}</p>
 
         <Link
-          href={`/life-at-ipag/chuyen-nha-ipag/${encodeURIComponent(post.slug)}`}
+          href={`/life-at-ipag/chuyen-nha-ipag/${encodeURIComponent(
+            post.id ? `${post.slug}-${post.id}` : post.slug,
+          )}`}
           className="group mt-4 inline-flex items-center gap-1 text-sm font-semibold transition duration-200 hover:scale-105 text-[#145194] transition-colors duration-300 ease-out hover:text-[#0C71C7] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0C71C7]/30"
         >
           Xem chi tiết{' '}

@@ -1,26 +1,72 @@
-'use client';
-
 import Image from 'next/image';
 import Link from 'next/link';
-import { useMemo, useState } from 'react';
 import { ArrowRight } from 'lucide-react';
-import { motion } from 'motion/react';
 
 import LifeAtIpagBreadcrumbs from '@/components/life-at-ipag/LifeAtIpagBreadcrumbs';
 import {
   CHUYEN_NHA_IPAG_CATEGORIES,
-  CHUYEN_NHA_IPAG_POSTS,
   type ChuyenNhaIpagCategoryKey,
   type ChuyenNhaIpagPost,
 } from '@/components/life-at-ipag/ChuyenNhaIpagData';
+import {
+  fetchPostsService,
+  mapApiPostToChuyenNhaIpagPost,
+} from '@/components/life-at-ipag/chuyen-nha-ipag/api';
 
-export default function ChuyenNhaIpagListPage() {
-  const [active, setActive] = useState<ChuyenNhaIpagCategoryKey>('all');
+type SearchParams = Record<string, string | string[] | undefined>;
 
-  const filtered = useMemo(() => {
-    if (active === 'all') return CHUYEN_NHA_IPAG_POSTS;
-    return CHUYEN_NHA_IPAG_POSTS.filter((p) => p.categoryKey === active);
-  }, [active]);
+function normalizeStringParam(value: string | string[] | undefined): string | undefined {
+  if (Array.isArray(value)) return value[0];
+  return value;
+}
+
+function isCategoryKey(value: string | undefined): value is ChuyenNhaIpagCategoryKey {
+  if (!value) return false;
+  return CHUYEN_NHA_IPAG_CATEGORIES.some((c) => c.key === value);
+}
+
+function buildListHref(params: { category: ChuyenNhaIpagCategoryKey; page: number }) {
+  const search = new URLSearchParams();
+  if (params.category && params.category !== 'all') {
+    search.set('category', params.category);
+  }
+  if (params.page && params.page > 1) {
+    search.set('page', String(params.page));
+  }
+  const qs = search.toString();
+  return qs ? `/life-at-ipag/chuyen-nha-ipag?${qs}` : '/life-at-ipag/chuyen-nha-ipag';
+}
+
+export default async function ChuyenNhaIpagListPage({
+  searchParams,
+}: {
+  searchParams?: SearchParams;
+}) {
+  const pageSize = 6;
+
+  const pageParam = normalizeStringParam(searchParams?.page);
+  const categoryParam = normalizeStringParam(searchParams?.category);
+
+  const requestedPage = Math.max(1, Number.parseInt(pageParam ?? '1', 10) || 1);
+  const active: ChuyenNhaIpagCategoryKey = isCategoryKey(categoryParam) ? categoryParam : 'all';
+
+  let resolvedPage = requestedPage;
+  let result = await fetchPostsService({ page: resolvedPage, category: active, pageSize });
+  if (resolvedPage > (result.totalPages || 1) && (result.totalPages || 1) > 0) {
+    resolvedPage = result.totalPages || 1;
+    result = await fetchPostsService({ page: resolvedPage, category: active, pageSize });
+  }
+
+  const totalPages = result.totalPages || 1;
+  const totalElements = result.totalElements || 0;
+  const posts: ChuyenNhaIpagPost[] = result.posts
+    ? result.posts.map(mapApiPostToChuyenNhaIpagPost)
+    : [];
+  const hasMore = resolvedPage < totalPages;
+  const showEndMessage = !hasMore && resolvedPage > 1;
+  const shownCount = totalElements
+    ? Math.min(resolvedPage * pageSize, totalElements)
+    : posts.length;
 
   return (
     <div
@@ -47,33 +93,61 @@ export default function ChuyenNhaIpagListPage() {
                 {CHUYEN_NHA_IPAG_CATEGORIES.map((c) => {
                   const isActive = c.key === active;
                   return (
-                    <button
+                    <Link
                       key={c.key}
-                      type="button"
-                      onClick={() => setActive(c.key)}
+                      href={buildListHref({ category: c.key, page: 1 })}
                       className={`rounded-full border cursor-pointer px-4 py-2 text-xs font-semibold transition-all duration-200 ease-out hover:-translate-y-0.5 md:px-5 md:py-2.5 md:text-sm ${
                         isActive
                           ? 'border-[#145194] bg-white text-[#145194] shadow-[0_8px_18px_rgba(20,81,148,0.10)] hover:shadow-[0_10px_22px_rgba(20,81,148,0.14)]'
                           : 'border-[#d6dbe3] bg-white text-[#6b7280] hover:border-[#145194]/50 hover:text-[#145194] hover:shadow-[0_8px_18px_rgba(20,81,148,0.10)]'
                       }`}
+                      aria-current={isActive ? 'page' : undefined}
                     >
                       {c.label}
-                    </button>
+                    </Link>
                   );
                 })}
               </div>
             </div>
 
-            <motion.div
-              className="mt-10 grid gap-5 md:grid-cols-2 lg:mt-12 lg:grid-cols-3"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.45, ease: 'easeOut' }}
-            >
-              {filtered.map((post) => (
-                <PostCard key={post.slug} post={post} />
-              ))}
-            </motion.div>
+            {posts.length === 0 ? (
+              <div className="mt-16 flex flex-col items-center justify-center gap-4">
+                <div className="relative h-40 w-full max-w-3xl md:h-48 lg:h-56">
+                  <Image
+                    src="/empty.png"
+                    alt="Chưa có bài viết nào"
+                    fill
+                    className="object-contain"
+                    sizes="(max-width: 768px) 100vw, 768px"
+                  />
+                </div>
+              </div>
+            ) : (
+              <>
+                <div className="mt-10 grid gap-5 md:grid-cols-2 lg:mt-12 lg:grid-cols-3">
+                  {posts.map((post) => (
+                    <PostCard key={post.slug} post={post} />
+                  ))}
+                </div>
+
+                <div className="mt-10 flex flex-col items-center gap-4 md:mt-12">
+                  <p className="text-sm text-[#6b7280]">
+                    Hiển thị {shownCount} / {totalElements} bài viết
+                  </p>
+
+                  {hasMore ? (
+                    <Link
+                      href={buildListHref({ category: active, page: resolvedPage + 1 })}
+                      className="inline-flex items-center justify-center rounded-full border border-[#145194] bg-white px-6 py-2.5 text-sm font-semibold text-[#145194] shadow-[0_8px_18px_rgba(20,81,148,0.10)] transition-all duration-200 ease-out hover:-translate-y-0.5 hover:shadow-[0_10px_22px_rgba(20,81,148,0.14)]"
+                    >
+                      Xem thêm
+                    </Link>
+                  ) : showEndMessage ? (
+                    <p className="text-sm text-[#6b7280]">Bạn đã xem hết bài viết</p>
+                  ) : null}
+                </div>
+              </>
+            )}
           </div>
         </div>
       </section>
@@ -87,7 +161,7 @@ function CenteredHeading({ title }: { title: string }) {
       <h1 className="text-3xl font-extrabold uppercase tracking-[1px] text-[#292929] md:text-3xl md:leading-[40px]">
         {title}
       </h1>
-      <div className="flex items-center justify-center gap-4 mt-4">
+      <div className="mt-4 flex items-center justify-center gap-4">
         <span className="h-[1.5px] w-24 bg-[#002B5B]" />
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -101,7 +175,6 @@ function CenteredHeading({ title }: { title: string }) {
             fill="#002B5B"
           />
         </svg>
-
         <span className="h-[1.5px] w-24 bg-[#002B5B]" />
       </div>
     </div>
@@ -110,15 +183,21 @@ function CenteredHeading({ title }: { title: string }) {
 
 function PostCard({ post }: { post: ChuyenNhaIpagPost }) {
   return (
-    <article className="overflow-hidden rounded-[18px] border border-[#edf1f5] bg-white shadow-[0_8px_22px_rgba(0,0,0,0.10)]">
+    <article className="group overflow-hidden rounded-[18px] border border-[#edf1f5] bg-white shadow-[0_8px_22px_rgba(0,0,0,0.10)] transition duration-300 ease-out hover:scale-[1.02] hover:brightness-105 focus-within:scale-[1.02] focus-within:brightness-105">
       <div className="relative aspect-[16/9]">
-        <Image
-          src={post.coverImageSrc}
-          alt=""
-          fill
-          className="object-cover"
-          sizes="(max-width: 1024px) 100vw, 360px"
-        />
+        {post.coverImageSrc ? (
+          <Image
+            src={post.coverImageSrc}
+            alt={post.title}
+            fill
+            className="object-cover"
+            sizes="(max-width: 1024px) 100vw, 360px"
+          />
+        ) : (
+          <div className="absolute inset-0 flex items-center justify-center bg-gray-100">
+            <span className="text-sm text-gray-400">Không có hình ảnh</span>
+          </div>
+        )}
       </div>
 
       <div className="p-4 md:p-5">
@@ -132,11 +211,15 @@ function PostCard({ post }: { post: ChuyenNhaIpagPost }) {
         <h2 className="mt-4 line-clamp-2 text-base font-extrabold text-[#292929] md:text-lg">
           {post.title}
         </h2>
-        <p className="mt-2 line-clamp-3 text-sm leading-6 text-[#6b7280]">{post.excerpt}</p>
+        {post.excerpt && (
+          <p className="mt-2 line-clamp-3 text-sm leading-6 text-[#6b7280]">{post.excerpt}</p>
+        )}
 
         <Link
-          href={`/life-at-ipag/chuyen-nha-ipag/${encodeURIComponent(post.slug)}`}
-          className="mt-2 inline-flex items-center gap-1 text-sm font-semibold text-[#145194] hover:text-[#0C71C7] transition duration-200 hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0C71C7]/30"
+          href={`/life-at-ipag/chuyen-nha-ipag/${encodeURIComponent(
+            post.id ? `${post.slug}-${post.id}` : post.slug,
+          )}`}
+          className="mt-2 inline-flex items-center gap-1 text-sm font-semibold text-[#145194] transition duration-200 hover:text-[#0C71C7] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0C71C7]/30"
         >
           Xem chi tiết <ArrowRight className="size-4" />
         </Link>

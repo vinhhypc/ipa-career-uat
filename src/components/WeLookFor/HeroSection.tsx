@@ -1,60 +1,101 @@
 'use client';
 
 import Image from 'next/image';
-import { ChevronDown, Search } from 'lucide-react';
-import { useMemo, useRef, useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { Search } from 'lucide-react';
+import { useMemo, useState } from 'react';
 
+import FilterSelect from '@/components/common/FilterSelect';
 import { ASSETS } from './constants';
 
-export default function HeroSection() {
-  const filters = useMemo(
+type HeroFilterOption = { label: string; value: string };
+type HeroSectionProps = {
+  codebookOptions: Partial<
+    Record<'domain' | 'business' | 'program' | 'location', HeroFilterOption[]>
+  >;
+};
+
+type HeroFilterConfig = {
+  key: string;
+  defaultLabel: string;
+  textSize: string;
+  options?: HeroFilterOption[];
+  defaultOption?: HeroFilterOption;
+};
+
+export default function HeroSection({ codebookOptions }: HeroSectionProps) {
+  const router = useRouter();
+  const filters = useMemo<HeroFilterConfig[]>(
     () => [
       {
         key: 'domain',
         defaultLabel: 'Tất cả Domain',
         textSize: 'text-sm',
-        options: [
-          { label: 'Tất cả Domain', value: 'all' },
-          { label: 'Chuyển đổi số', value: 'dx' },
-        ],
+        options: codebookOptions.domain ?? [],
+        defaultOption: { label: 'Tất cả Domain', value: 'all' },
       },
       {
         key: 'business',
-        defaultLabel: 'Business',
+        defaultLabel: 'Tất cả Business Line',
         textSize: 'text-base',
-        options: [
-          { label: 'Business', value: 'business' },
-          { label: 'Tài chính', value: 'finance' },
-        ],
+        options: codebookOptions.business ?? [],
+        defaultOption: { label: 'Business', value: 'all' },
       },
       {
         key: 'program',
-        defaultLabel: 'Program',
+        defaultLabel: 'Tất cả Program Line',
         textSize: 'text-base',
-        options: [
-          { label: 'Program', value: 'program' },
-          { label: 'MA Program', value: 'ma' },
-        ],
+        options: codebookOptions.program ?? [],
+        defaultOption: { label: 'Program', value: 'all' },
       },
       {
         key: 'location',
         defaultLabel: 'Toàn quốc',
         textSize: 'text-base',
-        options: [
-          { label: 'Toàn quốc', value: 'nationwide' },
-          { label: 'Hà Nội', value: 'hanoi' },
-        ],
+        options: codebookOptions.location ?? [],
+        defaultOption: { label: 'Toàn quốc', value: 'all' },
       },
     ],
-    [],
+    [
+      codebookOptions.business,
+      codebookOptions.domain,
+      codebookOptions.location,
+      codebookOptions.program,
+    ],
   );
 
   const [openFilter, setOpenFilter] = useState<string | null>(null);
+  const [keyword, setKeyword] = useState('');
   const [selected, setSelected] = useState<Record<string, string>>(() =>
-    Object.fromEntries(filters.map((filter) => [filter.key, filter.options[0]?.value ?? ''])),
+    Object.fromEntries(
+      filters.map((filter) => [
+        filter.key,
+        filter.defaultOption?.value ?? filter.options?.[0]?.value ?? '',
+      ]),
+    ),
   );
 
-  const filterWrapRef = useRef<HTMLDivElement | null>(null);
+  const handleSubmit = () => {
+    const params = new URLSearchParams();
+
+    const domain = selected.domain;
+    if (domain && domain !== 'all') params.set('domain', domain);
+
+    const businessLine = selected.business;
+    if (businessLine && businessLine !== 'all') params.set('businessLine', businessLine);
+
+    const program = selected.program;
+    if (program && program !== 'all') params.set('program', program);
+
+    const workAddress = selected.location;
+    if (workAddress && workAddress !== 'all') params.set('workAddress', workAddress);
+
+    const name = keyword.trim();
+    if (name) params.set('name', name);
+
+    const queryString = params.toString();
+    router.push(queryString ? `/jobs?${queryString}` : '/jobs');
+  };
 
   return (
     <section className="section-padding !pt-8 !pb-11 bg-[#faf9f7] lg:!py-20">
@@ -95,7 +136,10 @@ export default function HeroSection() {
 
             <form
               className="relative flex w-full flex-col gap-4 lg:gap-7"
-              onSubmit={(e) => e.preventDefault()}
+              onSubmit={(e) => {
+                e.preventDefault();
+                handleSubmit();
+              }}
             >
               <label className="sr-only" htmlFor="job-search">
                 Tìm kiếm công việc
@@ -110,69 +154,29 @@ export default function HeroSection() {
                   id="job-search"
                   type="search"
                   placeholder="Tìm kiếm công việc"
+                  value={keyword}
+                  onChange={(e) => setKeyword(e.target.value)}
                   className="min-w-0 flex-1 bg-transparent text-sm leading-[1.4] text-[#474747] outline-none placeholder:text-[#707070] lg:text-base"
                 />
               </div>
 
-              <div
-                ref={filterWrapRef}
-                className="grid w-full grid-cols-1 gap-4 md:grid-cols-2 md:gap-5 xl:flex xl:flex-row xl:gap-5"
-              >
+              <div className="grid w-full grid-cols-1 gap-4 md:grid-cols-2 md:gap-5 xl:flex xl:flex-row xl:gap-5">
                 {filters.map((filter) => {
-                  const selectedValue = selected[filter.key];
-                  const selectedLabel =
-                    filter.options.find((opt) => opt.value === selectedValue)?.label ??
-                    filter.defaultLabel;
-                  const isOpen = openFilter === filter.key;
-
                   return (
-                    <div key={filter.key} className="relative w-full xl:flex-1">
-                      <button
-                        type="button"
-                        className={`flex h-10 w-full cursor-pointer items-center justify-between rounded-lg border border-[rgba(7,7,7,0.18)] bg-white px-3 py-2.5 text-left font-medium leading-[1.4] text-[#474747] transition-colors duration-200 hover:border-[rgba(0,43,91,0.35)] hover:bg-white/95 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0c71c7]/25 lg:min-h-12 lg:px-4 lg:py-2.5 lg:text-base ${filter.textSize} lg:!text-base`}
-                        aria-haspopup="listbox"
-                        aria-expanded={isOpen}
-                        onClick={() =>
-                          setOpenFilter((prev) => (prev === filter.key ? null : filter.key))
-                        }
-                      >
-                        <span className="truncate">{selectedLabel}</span>
-                        <ChevronDown
-                          className={`size-7 shrink-0 text-[#474747] transition-transform duration-200 ${
-                            isOpen ? 'rotate-180' : ''
-                          }`}
-                          strokeWidth={1.75}
-                        />
-                      </button>
-
-                      {isOpen ? (
-                        <div
-                          role="listbox"
-                          className="absolute left-0 top-full z-20 mt-2 w-full overflow-hidden rounded-lg border border-[rgba(7,7,7,0.18)] bg-white shadow-[0px_12px_32px_0px_rgba(0,43,91,0.18)]"
-                        >
-                          {filter.options.map((opt) => {
-                            const isSelected = opt.value === selectedValue;
-                            return (
-                              <button
-                                key={opt.value}
-                                type="button"
-                                role="option"
-                                aria-selected={isSelected}
-                                className={`w-full px-3 py-2.5 text-left text-sm leading-[1.4] text-[#474747] transition-colors duration-150 hover:bg-black/5 lg:px-4 lg:text-base ${
-                                  isSelected ? 'bg-black/5 font-semibold' : 'font-medium'
-                                }`}
-                                onClick={() => {
-                                  setSelected((prev) => ({ ...prev, [filter.key]: opt.value }));
-                                  setOpenFilter(null);
-                                }}
-                              >
-                                {opt.label}
-                              </button>
-                            );
-                          })}
-                        </div>
-                      ) : null}
-                    </div>
+                    <FilterSelect
+                      key={filter.key}
+                      selectKey={filter.key}
+                      openKey={openFilter}
+                      setOpenKey={setOpenFilter}
+                      value={selected[filter.key]}
+                      onChange={(nextValue) =>
+                        setSelected((prev) => ({ ...prev, [filter.key]: nextValue }))
+                      }
+                      defaultLabel={filter.defaultLabel}
+                      textSize={filter.textSize}
+                      options={filter.options}
+                      defaultOption={filter.defaultOption}
+                    />
                   );
                 })}
               </div>

@@ -39,11 +39,11 @@ export default function JobDetail({ id }: { id: string }) {
             Chuyển đổi số
           </div>
 
-          <h1 className="text-3xl leading-[38px] font-bold tracking-[0.5px] text-[#292929] lg:text-4xl lg:leading-[48px] lg:tracking-[1px]">
+          <h1 className="text-3xl leading-[38px] font-bold tracking-[0.5px] text-[#292929] lg:text-3xl lg:leading-[40px] lg:tracking-[0.5px] 2xl:text-4xl 2xl:leading-[48px] 2xl:tracking-[1px]">
             Chuyên Viên Phân Tích Nghiệp Vụ (Digital BA)
           </h1>
 
-          <div className="mt-3 flex flex-col gap-1.5 text-sm leading-[22px] text-[#474747] lg:mt-2 lg:flex-row lg:items-center lg:gap-4 lg:text-base lg:leading-[26px]">
+          <div className="mt-3 flex flex-col gap-1.5 text-sm leading-[22px] text-[#474747] lg:mt-2 lg:flex-row lg:items-center lg:gap-3 lg:text-sm lg:leading-[24px] 2xl:gap-4 2xl:text-base 2xl:leading-[26px]">
             <div className="flex items-center gap-1">
               <BriefcaseBusiness className="size-[18px] text-[#707070] lg:size-5" />
               <p>
@@ -66,25 +66,25 @@ export default function JobDetail({ id }: { id: string }) {
             </div>
           </div>
 
-          <div className="mt-6 grid gap-5 lg:mt-7 lg:grid-cols-[minmax(0,953px)_minmax(0,1fr)] lg:gap-5">
-            <div className="space-y-6">
+          <div className="mt-6 grid gap-5 lg:mt-7 lg:grid-cols-[minmax(0,640px)_minmax(320px,1fr)] lg:gap-5 xl:grid-cols-[minmax(0,700px)_minmax(320px,1fr)] 2xl:grid-cols-[minmax(0,953px)_minmax(0,1fr)]">
+            <div className="space-y-6 lg:space-y-5 2xl:space-y-6">
               <DetailCard title="Chi tiết vai trò & Trách nhiệm">
-                <p className="text-sm leading-[24px] text-[#474747] lg:text-lg lg:leading-[28px]">
+                <p className="text-sm leading-[24px] text-[#474747] lg:text-base lg:leading-[26px] 2xl:text-lg 2xl:leading-[28px]">
                   IPAS là trụ cột Công nghệ & Nền tảng của hệ sinh thái IPAG - dẫn dắt chuyển đổi số
                   và xây dựng sản phẩm số cho toàn hệ sinh thái: AnVie, VNDGo, PTICare.
                 </p>
-                <div className="mt-5 space-y-6 lg:space-y-8">
+                <div className="mt-5 space-y-6 lg:space-y-6 2xl:space-y-8">
                   {DETAIL_SECTIONS.map((section, index) => (
                     <div key={section.title} className="space-y-2">
                       <div className="flex items-center gap-3">
-                        <div className="flex size-8 items-center justify-center rounded-full bg-[#d9e6f2] text-sm font-bold text-[#002b5b] lg:size-10 lg:text-base">
+                        <div className="flex size-8 items-center justify-center rounded-full bg-[#d9e6f2] text-sm font-bold text-[#002b5b] lg:size-9 lg:text-sm 2xl:size-10 2xl:text-base">
                           {index + 1}
                         </div>
-                        <h3 className="text-base leading-[24px] font-bold text-[#292929] lg:text-lg lg:leading-[28px]">
+                        <h3 className="text-base leading-[24px] font-bold text-[#292929] lg:text-base lg:leading-[26px] 2xl:text-lg 2xl:leading-[28px]">
                           {section.title}
                         </h3>
                       </div>
-                      <ul className="space-y-1.5 pl-6 text-sm leading-[24px] text-[#474747] lg:text-base lg:leading-[28px]">
+                      <ul className="space-y-1.5 pl-6 text-sm leading-[24px] text-[#474747] lg:text-sm lg:leading-[26px] 2xl:text-base 2xl:leading-[28px]">
                         {section.items.map((item) => (
                           <li key={item} className="list-disc">
                             {item}
@@ -97,13 +97,13 @@ export default function JobDetail({ id }: { id: string }) {
               </DetailCard>
 
               <DetailCard title="Yêu cầu">
-                <div className="space-y-6 lg:space-y-8">
+                <div className="space-y-6 lg:space-y-6 2xl:space-y-8">
                   {REQUIREMENTS.map((section) => (
                     <div key={section.title}>
-                      <h3 className="text-base leading-[24px] font-bold text-[#292929] lg:text-lg lg:leading-[28px]">
+                      <h3 className="text-base leading-[24px] font-bold text-[#292929] lg:text-base lg:leading-[26px] 2xl:text-lg 2xl:leading-[28px]">
                         {section.title}
                       </h3>
-                      <ul className="mt-1.5 space-y-1 pl-0 text-sm leading-[24px] text-[#474747] lg:text-base lg:leading-[28px]">
+                      <ul className="mt-1.5 space-y-1 pl-0 text-sm leading-[24px] text-[#474747] lg:text-sm lg:leading-[26px] 2xl:text-base 2xl:leading-[28px]">
                         {section.items.map((item) => (
                           <li key={item} className="flex items-start gap-2">
                             <Check className="mt-1 size-4 shrink-0 text-[#0d5ba8]" />
@@ -117,7 +117,7 @@ export default function JobDetail({ id }: { id: string }) {
               </DetailCard>
 
               <DetailCard title="Cơ hội">
-                <div className="space-y-5 lg:space-y-8">
+                <div className="space-y-5 lg:space-y-6 2xl:space-y-8">
                   {OPPORTUNITIES.map((item) => {
                     const Icon = item.icon;
                     return (
@@ -126,10 +126,10 @@ export default function JobDetail({ id }: { id: string }) {
                           <Icon className="size-5 text-[#002b5b]" />
                         </div>
                         <div>
-                          <h3 className="text-base leading-[24px] font-bold text-[#292929] lg:text-lg lg:leading-[28px]">
+                          <h3 className="text-base leading-[24px] font-bold text-[#292929] lg:text-base lg:leading-[26px] 2xl:text-lg 2xl:leading-[28px]">
                             {item.title}
                           </h3>
-                          <p className="text-sm leading-[22px] text-[#474747] lg:text-base lg:leading-[22px]">
+                          <p className="text-sm leading-[22px] text-[#474747] lg:text-sm lg:leading-[22px] 2xl:text-base 2xl:leading-[22px]">
                             {item.description}
                           </p>
                         </div>

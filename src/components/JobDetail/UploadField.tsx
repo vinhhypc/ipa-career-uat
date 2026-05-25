@@ -1,20 +1,29 @@
 'use client';
 
 import { Upload } from 'lucide-react';
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 
 type UploadFieldProps = {
   label: string;
   hint: string;
   id: string;
+  file: File | null;
+  onFileChange: (file: File | null) => void;
+  error?: string;
 };
 
-export default function UploadField({ label, hint, id }: UploadFieldProps) {
+export default function UploadField({
+  label,
+  hint,
+  id,
+  file,
+  onFileChange,
+  error,
+}: UploadFieldProps) {
   const inputRef = useRef<HTMLInputElement>(null);
-  const [fileName, setFileName] = useState<string | null>(null);
 
-  const handleFile = (file: File | undefined) => {
-    if (file) setFileName(file.name);
+  const handleFile = (selectedFile: File | undefined) => {
+    onFileChange(selectedFile ?? null);
   };
 
   return (
@@ -38,8 +47,8 @@ export default function UploadField({ label, hint, id }: UploadFieldProps) {
           onChange={(e) => handleFile(e.target.files?.[0])}
         />
         <Upload className="size-10 text-[#0d5ba8]" />
-        {fileName ? (
-          <p className="text-sm font-bold leading-[1.2] text-[#292929]">{fileName}</p>
+        {file ? (
+          <p className="text-sm font-bold leading-[1.2] text-[#292929]">{file.name}</p>
         ) : (
           <>
             <p className="text-sm font-bold leading-[1.2] text-[#292929]">
@@ -49,6 +58,7 @@ export default function UploadField({ label, hint, id }: UploadFieldProps) {
           </>
         )}
       </div>
+      {error ? <p className="text-sm leading-normal text-red-600">{error}</p> : null}
     </div>
   );
 }

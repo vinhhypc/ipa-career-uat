@@ -31,7 +31,7 @@ const CAREER_GROUP_ITEMS: CareerGroupItem[] = [
     tag: 'FRESH',
     iconSrc: '/home/career-icon-ma.svg',
     iconHasOwnBackground: true,
-    learnMoreHref: '/ma-program',
+    learnMoreHref: '/we-look-for/ma-program',
   },
   {
     title: 'Specialist Track',
@@ -39,7 +39,7 @@ const CAREER_GROUP_ITEMS: CareerGroupItem[] = [
     tag: 'SENIOR',
     iconSrc: '/home/briefcase.png',
     iconHasOwnBackground: true,
-    learnMoreHref: '/specialist-track',
+    learnMoreHref: '/we-look-for/specialist-track',
   },
   {
     title: 'Leadership Track',
@@ -47,7 +47,7 @@ const CAREER_GROUP_ITEMS: CareerGroupItem[] = [
     tag: 'C-level',
     iconSrc: '/home/star.png',
     iconHasOwnBackground: true,
-    learnMoreHref: '/executive-serve',
+    learnMoreHref: '/we-look-for/leadership-track',
   },
 ];
 

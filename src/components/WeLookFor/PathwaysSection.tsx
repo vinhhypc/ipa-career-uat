@@ -18,14 +18,14 @@ export default function PathwaysSection() {
   const tapScaleSoft = reduceMotion ? undefined : { scale: 0.94 };
   const hoverScaleStep = reduceMotion ? undefined : { scale: 1.03 };
   const pathwayHrefByKey: Record<string, string> = {
-    maprogram: '/ma-program',
-    professionalforce: '/specialist-track',
-    executiveserve: '/executive-serve',
+    maprogram: '/we-look-for/ma-program',
+    professionalforce: '/we-look-for/specialist-track',
+    executiveserve: '/we-look-for/leadership-track',
   };
   const pathwayHrefFallbackByIndex = [
-    '/ma-program',
-    '/specialist-track',
-    '/executive-serve',
+    '/we-look-for/ma-program',
+    '/we-look-for/specialist-track',
+    '/we-look-for/leadership-track',
   ] as const;
   const pathwayKey = pathway.name.toLowerCase().replace(/[^a-z0-9]+/g, '');
   const pathwayHref =

@@ -1,6 +1,7 @@
-﻿import Image from 'next/image';
+import Image from 'next/image';
 import Link from 'next/link';
 import { Mail, MapPin } from 'lucide-react';
+import BrandLogo from '@/components/common/BrandLogo';
 
 const EXPLORE_LINKS_COL1 = [
   { label: 'IPAG Insight', href: '/ipag-insight' },
@@ -32,11 +33,10 @@ export default function Footer() {
         <div className="section-content relative">
           <div className="flex flex-col gap-10 lg:flex-row lg:justify-between">
             <div className="max-w-[730px]">
-              <div className="mb-6 flex items-center gap-2">
-                <span className="flex size-10 items-center justify-center rounded-lg bg-white text-xl font-bold text-[#002B5B]">
-                  I
-                </span>
-                <span className="text-2xl font-bold tracking-[-0.05em]">IPAG Career</span>
+              <div className="mb-6">
+                <Link href="/" className="inline-block transition hover:opacity-80">
+                  <BrandLogo textColor="white" className="h-10 w-auto" />
+                </Link>
               </div>
 
               <p className="mb-6 max-w-[558px] text-base leading-[1.4] text-white lg:hidden">
@@ -105,7 +105,7 @@ export default function Footer() {
               </div>
             </div>
 
-            <div className="max-w-[350px] flex-1">
+            <div className="max-w-[400px] flex-1">
               <h3 className="mb-4 text-base font-bold leading-[1.4] text-white">Liên hệ</h3>
               <ul className="space-y-4 text-sm text-white">
                 <li className="flex items-center gap-2">

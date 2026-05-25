@@ -82,11 +82,8 @@ export default function HeroSection() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, ease: EASE, delay: 0.35 }}
             >
-              Đây không chỉ là thực tập, mà là lộ trình tăng tốc 24 tháng dành cho tài năng trẻ khao
-              khát khẳng định bản thân.
-              <br />
-              Bạn sẽ luân chuyển qua các vị trí then chốt, trực tiếp dấn thân vào dự án tái cấu trúc
-              chiến lược (TAC Journey) để tôi luyện bản lĩnh quản lý thực chiến.
+              Trải nghiệm &quot;khởi nghiệp&quot; trong lòng doanh nghiệp - dành cho những ai khao
+              khát thử thách bản thân, chủ động kiến tạo sự nghiệp của riêng mình.
             </motion.p>
           </div>
 

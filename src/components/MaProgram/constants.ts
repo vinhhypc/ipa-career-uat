@@ -98,21 +98,21 @@ export const PATHWAYS = [
 export const TIMELINE = [
   {
     n: '1',
-    period: 'Tháng 1-12',
+    period: 'Giai đoạn 1',
     title: 'Cross -functional business immersion',
-    body: 'Rotation qua IPAC, IPAS, IPAM và các đơn vị HWG. Bạn không quan sát - bạn tham gia trực tiếp, sở hữu task thật, học từ senior leaders đang làm việc hàng ngày.',
+    body: 'Luân chuyển qua các đơn vị trong Hệ sinh thái Tập đoàn. Bạn tham gia trực tiếp và làm chủ nhiệm vụ, tiếp nối kinh nghiệm từ các mentors/leader qua mỗi dự án',
   },
   {
     n: '2',
-    period: 'Tháng 13-18',
+    period: 'Giai đoạn 2',
     title: 'Digital leadership foundation',
-    body: 'Lead real digital transformation projects với data-driven thinking và agile delivery. Bạn không chỉ execute - bạn thiết kế giải pháp và chịu trách nhiệm với kết quả.',
+    body: 'Dẫn dắt các dự án chuyển đổi số, tạo tác động thực tế cho sự phát triển tổ chức. Bạn được trao quyền để chủ nhiệm công việc của mình, từ giai đoạn thiết kế giải pháp đến đóng gói sản phẩm.',
   },
   {
     n: '3',
-    period: 'Tháng 19-24',
+    period: 'Giai đoạn 3',
     title: 'Leadership acceleration',
-    body: 'Strategic initiatives với mentoring cá nhân hóa. Đây là giai đoạn bạn bắt đầu hình thành phong cách lãnh đạo riêng - và nhìn thấy rõ lộ trình 3–5 năm tiếp theo.',
+    body: 'Chuyển mình thành người lãnh đạo thực thụ – có phong cách riêng, có tầm nhìn dài hạn và được "tăng tốc" bằng các dự án chiến lược + sự kèm cặp sát sao của mentor.',
   },
 ] satisfies ReadonlyArray<{
   n: string;
