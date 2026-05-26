@@ -34,7 +34,7 @@ export default function Footer() {
           <div className="flex flex-col gap-10 lg:flex-row lg:justify-between">
             <div className="max-w-[730px]">
               <div className="mb-6">
-                <Link href="/" className="inline-block transition hover:opacity-80">
+                <Link href="/" prefetch={false} className="inline-block transition hover:opacity-80">
                   <BrandLogo textColor="white" className="h-10 w-auto" />
                 </Link>
               </div>
@@ -83,6 +83,7 @@ export default function Footer() {
                     <li key={item.label}>
                       <Link
                         href={item.href}
+                        prefetch={false}
                         className="leading-[1.4] transition hover:text-white/80"
                       >
                         {item.label}
@@ -95,6 +96,7 @@ export default function Footer() {
                     <li key={item.label}>
                       <Link
                         href={item.href}
+                        prefetch={false}
                         className="leading-[1.4] transition hover:text-white/80"
                       >
                         {item.label}
@@ -147,7 +149,7 @@ export default function Footer() {
 
           <div className="mt-10 flex flex-col gap-4 border-t border-gray-600 pt-6 text-sm leading-[1.4] md:flex-row md:items-center md:justify-between">
             <p>© 2026 IPAG. All rights reserved.</p>
-            <Link href="#" className="text-left hover:text-white/80 md:text-right">
+            <Link href="#" prefetch={false} className="text-left hover:text-white/80 md:text-right">
               Điều khoản sử dụng
             </Link>
           </div>

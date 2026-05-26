@@ -38,6 +38,7 @@ export default function NavDesktopMenu({
             <li key={item.label} className={hasChildren ? 'relative group' : undefined}>
               <Link
                 href={item.href}
+                prefetch={false}
                 className={`inline-flex items-center gap-1 text-sm uppercase tracking-[0.14em] transition-opacity hover:opacity-80 ${
                   isActive
                     ? `font-bold ${onLight ? 'text-[#002b5b]' : 'text-white'}`
@@ -78,6 +79,7 @@ export default function NavDesktopMenu({
                           <li key={child.label} role="none">
                             <Link
                               href={child.href}
+                              prefetch={false}
                               role="menuitem"
                               className={`block rounded-xl px-4 py-2 text-sm transition-colors ${
                                 isChildActive
@@ -104,6 +106,7 @@ export default function NavDesktopMenu({
 
       <MotionLink
         href={applyHref}
+        prefetch={false}
         className={
           isHome
             ? 'rounded-full bg-white px-5 py-2.5 text-sm font-bold uppercase tracking-wide text-[#070707] transition hover:bg-[#fbc17b]/90'

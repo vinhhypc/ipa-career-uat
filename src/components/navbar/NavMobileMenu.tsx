@@ -97,6 +97,7 @@ export default function NavMobileMenu({
                         >
                           <Link
                             href={item.href}
+                            prefetch={false}
                             className={`block border-l-2 py-2 pl-3 text-sm uppercase tracking-widest transition-colors ${
                               isActive
                                 ? 'border-[#002b5b] font-bold text-[#002b5b]'
@@ -123,6 +124,7 @@ export default function NavMobileMenu({
                       >
                         <Link
                           href={item.href}
+                          prefetch={false}
                           className={`block border-l-2 py-2 pl-3 text-sm uppercase tracking-widest transition-colors ${
                             isActive
                               ? 'border-[#002b5b] font-bold text-[#002b5b]'
@@ -147,6 +149,7 @@ export default function NavMobileMenu({
                               <Link
                                 key={child.label}
                                 href={child.href}
+                                prefetch={false}
                                 className={`py-2 text-xs font-semibold uppercase tracking-widest transition-colors ${
                                   isChildActive
                                     ? 'text-neutral-900'
@@ -167,6 +170,7 @@ export default function NavMobileMenu({
                 <div className="pt-6">
                   <MotionLink
                     href={applyHref}
+                    prefetch={false}
                     className="block w-full rounded-full py-3 text-center text-sm font-bold uppercase text-white"
                     style={
                       isHome

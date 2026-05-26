@@ -8,7 +8,7 @@ type Props = {
 
 export default function NavLogo({ onLight, onClick }: Props) {
   return (
-    <Link href="/" className="flex items-center" onClick={onClick}>
+    <Link href="/" prefetch={false} className="flex items-center" onClick={onClick}>
       <BrandLogo textColor={onLight ? '#002b5b' : 'white'} className="h-9 w-auto md:h-11" />
     </Link>
   );
