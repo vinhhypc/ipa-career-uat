@@ -4,7 +4,9 @@ import type { JobsSearchResponse } from '@/components/jobs/types';
 
 const API_BASE_URL = process.env.API_BASE_URL || 'https://bizrule-uat.ipas.com.vn';
 
-export async function listJdsIpagHiring(body: Record<string, unknown>): Promise<JobsSearchResponse> {
+export async function listJdsIpagHiring(
+  body: Record<string, unknown>,
+): Promise<JobsSearchResponse> {
   const upstreamUrl = `${API_BASE_URL}/public/matches/list_jds_ipag_hiring`;
 
   const response = await fetch(upstreamUrl, {
@@ -20,4 +22,3 @@ export async function listJdsIpagHiring(body: Record<string, unknown>): Promise<
 
   return (await response.json()) as JobsSearchResponse;
 }
-
