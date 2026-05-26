@@ -9,10 +9,10 @@ export default function BenefitRow({ title, desc, iconSrc }: BenefitItem) {
     <div className="flex items-center gap-4">
       <Image src={iconSrc} alt="" width={48} height={48} className="shrink-0" aria-hidden />
       <div className="min-w-0">
-        <p className="text-lg font-bold uppercase leading-7 text-[#292929] md:text-xl md:leading-[30px]">
+        <p className="text-lg font-bold uppercase leading-7 text-[#292929] 2xl:text-xl 2xl:leading-[30px]">
           {title}
         </p>
-        <p className="mt-1 text-sm leading-6 text-[#474747] md:text-base">{desc}</p>
+        <p className="mt-1 text-sm leading-6 text-[#474747] 2xl:text-base">{desc}</p>
       </div>
     </div>
   );

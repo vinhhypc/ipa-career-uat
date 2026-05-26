@@ -3,10 +3,7 @@
 import Image from 'next/image';
 import { motion } from 'motion/react';
 
-import {
-  FADE_LEFT_VARIANTS,
-  SCALE_IN_VARIANTS,
-} from '@/components/home/home-motion';
+import { FADE_LEFT_VARIANTS, SCALE_IN_VARIANTS } from '@/components/home/home-motion';
 
 export default function HeroSection() {
   return (
@@ -38,9 +35,9 @@ export default function HeroSection() {
             <div className="h-px w-[120px] bg-[#fbc17b] md:w-[147px]" />
           </div>
 
-          <p className="mt-5 max-w-[883px] text-xs font-medium leading-[21px] text-white md:mt-6 md:text-xl md:font-normal md:leading-[33px] md:tracking-[0.2px]">
-            Tại IPAG, bạn được trao quyền tự chủ tối ưu để hoạch định chiến lược, quản lý ngân
-            sách và dẫn dắt đội ngũ.
+          <p className="mt-5 max-w-[883px] text-xs font-medium leading-[21px] text-white xl:text-base 2xl:mt-6 2xl:text-xl 2xl:font-normal md:leading-[33px] md:tracking-[0.2px]">
+            Tại IPAG, bạn được trao quyền tự chủ tối ưu để hoạch định chiến lược, quản lý ngân sách
+            và dẫn dắt đội ngũ.
             <br />
             Đây là lộ trình dành cho những nhà lãnh đạo tương lai muốn kiến tạo giá trị thực chất.
             <br />

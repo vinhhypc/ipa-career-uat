@@ -111,16 +111,17 @@ export default async function ChuyenNhaIpagListPage({
             </div>
 
             {posts.length === 0 ? (
-              <div className="mt-16 flex flex-col items-center justify-center gap-4">
-                <div className="relative h-40 w-full max-w-3xl md:h-48 lg:h-56">
-                  <Image
-                    src="/empty.png"
-                    alt="Chưa có bài viết nào"
-                    fill
-                    className="object-contain"
-                    sizes="(max-width: 768px) 100vw, 768px"
-                  />
-                </div>
+              <div className="mt-16 flex flex-col items-center justify-center gap-5">
+                <Image
+                  src="/life-at-ipag/chuyen-nha-ipag/docs.png"
+                  alt=""
+                  width={128}
+                  height={128}
+                  className="size-32 shrink-0 object-contain"
+                />
+                <p className="w-full text-center text-base leading-8 text-[#474747]">
+                  Chưa có bài viết nào
+                </p>
               </div>
             ) : (
               <>
@@ -158,7 +159,7 @@ export default async function ChuyenNhaIpagListPage({
 function CenteredHeading({ title }: { title: string }) {
   return (
     <div className="text-center">
-      <h1 className="text-3xl font-extrabold uppercase tracking-[1px] text-[#292929] md:text-3xl md:leading-[40px]">
+      <h1 className="text-3xl font-extrabold uppercase tracking-[1px] text-[#292929] 2xl:text-3xl 2xl:leading-[40px]">
         {title}
       </h1>
       <div className="mt-4 flex items-center justify-center gap-4">
@@ -208,7 +209,7 @@ function PostCard({ post }: { post: ChuyenNhaIpagPost }) {
           <span className="text-xs font-semibold text-[#8a97a6]">{post.dateList}</span>
         </div>
 
-        <h2 className="mt-4 line-clamp-2 text-base font-extrabold text-[#292929] md:text-lg">
+        <h2 className="mt-4 line-clamp-2 text-base font-extrabold text-[#292929] 2xl:text-lg">
           {post.title}
         </h2>
         {post.excerpt && (

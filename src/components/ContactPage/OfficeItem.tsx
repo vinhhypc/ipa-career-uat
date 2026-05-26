@@ -16,7 +16,7 @@ export default function OfficeItem({
       </p>
       <div className="flex items-start gap-1">
         <MapPin size={16} className="mt-1 font-light text-gray-700" />
-        <p className="text-sm leading-6 text-gray-700">{address}</p>
+        <p className="text-sm font-semibold leading-6 text-gray-700">{address}</p>
       </div>
     </div>
   );

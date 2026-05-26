@@ -67,7 +67,7 @@ export default function NavDesktopMenu({
 
               {hasChildren && (
                 <div
-                  className="absolute top-full left-0 z-50 w-80 pt-3 opacity-0 pointer-events-none transition-opacity duration-200 group-hover:opacity-100 group-hover:pointer-events-auto group-focus-within:opacity-100 group-focus-within:pointer-events-auto"
+                  className="absolute top-full left-0 z-50 w-60 pt-3 opacity-0 pointer-events-none transition-opacity duration-200 group-hover:opacity-100 group-hover:pointer-events-auto group-focus-within:opacity-100 group-focus-within:pointer-events-auto"
                   role="menu"
                 >
                   <div className="rounded-2xl border border-black/5 bg-white p-2 shadow-lg">

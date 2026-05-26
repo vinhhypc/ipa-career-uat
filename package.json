@@ -11,6 +11,7 @@
     "build:production": "next build",
     "start:production": "next start -p 3000",
     "lint": "eslint",
+    "knip": "knip",
     "mcp:figma": "npx -y mcp-figma"
   },
   "dependencies": {
@@ -31,8 +32,14 @@
     "env-cmd": "^10.1.0",
     "eslint": "^9",
     "eslint-config-next": "16.1.6",
+    "knip": "^6.14.2",
     "prettier": "^3.6.2",
     "tailwindcss": "^4",
     "typescript": "^5"
+  },
+  "pnpm": {
+    "patchedDependencies": {
+      "knip@6.14.2": "patches/knip@6.14.2.patch"
+    }
   }
 }

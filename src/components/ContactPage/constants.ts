@@ -44,7 +44,7 @@ export const PERSONAL_FIELDS: ContactField[] = [
 export const FAQ_ITEMS = [
   {
     q: 'Tôi nên gửi hồ sơ ứng tuyển theo cách nào?',
-    a: 'Bạn có thể ứng tuyển trực tiếp qua biểu mẫu trên website này hoặc gửi CV về mail nextgen@ipam.vn theo cú pháp:\n[Tên vị trí] - [Họ tên]. Đội ngũ tuyển dụng sẽ phản hồi thông tin đến bạn trong vòng 02 ngày làm việc',
+    a: 'Bạn có thể ứng tuyển trực tiếp qua biểu mẫu trên website này hoặc gửi CV về mail nextgen@ipam.vn theo cú pháp:\n[Tên vị trí] - [Họ tên]. Đội ngũ tuyển dụng sẽ phản hồi thông tin đến bạn trong vòng 02 ngày làm việc.',
   },
   { q: 'Tôi chưa chọn được vị trí cụ thể, có thể gửi hồ sơ tổng quát không?', a: '' },
   { q: 'Quy trình và thời gian xử lý hồ sơ mất bao lâu?', a: '' },

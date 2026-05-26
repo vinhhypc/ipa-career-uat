@@ -54,7 +54,7 @@ export default function BenefitBlock({ block }: { block: BenefitBlockType }) {
         >
           {block.reverseOnDesktop ? (
             <div className="flex items-center justify-end gap-3">
-              <p className="text-3xl font-extrabold uppercase tracking-[1px] text-[#292929] md:text-4xl md:leading-[56px]">
+              <p className="text-3xl font-extrabold uppercase tracking-[1px] text-[#292929] 2xl:text-4xl 2xl:leading-[56px]">
                 {block.heading}
               </p>
               <span className="h-[1.5px] w-[72px] bg-[#002B5B]" aria-hidden />
@@ -62,7 +62,7 @@ export default function BenefitBlock({ block }: { block: BenefitBlockType }) {
           ) : (
             <div className="flex items-center justify-start gap-3">
               <span className="h-[1.5px] w-[72px] bg-[#002B5B]" aria-hidden />
-              <p className="text-3xl font-extrabold uppercase tracking-[1px] text-[#292929] md:text-4xl md:leading-[56px]">
+              <p className="text-3xl font-extrabold uppercase tracking-[1px] text-[#292929] 2xl:text-4xl 2xl:leading-[56px]">
                 {block.heading}
               </p>
             </div>
@@ -73,14 +73,14 @@ export default function BenefitBlock({ block }: { block: BenefitBlockType }) {
       <div
         className={
           block.reverseOnDesktop
-            ? 'mt-5 grid gap-10 lg:grid-cols-[1fr_587px] lg:items-center lg:gap-[100px]'
-            : 'mt-5 grid gap-10 lg:grid-cols-[587px_1fr] lg:items-center lg:gap-[100px]'
+            ? 'mt-5 grid gap-10 lg:grid-cols-[1fr_587px] lg:items-center lg:gap-[100px] xl:grid-cols-[1fr_520px] 2xl:grid-cols-[1fr_587px]'
+            : 'mt-5 grid gap-10 lg:grid-cols-[587px_1fr] lg:items-center lg:gap-[100px] xl:grid-cols-[520px_1fr] 2xl:grid-cols-[587px_1fr]'
         }
       >
         <div className={block.reverseOnDesktop ? 'lg:order-2 lg:justify-self-end' : 'lg:order-1'}>
           <motion.div
             variants={BLOCK_IMAGE_VARIANTS}
-            className={`relative w-full max-w-[420px] overflow-hidden rounded-[24px] bg-white shadow-[0_10px_24px_rgba(0,0,0,0.10)] sm:max-w-[520px] lg:w-[587px] lg:max-w-none ${
+            className={`relative w-full max-w-[420px] overflow-hidden rounded-[24px] bg-white shadow-[0_10px_24px_rgba(0,0,0,0.10)] sm:max-w-[520px] lg:w-[587px] lg:max-w-none xl:w-[520px] 2xl:w-[587px] ${
               block.reverseOnDesktop ? 'ml-auto' : 'mr-auto'
             }`}
           >
@@ -90,7 +90,7 @@ export default function BenefitBlock({ block }: { block: BenefitBlockType }) {
                 alt={block.imageAlt}
                 fill
                 className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 587px"
+                sizes="(max-width: 1024px) 100vw, (max-width: 1536px) 520px, 587px"
               />
             </div>
           </motion.div>
@@ -99,7 +99,7 @@ export default function BenefitBlock({ block }: { block: BenefitBlockType }) {
         <div className={block.reverseOnDesktop ? 'lg:order-1' : 'lg:order-2'}>
           <motion.div
             variants={BLOCK_CONTENT_CONTAINER_VARIANTS}
-            className="lg:flex lg:min-h-[587px] lg:flex-col lg:justify-center"
+            className="lg:flex lg:min-h-[587px] lg:flex-col lg:justify-center xl:min-h-[520px] 2xl:min-h-[587px]"
           >
             <motion.div
               variants={BLOCK_CONTENT_ITEM_VARIANTS}
@@ -110,7 +110,7 @@ export default function BenefitBlock({ block }: { block: BenefitBlockType }) {
             <motion.p
               variants={BLOCK_CONTENT_ITEM_VARIANTS}
               custom={block.reverseOnDesktop ? -56 : 56}
-              className="mt-4 text-lg font-bold leading-[1.4] text-[#002B5B] md:text-2xl"
+              className="mt-4 text-lg font-bold leading-[1.4] text-[#002B5B] 2xl:text-2xl"
             >
               {block.quote}
             </motion.p>

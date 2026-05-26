@@ -426,7 +426,7 @@ export default function ChuongTrinhDaoTaoPage() {
 
         <div className="relative mx-auto max-w-[1440px] px-4 md:px-12">
           <motion.h2
-            className="text-center text-2xl font-extrabold uppercase tracking-[1px] text-[#292929] md:text-3xl md:leading-[20px] xl:text-4xl 2xl:text-6xl 2xl:leading-15"
+            className="text-center text-2xl font-extrabold uppercase tracking-[1px] text-[#292929] md:text-3xl md:leading-[20px] xl:text-4xl"
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.4 }}
@@ -476,7 +476,7 @@ export default function ChuongTrinhDaoTaoPage() {
                 <h3 className="text-xl font-extrabold leading-snug text-[#292929] xl:text-2xl 2xl:text-3xl md:leading-[42px]">
                   {currentProgram.title}
                 </h3>
-                <p className=" text-sm font-semibold uppercase leading-6 text-[#145194] 2xl:text-base 2xl:leading-4 2xl:leading-7">
+                <p className="2xl:mt-4 text-sm font-semibold uppercase leading-6 text-[#145194] 2xl:text-base 2xl:leading-4 2xl:leading-7">
                   {currentProgram.subtitle}
                 </p>
                 <div className="mt-4 flex  flex-col gap-3 text-sm leading-7 text-[#474747] 2xl:text-base 2xl:leading-8">
@@ -485,7 +485,7 @@ export default function ChuongTrinhDaoTaoPage() {
                   ))}
                 </div>
               </div>
-              <div className="relative min-h-[240px] sm:min-h-[300px] lg:min-h-[460px]">
+              <div className="relative min-h-60 sm:min-h-75 2xl:min-h-115 xl:min-h-104">
                 <Image
                   src={currentProgram.image}
                   alt={currentProgram.imageAlt}
@@ -604,7 +604,7 @@ export default function ChuongTrinhDaoTaoPage() {
         <div className="relative mx-auto max-w-[1440px] px-4 md:px-12">
           <div className="mx-auto flex max-w-[1200px] flex-col items-center text-center">
             <motion.h2
-              className="text-2xl font-extrabold leading-snug text-[#292929] md:text-4xl md:leading-[52px]"
+              className="text-2xl uppercase font-extrabold leading-snug text-[#292929] md:text-4xl md:leading-[52px]"
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.4 }}

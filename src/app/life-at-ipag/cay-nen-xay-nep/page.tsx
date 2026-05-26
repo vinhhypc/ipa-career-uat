@@ -6,7 +6,7 @@ import { createPageMetadata } from '@/lib/seo';
 export const metadata: Metadata = createPageMetadata({
   title: 'Cấy nền — Xây nếp',
   description:
-    'Văn hóa tại IPAG: cấy nền giá trị cốt lõi I-P-A-G và xây nếp thói quen hằng ngày — hành trình chuyển hoá TAC & CAT.',
+    'Văn hóa tại IPAG: cấy nền giá trị cốt lõi I-P-A-G, xây nếp thói quen hằng ngày và câu chuyện từ IPAG-ers.',
   pathname: '/life-at-ipag/cay-nen-xay-nep',
 });
 

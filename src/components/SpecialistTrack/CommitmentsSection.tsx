@@ -37,7 +37,7 @@ const COMMITMENTS = [
 export default function CommitmentsSection() {
   return (
     <section
-      className="section-padding max-md:py-11! md:py-20!"
+      className="section-padding max-md:py-11! md:py-10! 2xl:py-20! xl:pb-0!"
       style={{
         backgroundImage:
           'linear-gradient(178.49deg, rgb(254, 246, 235) 5.08%, rgb(255, 255, 255) 98.46%)',

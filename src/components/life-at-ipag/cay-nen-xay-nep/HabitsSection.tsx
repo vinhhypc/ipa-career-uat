@@ -9,37 +9,37 @@ const HABIT_CARD_STYLES = [
   {
     bgClass: 'bg-[#FFE4C4] text-[#292929]',
     titleClass: 'text-[#292929]',
-    bodyClass: 'text-[#474747]',
+    mobileRadiusClass: 'rounded-tl-[20px] rounded-tr-[20px]',
     radiusClass: 'lg:rounded-tl-[32px]',
   },
   {
     bgClass: 'bg-[#013A72] text-white',
     titleClass: 'text-white',
-    bodyClass: 'text-white',
+    mobileRadiusClass: '',
     radiusClass: '',
   },
   {
     bgClass: 'bg-[#FFE4C4] text-[#292929]',
     titleClass: 'text-[#292929]',
-    bodyClass: 'text-[#474747]',
+    mobileRadiusClass: '',
     radiusClass: 'lg:rounded-tr-[32px]',
   },
   {
     bgClass: 'bg-[#0C71C7] text-white',
     titleClass: 'text-white',
-    bodyClass: 'text-white',
+    mobileRadiusClass: '',
     radiusClass: 'lg:rounded-bl-[32px]',
   },
   {
     bgClass: 'bg-[#FBBF76] text-[#292929]',
     titleClass: 'text-[#292929]',
-    bodyClass: 'text-[#474747]',
+    mobileRadiusClass: '',
     radiusClass: '',
   },
   {
     bgClass: 'bg-[#0C71C7] text-white',
     titleClass: 'text-white',
-    bodyClass: 'text-white',
+    mobileRadiusClass: 'rounded-bl-[20px] rounded-br-[20px]',
     radiusClass: 'lg:rounded-br-[32px]',
   },
 ] as const;
@@ -148,48 +148,55 @@ function HabitConnectorLayer() {
   );
 }
 
-/** Renders the habits section with the updated 2x3 card composition from Figma. */
 export default function HabitsSection() {
   return (
     <motion.section
-      className="relative overflow-hidden px-4 py-12 md:px-16 md:py-10 lg:px-20"
+      className="relative overflow-hidden bg-white px-5 py-11 md:px-16 md:py-10 lg:px-20"
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, amount: 0.18 }}
       variants={sectionReveal}
-      style={{
-        background: 'linear-gradient(180deg, #ffffff 8%, #fef6eb 100%)',
-      }}
     >
-      <Image
-        src="/life-at-ipag/cay-nen-xay-nep/figma/habits-decoration.svg"
-        alt=""
-        width={986}
-        height={653}
-        className="pointer-events-none absolute left-[-180px] top-8 hidden opacity-[0.03] md:block lg:left-[-225px] lg:top-[30px]"
+      <div
+        className="pointer-events-none absolute z-0 flex items-center justify-center"
+        style={{
+          top: '7.14%',
+          right: '54.41%',
+          bottom: '-36.93%',
+          left: '-11.72%',
+        }}
         aria-hidden
-      />
-      <div className="section-content relative z-[1]">
-        <div className="mx-auto ml-0 grid w-full max-w-[1366px] gap-10 2xl:grid-cols-[360px_1fr] 2xl:items-start 2xl:gap-16">
+      >
+        <Image
+          src="/life-at-ipag/cay-nen-xay-nep/figma/habits-decoration.svg"
+          alt=""
+          width={986}
+          height={653}
+          className="h-full w-full max-w-none object-contain"
+          aria-hidden
+        />
+      </div>
+      <div className="section-content relative z-1">
+        <div className="mx-auto ml-0 grid w-full max-w-350 gap-5 2xl:gap-12 xl:grid-cols-[320px_1fr] 2xl:items-start xl:gap-16 lg:gap-8">
           <motion.div
-            className="max-w-full 2xl:max-w-[248px]"
+            className="flex max-w-full flex-col gap-2 2xl:max-w-[248px] lg:gap-0"
             initial={{ opacity: 0, x: -18 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.4 }}
             transition={{ duration: 0.48, ease: 'easeOut' }}
           >
-            <h2 className="text-3xl font-extrabold uppercase tracking-[3px] text-[#292929] md:text-4xl md:leading-[60px]">
+            <h2 className="text-xl font-extrabold uppercase leading-8 tracking-[3px] text-[#292929] lg:mt-0 lg:text-3xl 2xl:text-4xl 2xl:leading-[60px]">
               Xây nếp
             </h2>
             <motion.div
-              className="mt-3 h-[2.5px] w-40 bg-[#2e5f97]"
+              className="h-0.75 w-[154px] bg-[#2e5f97] lg:mt-3 lg:w-40"
               initial={{ scaleX: 0, transformOrigin: 'left' }}
               whileInView={{ scaleX: 1 }}
               viewport={{ once: true, amount: 0.8 }}
               transition={{ duration: 0.4, delay: 0.1, ease: 'easeOut' }}
             />
             <motion.p
-              className="mt-6 whitespace-pre-line text-lg leading-8 text-[#474747] md:text-2xl md:leading-8"
+              className="text-sm leading-[22px] text-[#474747] lg:mt-6 lg:text-lg lg:leading-8 2xl:text-xl 2xl:leading-8"
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.6 }}
@@ -202,7 +209,7 @@ export default function HabitsSection() {
           <div className="relative">
             <HabitConnectorLayer />
             <motion.div
-              className="grid auto-rows-fr gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-0"
+              className="flex flex-col drop-shadow-[0_4px_5px_rgba(0,0,0,0.18)] lg:grid lg:auto-rows-fr lg:grid-cols-3 lg:gap-0 lg:drop-shadow-none"
               initial="hidden"
               whileInView="show"
               viewport={{ once: true, amount: 0.12 }}
@@ -216,28 +223,21 @@ export default function HabitsSection() {
                     variants={cardReveal}
                     whileHover={{ y: -6, scale: 1.01 }}
                     transition={{ duration: 0.26, ease: 'easeOut' }}
-                    className={`relative flex min-h-[230px] flex-col gap-6 rounded-[28px] px-7 py-8 shadow-[0_4px_10px_rgba(0,0,0,0.18)] md:min-h-[250px] md:px-8 md:py-10 lg:min-h-[264px] lg:gap-[38px] lg:rounded-none ${cardStyle.bgClass} ${cardStyle.radiusClass}`}
+                    className={`relative flex flex-row items-center gap-2 px-4 py-5 lg:min-h-[240px] lg:flex-col lg:items-center lg:justify-center lg:gap-4 lg:rounded-none lg:px-5 lg:py-10 lg:shadow-[0_4px_10px_rgba(0,0,0,0.18)] ${cardStyle.bgClass} ${cardStyle.mobileRadiusClass} ${cardStyle.radiusClass}`}
                   >
-                    <div className="flex items-start gap-3 md:gap-4">
-                      <Image
-                        width={60}
-                        height={60}
-                        src={h.icon}
-                        alt=""
-                        aria-hidden
-                        className="shrink-0"
-                      />
-                      <h3
-                        className={`flex-1 whitespace-pre-line text-xl font-bold leading-[28px] md:text-2xl md:leading-[30px] lg:text-xl lg:leading-[28px] 2xl:text-2xl 2xl:leading-[30px] ${cardStyle.titleClass}`}
-                      >
-                        {h.title}
-                      </h3>
-                    </div>
-                    <p
-                      className={`text-sm leading-6 md:text-base md:leading-6 ${cardStyle.bodyClass}`}
+                    <Image
+                      width={40}
+                      height={40}
+                      src={h.icon}
+                      alt=""
+                      aria-hidden
+                      className="size-10 shrink-0 lg:size-[60px]"
+                    />
+                    <h3
+                      className={`min-w-0 flex-1 text-base font-bold leading-[22px] lg:flex-none lg:whitespace-pre-line lg:text-center lg:text-xl lg:leading-8 2xl:text-2xl 2xl:leading-8 ${cardStyle.titleClass}`}
                     >
-                      {h.body}
-                    </p>
+                      {h.title}
+                    </h3>
                   </motion.article>
                 );
               })}

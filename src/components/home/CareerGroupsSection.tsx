@@ -150,7 +150,7 @@ export default function CareerGroupsSection() {
           <p className="text-xs font-normal uppercase leading-[22px] tracking-[0.24px] text-[#707070] md:text-sm md:leading-[32px]">
             Các nhóm nghề nghiệp tại IPAG
           </p>
-          <h2 className="mt-2 text-2xl font-extrabold uppercase leading-[36px] tracking-[0.6px] text-[#292929] sm:text-3xl sm:leading-[40px] md:text-4xl md:leading-[48px] md:tracking-[0.9px] lg:text-4xl lg:leading-[60px] lg:tracking-[1px] xl:text-5xl xl:leading-[66px]">
+          <h2 className="mt-2 text-2xl font-extrabold uppercase leading-[36px] tracking-[0.6px] text-[#292929] sm:text-3xl sm:leading-[40px]  xl:text-4xl xl:leading-[58px] 2xl:text-5xl 2xl:leading-[66px]">
             Chọn nhóm cơ hội phù hợp với bạn
           </h2>
         </motion.div>

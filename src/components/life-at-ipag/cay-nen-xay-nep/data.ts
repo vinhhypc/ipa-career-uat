@@ -4,6 +4,8 @@ export const IPAG_CORE = [
     letter: 'I',
     en: 'Integration',
     vi: 'Năng lực tích hợp',
+    tagline: 'Cộng hưởng nguồn lực - khuếch đại giá trị',
+    imageSrc: '/life-at-ipag/cay-nen-xay-nep/figma/core-integration.png',
     body: 'Người IPAG có tư duy hệ thống, biết kết nối Con người, Công nghệ và Chuỗi giá trị để tạo ra sức mạnh cộng hưởng.',
   },
   {
@@ -11,20 +13,26 @@ export const IPAG_CORE = [
     letter: 'P',
     en: 'Partnership',
     vi: 'Tư duy đối tác',
+    tagline: 'Cùng đồng hành - Cùng kiến tạo giá trị với đối tác',
+    imageSrc: '/life-at-ipag/cay-nen-xay-nep/figma/core-partnership.png',
     body: 'Người IPAG là người đồng hành, cùng hiện diện, cùng thực thi và cùng kiến tạo giá trị với đối tác.',
   },
   {
     key: 'a',
     letter: 'A',
     en: 'Accountable',
-    vi: 'Chuyển đổi có trách nhiệm',
+    vi: 'Dám chịu trách nhiệm',
+    tagline: 'Tư duy toàn trình - Chịu trách nhiệm cho đầu ra',
+    imageSrc: '/life-at-ipag/cay-nen-xay-nep/figma/core-accountable.png',
     body: 'Người IPAG trực tiếp hành động, đo lường bằng kết quả thực chất và chịu trách nhiệm đến cùng cho những gì mình tạo ra.',
   },
   {
     key: 'g',
     letter: 'G',
     en: 'Greatness',
-    vi: 'Kiến tạo giá trị lâu dài',
+    vi: 'Kiến tạo giá trị bền vững',
+    tagline: 'Kiên định với việc kiến tạo giá trị bền vững',
+    imageSrc: '/life-at-ipag/cay-nen-xay-nep/figma/core-greatness.png',
     body: 'Người IPAG nghĩ dài hạn, không thỏa hiệp với giá trị ngắn hạn và kiên định xây dựng những điều có ý nghĩa bền lâu.',
   },
 ] as const;
@@ -36,58 +44,66 @@ export type HabitTone = 'warm' | 'blue';
 
 export const HABITS: {
   title: string;
-  body: string;
   icon: string;
   tone: HabitTone;
 }[] = [
   {
-    title: 'Thẳng thắn và\ntức thì',
-    body: 'Chúng tôi không đợi đến kỳ đánh giá. Tại IPAG, feedback xảy ra ngay khi cần thiết với tinh thần xây dựng và mục đích rõ ràng: cùng nhau tiến bộ.',
+    title: 'Phản hồi kịp thời - Tiến bộ liên tục.',
     icon: '/life-at-ipag/cay-nen-xay-nep/figma/testimonials.svg',
     tone: 'warm',
   },
   {
-    title: 'Đồng hành,\nkhông tự “bơi”',
-    body: 'Mentor riêng biệt, Welcome kit tinh tế và lịch 1-1 sẵn sàng từ ngày đầu tiên. Bạn sẽ luôn được dẫn dắt để hòa nhập nhanh nhất với hệ sinh thái.',
+    title: 'Mentor và Buddie đồng hành cùng nhân sự mới',
     icon: '/life-at-ipag/cay-nen-xay-nep/figma/handshake.svg',
     tone: 'blue',
   },
   {
-    title: 'Học từ\nthực tế',
-    body: 'Sau mỗi dự án là khoảng lặng để nhìn lại. Chúng tôi không truy cứu lỗi lầm, chúng tôi đúc rút bài học để không lặp lại sai lầm cũ.',
+    title: 'Mỗi dự án là một bài học trưởng thành',
     icon: '/life-at-ipag/cay-nen-xay-nep/figma/tablet.svg',
     tone: 'warm',
   },
   {
-    title: 'Minh bạch\ntuyệt đối',
-    body: 'Lãnh đạo chia sẻ trực diện về thực trạng tổ chức. Tại đây, không có câu hỏi nào là "không nên hỏi" — mọi thắc mắc đều được trân trọng.',
+    title: 'Ai cũng có quyền ĐƯỢC HỎI - ĐƯỢC TRẢ LỜI.',
     icon: '/life-at-ipag/cay-nen-xay-nep/figma/loupe.svg',
     tone: 'blue',
   },
   {
-    title: 'Tái kết nối\nmục đích',
-    body: 'Những chuyến đi về với thiên nhiên (Yên Tử, Hòa Bình...) không phải để team-building hình thức, mà để chúng ta tái kết nối với nhau và với mục đích lớn lao.',
+    title: 'Tái kết nối với mục tiêu tổ chức',
     icon: '/life-at-ipag/cay-nen-xay-nep/figma/connection.svg',
     tone: 'warm',
   },
   {
-    title: 'Vinh danh bằng\ncâu chuyện',
-    body: 'Thành công tại IPAG được ghi nhận bằng những câu chuyện truyền cảm hứng. Điều bạn làm được cộng đồng ghi nhớ và trân trọng — không chỉ dừng lại ở phần thưởng.',
+    title: 'Vinh danh bằng câu chuyện',
     icon: '/life-at-ipag/cay-nen-xay-nep/figma/medal.svg',
     tone: 'blue',
   },
 ];
 
-export const TAC_STEPS = [
-  { title: 'Transform (Chuyển hóa)', body: 'Dám nhìn nhận để lột xác' },
-  { title: 'Amplify (Khuếch đại)', body: 'Tập trung vào thế mạnh cốt lõi' },
-  { title: 'Continuation (Tiếp nối)', body: 'Giữ gìn di sản bền vững' },
-] as const;
-
-export const CAT_STEPS = [
-  { title: 'Connect', body: 'Kết nối chân thành' },
-  { title: 'Add Values', body: 'Cộng hưởng giá trị' },
-  { title: 'Transfer Excellence', body: 'Truyền giao sự xuất sắc' },
+export const CULTURE_TESTIMONIALS = [
+  {
+    quote:
+      'Mình cũng đã gắn bó cùng tổ chức gần 1 thập kỷ rồi. Nét văn hóa mình thấy ấn tượng và có tính "đặc thù" nhất của IPAG là văn hóa trải phẳng. Ở đây ai cũng có cơ hội và quyền lợi được làm chủ sự ngiệp cũng như trao đổi trực tiếp với lãnh đạo cấp cao. Chỉ cần bạn có sự dũng cảm dám bứt phá, chẳng có gì là không thể cả.',
+    name: 'Bùi Phương Linh',
+    department: 'Bộ phận Nhân sự EPIC',
+    imageSrc: '/life-at-ipag/cay-nen-xay-nep/figma/journey-testimonial-1.png',
+    imageClassName: 'object-cover object-[38%_22%]',
+  },
+  {
+    quote:
+      'Mình gia nhập chưa lâu, nhưng IPAG đã mang cho mình nhiều trải nghiệm văn hóa thực sự "woao". Tuần đầu tiên đã được học cách thưởng trà, pha trà, rèn luyện sự định tâm qua mỗi chén trà. Chúng mình còn được Trà chuyện vòng tròn và "phá băng" cảm xúc cùng nhau nữa. Thực sự mình thấy bản thân hội nhập được với tổ chức nhanh hơn rất nhiều qua các hoạt động như thế',
+    name: 'Bùi Lê Kiều Anh',
+    department: 'Bộ phận Kinh doanh AnVie',
+    imageSrc: '/life-at-ipag/cay-nen-xay-nep/figma/journey-testimonial-2.png',
+    imageClassName: 'object-cover object-[62%_28%]',
+  },
+  {
+    quote:
+      'Nếu nói một điều mình ấn tượng nhất thì chắc là việc không có teambuilding - thay vào đó là hoạt động gắn kết. Ở đây mọi người rất coi trọng việc gắn kết với nhau và gắn kết với tổ chức. Chúng mình có các deep talk, các hoạt động để "chạm" sâu đến tầng cảm xúc của nhau hơn, không chỉ đơn thuần là một hoạt động vui chơi giải trí.',
+    name: 'Nguyễn Anh Tuấn',
+    department: 'Bộ phận Công nghệ IPAS',
+    imageSrc: '/life-at-ipag/cay-nen-xay-nep/figma/journey-testimonial-3.png',
+    imageClassName: 'object-cover object-center',
+  },
 ] as const;
 
 export type CoreDetail = {

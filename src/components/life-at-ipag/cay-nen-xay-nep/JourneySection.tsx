@@ -1,117 +1,92 @@
 'use client';
 
 import Image from 'next/image';
-import { motion } from 'motion/react';
+import { motion, type Variants } from 'motion/react';
 
-import JourneyColumn from '@/components/life-at-ipag/cay-nen-xay-nep/JourneyColumn';
-import { CAT_STEPS, TAC_STEPS } from '@/components/life-at-ipag/cay-nen-xay-nep/data';
+import { CULTURE_TESTIMONIALS } from '@/components/life-at-ipag/cay-nen-xay-nep/data';
 
-const JOURNEY_VIEWPORT = { once: true, amount: 0.3 } as const;
+const sectionReveal: Variants = {
+  hidden: { opacity: 0, y: 28 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: 'easeOut' as const } },
+};
 
-const JOURNEY_HEADER_VARIANTS = {
+const cardListReveal: Variants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: { staggerChildren: 0.12, delayChildren: 0.08 },
+  },
+};
+
+const cardReveal: Variants = {
   hidden: { opacity: 0, y: 24 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.55, ease: 'easeOut' },
+  show: { opacity: 1, y: 0, transition: { duration: 0.45, ease: 'easeOut' as const } },
+  hover: {
+    y: -8,
+    boxShadow: '0 14px 28px rgba(0,0,0,0.16)',
+    transition: { duration: 0.22, ease: 'easeOut' as const },
   },
-} as const;
+};
 
-const JOURNEY_COLUMN_VARIANTS = {
-  hidden: (x: number) => ({ opacity: 0, x }),
-  show: {
-    opacity: 1,
-    x: 0,
-    transition: { duration: 0.6, ease: 'easeOut' },
-  },
-} as const;
-
-const JOURNEY_DIVIDER_VARIANTS = {
-  hidden: { opacity: 0, scaleX: 0.65 },
-  show: {
-    opacity: 1,
-    scaleX: 1,
-    transition: { duration: 0.45, ease: 'easeOut', delay: 0.18 },
-  },
-} as const;
-
-/** Renders the transformation journey section with the Figma background treatment and divider. */
 export default function JourneySection() {
   return (
-    <section className="relative overflow-hidden px-4 py-16 md:px-12 md:py-20 lg:px-20 lg:py-[80px]">
-      <div
-        className="absolute inset-0"
-        style={{
-          background: 'linear-gradient(-56deg, #022a36 0%, #0a3b74 100%)',
-        }}
-      />
-      <div
-        className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(161,210,255,0.14),transparent_42%)]"
-        aria-hidden
-      />
-      <Image
-        src="/life-at-ipag/cay-nen-xay-nep/figma/journey-overlay.png"
-        alt=""
-        fill
-        className="pointer-events-none absolute inset-0 object-cover object-top opacity-30"
-        sizes="100vw"
-        aria-hidden
-      />
-      <div className="section-content relative z-[1]">
+    <motion.section
+      className="relative section overflow-hidden bg-[linear-gradient(-75deg,#fef6eb_27%,#ffffff_75%)] px-5 py-11 md:bg-[linear-gradient(-22deg,#fef6eb_27%,#ffffff_75%)] md:px-6 md:py-12"
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, amount: 0.2 }}
+      variants={sectionReveal}
+    >
+      <div className="section-content flex flex-col gap-8 md:gap-10 lg:gap-[52px]">
+        <h2 className="text-center text-xl font-extrabold uppercase leading-8 tracking-[1px] text-[#292929] md:text-2xl md:leading-[60px] lg:text-[40px]">
+          <span className="block md:inline">Chạm văn hóa cùng</span>{' '}
+          <span className="block md:inline">IPAG-ers</span>
+        </h2>
+
         <motion.div
-          className="mx-auto max-w-4xl text-center"
+          className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-5 xl:grid-cols-3"
           initial="hidden"
           whileInView="show"
-          viewport={JOURNEY_VIEWPORT}
-          variants={JOURNEY_HEADER_VARIANTS}
+          viewport={{ once: true, amount: 0.1 }}
+          variants={cardListReveal}
         >
-          <h2 className="text-2xl font-extrabold uppercase tracking-[2px] text-white drop-shadow-sm md:text-4xl md:leading-[60px]">
-            Hành trình chuyển hoá
-          </h2>
-          <p className="mt-4 text-base leading-7 text-white/90 md:text-xl md:leading-[33px]">
-            Sự trưởng thành không đo bằng chức danh, mà bằng tác động
-          </p>
-        </motion.div>
+          {CULTURE_TESTIMONIALS.map((item) => (
+            <motion.article
+              key={item.name}
+              variants={cardReveal}
+              whileHover="hover"
+              className="flex flex-col rounded-[20px] bg-white py-5 shadow-[0_4px_7.5px_rgba(0,0,0,0.15)] will-change-transform md:rounded-[32px] md:py-10"
+            >
+              <div className="flex flex-col items-center gap-6 px-4 text-center md:px-10 xl:px-6">
+                <div className="relative size-20 shrink-0 overflow-hidden rounded-full md:size-40">
+                  <Image
+                    src={item.imageSrc}
+                    alt={item.name}
+                    fill
+                    className={item.imageClassName}
+                    sizes="(max-width: 768px) 80px, 160px"
+                  />
+                </div>
 
-        <div className="mx-auto mt-12 flex max-w-[1040px] flex-col items-center gap-12 lg:mt-[52px] xl:flex-row xl:items-center xl:justify-center xl:gap-10">
-          <motion.div
-            className="flex w-full justify-center xl:block xl:max-w-[400px]"
-            initial="hidden"
-            whileInView="show"
-            viewport={JOURNEY_VIEWPORT}
-            variants={JOURNEY_COLUMN_VARIANTS}
-            custom={-48}
-          >
-            <JourneyColumn acronym="TAC" subtitle="Chuyển hoá bản thân" steps={TAC_STEPS} />
-          </motion.div>
-          <motion.div
-            className="flex shrink-0 origin-center items-center justify-center"
-            initial="hidden"
-            whileInView="show"
-            viewport={JOURNEY_VIEWPORT}
-            variants={JOURNEY_DIVIDER_VARIANTS}
-          >
-            <Image
-              src="/life-at-ipag/cay-nen-xay-nep/figma/journey-divider.svg"
-              alt=""
-              width={42}
-              height={15}
-              className="rotate-90 2xl:rotate-0"
-              aria-hidden
-            />
-          </motion.div>
-          <motion.div
-            className="flex w-full justify-center xl:block xl:max-w-[400px]"
-            initial="hidden"
-            whileInView="show"
-            viewport={JOURNEY_VIEWPORT}
-            variants={JOURNEY_COLUMN_VARIANTS}
-            custom={48}
-          >
-            <JourneyColumn acronym="CAT" subtitle="Lan toả hệ sinh thái" steps={CAT_STEPS} />
-          </motion.div>
-        </div>
+                <div className="flex w-full flex-col gap-5">
+                  <p className="text-sm leading-[1.4] text-[#474747] md:text-base md:leading-[1.48]">
+                    {item.quote}
+                  </p>
+
+                  <div className="flex w-full flex-col gap-2">
+                    <p className="text-base font-bold leading-[1.4] text-[#292929] md:text-lg">
+                      {item.name}
+                    </p>
+                    <p className="text-xs uppercase leading-[1.4] text-[#002b5b] md:text-sm">
+                      {item.department}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </motion.article>
+          ))}
+        </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 }

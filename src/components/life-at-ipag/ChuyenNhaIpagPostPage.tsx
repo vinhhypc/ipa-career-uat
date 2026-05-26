@@ -135,7 +135,7 @@ function RelatedCard({ post }: { post: ChuyenNhaIpagPost }) {
           <span className="text-xs font-semibold text-[#8a97a6]">{post.dateList}</span>
         </div>
 
-        <h3 className="mt-4 line-clamp-2 text-base font-extrabold text-[#292929] md:text-lg">
+        <h3 className="mt-4 line-clamp-2 text-base font-extrabold text-[#292929] 2xl:text-lg">
           {post.title}
         </h3>
         <p className="mt-3 line-clamp-3 text-sm leading-6 text-[#6b7280]">{post.excerpt}</p>

@@ -24,14 +24,36 @@ export default function ContactFormSection() {
         {modalOpen && <ContactSuccessModal onClose={() => setModalOpen(false)} />}
       </AnimatePresence>
 
-      <section className="relative overflow-hidden bg-[#eaf4ff] px-4 py-14 md:px-12 md:py-16 lg:px-20 lg:py-20">
-        <div className="pointer-events-none absolute inset-0 opacity-40">
-          <div className="absolute -left-32 top-14 h-[520px] w-[520px] rounded-full bg-[#7bc1ff]/15 blur-3xl" />
-          <div className="absolute -right-32 bottom-0 h-[520px] w-[520px] rounded-full bg-[#fbc17b]/12 blur-3xl" />
+      <section className="relative isolate overflow-hidden px-4 pb-20 pt-10 md:px-12 lg:px-20 xl:px-[240px]">
+        <div className="pointer-events-none absolute inset-0 z-0" aria-hidden>
+          <div className="absolute inset-0 bg-white" />
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage:
+                'linear-gradient(180deg, rgba(170, 231, 255, 0.15) 0%, rgba(0, 116, 162, 0.15) 100%)',
+            }}
+          />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/contact/figma/contact-form-bg-left.png"
+            alt=""
+            width={566}
+            height={308}
+            className="absolute bottom-0 left-0 block h-auto w-[min(566px,50vw)] max-w-none"
+          />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/contact/figma/contact-form-bg-right.png"
+            alt=""
+            width={566}
+            height={308}
+            className="absolute bottom-0 right-0 block h-auto w-[min(566px,50vw)] max-w-none"
+          />
         </div>
 
         <motion.div
-          className="section-content relative"
+          className="section-content relative z-10"
           variants={STAGGER_CHILDREN}
           initial="hidden"
           whileInView="show"

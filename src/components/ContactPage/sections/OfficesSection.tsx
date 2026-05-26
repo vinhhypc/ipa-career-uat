@@ -8,7 +8,7 @@ import { ITEM_REVEAL, STAGGER_CHILDREN } from '../constants';
 
 export default function OfficesSection() {
   return (
-    <section className="bg-white px-4 py-14 md:px-12 md:py-16 lg:px-20 lg:py-20">
+    <section className="bg-white px-8 py-10 lg:px-16 xl:px-8 lg:py-12">
       <motion.div
         className="section-content"
         variants={STAGGER_CHILDREN}
@@ -16,9 +16,9 @@ export default function OfficesSection() {
         whileInView="show"
         viewport={{ once: true, amount: 0.22 }}
       >
-        <div className="mx-auto grid w-full max-w-full gap-10 lg:grid-cols-[1fr_420px] lg:items-start">
-          <motion.div className="grid gap-8 md:grid-cols-2" variants={ITEM_REVEAL}>
-            <div>
+        <div className="mx-auto flex w-full max-w-full flex-col gap-6 xl:grid xl:grid-cols-[1fr_1fr_360px] xl:items-start xl:gap-6">
+          <div className="mx-auto grid w-full max-w-4xl gap-8 md:grid-cols-2 lg:flex lg:max-w-6xl lg:justify-between lg:gap-16 xl:contents">
+            <motion.div variants={ITEM_REVEAL}>
               <p className="text-2xl font-extrabold uppercase text-[#145194] after:mt-2 after:block after:w-21 after:border-b-2 after:border-[#145194]">
                 HÀ NỘI
               </p>
@@ -40,9 +40,9 @@ export default function OfficesSection() {
                 />
                 <OfficeItem index="04" title="OFFICE" address="19 Trúc Khê, Đống Đa, Hà Nội" />
               </div>
-            </div>
+            </motion.div>
 
-            <div>
+            <motion.div variants={ITEM_REVEAL}>
               <p className="text-2xl font-extrabold uppercase text-[#145194] after:mt-2 after:block after:w-21 after:border-b-2 after:border-[#145194]">
                 HỒ CHÍ MINH
               </p>
@@ -58,11 +58,11 @@ export default function OfficesSection() {
                   address="205 Nguyễn Xí, Bình Thạnh, TP. Hồ Chí Minh"
                 />
               </div>
-            </div>
-          </motion.div>
+            </motion.div>
+          </div>
 
           <motion.div
-            className="mx-auto w-full max-w-[420px] overflow-hidden rounded-[22px] bg-white shadow-[0_10px_24px_rgba(0,0,0,0.12)] lg:mx-0"
+            className="mx-auto w-full max-w-[420px] overflow-hidden rounded-[22px] bg-white shadow-[0_10px_24px_rgba(0,0,0,0.12)] xl:mx-0"
             variants={ITEM_REVEAL}
           >
             <div className="relative aspect-square">

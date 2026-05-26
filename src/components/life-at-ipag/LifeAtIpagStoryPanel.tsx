@@ -44,10 +44,10 @@ export default function LifeAtIpagStoryPanel({
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.45, ease: 'easeOut', delay: 0.05 }}
             >
-              <p className="text-2xl font-extrabold uppercase tracking-[1px] text-[#292929] md:text-3xl md:leading-[38px]">
+              <p className="text-2xl font-extrabold uppercase tracking-[1px] text-[#292929] 2xl:text-3xl 2xl:leading-[38px]">
                 {title}
               </p>
-              <p className="mt-4 whitespace-pre-line text-base leading-7 text-[#292929]/80 md:text-lg md:leading-[28px]">
+              <p className="mt-4 whitespace-pre-line text-base leading-7 text-[#292929]/80 2xl:text-lg 2xl:leading-[28px]">
                 {description}
               </p>
 
