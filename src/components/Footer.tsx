@@ -46,7 +46,7 @@ export default function Footer() {
 
               <div className="flex items-center gap-4">
                 <a
-                  href="https://www.ipag.edu.vn"
+                  href="https://www.ipa.com.vn/vi"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="opacity-100 transition hover:opacity-80"
@@ -55,7 +55,7 @@ export default function Footer() {
                   <Image src="/icons/globe.svg" alt="Website" width={24} height={24} />
                 </a>
                 <a
-                  href="https://www.facebook.com"
+                  href="https://www.facebook.com/ipa.nextgen"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="opacity-100 transition hover:opacity-80"
@@ -64,7 +64,7 @@ export default function Footer() {
                   <Image src="/icons/facebook.svg" alt="Facebook" width={24} height={24} />
                 </a>
                 <a
-                  href="https://www.linkedin.com"
+                  href="https://www.linkedin.com/company/ipa-recruiter"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="opacity-100 transition hover:opacity-80"
@@ -145,7 +145,7 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="mt-10 flex flex-col gap-4 border-t border-white/50 pt-6 text-sm leading-[1.4] md:flex-row md:items-center md:justify-between">
+          <div className="mt-10 flex flex-col gap-4 border-t border-gray-600 pt-6 text-sm leading-[1.4] md:flex-row md:items-center md:justify-between">
             <p>© 2026 IPAG. All rights reserved.</p>
             <Link href="#" className="text-left hover:text-white/80 md:text-right">
               Điều khoản sử dụng

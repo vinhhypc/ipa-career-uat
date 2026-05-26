@@ -69,7 +69,7 @@ export default function CommitmentsSection() {
                 y: -4,
                 transition: { type: 'tween', duration: 0.22, ease: [0.25, 0.1, 0.25, 1] },
               }}
-              className="flex flex-col gap-5 rounded-[32px] bg-white px-7 py-10 shadow-[0px_4px_6px_0px_rgba(0,0,0,0.15)]"
+              className="flex flex-col gap-4 rounded-[32px] bg-white px-3 2xl:px-4 2xl:gap-6 py-8 shadow-[0px_4px_6px_0px_rgba(0,0,0,0.15)]"
             >
               <Image
                 src={item.icon}
@@ -80,10 +80,10 @@ export default function CommitmentsSection() {
                 className="size-[60px] object-contain"
               />
               <div className="flex flex-col gap-4">
-                <h3 className="text-xl font-bold leading-[28px] text-[#070707] md:text-2xl md:leading-[32px]">
+                <h3 className="text-xl font-bold leading-6 text-[#070707] 2xl:text-2xl 2xl:leading-[32px]">
                   {item.title}
                 </h3>
-                <p className="text-sm leading-[20px] text-[#474747] md:text-base md:leading-[22px]">
+                <p className="text-sm leading-[20px] text-[#474747] 2xl:text-base 2xl:leading-[22px]">
                   {item.body}
                 </p>
               </div>

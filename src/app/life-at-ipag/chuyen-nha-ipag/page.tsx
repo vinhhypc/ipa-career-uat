@@ -10,10 +10,11 @@ export const metadata: Metadata = createPageMetadata({
   pathname: '/life-at-ipag/chuyen-nha-ipag',
 });
 
-export default function ChuyenNhaIpagRoutePage({
+export default async function ChuyenNhaIpagRoutePage({
   searchParams,
 }: {
-  searchParams?: Record<string, string | string[] | undefined>;
+  searchParams?: Promise<Record<string, string | string[] | undefined>>;
 }) {
-  return <ChuyenNhaIpagListPage searchParams={searchParams} />;
+  const resolvedSearchParams = await (searchParams ?? Promise.resolve({}));
+  return <ChuyenNhaIpagListPage searchParams={resolvedSearchParams} />;
 }

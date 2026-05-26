@@ -25,6 +25,10 @@ const HERO_TYPEWRITER_SEGMENTS: TypewriterSegment[] = [
   { kind: 'text', text: ' cho chính mình, tổ chức và cộng đồng.', className: 'font-medium' },
 ];
 
+const HERO_TYPEWRITER_FULL_TEXT = HERO_TYPEWRITER_SEGMENTS.map((seg) =>
+  seg.kind === 'text' ? seg.text : '\n',
+).join('');
+
 const HERO_TYPEWRITER_SPEED_MS = 10;
 const HERO_TYPEWRITER_START_DELAY_MS = 300;
 
@@ -103,7 +107,21 @@ export default function HeroSection() {
                 </span>
               </span>
             </h1>
-            <p className="mb-5 text-sm leading-[22px] tracking-[0.14px] text-white md:mb-8 md:max-w-156 xl:max-w-2xl md:text-base md:leading-[28px] md:tracking-[0.16px] lg:mb-9 lg:text-lg lg:leading-[33px] lg:tracking-[0.18px]">
+            <p
+              className="mb-5 text-sm leading-[22px] tracking-[0.14px] text-white md:hidden"
+              aria-label={HERO_TYPEWRITER_FULL_TEXT}
+            >
+              {HERO_TYPEWRITER_SEGMENTS.map((seg, i) =>
+                seg.kind === 'text' ? (
+                  <span key={i} className={seg.className}>
+                    {seg.text}
+                  </span>
+                ) : (
+                  <br key={i} />
+                ),
+              )}
+            </p>
+            <p className="mb-5 hidden text-sm leading-[22px] tracking-[0.14px] text-white md:mb-8 md:block md:max-w-156 md:text-base md:leading-[28px] md:tracking-[0.16px] lg:mb-9 lg:text-lg lg:leading-[33px] lg:tracking-[0.18px] xl:max-w-2xl">
               {descriptionContent}
               {descriptionCaret}
             </p>

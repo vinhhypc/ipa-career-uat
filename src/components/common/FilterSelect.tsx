@@ -5,6 +5,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import type { Dispatch, SetStateAction } from 'react';
 import { createPortal } from 'react-dom';
 
+import { getCodebookQuery } from '@/actions/codebook';
 import { useApi } from '@/hooks/useApi';
 
 type SelectOption = { label: string; value: string };
@@ -91,16 +92,7 @@ export default function FilterSelect({
       }
 
       const requestPromise = (async () => {
-        const url = new URL('/api/codebook/query', window.location.origin);
-        url.searchParams.set('page', '1');
-        url.searchParams.set('size', '2000');
-        url.searchParams.set('subDomainCode', subDomainCode);
-
-        const response = await fetch(url.toString());
-        if (!response.ok) {
-          throw new Error(`Codebook request failed: ${response.status}`);
-        }
-        return (await response.json()) as CodebookResponse;
+        return (await getCodebookQuery({ subDomainCode })) as CodebookResponse;
       })();
 
       CODEBOOK_INFLIGHT.set(subDomainCode, requestPromise);

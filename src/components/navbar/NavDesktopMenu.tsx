@@ -84,6 +84,9 @@ export default function NavDesktopMenu({
                                   ? 'bg-black/5 font-bold text-neutral-900'
                                   : 'font-medium text-neutral-900/80 hover:bg-black/5 hover:text-neutral-900'
                               }`}
+                              onClick={(e) => {
+                                e.currentTarget.blur();
+                              }}
                             >
                               {child.label}
                             </Link>

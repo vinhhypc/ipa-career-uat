@@ -10,10 +10,12 @@ import {
   CATEGORY_CODE_MAP,
   CATEGORY_LABEL_MAP,
 } from '@/components/life-at-ipag/chuyen-nha-ipag/constants';
-import { createPageMetadata, getMetadataBase } from '@/lib/seo';
+import { createPageMetadata } from '@/lib/seo';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 0;
+
+const API_BASE_URL = process.env.API_BASE_URL || 'https://bizrule-uat.ipas.com.vn';
 
 type ApiPostDetailResponse = {
   title?: string;
@@ -44,7 +46,7 @@ function formatDate(timestamp?: number): string {
 }
 
 async function fetchPostDetail(id: string): Promise<ApiPostDetailResponse | null> {
-  const response = await fetch(`${getMetadataBase().origin}/api/get_post_detail_ipag_hiring`, {
+  const response = await fetch(`${API_BASE_URL}/public/matches/get_post_detail_ipag_hiring`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ code: id }),

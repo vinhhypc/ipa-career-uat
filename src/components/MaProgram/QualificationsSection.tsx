@@ -49,7 +49,7 @@ export default function QualificationsSection() {
       </motion.div>
 
       <div className="section-content relative z-10 flex flex-col gap-8">
-        <div className="grid grid-cols-1 items-start gap-8 md:grid-cols-[minmax(0,1fr)_521px] md:gap-x-[100px] md:gap-y-0">
+        <div className="grid grid-cols-1 items-start gap-6 md:grid-cols-[minmax(0,1fr)_521px] xl:grid-cols-[minmax(0,1fr)_420px] 2xl:grid-cols-[minmax(0,1fr)_440px] xl:gap-x-10 2xl:gap-x-16 2xl:gap-y-0">
           <div className="flex flex-col gap-8 md:gap-[52px]">
             <motion.div
               className="flex w-full flex-col items-center gap-2 text-center md:items-start md:gap-2 md:text-left"
@@ -66,7 +66,7 @@ export default function QualificationsSection() {
               </h2>
             </motion.div>
 
-            <div className="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-x-5 md:gap-y-10">
+            <div className="grid grid-cols-1 gap-5 md:grid-cols-2 2xl:gap-x-5 2xl:gap-y-10">
               {QUALIFICATIONS.map((q, i) => {
                 const Icon = q.icon;
                 return (
@@ -105,7 +105,7 @@ export default function QualificationsSection() {
                         </p>
                       </div>
                     </div>
-                    <div className="text-sm font-normal leading-[22px] text-[#474747] md:text-base md:leading-[22px] md:whitespace-nowrap">
+                    <div className="text-sm font-normal leading-[22px] text-[#474747] xl:text-xs xl:leading-5 2xl:text-base 2xl:leading-[22px]">
                       {q.detail}
                     </div>
                   </motion.div>
@@ -125,7 +125,7 @@ export default function QualificationsSection() {
           </div>
 
           <motion.div
-            className="rounded-[20px] bg-white px-4 py-5 shadow-[0px_4px_4px_0px_rgba(0,0,0,0.15)] md:w-[521px] md:max-w-full md:rounded-[32px] md:px-10 md:py-8"
+            className="w-full rounded-[20px] bg-white px-4 py-5 shadow-[0px_4px_4px_0px_rgba(0,0,0,0.15)] md:rounded-[32px] xl:px-6 2xl:px-10 2xl:py-8"
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.2 }}
@@ -134,7 +134,7 @@ export default function QualificationsSection() {
             <div className="flex flex-col gap-4 md:flex-row md:gap-7">
               <div className="flex min-w-0 flex-1 flex-col gap-4 md:gap-6">
                 <motion.h3
-                  className="text-lg font-bold leading-[24px] tracking-[0.18px] text-[#292929] md:text-2xl md:leading-[33px] md:tracking-[0.24px]"
+                  className="text-lg font-bold leading-[24px] tracking-[0.18px] text-[#292929] lg:text-xl lg:leading-7 2xl:text-2xl 2xl:leading-[33px] 2xl:tracking-[0.24px]"
                   initial={{ opacity: 0, y: 12 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -169,7 +169,7 @@ export default function QualificationsSection() {
                         }}
                       />
                       <motion.div
-                        className={`flex min-w-0 flex-1 cursor-default items-center gap-2 rounded-xl border border-[rgba(123,193,255,0.6)] bg-[rgba(202,230,255,0.18)] px-[13px] py-[5px] backdrop-blur-[12px] md:w-full md:max-w-[400px] md:rounded-[20px] md:px-[17px] md:py-[9px] ${
+                        className={`flex min-w-0 flex-1 cursor-default items-center gap-2 rounded-xl border border-[rgba(123,193,255,0.6)] bg-[rgba(202,230,255,0.18)] px-[13px] py-[5px] backdrop-blur-[12px] md:w-full md:max-w-[400px] md:rounded-[20px] md:px-[17px] md:py-[9px] xl:max-w-none ${
                           i === 0 ? 'md:gap-4' : ''
                         }`}
                         whileHover={{ scale: 1.03 }}
@@ -180,7 +180,7 @@ export default function QualificationsSection() {
                             {i + 1}
                           </span>
                         </div>
-                        <p className="text-sm font-semibold leading-7 text-[#474747] md:text-lg md:leading-[28px]">
+                        <p className="text-sm font-semibold leading-7 text-[#474747] md:text-base xl:text-lg 2xl:text-xl 2xl:leading-[28px]">
                           {label}
                         </p>
                       </motion.div>

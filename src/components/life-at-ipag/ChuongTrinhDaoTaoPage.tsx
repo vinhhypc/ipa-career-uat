@@ -28,35 +28,35 @@ const TRAINING_PROGRAM_CONTENT: Record<
   'Hội nhập': {
     title: 'Đào tạo hội nhập',
     subtitle: 'Khởi đầu vững chắc · Kiến tạo tư duy nền tảng',
-    body: 'Gia nhập IPAG không chỉ là bắt đầu một công việc mới, mà còn là\nbước vào một hệ sinh thái với những đặc trưng riêng biệt về tư duy,\nvăn hóa và cách vận hành.\n\nVì vậy, chương trình đào tạo hội nhập được xây dựng nhằm hỗ trợ các\nnhân sự mới nhanh chóng hòa nhập vào dòng chảy chung của tổ chức, thống nhất về tư duy, đồng thuận về tầm nhìn và hiểu đúng cách thức\nvận hành xuyên suốt toàn hệ sinh thái.',
+    body: 'Gia nhập IPAG không chỉ là bắt đầu một công việc mới, mà còn là bước vào một hệ sinh thái với những đặc trưng riêng biệt về tư duy, văn hóa và cách vận hành. \nVì vậy, chương trình đào tạo hội nhập được xây dựng nhằm hỗ trợ các nhân sự mới nhanh chóng hòa nhập vào dòng chảy chung của tổ chức, thống nhất về tư duy, đồng thuận về tầm nhìn và hiểu đúng cách thức vận hành xuyên suốt toàn hệ sinh thái.',
     image: '/life-at-ipag/chuong-trinh-dao-tao/figma/training-tab-hoi-nhap.png',
     imageAlt: 'Đào tạo hội nhập tại IPAG',
   },
   Leadership: {
     title: 'Phát triển năng lực lãnh đạo',
     subtitle: 'Khơi dậy bản lĩnh · Kiến tạo tư duy chuyển hóa',
-    body: 'Tại IPAG, chúng tôi chú trọng phát triển đội ngũ lãnh đạo không chỉ vững vàng về năng lực quản trị mà còn sâu sắc trong tư duy, đặc biệt là tư duy tỉnh thức — một yếu tố ngày càng quan trọng trong bối cảnh hiện nay.\n\nThông qua các chương trình đào tạo Leadership, chúng tôi đang từng bước xây dựng đội ngũ lãnh đạo có nền tảng kỹ năng vững chắc, có\nkhả năng gìn giữ và lan tỏa văn hóa tổ chức, dẫn dắt sự thay đổi và\nphát triển nhân tài bền vững trong dài hạn.',
+    body: 'Tại IPAG, chúng tôi chú trọng phát triển đội ngũ lãnh đạo không chỉ vững vàng về năng lực quản trị mà còn sâu sắc trong tư duy, đặc biệt là tư duy tỉnh thức — một yếu tố ngày càng quan trọng trong bối cảnh hiện nay. \nThông qua các chương trình đào tạo Leadership, chúng tôi đang từng bước xây dựng đội ngũ lãnh đạo có nền tảng kỹ năng vững chắc, có khả năng gìn giữ và lan tỏa văn hóa tổ chức, dẫn dắt sự thay đổi và phát triển nhân tài bền vững trong dài hạn.',
     image: '/life-at-ipag/chuong-trinh-dao-tao/figma/training-tab-leadership.png',
     imageAlt: 'Chương trình đào tạo Leadership tại IPAG',
   },
   'Chuyên môn': {
     title: 'Đào tạo chuyên môn nghiệp vụ',
     subtitle: 'Nâng cao năng lực thực thi của tổ chức',
-    body: 'Trong năm 2025, 60+ chương trình đào tạo chuyên môn nghiệp vụ,\ncác workshop & talkshow thực chiến đã được triển khai, với sự tham dự của hơn 2.820 cán bộ nhân viên tại các công ty trong hệ sinh thái.\nCác chương trình bao phủ nhiều lĩnh vực chức năng, góp phần củng cố năng lực thực thi, chuẩn hóa phương pháp làm việc và nâng cao\nchất lượng đầu ra ở từng bộ phận.\n\nỞ góc độ quản trị tri thức, đào tạo chuyên môn không chỉ lấp đầy\nkhoảng trống kỹ năng hiện tại mà còn tạo điều kiện để tri thức được\ntích lũy có hệ thống, lan tỏa ngang hàng và kế thừa qua các thế hệ nhân sự.',
+    body: 'Trong năm 2025, 60+ chương trình đào tạo chuyên môn nghiệp vụ, các workshop & talkshow thực chiến đã được triển khai, với sự tham dự của hơn 2.820 cán bộ nhân viên tại các công ty trong hệ sinh thái. Các chương trình bao phủ nhiều lĩnh vực chức năng, góp phần củng cố năng lực thực thi, chuẩn hóa phương pháp làm việc và nâng cao chất lượng đầu ra ở từng bộ phận. \nỞ góc độ quản trị tri thức, đào tạo chuyên môn không chỉ lấp đầy khoảng trống kỹ năng hiện tại mà còn tạo điều kiện để tri thức được tích lũy có hệ thống, lan tỏa ngang hàng và kế thừa qua các thế hệ nhân sự.',
     image: '/life-at-ipag/chuong-trinh-dao-tao/figma/training-tab-chuyen-mon.png',
     imageAlt: 'Đào tạo chuyên môn nghiệp vụ tại IPAG',
   },
   'AI Ready': {
     title: 'Định hướng AI Ready',
     subtitle: 'Sẵn sàng cho kỷ nguyên mới',
-    body: 'Nhìn về tương lai, IPAG chủ động triển khai định hướng AI Ready nhằm giúp đội ngũ cán bộ nhân viên từng bước hình thành năng lực ứng dụng trí tuệ nhân tạo vào công việc một cách hiệu quả và có trách nhiệm.\n\nĐây không đơn thuần là một chương trình kỹ thuật, mà còn phản ánh\ncách nhìn chiến lược của Tập đoàn: AI là một năng lực mới của lực lượng lao động trong kỷ nguyên sắp tới. Vì vậy, việc trang bị năng lực này cho\nđội ngũ ngay từ hôm nay chính là một khoản đầu tư dài hạn, thể hiện\ntầm nhìn và khả năng chuẩn bị cho tương lai của tổ chức.',
+    body: 'Nhìn về tương lai, IPAG chủ động triển khai định hướng AI Ready nhằm giúp đội ngũ cán bộ nhân viên từng bước hình thành năng lực ứng dụng trí tuệ nhân tạo vào công việc một cách hiệu quả và có trách nhiệm. \nĐây không đơn thuần là một chương trình kỹ thuật, mà còn phản ánh cách nhìn chiến lược của Tập đoàn: AI là một năng lực mới của lực lượng lao động trong kỷ nguyên sắp tới. Vì vậy, việc trang bị năng lực này cho đội ngũ ngay từ hôm nay chính là một khoản đầu tư dài hạn, thể hiện tầm nhìn và khả năng chuẩn bị cho tương lai của tổ chức.',
     image: '/life-at-ipag/chuong-trinh-dao-tao/figma/training-tab-ai-ready.png',
     imageAlt: 'Định hướng AI Ready tại IPAG',
   },
   Retreat: {
     title: 'Chương trình Retreat',
     subtitle: 'Học sâu bằng cách sống trong đó',
-    body: 'Có những chuyển đổi về tư duy và năng lực chỉ thực sự diễn ra khi con người có đủ không gian để dừng lại, tập trung và nhìn sâu.\n\nCác chương trình Retreat của IPAG được thiết kế như những \"khoảng lặng có chủ đích\", nơi mỗi thành viên tạm rời khỏi nhịp công việc thường ngày để cùng nhau đi sâu vào các chủ đề chiến lược trọng điểm trong 2–3 ngày.\n\nĐây là trải nghiệm học tập có chiều sâu, giúp đội ngũ trở về với tư duy mới, tầm nhìn mới và sự rõ ràng hơn cho những bước phát triển tiếp theo.',
+    body: 'Có những chuyển đổi về tư duy và năng lực chỉ thực sự diễn ra khi con người có đủ không gian để dừng lại, tập trung và nhìn sâu. \nCác chương trình Retreat của IPAG được thiết kế như những "khoảng lặng có chủ đích", nơi mỗi thành viên tạm rời khỏi nhịp công việc thường ngày để cùng nhau đi sâu vào các chủ đề chiến lược trọng điểm trong 2–3 ngày. \nĐây là trải nghiệm học tập có chiều sâu, giúp đội ngũ trở về với tư duy mới, tầm nhìn mới và sự rõ ràng hơn cho những bước phát triển tiếp theo.',
     image: '/life-at-ipag/chuong-trinh-dao-tao/figma/training-tab-retreat.png',
     imageAlt: 'Chương trình Retreat tại IPAG',
   },
@@ -86,7 +86,7 @@ const COE_RESOURCE_CARDS = [
     title: 'Sách hay',
     icon: '/life-at-ipag/chuong-trinh-dao-tao/figma/coe-open-book.svg',
     description:
-      'Nguồn tri thức chất lượng cao, được chắt lọc từ\nthực tiễn tổ chức, bảo đảm tính ứng dụng, dễ tiếp cận và liên tục được cập nhật.',
+      'Nguồn tri thức chất lượng cao, được chắt lọc từ thực tiễn tổ chức, bảo đảm tính ứng dụng, dễ tiếp cận và liên tục được cập nhật.',
   },
   {
     title: 'Thầy giỏi',
@@ -117,7 +117,7 @@ const IPAG_IDENTITY_CARDS = [
   },
   {
     label: 'Vai trò & hình thức đồng hành',
-    title: 'Người đồng hành — Lan tỏa\ntinh thần học tập',
+    title: 'Người đồng hành — Lan tỏa tinh thần học tập',
     description:
       'Đóng vai trò là người kết nối và lan tỏa tri thức thông qua các hình thức đào tạo đa dạng.',
     icon: '/life-at-ipag/chuong-trinh-dao-tao/figma/training-identity-handshake.svg',
@@ -132,7 +132,7 @@ const IPAG_IDENTITY_CARDS = [
     label: 'Giá trị mang lại cho người học',
     title: 'Truyền cảm hứng — Rút ngắn khoảng cách',
     description:
-      'Nơi giúp người học khai phóng tư duy và chuyển hóa\nlý thuyết thành năng lực thực tế.',
+      'Nơi giúp người học khai phóng tư duy và chuyển hóa lý thuyết thành năng lực thực tế.',
     icon: '/life-at-ipag/chuong-trinh-dao-tao/figma/training-identity-tablet.svg',
     bullets: [
       { strong: 'Tư duy làm chủ & Bản lĩnh nghề nghiệp.', rest: '' },
@@ -142,6 +142,13 @@ const IPAG_IDENTITY_CARDS = [
     ],
   },
 ] as const;
+
+function splitParagraphs(text: string) {
+  return text
+    .split(/\r?\n/g)
+    .map((paragraph) => paragraph.trim())
+    .filter(Boolean);
+}
 
 function DiamondStep({
   n,
@@ -282,13 +289,16 @@ export default function ChuongTrinhDaoTaoPage() {
       </section>
 
       <section className="relative overflow-hidden bg-[linear-gradient(-56deg,rgba(2,42,54,1)_0%,rgba(10,59,116,1)_100%)] py-16 md:py-20">
-        <div className="relative mx-auto xl:mx-0 px-4 md:px-12">
+        <div className="relative mx-auto max-w-[1440px] px-4 md:px-12">
           <div
             ref={trainingStatsRef}
-            className="mx-auto grid justify-items-center gap-10 md:grid-cols-2 xl:grid-cols-[repeat(4,184px)] xl:justify-center xl:gap-16 2xl:gap-20"
+            className="grid w-full justify-items-center gap-8 md:grid-cols-2 xl:grid-cols-[repeat(4,184px)] xl:justify-between xl:gap-12 2xl:gap-10"
           >
             {TRAINING_STATS.map((item, index) => (
-              <article key={item.label} className="flex w-[184px] flex-col items-center gap-3">
+              <article
+                key={item.label}
+                className="flex 2xl:w-56 md:w-48 flex-col items-center gap-3"
+              >
                 <div className="text-center text-3xl font-extrabold uppercase leading-[132%] text-[#FBC17B] tabular-nums md:text-4xl">
                   <span className="inline-flex items-baseline justify-center whitespace-nowrap">
                     <span>{numberFormatter.format(animatedTrainingValues[index] ?? 0)}</span>
@@ -331,7 +341,7 @@ export default function ChuongTrinhDaoTaoPage() {
               Tầm nhìn &amp; Mục tiêu
             </motion.p>
             <motion.h2
-              className="mt-4 text-2xl font-extrabold uppercase leading-[1.2] tracking-[0.02em] text-[#292929] md:text-5xl md:leading-[60px]"
+              className="mt-4 text-2xl font-extrabold uppercase leading-[1.2] tracking-[0.02em] text-[#292929] md:text-3xl  md:leading-[40px] xl:text-4xl 2xl:text-5xl"
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.45 }}
@@ -388,10 +398,10 @@ export default function ChuongTrinhDaoTaoPage() {
                 />
 
                 <div className="flex flex-col gap-3 px-6 pb-6 pt-24 md:px-8 md:pb-8 md:pt-28">
-                  <h3 className="text-lg font-extrabold leading-snug text-[#292929] md:text-2xl md:leading-[34px]">
+                  <h3 className="text-lg font-extrabold leading-snug text-[#292929] md:text-xl md:leading-[26px] 2xl:text-2xl 2xl:leading-8">
                     {pillar.title}
                   </h3>
-                  <p className="whitespace-pre-line text-sm leading-6 text-[#474747] md:text-base md:leading-7">
+                  <p className="whitespace-pre-line text-sm leading-6 text-[#474747] 2xl:text-base md:leading-6 2xl:leading-7">
                     {pillar.description}
                   </p>
                 </div>
@@ -416,7 +426,7 @@ export default function ChuongTrinhDaoTaoPage() {
 
         <div className="relative mx-auto max-w-[1440px] px-4 md:px-12">
           <motion.h2
-            className="text-center text-2xl font-extrabold uppercase tracking-[1px] text-[#292929] md:text-5xl md:leading-[60px]"
+            className="text-center text-2xl font-extrabold uppercase tracking-[1px] text-[#292929] md:text-3xl md:leading-[20px] xl:text-4xl 2xl:text-6xl 2xl:leading-15"
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.4 }}
@@ -440,7 +450,7 @@ export default function ChuongTrinhDaoTaoPage() {
                   aria-selected={active}
                   tabIndex={active ? 0 : -1}
                   onClick={() => setActiveTab(tab)}
-                  className={`rounded-full border px-4 py-2 text-sm font-semibold transition md:px-8 md:py-3 md:text-base ${
+                  className={`rounded-full cursor-pointer border px-4 py-2 text-sm font-semibold transition md:px-6 lg:px-7 md:py-3  2xl:px-8 2xl:py-3 2xl:text-base ${
                     active
                       ? 'border-[#145194] bg-white text-[#145194] shadow-[0_10px_24px_rgba(20,81,148,0.12)]'
                       : 'border-[#d8e1ec] bg-white text-[#6b7280] shadow-[0_8px_18px_rgba(0,0,0,0.06)] hover:border-[#145194]/45 hover:text-[#145194]'
@@ -462,16 +472,18 @@ export default function ChuongTrinhDaoTaoPage() {
             aria-label={currentProgram.title}
           >
             <div className="grid lg:grid-cols-[1fr_1.06fr]">
-              <div className="flex flex-col justify-center px-5 py-8 md:px-10 md:py-12 lg:px-12">
-                <h3 className="text-xl font-extrabold leading-snug text-[#292929] md:text-3xl md:leading-[42px]">
+              <div className="flex flex-col justify-center px-4 py-4 2xl:px-8 2xl:py-8 md:px-6">
+                <h3 className="text-xl font-extrabold leading-snug text-[#292929] xl:text-2xl 2xl:text-3xl md:leading-[42px]">
                   {currentProgram.title}
                 </h3>
-                <p className="mt-3 text-sm font-semibold leading-6 text-[#145194] md:text-base md:leading-7">
+                <p className=" text-sm font-semibold uppercase leading-6 text-[#145194] 2xl:text-base 2xl:leading-4 2xl:leading-7">
                   {currentProgram.subtitle}
                 </p>
-                <p className="mt-6 whitespace-pre-line text-sm leading-7 text-[#474747] md:text-base md:leading-8">
-                  {currentProgram.body}
-                </p>
+                <div className="mt-4 flex  flex-col gap-3 text-sm leading-7 text-[#474747] 2xl:text-base 2xl:leading-8">
+                  {splitParagraphs(currentProgram.body).map((paragraph, index) => (
+                    <p key={index}>{paragraph}</p>
+                  ))}
+                </div>
               </div>
               <div className="relative min-h-[240px] sm:min-h-[300px] lg:min-h-[460px]">
                 <Image
@@ -488,7 +500,7 @@ export default function ChuongTrinhDaoTaoPage() {
         </div>
       </section>
 
-      <section className="relative overflow-hidden py-16 md:py-20">
+      <section className="relative overflow-hidden py-14 md:py-16">
         <div className="absolute inset-0">
           <Image
             src="/life-at-ipag/chuong-trinh-dao-tao/figma/coe-bg.png"
@@ -523,7 +535,7 @@ export default function ChuongTrinhDaoTaoPage() {
               Trung tâm Nguồn lực Xuất sắc
             </motion.h2>
             <motion.p
-              className="mt-6 max-w-[1040px] whitespace-pre-line text-sm leading-7 text-white/90 md:text-lg md:leading-8"
+              className="mt-6 max-w-[1040px] whitespace-pre-line text-sm leading-7 text-white/90 md:text-base md:leading-8 2xl:text-lg"
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.35 }}
@@ -534,11 +546,10 @@ export default function ChuongTrinhDaoTaoPage() {
               {'\n'}
               Tại đây, chúng tôi kiến tạo mô hình{' '}
               <strong className="font-bold text-[#FBC17B]">
-                &quot;Sách hay – Thầy giỏi – Bạn tốt&quot;
+                &quot;Sách hay - Thầy giỏi - Bạn tốt&quot;
               </strong>{' '}
-              như một nền tảng phát triển toàn diện, giúp mỗi cá nhân có điều kiện
-              {'\n'}
-              thuận lợi nhất để học hỏi, thực hành, thử nghiệm và phụng sự.
+              như một nền tảng phát triển toàn diện, giúp mỗi cá nhân có điều kiện thuận lợi nhất để
+              học hỏi, thực hành, thử nghiệm và phụng sự.
             </motion.p>
           </div>
 
@@ -546,21 +557,32 @@ export default function ChuongTrinhDaoTaoPage() {
             {COE_RESOURCE_CARDS.map((card, index) => (
               <motion.article
                 key={card.title}
-                className="flex flex-col gap-5 rounded-[32px] border border-[rgba(123,193,255,0.6)] bg-[rgba(202,230,255,0.15)] px-7 py-10 shadow-[0px_4px_12px_0px_rgba(0,0,0,0.15)]"
+                className={[
+                  'group flex flex-col gap-5 rounded-[32px] border border-[rgba(123,193,255,0.6)] bg-[rgba(202,230,255,0.15)] px-7 py-10 shadow-[0px_4px_12px_0px_rgba(0,0,0,0.15)]',
+                  'transition duration-300 ease-out hover:-translate-y-1 hover:border-[#7BC1FF] hover:bg-[rgba(202,230,255,0.2)] hover:shadow-[0px_10px_24px_0px_rgba(0,0,0,0.28)]',
+                ].join(' ')}
                 initial={{ opacity: 0, y: 14 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.5, delay: 0.06 + index * 0.05 }}
               >
                 <div className="flex items-center gap-3">
-                  <Image src={card.icon} alt="" width={60} height={60} />
-                  <h3 className="text-left text-xl font-extrabold leading-8 text-white md:text-2xl">
+                  <Image
+                    src={card.icon}
+                    alt=""
+                    width={60}
+                    height={60}
+                    className="transition-transform duration-300 group-hover:scale-105"
+                  />
+                  <h3 className="text-left text-xl font-extrabold leading-8 text-white transition-colors duration-300 group-hover:text-[#FBC17B] md:text-2xl">
                     {card.title}
                   </h3>
                 </div>
-                <p className="whitespace-pre-line text-left text-sm leading-6 text-white/90 md:text-base md:leading-[22px]">
-                  {card.description}
-                </p>
+                <div className="flex flex-col gap-3 text-left text-sm leading-6 text-white/90 md:text-base md:leading-[22px]">
+                  {splitParagraphs(card.description).map((paragraph, index) => (
+                    <p key={index}>{paragraph}</p>
+                  ))}
+                </div>
               </motion.article>
             ))}
           </div>
@@ -621,20 +643,22 @@ export default function ChuongTrinhDaoTaoPage() {
                     <p className="text-sm font-medium uppercase leading-6 tracking-[0.01em] text-[#00377C]">
                       {card.label}
                     </p>
-                    <h3 className="whitespace-pre-line text-left text-xl font-extrabold leading-8 text-[#070707] md:text-2xl">
+                    <h3 className="whitespace-pre-line text-left text-xl font-extrabold leading-8 text-[#070707] 2xl:text-2xl">
                       {card.title}
                     </h3>
                   </div>
 
                   <div className="flex flex-col gap-2">
-                    <p className="whitespace-pre-line text-sm leading-7 text-[#474747] md:text-base md:leading-8">
-                      {card.description}
-                    </p>
+                    <div className="flex flex-col gap-3 text-sm leading-7 text-[#474747] 2xl:text-base 2xl:leading-8">
+                      {splitParagraphs(card.description).map((paragraph, index) => (
+                        <p key={index}>{paragraph}</p>
+                      ))}
+                    </div>
                     <ul className="mt-2 flex flex-col gap-2">
                       {card.bullets.map((bullet) => (
                         <li
                           key={`${bullet.strong}${bullet.rest}`}
-                          className="flex items-start gap-2 text-sm leading-6 text-[#474747] md:text-base"
+                          className="flex items-start gap-2 text-sm leading-6 text-[#474747] 2xl:text-base"
                         >
                           <Image
                             src="/life-at-ipag/chuong-trinh-dao-tao/figma/training-identity-check.svg"
@@ -689,7 +713,7 @@ export default function ChuongTrinhDaoTaoPage() {
         <div className="relative mx-auto max-w-[1440px] px-4 md:px-12">
           <div className="mx-auto max-w-[1240px]">
             <motion.div
-              className="relative rounded-[32px] py-8 md:py-8"
+              className="relative rounded-[32px] py-8"
               initial={{ opacity: 0, y: 14 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.35 }}
@@ -725,7 +749,7 @@ export default function ChuongTrinhDaoTaoPage() {
                     aria-hidden
                   />
 
-                  <p className="relative z-10 text-center text-lg italic leading-[1.6] tracking-[0.01em] text-[#474747] md:text-2xl">
+                  <p className="relative z-10 text-center text-lg pt-5 italic leading-[1.6] tracking-[0.01em] text-[#474747] md:text-2xl">
                     Khi con người được <strong className="font-bold italic">trao quyền</strong>,
                     được <strong className="font-bold italic">nuôi dưỡng</strong> trong một môi
                     trường đủ tốt để trưởng thành,{' '}

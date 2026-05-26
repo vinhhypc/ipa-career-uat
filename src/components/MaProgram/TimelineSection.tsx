@@ -61,10 +61,10 @@ export default function TimelineSection() {
                     {item.period}
                   </p>
                   <div className="flex w-full flex-col gap-2 md:gap-4">
-                    <p className="text-base font-bold leading-[22px] text-[#292929] md:text-2xl md:leading-[32px]">
+                    <p className="text-base font-bold leading-[22px] lg:text-lg text-[#292929] 2xl:text-2xl 2xl:leading-[32px]">
                       {item.title}
                     </p>
-                    <div className="text-sm font-normal leading-[20px] text-[#474747] md:text-base md:leading-[22px]">
+                    <div className="text-sm font-normal leading-[20px] text-[#474747] 2xl:text-base 2xl:leading-[22px]">
                       {item.body}
                     </div>
                   </div>

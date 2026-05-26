@@ -2,6 +2,7 @@
 
 import { useCallback, useMemo, useState } from 'react';
 
+import { listJdsIpagHiring } from '@/actions/jobs';
 import JobsResultsSection from '@/components/jobs/JobsResultsSection';
 import type { JobsSearchResponse } from '@/components/jobs/types';
 import { normalizeJobsResponse } from '@/components/jobs/utils';
@@ -68,17 +69,7 @@ export default function JobsResultsController({
     if (query.name) body.name = query.name;
 
     try {
-      const response = await fetch('/api/list_jds_ipag_hiring', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(body),
-      });
-
-      if (!response.ok) {
-        throw new Error(`Jobs request failed: ${response.status}`);
-      }
-
-      const data = (await response.json()) as JobsSearchResponse;
+      const data = await listJdsIpagHiring(body);
       const nextJobs = normalizeJobsResponse(data);
 
       setJobs((prev) => {

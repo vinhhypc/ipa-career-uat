@@ -12,7 +12,8 @@ import type {
   ChuyenNhaIpagCategoryKey,
   ChuyenNhaIpagPost,
 } from '@/components/life-at-ipag/ChuyenNhaIpagData';
-import { getMetadataBase } from '@/lib/seo';
+
+const API_BASE_URL = process.env.API_BASE_URL || 'https://bizrule-uat.ipas.com.vn';
 
 function formatDate(timestamp: number | undefined): string {
   if (!timestamp) return '';
@@ -57,6 +58,10 @@ export function mapApiPostToChuyenNhaIpagPost(apiPost: ApiPost): ChuyenNhaIpagPo
 }
 
 export async function fetchPostsService(params: FetchPostsParams): Promise<FetchPostsResult> {
+  if (typeof window !== 'undefined') {
+    throw new Error('fetchPostsService can only be called on the server');
+  }
+
   const { page, category, pageSize = 6 } = params;
 
   const categoryCode =
@@ -74,16 +79,11 @@ export async function fetchPostsService(params: FetchPostsParams): Promise<Fetch
     body.code = categoryCode;
   }
 
-  const isServer = typeof window === 'undefined';
-  const url = isServer
-    ? `${getMetadataBase().origin}/api/list_posts_ipag_hiring`
-    : '/api/list_posts_ipag_hiring';
-
-  const response = await fetch(url, {
+  const response = await fetch(`${API_BASE_URL}/public/matches/list_posts_ipag_hiring`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(body),
-    cache: isServer ? 'no-store' : 'default',
+    cache: 'no-store',
   });
 
   if (!response.ok) {

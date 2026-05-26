@@ -1,5 +1,5 @@
 import Breadcrumbs from '@/components/Breadcrumbs';
-import { getMetadataBase } from '@/lib/seo';
+import { getCodebookQuery } from '@/actions/codebook';
 
 import HeroSection from './HeroSection';
 import FeaturedJobsSection from './FeaturedJobsSection';
@@ -12,17 +12,7 @@ type HeroFilterOption = { label: string; value: string };
 
 async function fetchCodebookOptions(subDomainCode: string): Promise<HeroFilterOption[]> {
   try {
-    const url = new URL('/api/codebook/query', getMetadataBase().origin);
-    url.searchParams.set('page', '1');
-    url.searchParams.set('size', '2000');
-    url.searchParams.set('subDomainCode', subDomainCode);
-
-    const response = await fetch(url.toString(), { cache: 'no-store' });
-    if (!response.ok) {
-      return [];
-    }
-
-    const data = (await response.json()) as CodebookResponse;
+    const data = (await getCodebookQuery({ subDomainCode })) as CodebookResponse;
     const items = Array.isArray(data?.content) ? data.content : [];
 
     return items

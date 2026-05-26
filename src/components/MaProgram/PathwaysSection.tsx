@@ -56,11 +56,11 @@ export default function PathwaysSection() {
                     }`}
                   >
                     <div className="flex min-w-0 flex-1 flex-col gap-2 md:gap-2">
-                      <p className="text-base font-bold leading-[24px] md:text-2xl md:leading-[32px]">
+                      <p className="text-base font-bold leading-[24px] 2xl:text-2xl 2xl:leading-[32px]">
                         {p.title}
                       </p>
                       <div
-                        className={`text-sm font-medium leading-[20px] md:text-lg md:leading-[26px] ${
+                        className={`text-sm font-medium leading-[20px] lg:w-64 xl:w-full 2xl:text-lg xl:text-base xl:leading-5 2xl:leading-[26px] ${
                           isBlue ? 'text-white' : 'text-[#474747]'
                         }`}
                       >
@@ -151,7 +151,7 @@ export default function PathwaysSection() {
           })}
 
           <motion.div
-            className="flex h-fit w-full flex-col items-center gap-4 rounded-[28px] px-7 py-5 shadow-[0px_4px_15px_0px_rgba(0,0,0,0.15)] md:rounded-[32px] md:gap-4 md:px-7 md:py-5"
+            className="flex h-fit w-full flex-col items-center gap-4 rounded-[28px] px-7 py-4 shadow-[0px_4px_15px_0px_rgba(0,0,0,0.15)] md:rounded-[32px] 2xl:gap-4 2xl:px-7 2xl:py-5"
             style={{
               backgroundImage: 'linear-gradient(-84.74deg, #3192e3 18.66%, #01386f 101.28%)',
             }}
@@ -160,7 +160,7 @@ export default function PathwaysSection() {
             viewport={{ once: true, amount: 0.4 }}
             transition={{ duration: 0.55, ease: 'easeOut' }}
           >
-            <p className="w-full text-center text-base font-bold uppercase leading-[22px] tracking-[0.5px] text-white md:text-2xl md:leading-[32px]">
+            <p className="w-full text-center text-base font-bold uppercase leading-[22px] tracking-[0.5px] text-white xl:text-xl xl:leading-6 2xl:text-2xl 2xl:leading-[32px]">
               Bạn đã sẵn sàng?
             </p>
             <button

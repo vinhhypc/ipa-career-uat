@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 
-import { createPageMetadata, getMetadataBase } from '@/lib/seo';
+import { getCodebookQuery } from '@/actions/codebook';
+import { listJdsIpagHiring } from '@/actions/jobs';
+import { createPageMetadata } from '@/lib/seo';
 import Jobs from '@/components/Jobs';
 import type { JobsSearchResponse } from '@/components/jobs/types';
 
@@ -18,17 +20,7 @@ type HeroFilterOption = { label: string; value: string };
 
 async function fetchCodebookOptions(subDomainCode: string): Promise<HeroFilterOption[]> {
   try {
-    const url = new URL('/api/codebook/query', getMetadataBase().origin);
-    url.searchParams.set('page', '1');
-    url.searchParams.set('size', '2000');
-    url.searchParams.set('subDomainCode', subDomainCode);
-
-    const response = await fetch(url.toString(), { cache: 'no-store' });
-    if (!response.ok) {
-      return [];
-    }
-
-    const data = (await response.json()) as CodebookResponse;
+    const data = (await getCodebookQuery({ subDomainCode })) as CodebookResponse;
     const items = Array.isArray(data?.content) ? data.content : [];
 
     return items
@@ -46,41 +38,30 @@ function resolveSearchParam(value: string | string[] | undefined) {
 
 async function fetchJobs(searchParams: Record<string, string | string[] | undefined>) {
   try {
-    const url = new URL('/api/list_jds_ipag_hiring', getMetadataBase().origin);
+    const resolvedSearchParams = await Promise.resolve(searchParams);
 
     const body: Record<string, unknown> = {
       page: 1,
       size: 20,
     };
 
-    const domain = resolveSearchParam(searchParams.domain);
+    const domain = resolveSearchParam(resolvedSearchParams.domain);
     if (domain && domain !== 'all') body.domain = domain;
 
-    const businessLine = resolveSearchParam(searchParams.businessLine);
+    const businessLine = resolveSearchParam(resolvedSearchParams.businessLine);
     if (businessLine && businessLine !== 'all') body.businessLine = businessLine;
 
-    const program = resolveSearchParam(searchParams.program);
+    const program = resolveSearchParam(resolvedSearchParams.program);
     if (program && program !== 'all') body.program = program;
 
-    const workAddress = resolveSearchParam(searchParams.workAddress);
+    const workAddress = resolveSearchParam(resolvedSearchParams.workAddress);
     if (workAddress && workAddress !== 'all') body.workAddress = workAddress;
 
-    const name = resolveSearchParam(searchParams.name);
+    const name = resolveSearchParam(resolvedSearchParams.name);
     if (name) body.name = name;
 
-    const response = await fetch(url.toString(), {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(body),
-      cache: 'no-store',
-    });
-
-    if (!response.ok) {
-      return { data: null as JobsSearchResponse | null, error: `Jobs request failed: ${response.status}` };
-    }
-
-    const data = (await response.json()) as JobsSearchResponse;
-    return { data, error: null as string | null };
+    const data = await listJdsIpagHiring(body);
+    return { data: data as JobsSearchResponse, error: null as string | null };
   } catch (error) {
     const message = error instanceof Error ? error.message : 'Unknown error';
     return { data: null as JobsSearchResponse | null, error: message };
@@ -88,10 +69,11 @@ async function fetchJobs(searchParams: Record<string, string | string[] | undefi
 }
 
 type JobsPageProps = {
-  searchParams?: Record<string, string | string[] | undefined>;
+  searchParams?: Promise<Record<string, string | string[] | undefined>>;
 };
 
-export default async function JobsPage({ searchParams = {} }: JobsPageProps) {
+export default async function JobsPage({ searchParams }: JobsPageProps) {
+  const resolvedSearchParams = await (searchParams ?? Promise.resolve({}));
   const [domainOptions, businessOptions, programOptions, locationOptions] = await Promise.all([
     fetchCodebookOptions('IPAG_HIRING_13'),
     fetchCodebookOptions('BUSINESS_LINE'),
@@ -99,7 +81,7 @@ export default async function JobsPage({ searchParams = {} }: JobsPageProps) {
     fetchCodebookOptions('PLC065'),
   ]);
 
-  const { data: jobsResponse, error: jobsError } = await fetchJobs(searchParams);
+  const { data: jobsResponse, error: jobsError } = await fetchJobs(resolvedSearchParams);
 
   return (
     <Jobs
