@@ -62,7 +62,8 @@ export default function JourneySection() {
                   <Image
                     src={item.imageSrc}
                     alt={item.name}
-                    fill
+                    width={item.imageWidth}
+                    height={item.imageHeight}
                     className={item.imageClassName}
                     sizes="(max-width: 768px) 80px, 160px"
                   />

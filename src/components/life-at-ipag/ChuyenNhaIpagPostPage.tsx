@@ -43,7 +43,7 @@ export default function ChuyenNhaIpagPostPage({
 
         <div className="section-content relative">
           <div className="mx-auto w-full max-w-[1115px] pt-4 md:pt-8">
-            <h1 className="text-xl font-extrabold uppercase tracking-[0.5px] text-[#292929] md:text-3xl md:leading-[36px]">
+            <h1 className="text-xl font-extrabold uppercase tracking-[0.5px] text-[#292929] xl:text-2xl xl:leading-7 2xl:text-3xl 2xl:leading-[36px]">
               {post.title}
             </h1>
             <div className="mt-4 flex items-center gap-3">

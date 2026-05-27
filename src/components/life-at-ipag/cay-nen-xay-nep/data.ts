@@ -86,7 +86,10 @@ export const CULTURE_TESTIMONIALS = [
     name: 'Bùi Phương Linh',
     department: 'Bộ phận Nhân sự EPIC',
     imageSrc: '/life-at-ipag/cay-nen-xay-nep/figma/journey-testimonial-1.png',
-    imageClassName: 'object-cover object-[38%_22%]',
+    imageWidth: 1848,
+    imageHeight: 2304,
+    imageClassName:
+      'absolute max-w-none h-[133.77%] w-[107.29%] left-[-7.71%] top-[-12.34%]',
   },
   {
     quote:
@@ -94,7 +97,9 @@ export const CULTURE_TESTIMONIALS = [
     name: 'Bùi Lê Kiều Anh',
     department: 'Bộ phận Kinh doanh AnVie',
     imageSrc: '/life-at-ipag/cay-nen-xay-nep/figma/journey-testimonial-2.png',
-    imageClassName: 'object-cover object-[62%_28%]',
+    imageWidth: 165,
+    imageHeight: 165,
+    imageClassName: 'absolute inset-0 size-full max-w-none object-cover',
   },
   {
     quote:
@@ -102,7 +107,9 @@ export const CULTURE_TESTIMONIALS = [
     name: 'Nguyễn Anh Tuấn',
     department: 'Bộ phận Công nghệ IPAS',
     imageSrc: '/life-at-ipag/cay-nen-xay-nep/figma/journey-testimonial-3.png',
-    imageClassName: 'object-cover object-center',
+    imageWidth: 165,
+    imageHeight: 165,
+    imageClassName: 'absolute inset-0 size-full max-w-none object-cover',
   },
 ] as const;
 

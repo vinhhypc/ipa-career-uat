@@ -151,7 +151,7 @@ function HabitConnectorLayer() {
 export default function HabitsSection() {
   return (
     <motion.section
-      className="relative overflow-hidden bg-white px-5 py-11 md:px-16 md:py-10 lg:px-20"
+      className="relative overflow-hidden bg-white px-5 py-11 md:px-16 md:py-20 lg:px-20"
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, amount: 0.18 }}

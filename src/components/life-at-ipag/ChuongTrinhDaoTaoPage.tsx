@@ -341,7 +341,7 @@ export default function ChuongTrinhDaoTaoPage() {
               Tầm nhìn &amp; Mục tiêu
             </motion.p>
             <motion.h2
-              className="mt-4 text-2xl font-extrabold uppercase leading-[1.2] tracking-[0.02em] text-[#292929] md:text-3xl  md:leading-[40px] xl:text-4xl 2xl:text-5xl"
+              className="mt-4 text-2xl font-extrabold uppercase leading-[1.2] tracking-[0.02em] text-[#292929] md:text-3xl  md:leading-[40px] xl:text-4xl"
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.45 }}

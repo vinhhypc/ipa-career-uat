@@ -27,7 +27,7 @@ const cardReveal: Variants = {
 export default function CoreValuesSection() {
   return (
     <motion.section
-      className="relative overflow-hidden bg-[linear-gradient(-15.4deg,#ffffff_28.5%,#fef6eb_98.75%)] px-4 py-12 md:px-16 md:py-10 lg:px-20"
+      className="relative overflow-hidden bg-[linear-gradient(-15.4deg,#ffffff_28.5%,#fef6eb_98.75%)] px-4 py-12 md:px-16 md:py-20 lg:px-20"
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, amount: 0.2 }}
@@ -118,7 +118,7 @@ export default function CoreValuesSection() {
                     <LetterBadge letter={item.letter} active={false} />
                     <div className="min-w-0 flex-1">
                       <p className="text-sm font-normal leading-snug text-[#8c9199]">{item.en}</p>
-                      <p className="mt-0.5 text-xl font-extrabold leading-tight text-[#1a1a1a]">
+                      <p className="mt-0.5 text-xl font-extrabold leading-tight text-[#1a1a1a] 2xl:text-2xl 2xl:leading-7">
                         {item.vi}
                       </p>
                     </div>

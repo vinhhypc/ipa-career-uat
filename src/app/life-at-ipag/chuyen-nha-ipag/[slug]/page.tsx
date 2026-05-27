@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound, redirect } from 'next/navigation';
+import { cache } from 'react';
 
 import ChuyenNhaIpagPostPage from '@/components/life-at-ipag/ChuyenNhaIpagPostPage';
 import type {
@@ -31,9 +32,28 @@ type ApiPostDetailResponse = {
 };
 
 function parseSlugAndId(input: string) {
-  const match = input.match(/^(.*)-(\d+)(?:\.html)?$/);
+  const match = input.match(/^(.*)-(\d+)(?:\.html)?$/i);
   if (!match) return null;
   return { slug: match[1], id: match[2] };
+}
+
+function normalizeSlugPart(input: string, id: string): string {
+  const cleaned = input.replace(/\.html$/i, '');
+  const match = cleaned.match(/^(.*)-(\d+)$/);
+  if (match && match[2] === id) return match[1];
+  return cleaned;
+}
+
+function buildCanonicalHref(param: string) {
+  return `/life-at-ipag/chuyen-nha-ipag/${encodeURIComponent(param)}`;
+}
+
+function safeDecodeURIComponent(input: string) {
+  try {
+    return decodeURIComponent(input);
+  } catch {
+    return input;
+  }
 }
 
 function formatDate(timestamp?: number): string {
@@ -45,7 +65,7 @@ function formatDate(timestamp?: number): string {
   });
 }
 
-async function fetchPostDetail(id: string): Promise<ApiPostDetailResponse | null> {
+const fetchPostDetail = cache(async (id: string): Promise<ApiPostDetailResponse | null> => {
   const response = await fetch(`${API_BASE_URL}/public/matches/get_post_detail_ipag_hiring`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -55,7 +75,7 @@ async function fetchPostDetail(id: string): Promise<ApiPostDetailResponse | null
 
   if (!response.ok) return null;
   return response.json();
-}
+});
 
 async function fetchHtmlContent(url: string): Promise<string> {
   const response = await fetch(url, { cache: 'no-store' });
@@ -66,14 +86,16 @@ async function fetchHtmlContent(url: string): Promise<string> {
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
-  const parsed = parseSlugAndId(params.slug);
+  const { slug } = await params;
+  const decodedSlug = safeDecodeURIComponent(slug).replace(/\.html$/i, '');
+  const parsed = parseSlugAndId(decodedSlug);
   if (!parsed) {
     return createPageMetadata({
       title: 'Bài viết',
       description: 'Bài viết trong Chuyện nhà IPAG.',
-      pathname: `/life-at-ipag/chuyen-nha-ipag/${params.slug}`,
+      pathname: buildCanonicalHref(decodedSlug),
       noIndex: true,
     });
   }
@@ -83,31 +105,40 @@ export async function generateMetadata({
     return createPageMetadata({
       title: 'Bài viết',
       description: 'Bài viết trong Chuyện nhà IPAG.',
-      pathname: `/life-at-ipag/chuyen-nha-ipag/${params.slug}`,
+      pathname: buildCanonicalHref(decodedSlug),
       noIndex: true,
     });
   }
 
-  const resolvedSlug = detail.slug || parsed.slug;
+  const resolvedSlug = detail.slug ? normalizeSlugPart(detail.slug, parsed.id) : parsed.slug;
+  const canonicalParam = `${resolvedSlug}-${parsed.id}`;
 
   return createPageMetadata({
     title: detail.title,
     description: 'Bài viết trong Chuyện nhà IPAG.',
-    pathname: `/life-at-ipag/chuyen-nha-ipag/${resolvedSlug}-${parsed.id}`,
+    pathname: buildCanonicalHref(canonicalParam),
     openGraphType: 'article',
   });
 }
 
-export default async function ChuyenNhaIpagPostRoutePage({ params }: { params: { slug: string } }) {
-  const parsed = parseSlugAndId(params.slug);
+export default async function ChuyenNhaIpagPostRoutePage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const decodedSlug = safeDecodeURIComponent(slug).replace(/\.html$/i, '');
+  const parsed = parseSlugAndId(decodedSlug);
   if (!parsed) notFound();
 
   const detail = await fetchPostDetail(parsed.id);
   if (!detail?.title || !detail?.url) notFound();
 
-  const resolvedSlug = detail.slug || parsed.slug;
-  if (resolvedSlug !== parsed.slug) {
-    redirect(`/life-at-ipag/chuyen-nha-ipag/${resolvedSlug}-${parsed.id}`);
+  const resolvedSlug = detail.slug ? normalizeSlugPart(detail.slug, parsed.id) : parsed.slug;
+  const canonicalParam = `${resolvedSlug}-${parsed.id}`;
+  const requestedParam = decodedSlug;
+  if (requestedParam !== canonicalParam) {
+    redirect(buildCanonicalHref(canonicalParam));
   }
 
   const htmlContent = await fetchHtmlContent(detail.url);
